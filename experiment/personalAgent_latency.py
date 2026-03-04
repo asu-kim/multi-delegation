@@ -255,13 +255,6 @@ def main():
             "delegation_done": False,
             "allowed_actions": [ACTION_RUN_DELEGATION, ACTION_PUBLISH_SIGNAL],
             "rule": "DO NOT publish_signal before delegation_done is true.",
-            "fixed_program": {
-                "workdir": WORKDIR,
-                "cmd": NODE_CMD,
-                "delegate_cmd": DELEGATE_CMD,
-                "ready_regex": READY_REGEX,
-                "done_regex": DONE_REGEX,
-            },
             "trigger_event": event_in,
         }
 

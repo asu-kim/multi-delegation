@@ -83,8 +83,6 @@ def run_and_measure(workdir, node_cmd, send_command, timeout_sec, echo_logs, red
                     "idempotency_key": f"UserPrivilegeDone:{workflow_id}",
                     "metrics": {"latency_sec": latency},
                     "inputs": {
-                        "agent2_default_workdir": "iotauth/entity/node/example_entities",
-                        "agent2_default_node_cmd": "node user.js configs/net1/highTrustAgent.config",
                         "agent2_default_target": "net1.resourceA",
                     },
                 }

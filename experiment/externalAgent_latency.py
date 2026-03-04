@@ -62,7 +62,6 @@ def ask_llm_action(
     system_prompt: str,
     state: Dict[str, Any],
     timeout_sec: float,
-    print_llm_raw: bool,
 ) -> str:
     payload = {
         "model": model,
@@ -81,10 +80,9 @@ def ask_llm_action(
     r.raise_for_status()
     content = r.json()["message"]["content"]
 
-    if print_llm_raw:
-        logging.info("========== LLM OUTPUT (RAW) ===========")
-        logging.info(json.dumps(r.json(), indent=2))
-        logging.info("======================================")
+    logging.info("========== LLM OUTPUT (RAW) ===========")
+    logging.info(json.dumps(r.json(), indent=2))
+    logging.info("======================================")
 
     obj = json.loads(content)
 
@@ -269,13 +267,6 @@ def main():
             "in_comm": False,
             "allowed_actions": [ACTION_RUN_INITCOMM, ACTION_PUBLISH_SIGNAL],
             "rule": "DO NOT publish_signal before in_comm is true.",
-            "fixed_program": {
-                "workdir": WORKDIR,
-                "cmd": NODE_CMD,
-                "initcomm_cmd": INITCOMM_CMD,
-                "ready_regex": READY_REGEX,
-                "in_comm_regex": IN_COMM_REGEX,
-            },
             "trigger_event": event_in,
         }
 
@@ -285,7 +276,6 @@ def main():
             system_prompt=system_prompt,
             state=state1,
             timeout_sec=args.ollama_timeout,
-            print_llm_raw=True,
         )
         logging.info(f"LLM action1 --------------- {action1}")
         llm_actions.append(action1)
