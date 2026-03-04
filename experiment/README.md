@@ -32,6 +32,17 @@ The system requires:
 - Redis (for inter-process communication)
 
 ### 1. Install required Python packages
+Set up a virtual environment in the project's `$ROOT` directory.
+- macOS or Linux
+  ```
+  python3 -m venv .venv
+  source .venv/bin/activate
+  ```
+- Window environment 
+  ```
+  py -m venv .venv
+  venv\Scripts\activate.bat
+  ```
 The requirements.txt file includes Python libraries used by the experiment scripts
 ```
 pip install -r requirements.txt
@@ -123,6 +134,7 @@ This server represents the protected resource that requires a valid delegated ac
 ## Terminal 3 — Start the ExternalAgent
 Run the external agent experiment script.
 ```
+source .venv/bin/activate
 cd experiment
 python3 externalAgent_latency.py
 ```
@@ -130,6 +142,7 @@ python3 externalAgent_latency.py
 ## Terminal 4 — Start the PersonalAgent
 Run the personal agent experiment script.
 ```
+source .venv/bin/activate
 cd experiment
 python3 personalAgent_latency.py
 ```
@@ -137,6 +150,7 @@ python3 personalAgent_latency.py
 ## Terminal 5 — Start the User
 Run the user script that initiates the delegation workflow.
 ```
+source .venv/bin/activate
 cd experiment
 python3 user_latency.py
 ```
