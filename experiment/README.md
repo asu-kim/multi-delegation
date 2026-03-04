@@ -2,7 +2,7 @@
 
 This document explains how to reproduce the delegation experiment included in this repository.
 
-The experiment requires five terminal windows running concurrently:
+The experiment requires **five terminal** windows running concurrently:
 1. SST environment + Auth server
 2. Resource server (target service)
 3. External agent
@@ -28,6 +28,7 @@ The system requires:
 - Node.js
 - Java
 - Ollama (for running the LLM)
+  - requires at least 16GB of memory
 - Redis (for inter-process communication)
 
 ### 1. Install required Python packages
