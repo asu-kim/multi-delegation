@@ -14,7 +14,7 @@ import requests
 
 
 
-WORKDIR = "iotauth/entity/node/example_entities"
+WORKDIR = "../iotauth/entity/node/example_entities"
 NODE_CMD = "node user.js configs/net1/highTrustAgent.config"
 INITCOMM_CMD = "initComm net1.resourceA"
 
@@ -74,7 +74,7 @@ def ask_llm_action(
     }
 
     logging.info("========== LLM INOUT ==========")
-    logging.info(json.dumps(payload.json(), indent=2))
+    logging.info(json.dumps(payload, indent=2))
     logging.info("================================\n")
 
     r = requests.post(ollama_chat_url, json=payload, timeout=timeout_sec)

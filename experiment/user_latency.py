@@ -106,7 +106,7 @@ def run_and_measure(workdir, node_cmd, send_command, timeout_sec, echo_logs, red
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--workdir", default="iotauth/entity/node/example_entities")
+    ap.add_argument("--workdir", default="../iotauth/entity/node/example_entities")
     ap.add_argument("--node-cmd", default="node user.js configs/net1/Alex.config")
     ap.add_argument("--send", default="delegateAuthority MyAgents ResourceA 1*day")
     ap.add_argument("--timeout", type=float, default=90.0)

@@ -1,0 +1,101 @@
+2026-03-04 14:27:58,167 | INFO | [agent1] subscribed to sacmat:agent1. waiting for UserPrivilegeDone...
+2026-03-04 14:28:01,310 | INFO | ========== USER SIGNAL  =======
+2026-03-04 14:28:01,310 | INFO | {
+  "workflow_id": "wf-6eebd003a232",
+  "event_type": "UserPrivilegeDone",
+  "idempotency_key": "UserPrivilegeDone:wf-6eebd003a232",
+  "metrics": {
+    "latency_sec": 0.1206250760005787
+  },
+  "inputs": {
+    "agent2_default_workdir": "iotauth/entity/node/example_entities",
+    "agent2_default_node_cmd": "node user.js configs/net1/highTrustAgent.config",
+    "agent2_default_target": "net1.resourceA"
+  }
+}
+2026-03-04 14:28:01,310 | INFO | =======================================
+
+2026-03-04 14:28:01,311 | INFO | ========== LLM INOUT ==========
+2026-03-04 14:28:01,311 | INFO | {
+  "model": "gpt-oss:20b",
+  "stream": false,
+  "messages": [
+    {
+      "role": "system",
+      "content": "Return ONLY valid JSON with exactly one key: action.\nAllowed outputs:\n  {\"action\":\"run_delegation\"}\n  {\"action\":\"publish_signal\"}\n\nRules:\n- If delegation_done is false, you MUST output run_delegation.\n- If delegation_done is true, you should normally output publish_signal.\n- No extra keys. No explanations. JSON only.\n"
+    },
+    {
+      "role": "user",
+      "content": "{\"workflow_id\": \"wf-6eebd003a232\", \"delegation_done\": false, \"allowed_actions\": [\"run_delegation\", \"publish_signal\"], \"rule\": \"DO NOT publish_signal before delegation_done is true.\", \"fixed_program\": {\"workdir\": \"../iotauth/entity/node/example_entities\", \"cmd\": \"node user.js configs/net1/alexAgent.config\", \"delegate_cmd\": \"delegateAuthority ExternalAgents ResourceA 1*day\", \"ready_regex\": \"(current parameters|initializing\\\\.\\\\.\\\\.)\", \"done_regex\": \"(Finished privilege request|received privilege response!)\"}, \"trigger_event\": {\"workflow_id\": \"wf-6eebd003a232\", \"event_type\": \"UserPrivilegeDone\", \"idempotency_key\": \"UserPrivilegeDone:wf-6eebd003a232\", \"metrics\": {\"latency_sec\": 0.1206250760005787}, \"inputs\": {\"agent2_default_workdir\": \"iotauth/entity/node/example_entities\", \"agent2_default_node_cmd\": \"node user.js configs/net1/highTrustAgent.config\", \"agent2_default_target\": \"net1.resourceA\"}}}"
+    }
+  ]
+}
+2026-03-04 14:28:01,311 | INFO | ================================
+
+2026-03-04 14:28:06,483 | INFO | ========== LLM OUTPUT ==========
+2026-03-04 14:28:06,487 | INFO | {"action":"run_delegation"}
+2026-03-04 14:28:06,487 | INFO | {
+  "model": "gpt-oss:20b",
+  "created_at": "2026-03-04T21:28:06.481547796Z",
+  "message": {
+    "role": "assistant",
+    "content": "{\"action\":\"run_delegation\"}",
+    "thinking": "We need to produce JSON with key \"action\". Delegation_done is false, so must output {\"action\":\"run_delegation\"} as per instructions. No extra keys."
+  },
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 5167063253,
+  "load_duration": 4724999137,
+  "prompt_eval_count": 390,
+  "prompt_eval_duration": 64960777,
+  "eval_count": 53,
+  "eval_duration": 234879966
+}
+2026-03-04 14:28:06,487 | INFO | ================================
+
+2026-03-04 14:28:06,487 | INFO | LLM action1 --------------- run_delegation
+2026-03-04 14:28:06,580 | INFO | ========== LLM INOUT ==========
+2026-03-04 14:28:06,580 | INFO | {
+  "model": "gpt-oss:20b",
+  "stream": false,
+  "messages": [
+    {
+      "role": "system",
+      "content": "Return ONLY valid JSON with exactly one key: action.\nAllowed outputs:\n  {\"action\":\"run_delegation\"}\n  {\"action\":\"publish_signal\"}\n\nRules:\n- If delegation_done is false, you MUST output run_delegation.\n- If delegation_done is true, you should normally output publish_signal.\n- No extra keys. No explanations. JSON only.\n"
+    },
+    {
+      "role": "user",
+      "content": "{\"workflow_id\": \"wf-6eebd003a232\", \"delegation_done\": true, \"delegation_result\": {\"agent1_latency_sec_from_recv\": 5.269226772012189, \"signal_delivery_gap_ms\": null}, \"allowed_actions\": [\"run_delegation\", \"publish_signal\"], \"rule\": \"Delegation is done; decide whether to publish_signal now.\", \"out_channel\": \"sacmat:workflow\"}"
+    }
+  ]
+}
+2026-03-04 14:28:06,580 | INFO | ================================
+
+2026-03-04 14:28:07,538 | INFO | ========== LLM OUTPUT ==========
+2026-03-04 14:28:07,538 | INFO | {"action":"publish_signal"}
+2026-03-04 14:28:07,538 | INFO | {
+  "model": "gpt-oss:20b",
+  "created_at": "2026-03-04T21:28:07.537932001Z",
+  "message": {
+    "role": "assistant",
+    "content": "{\"action\":\"publish_signal\"}",
+    "thinking": "The user provided a JSON object: workflow_id, delegation_done = true, delegation_result, allowed_actions, rule, out_channel. The instructions: \"Return ONLY valid JSON with exactly one key: action. Allowed outputs: {\"action\":\"run_delegation\"} {\"action\":\"publish_signal\"} Rules: If delegation_done is false, must output run_delegation. If delegation_done is true, you should normally output publish_signal. No extra keys. No explanations. JSON only.\"\n\nHere delegation_done is true. So normally output publish_signal. We must not add extra keys. The allowed outputs: either run_delegation or publish_signal. So output {\"action\":\"publish_signal\"}.\n\nThus final answer."
+  },
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 955623054,
+  "load_duration": 162471713,
+  "prompt_eval_count": 240,
+  "prompt_eval_duration": 25145867,
+  "eval_count": 157,
+  "eval_duration": 679388982
+}
+2026-03-04 14:28:07,538 | INFO | ================================
+
+2026-03-04 14:28:07,539 | INFO | LLM action2 --------------- publish_signal
+2026-03-04 14:28:07,540 | INFO | 
+=== AGENT1 SUMMARY ===
+2026-03-04 14:28:07,540 | INFO | workflow_id: wf-6eebd003a232
+2026-03-04 14:28:07,540 | INFO | agent1 delegation latency (agent1_recv -> done_marker): 5.269227 s (5269.23 ms)
+2026-03-04 14:28:07,540 | INFO | llm actions: ['run_delegation', 'publish_signal']
+2026-03-04 14:28:07,540 | INFO | published_signal: True (channel=sacmat:workflow)
