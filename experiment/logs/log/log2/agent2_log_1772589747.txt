@@ -1,0 +1,102 @@
+2026-03-03 19:02:27,856 | INFO | Agent2 started. log_file=agent2_log_1772589747.txt
+2026-03-03 19:02:27,856 | INFO | Subscribed to sacmat:workflow; waiting for event_type=Agent1DelegationDone
+2026-03-03 19:02:45,853 | INFO | ========== USER SIGNAL  =======
+2026-03-03 19:02:45,853 | INFO | {
+  "workflow_id": "wf-ef2239e1343d",
+  "event_type": "Agent1DelegationDone",
+  "idempotency_key": "Agent1DelegationDone:wf-ef2239e1343d",
+  "t_agent1_done_epoch_ms": 1772589765850,
+  "metrics": {
+    "agent1_latency_sec_from_recv": 5.022412944003008,
+    "signal_delivery_gap_ms": null
+  },
+  "agent1": {
+    "workdir": "/home/sunyoung/sacmat/iotauth/entity/node/example_entities",
+    "cmd": "node user.js configs/net1/alexAgent.config",
+    "delegate_cmd": "delegateAuthority ExternalAgents ResourceA 1*day"
+  },
+  "llm_actions": [
+    "run_delegation",
+    "publish_signal"
+  ]
+}
+2026-03-03 19:02:45,853 | INFO | =======================================
+
+2026-03-03 19:02:46,560 | INFO | ========== LLM OUTPUT (RAW) ===========
+2026-03-03 19:02:46,560 | INFO | {"action":"run_initcomm"}
+2026-03-03 19:02:46,560 | INFO | ======================================
+2026-03-03 19:02:46,560 | INFO | LLM action1 --------------- run_initcomm
+2026-03-03 19:02:46,604 | INFO | [node] loading from config file: configs/net1/highTrustAgent.config
+2026-03-03 19:02:46,604 | INFO | [node] initializing...
+2026-03-03 19:02:46,605 | INFO | Sent initComm: initComm net1.resourceA
+2026-03-03 19:02:46,605 | INFO | [node] current parameters: {
+2026-03-03 19:02:46,605 | INFO | [node]   numKeysPerRequest: 3,
+2026-03-03 19:02:46,605 | INFO | [node]   migrationEnabled: false,
+2026-03-03 19:02:46,605 | INFO | [node]   authFailureThreshold: 3,
+2026-03-03 19:02:46,605 | INFO | [node]   migrationFailureThreshold: 3
+2026-03-03 19:02:46,605 | INFO | [node] }
+2026-03-03 19:02:46,606 | INFO | [node] net1.highTrustAgent:ExternalAgents prompt>
+2026-03-03 19:02:46,606 | INFO | [node] initComm command targeted to net1.resourceA
+2026-03-03 19:02:46,606 | INFO | [node] Distribution protocol: TCP
+2026-03-03 19:02:46,612 | INFO | [node] net1.highTrustAgent:ExternalAgents prompt>
+2026-03-03 19:02:46,612 | INFO | [node] connected to auth! from local port 33724
+2026-03-03 19:02:46,614 | INFO | [node] received auth hello!
+2026-03-03 19:02:46,615 | INFO | [node] { authId: 101, nonce: <Buffer 7b dc 12 84 3c ef 23 46> }
+2026-03-03 19:02:46,615 | INFO | [node] auth id matches
+2026-03-03 19:02:46,690 | INFO | [node] received session key response with distribution key attached!
+2026-03-03 19:02:46,690 | INFO | [node] auth signature verified
+2026-03-03 19:02:46,692 | INFO | [node] replyNonce in sessionKeyResp: <Buffer 7c 72 e1 6d 05 a4 3f f1>
+2026-03-03 19:02:46,692 | INFO | [node] auth nonce verified
+2026-03-03 19:02:46,693 | INFO | [node] updating distribution key: {
+2026-03-03 19:02:46,693 | INFO | [node]   cipherKeyVal: <Buffer 5a d5 0d fe 1b 3b cb 11 ba 24 31 1d f4 69 16 79>,
+2026-03-03 19:02:46,693 | INFO | [node]   macKeyVal: <Buffer 02 ab e4 42 40 75 ce d3 8a b0 06 20 50 c1 b2 5e f0 07 c9 30 8c 52 ac 31 a1 9c 8a 37 cf ec 14 7c>,
+2026-03-03 19:02:46,693 | INFO | [node]   absValidity: 2026-03-04T03:02:46.678Z
+2026-03-03 19:02:46,693 | INFO | [node] }
+2026-03-03 19:02:46,693 | INFO | [node] received 3 keys
+2026-03-03 19:02:46,693 | INFO | [node] currentSessionKey: {
+2026-03-03 19:02:46,693 | INFO | [node]   id: 10100000,
+2026-03-03 19:02:46,693 | INFO | [node]   cipherKeyVal: <Buffer 6f f5 2b 12 04 c8 cc 87 30 83 f2 91 7f 46 11 3c>,
+2026-03-03 19:02:46,693 | INFO | [node]   macKeyVal: <Buffer 39 a7 0a f9 42 72 70 d6 c1 85 8b 15 be 3e c2 63 de 7e e8 22 8d 5a 54 b9 eb 4a be 1a 8c a5 5d 83>,
+2026-03-03 19:02:46,693 | INFO | [node]   absValidity: 2026-03-05T02:02:46.642Z,
+2026-03-03 19:02:46,693 | INFO | [node]   relValidity: 3600000
+2026-03-03 19:02:46,693 | INFO | [node] }
+2026-03-03 19:02:46,693 | INFO | [node] Session protocol: TCP
+2026-03-03 19:02:46,693 | INFO | [node] chosen commSessionKey: 
+2026-03-03 19:02:46,693 | INFO | [node] {
+2026-03-03 19:02:46,693 | INFO | [node]   id: 10100000,
+2026-03-03 19:02:46,693 | INFO | [node]   cipherKeyVal: <Buffer 6f f5 2b 12 04 c8 cc 87 30 83 f2 91 7f 46 11 3c>,
+2026-03-03 19:02:46,693 | INFO | [node]   macKeyVal: <Buffer 39 a7 0a f9 42 72 70 d6 c1 85 8b 15 be 3e c2 63 de 7e e8 22 8d 5a 54 b9 eb 4a be 1a 8c a5 5d 83>,
+2026-03-03 19:02:46,693 | INFO | [node]   absValidity: 2026-03-05T02:02:46.642Z,
+2026-03-03 19:02:46,694 | INFO | [node]   relValidity: 3600000
+2026-03-03 19:02:46,694 | INFO | [node] }
+2026-03-03 19:02:46,694 | INFO | [node] options
+2026-03-03 19:02:46,694 | INFO | [node] {
+2026-03-03 19:02:46,694 | INFO | [node]   serverHost: 'localhost',
+2026-03-03 19:02:46,694 | INFO | [node]   serverPort: 21100,
+2026-03-03 19:02:46,694 | INFO | [node]   sessionKey: {
+2026-03-03 19:02:46,694 | INFO | [node]     id: 10100000,
+2026-03-03 19:02:46,694 | INFO | [node]     cipherKeyVal: <Buffer 6f f5 2b 12 04 c8 cc 87 30 83 f2 91 7f 46 11 3c>,
+2026-03-03 19:02:46,694 | INFO | [node]     macKeyVal: <Buffer 39 a7 0a f9 42 72 70 d6 c1 85 8b 15 be 3e c2 63 de 7e e8 22 8d 5a 54 b9 eb 4a be 1a 8c a5 5d 83>,
+2026-03-03 19:02:46,694 | INFO | [node]     absValidity: 2026-03-05T02:02:46.642Z,
+2026-03-03 19:02:46,694 | INFO | [node]     relValidity: 3600000
+2026-03-03 19:02:46,694 | INFO | [node]   },
+2026-03-03 19:02:46,694 | INFO | [node]   sessionCryptoSpec: { cipher: 'AES-128-CBC', mac: 'SHA256' },
+2026-03-03 19:02:46,694 | INFO | [node]   sessionProtocol: 'TCP',
+2026-03-03 19:02:46,694 | INFO | [node]   handshakeTimeout: 5000
+2026-03-03 19:02:46,694 | INFO | [node] }
+2026-03-03 19:02:46,694 | INFO | [node] disconnected from auth
+2026-03-03 19:02:46,694 | INFO | [node] chosen nonce: <Buffer 09 15 73 89 7d b1 f4 a6>
+2026-03-03 19:02:46,695 | INFO | [node] switching to HANDSHAKE_1_SENT
+2026-03-03 19:02:46,734 | INFO | [node] received session key handshake2!
+2026-03-03 19:02:46,735 | INFO | [node] client ret: {
+2026-03-03 19:02:46,735 | INFO | [node]   nonce: <Buffer ec 8b 36 6c 70 3c f4 70>,
+2026-03-03 19:02:46,735 | INFO | [node]   replyNonce: <Buffer 09 15 73 89 7d b1 f4 a6>
+2026-03-03 19:02:46,735 | INFO | [node] }
+2026-03-03 19:02:46,735 | INFO | [node] server authenticated/authorized by solving nonce!
+2026-03-03 19:02:46,735 | INFO | [node] Handler: communication initialization succeeded
+2026-03-03 19:02:46,735 | INFO | [node] switching to IN_COMM
+2026-03-03 19:02:46,739 | INFO | === AGENT2 SUMMARY ===
+2026-03-03 19:02:46,739 | INFO | workflow_id: wf-ef2239e1343d
+2026-03-03 19:02:46,739 | INFO | signal delivery gap (agent1_done -> agent2_recv): 3 ms
+2026-03-03 19:02:46,739 | INFO | agent2 latency (recv -> IN_COMM): 0.882482 s (882.48 ms)
+2026-03-03 19:02:46,739 | INFO | llm_actions: ['run_initcomm']
