@@ -26,7 +26,7 @@ ACTION_RUN_INITCOMM = "run_initcomm"
 ACTION_PUBLISH_SIGNAL = "publish_signal"
 ALLOWED_ACTIONS = {ACTION_RUN_INITCOMM, ACTION_PUBLISH_SIGNAL}
 
-LOG_FILE = f"agent2_log_{int(time.time())}.txt"
+LOG_FILE = f"externalAgent_log_{int(time.time())}.txt"
 
 
 def setup_logging(log_file: str):

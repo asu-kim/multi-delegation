@@ -23,7 +23,7 @@ DONE_REGEX = r"(Finished privilege request|received privilege response!)"
 ACTION_RUN_DELEGATION = "run_delegation"
 ACTION_PUBLISH_SIGNAL = "publish_signal"
 ALLOWED_ACTIONS = {ACTION_RUN_DELEGATION, ACTION_PUBLISH_SIGNAL}
-LOG_FILE = f"agent1_log_{int(time.time())}.txt"
+LOG_FILE = f"personaAgent_log_{int(time.time())}.txt"
 
 def setup_logging(log_file: str):
     logging.basicConfig(
