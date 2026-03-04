@@ -67,14 +67,18 @@ def ask_llm_action(
             {"role": "user", "content": json.dumps(state, ensure_ascii=False)},
         ],
     }
+    logging.info("========== LLM INOUT ==========")
+    logging.info(json.dumps(payload.json(), indent=2))
+    logging.info("================================\n")
+
     r = requests.post(ollama_chat_url, json=payload, timeout=timeout_sec)
     r.raise_for_status()
     content = r.json()["message"]["content"]
     
-    logging.info("\n========== LLM OUTPUT ==========")
+    logging.info("========== LLM OUTPUT ==========")
     logging.info(content)
-    logging.info("================================\n")
     logging.info(json.dumps(r.json(), indent=2))
+    logging.info("================================\n")
 
     obj = json.loads(content)
 
