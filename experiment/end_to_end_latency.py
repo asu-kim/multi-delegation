@@ -15,14 +15,9 @@ READY_PATTERNS = [
 ]
 
 RESPONSE_PATTERNS = [
-    # re.compile(r"\breceived privilege response!\b", re.IGNORECASE),
     re.compile(r"\bdisconnected from auth\b", re.IGNORECASE),
 ]
 
-# REVOKE_RESPONSE_PATTERNS = [
-#     re.compile(r"\bFinished privilege request\b", re.IGNORECASE),
-#     re.compile(r"\baction: 'DelegationRevoke',\b", re.IGNORECASE),
-# ]
 LOG_FILE = f"end_to_end_log_{int(time.time())}.txt"
 
 
@@ -64,7 +59,7 @@ def run_and_measure(workdir, node_cmd, send_command, timeout_sec):
         for line in proc.stdout:
             now = time.perf_counter()
             logging.info("[node] %s", line.rstrip("\n"))
-            
+
             if now > t_deadline:
                 raise TimeoutError(f"Timeout ({timeout_sec}s) waiting for response markers.")
 
@@ -93,12 +88,14 @@ def run_and_measure(workdir, node_cmd, send_command, timeout_sec):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--workdir", default="../entity/node/example_entities")
+    ap.add_argument("--workdir", default="../iotauth/entity/node/example_entities")
     ap.add_argument("--timeout", type=float, default=90.0)
 
     args = ap.parse_args()
     setup_logging(LOG_FILE)
     workdir = os.path.abspath(args.workdir)
+
+    total_start = time.perf_counter()
 
     logging.info("\n=== Start process: User(Alex) delegateAuthority MyAgents ResourceA 1*day ===")
     node_cmd = "node user.js configs/net1/Alex.config"
@@ -164,6 +161,18 @@ def main():
     logging.info("\n=== LATENCY RESULT (process start -> revocation (Users -> MyAgents) response) ===")
     logging.info(f"{revoke_latency_sec:.6f} seconds")
     logging.info(f"{revoke_latency_sec * 1000:.2f} ms\n\n")
+
+    total_end = time.perf_counter()
+    total_latency_sec = total_end - total_start
+
+    logging.info("\n=== TOTAL END-TO-END LATENCY RESULT (wall-clock time) ===")
+    logging.info("From first delegation start to final revocation response")
+    logging.info(f"{total_latency_sec:.6f} seconds")
+    logging.info(f"{total_latency_sec * 1000:.2f} ms\n")
+    logging.info("Total sum of all stagse: delegation1, delegation2, delegation3, delegation4, revocation")
+    latency_sum = delegation4_latency_sec + delegation3_latency_sec + delegation2_latency_sec + delegation1_latency_sec + revoke_latency_sec
+    logging.info(f"{latency_sum:.6f} seconds")
+    logging.info(f"{latency_sum * 1000:.2f} ms\n")
 
 
 if __name__ == "__main__":
