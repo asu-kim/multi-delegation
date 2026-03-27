@@ -1,0 +1,70 @@
+2026-03-18 09:50:03,912 | INFO | 
+=== Start process: User(Alex) delegateAuthority MyAgents ResourceA 1*day ===
+2026-03-18 09:50:03,947 | INFO | [node] loading from config file: configs/net1/Alex.config
+2026-03-18 09:50:03,947 | INFO | [node] initializing...
+2026-03-18 09:50:03,947 | INFO | [node] current parameters: {
+2026-03-18 09:50:03,947 | INFO | [node]   numKeysPerRequest: 3,
+2026-03-18 09:50:03,947 | INFO | [node]   migrationEnabled: false,
+2026-03-18 09:50:03,947 | INFO | [node]   authFailureThreshold: 3,
+2026-03-18 09:50:03,947 | INFO | [node]   migrationFailureThreshold: 3
+2026-03-18 09:50:03,947 | INFO | [node] }
+2026-03-18 09:50:03,948 | INFO | [node] net1.Alex:Users prompt>
+2026-03-18 09:50:03,948 | INFO | [node] initComm command targeted to net1.resourceA
+2026-03-18 09:50:03,948 | INFO | [node] Distribution protocol: TCP
+2026-03-18 09:50:03,952 | INFO | [node] net1.Alex:Users prompt>
+2026-03-18 09:50:03,953 | INFO | [node] connected to auth! from local port 49811
+2026-03-18 09:50:03,954 | INFO | [node] received auth hello!
+2026-03-18 09:50:03,954 | INFO | [node] { authId: 101, nonce: <Buffer 72 0a dd 01 47 50 21 06> }
+2026-03-18 09:50:03,954 | INFO | [node] auth id matches
+2026-03-18 09:50:03,958 | INFO | [node] received session key response encrypted with distribution key
+2026-03-18 09:50:03,958 | INFO | [node] replyNonce in sessionKeyResp: <Buffer 13 5a 11 c7 6f 1e 9d cf>
+2026-03-18 09:50:03,958 | INFO | [node] auth nonce verified
+2026-03-18 09:50:03,958 | INFO | [node] received 3 keys
+2026-03-18 09:50:03,959 | INFO | [node] currentSessionKey: {
+2026-03-18 09:50:03,959 | INFO | [node]   id: 10100030,
+2026-03-18 09:50:03,959 | INFO | [node]   cipherKeyVal: <Buffer a9 2b 6b c1 8c ed 97 d4 6e 08 e4 3a 02 56 80 0b>,
+2026-03-18 09:50:03,959 | INFO | [node]   macKeyVal: <Buffer b2 a5 c6 f0 8c 78 99 73 ab 75 b8 63 d6 a6 aa 20 bc 41 e8 18 2b 7b 81 6f c6 0c 8e b4 19 43 b4 90>,
+2026-03-18 09:50:03,959 | INFO | [node]   absValidity: 2026-03-19T16:50:03.955Z,
+2026-03-18 09:50:03,959 | INFO | [node]   relValidity: 7200000
+2026-03-18 09:50:03,959 | INFO | [node] }
+2026-03-18 09:50:03,959 | INFO | [node] Session protocol: TCP
+2026-03-18 09:50:03,959 | INFO | [node] chosen commSessionKey: 
+2026-03-18 09:50:03,959 | INFO | [node] {
+2026-03-18 09:50:03,959 | INFO | [node]   id: 10100030,
+2026-03-18 09:50:03,959 | INFO | [node]   cipherKeyVal: <Buffer a9 2b 6b c1 8c ed 97 d4 6e 08 e4 3a 02 56 80 0b>,
+2026-03-18 09:50:03,959 | INFO | [node]   macKeyVal: <Buffer b2 a5 c6 f0 8c 78 99 73 ab 75 b8 63 d6 a6 aa 20 bc 41 e8 18 2b 7b 81 6f c6 0c 8e b4 19 43 b4 90>,
+2026-03-18 09:50:03,959 | INFO | [node]   absValidity: 2026-03-19T16:50:03.955Z,
+2026-03-18 09:50:03,959 | INFO | [node]   relValidity: 7200000
+2026-03-18 09:50:03,959 | INFO | [node] }
+2026-03-18 09:50:03,959 | INFO | [node] options
+2026-03-18 09:50:03,959 | INFO | [node] {
+2026-03-18 09:50:03,959 | INFO | [node]   serverHost: 'localhost',
+2026-03-18 09:50:03,959 | INFO | [node]   serverPort: 21100,
+2026-03-18 09:50:03,959 | INFO | [node]   sessionKey: {
+2026-03-18 09:50:03,959 | INFO | [node]     id: 10100030,
+2026-03-18 09:50:03,959 | INFO | [node]     cipherKeyVal: <Buffer a9 2b 6b c1 8c ed 97 d4 6e 08 e4 3a 02 56 80 0b>,
+2026-03-18 09:50:03,959 | INFO | [node]     macKeyVal: <Buffer b2 a5 c6 f0 8c 78 99 73 ab 75 b8 63 d6 a6 aa 20 bc 41 e8 18 2b 7b 81 6f c6 0c 8e b4 19 43 b4 90>,
+2026-03-18 09:50:03,959 | INFO | [node]     absValidity: 2026-03-19T16:50:03.955Z,
+2026-03-18 09:50:03,959 | INFO | [node]     relValidity: 7200000
+2026-03-18 09:50:03,959 | INFO | [node]   },
+2026-03-18 09:50:03,959 | INFO | [node]   sessionCryptoSpec: { cipher: 'AES-128-CBC', mac: 'SHA256' },
+2026-03-18 09:50:03,959 | INFO | [node]   sessionProtocol: 'TCP',
+2026-03-18 09:50:03,959 | INFO | [node]   handshakeTimeout: 5000
+2026-03-18 09:50:03,959 | INFO | [node] }
+2026-03-18 09:50:03,959 | INFO | [node] disconnected from auth
+2026-03-18 09:50:03,960 | INFO | [node] chosen nonce: <Buffer f0 5b 0b f6 d9 ce d3 78>
+2026-03-18 09:50:03,960 | INFO | [node] switching to HANDSHAKE_1_SENT
+2026-03-18 09:50:03,962 | INFO | [node] received session key handshake2!
+2026-03-18 09:50:03,962 | INFO | [node] client ret: {
+2026-03-18 09:50:03,962 | INFO | [node]   nonce: <Buffer 66 8b 82 a2 97 54 9f 44>,
+2026-03-18 09:50:03,962 | INFO | [node]   replyNonce: <Buffer f0 5b 0b f6 d9 ce d3 78>
+2026-03-18 09:50:03,962 | INFO | [node] }
+2026-03-18 09:50:03,962 | INFO | [node] server authenticated/authorized by solving nonce!
+2026-03-18 09:50:03,962 | INFO | [node] Handler: communication initialization succeeded
+2026-03-18 09:50:03,962 | INFO | [node] switching to IN_COMM
+2026-03-18 09:50:03,963 | INFO | 
+=== LATENCY RESULT (process start -> access (Users -> ResourceA) response) ===
+2026-03-18 09:50:03,964 | INFO | 0.049899 seconds
+2026-03-18 09:50:03,964 | INFO | 49.90 ms
+
+

@@ -1,0 +1,776 @@
+2026-03-18 14:48:27,996 | INFO | 
+=== Start process: User(Alex) delegateAuthority Node1 ResourceA 1*day ===
+2026-03-18 14:48:28,031 | INFO | [node] loading from config file: configs/net1/Alex.config
+2026-03-18 14:48:28,031 | INFO | [node] initializing...
+2026-03-18 14:48:28,031 | INFO | [node] current parameters: {
+2026-03-18 14:48:28,031 | INFO | [node]   numKeysPerRequest: 3,
+2026-03-18 14:48:28,031 | INFO | [node]   migrationEnabled: false,
+2026-03-18 14:48:28,031 | INFO | [node]   authFailureThreshold: 3,
+2026-03-18 14:48:28,031 | INFO | [node]   migrationFailureThreshold: 3
+2026-03-18 14:48:28,031 | INFO | [node] }
+2026-03-18 14:48:28,032 | INFO | [node] net1.Alex:Users prompt>
+2026-03-18 14:48:28,032 | INFO | [node] delegateAuthority (Perform privilege to grant delegation authority) command
+2026-03-18 14:48:28,032 | INFO | [node] Enter the delegatee(subject) delegated(object) validity
+2026-03-18 14:48:28,032 | INFO | [node] Node1,ResourceA,1*day / subject: Node1 / object: ResourceA / validity: 1*day
+2026-03-18 14:48:28,032 | INFO | [node] In iotAuth.js privilegeRequest: 
+2026-03-18 14:48:28,032 | INFO | [node] In iotAuthService.js sendPrivilegeReqViaTCP: 
+2026-03-18 14:48:28,036 | INFO | [node] net1.Alex:Users prompt>
+2026-03-18 14:48:28,037 | INFO | [node] connected to auth! from local port 51051
+2026-03-18 14:48:28,038 | INFO | [node] received auth hello!
+2026-03-18 14:48:28,038 | INFO | [node] auth id matches
+2026-03-18 14:48:28,038 | INFO | [node] {
+2026-03-18 14:48:28,038 | INFO | [node]   nonce: <Buffer e9 18 ed 0b 71 4a fd 5e>,
+2026-03-18 14:48:28,038 | INFO | [node]   replyNonce: <Buffer cb cc e3 4a f0 b0 ca 6f>,
+2026-03-18 14:48:28,038 | INFO | [node]   sender: 'net1.Alex',
+2026-03-18 14:48:28,038 | INFO | [node]   payload: {
+2026-03-18 14:48:28,038 | INFO | [node]     privilegeType: 'DelegationGrant',
+2026-03-18 14:48:28,038 | INFO | [node]     subject: 'Node1',
+2026-03-18 14:48:28,038 | INFO | [node]     object: 'ResourceA',
+2026-03-18 14:48:28,038 | INFO | [node]     validity: '1*day'
+2026-03-18 14:48:28,038 | INFO | [node]   }
+2026-03-18 14:48:28,038 | INFO | [node] }
+2026-03-18 14:48:28,038 | INFO | [node] {
+2026-03-18 14:48:28,038 | INFO | [node]   msgType: 82,
+2026-03-18 14:48:28,038 | INFO | [node]   payload: <Buffer 09 6e 65 74 31 2e 41 6c 65 78 f2 2e bd 91 4c 26 78 55 5b c9 58 45 42 6e ad 11 b1 3c bd 81 a9 84 54 70 79 c1 19 a7 cb 1d d5 72 11 ad 57 71 57 9d 8d 07 ... 136 more bytes>
+2026-03-18 14:48:28,038 | INFO | [node] }
+2026-03-18 14:48:28,040 | INFO | [node] received privilege response!
+2026-03-18 14:48:28,041 | INFO | [node] Finished privilege request
+2026-03-18 14:48:28,041 | INFO | [node] {
+2026-03-18 14:48:28,041 | INFO | [node]   replyNonce: <Buffer e9 18 ed 0b 71 4a fd 5e>,
+2026-03-18 14:48:28,041 | INFO | [node]   communicationPolicy: {
+2026-03-18 14:48:28,041 | INFO | [node]     newCommunicationPolicy: {
+2026-03-18 14:48:28,041 | INFO | [node]       Target: 'ResourceA',
+2026-03-18 14:48:28,041 | INFO | [node]       AbsoluteValidity: 0,
+2026-03-18 14:48:28,041 | INFO | [node]       RelativeValidity: 0,
+2026-03-18 14:48:28,041 | INFO | [node]       TargetType: 'Group',
+2026-03-18 14:48:28,041 | INFO | [node]       Expiration: 1773956908039,
+2026-03-18 14:48:28,041 | INFO | [node]       IsDelegated: 1,
+2026-03-18 14:48:28,041 | INFO | [node]       ID: 50,
+2026-03-18 14:48:28,041 | INFO | [node]       RelativeValidityStr: '1*hour',
+2026-03-18 14:48:28,041 | INFO | [node]       MaxNumSessionKeyOwners: 2,
+2026-03-18 14:48:28,041 | INFO | [node]       AbsoluteValidityStr: '1*day',
+2026-03-18 14:48:28,041 | INFO | [node]       RequestingGroup: 'Node1'
+2026-03-18 14:48:28,041 | INFO | [node]     },
+2026-03-18 14:48:28,041 | INFO | [node]     curCommPolicyCount: '50',
+2026-03-18 14:48:28,041 | INFO | [node]     action: 'DelegationGrant'
+2026-03-18 14:48:28,041 | INFO | [node]   }
+2026-03-18 14:48:28,041 | INFO | [node] }
+2026-03-18 14:48:28,041 | INFO | [node] disconnected from auth
+2026-03-18 14:48:28,042 | INFO | 
+=== LATENCY RESULT (process start -> 1st delegation (Users -> Node1) response) ===
+2026-03-18 14:48:28,042 | INFO | 0.044675 seconds
+2026-03-18 14:48:28,042 | INFO | 44.68 ms
+
+
+2026-03-18 14:48:28,042 | INFO | 
+=== Start process: Node1 delegateAuthority Node2 ResourceA 1*day ===
+2026-03-18 14:48:28,073 | INFO | [node] loading from config file: configs/net1/node1.config
+2026-03-18 14:48:28,073 | INFO | [node] initializing...
+2026-03-18 14:48:28,073 | INFO | [node] current parameters: {
+2026-03-18 14:48:28,073 | INFO | [node]   numKeysPerRequest: 3,
+2026-03-18 14:48:28,073 | INFO | [node]   migrationEnabled: false,
+2026-03-18 14:48:28,073 | INFO | [node]   authFailureThreshold: 3,
+2026-03-18 14:48:28,073 | INFO | [node]   migrationFailureThreshold: 3
+2026-03-18 14:48:28,073 | INFO | [node] }
+2026-03-18 14:48:28,074 | INFO | [node] net1.node1:Node1 prompt>
+2026-03-18 14:48:28,074 | INFO | [node] delegateAuthority (Perform privilege to grant delegation authority) command
+2026-03-18 14:48:28,074 | INFO | [node] Enter the delegatee(subject) delegated(object) validity
+2026-03-18 14:48:28,074 | INFO | [node] Node2,ResourceA,1*day / subject: Node2 / object: ResourceA / validity: 1*day
+2026-03-18 14:48:28,074 | INFO | [node] In iotAuth.js privilegeRequest: 
+2026-03-18 14:48:28,074 | INFO | [node] In iotAuthService.js sendPrivilegeReqViaTCP: 
+2026-03-18 14:48:28,077 | INFO | [node] net1.node1:Node1 prompt>
+2026-03-18 14:48:28,079 | INFO | [node] connected to auth! from local port 51052
+2026-03-18 14:48:28,079 | INFO | [node] received auth hello!
+2026-03-18 14:48:28,079 | INFO | [node] auth id matches
+2026-03-18 14:48:28,079 | INFO | [node] {
+2026-03-18 14:48:28,079 | INFO | [node]   nonce: <Buffer d5 57 dc e2 8c 82 fd 27>,
+2026-03-18 14:48:28,079 | INFO | [node]   replyNonce: <Buffer c4 dc d4 73 48 ed 65 7f>,
+2026-03-18 14:48:28,079 | INFO | [node]   sender: 'net1.node1',
+2026-03-18 14:48:28,080 | INFO | [node]   payload: {
+2026-03-18 14:48:28,080 | INFO | [node]     privilegeType: 'DelegationGrant',
+2026-03-18 14:48:28,080 | INFO | [node]     subject: 'Node2',
+2026-03-18 14:48:28,080 | INFO | [node]     object: 'ResourceA',
+2026-03-18 14:48:28,080 | INFO | [node]     validity: '1*day'
+2026-03-18 14:48:28,080 | INFO | [node]   }
+2026-03-18 14:48:28,080 | INFO | [node] }
+2026-03-18 14:48:28,080 | INFO | [node] {
+2026-03-18 14:48:28,080 | INFO | [node]   msgType: 82,
+2026-03-18 14:48:28,080 | INFO | [node]   payload: <Buffer 0a 6e 65 74 31 2e 6e 6f 64 65 31 b1 35 b2 c5 6e 29 0a 8a 76 9d 7b a0 e2 0b 1f b7 94 37 36 1f 1e db 71 75 51 82 c5 29 06 92 0f f5 23 9e 0b d5 89 69 d5 ... 137 more bytes>
+2026-03-18 14:48:28,080 | INFO | [node] }
+2026-03-18 14:48:28,082 | INFO | [node] received privilege response!
+2026-03-18 14:48:28,082 | INFO | [node] Finished privilege request
+2026-03-18 14:48:28,082 | INFO | [node] {
+2026-03-18 14:48:28,082 | INFO | [node]   replyNonce: <Buffer d5 57 dc e2 8c 82 fd 27>,
+2026-03-18 14:48:28,082 | INFO | [node]   communicationPolicy: {
+2026-03-18 14:48:28,082 | INFO | [node]     newCommunicationPolicy: {
+2026-03-18 14:48:28,082 | INFO | [node]       Target: 'ResourceA',
+2026-03-18 14:48:28,082 | INFO | [node]       AbsoluteValidity: 0,
+2026-03-18 14:48:28,082 | INFO | [node]       RelativeValidity: 0,
+2026-03-18 14:48:28,082 | INFO | [node]       TargetType: 'Group',
+2026-03-18 14:48:28,082 | INFO | [node]       Expiration: 1773956908080,
+2026-03-18 14:48:28,082 | INFO | [node]       IsDelegated: 1,
+2026-03-18 14:48:28,082 | INFO | [node]       ID: 51,
+2026-03-18 14:48:28,082 | INFO | [node]       RelativeValidityStr: '1*hour',
+2026-03-18 14:48:28,082 | INFO | [node]       MaxNumSessionKeyOwners: 2,
+2026-03-18 14:48:28,082 | INFO | [node]       AbsoluteValidityStr: '1*day',
+2026-03-18 14:48:28,082 | INFO | [node]       RequestingGroup: 'Node2'
+2026-03-18 14:48:28,082 | INFO | [node]     },
+2026-03-18 14:48:28,082 | INFO | [node]     curCommPolicyCount: '51',
+2026-03-18 14:48:28,082 | INFO | [node]     action: 'DelegationGrant'
+2026-03-18 14:48:28,082 | INFO | [node]   }
+2026-03-18 14:48:28,082 | INFO | [node] }
+2026-03-18 14:48:28,082 | INFO | [node] disconnected from auth
+2026-03-18 14:48:28,084 | INFO | 
+=== LATENCY RESULT (process start -> 2nd delegation (Node1 -> Node2) response) ===
+2026-03-18 14:48:28,084 | INFO | 0.039885 seconds
+2026-03-18 14:48:28,084 | INFO | 39.89 ms
+
+
+2026-03-18 14:48:28,084 | INFO | 
+=== Start process: Node2 delegateAuthority Node3 ResourceA 1*day ===
+2026-03-18 14:48:28,113 | INFO | [node] loading from config file: configs/net1/node2.config
+2026-03-18 14:48:28,113 | INFO | [node] initializing...
+2026-03-18 14:48:28,114 | INFO | [node] current parameters: {
+2026-03-18 14:48:28,114 | INFO | [node]   numKeysPerRequest: 3,
+2026-03-18 14:48:28,114 | INFO | [node]   migrationEnabled: false,
+2026-03-18 14:48:28,114 | INFO | [node]   authFailureThreshold: 3,
+2026-03-18 14:48:28,114 | INFO | [node]   migrationFailureThreshold: 3
+2026-03-18 14:48:28,114 | INFO | [node] }
+2026-03-18 14:48:28,114 | INFO | [node] net1.node2:Node2 prompt>
+2026-03-18 14:48:28,114 | INFO | [node] delegateAuthority (Perform privilege to grant delegation authority) command
+2026-03-18 14:48:28,114 | INFO | [node] Enter the delegatee(subject) delegated(object) validity
+2026-03-18 14:48:28,114 | INFO | [node] Node3,ResourceA,1*day / subject: Node3 / object: ResourceA / validity: 1*day
+2026-03-18 14:48:28,114 | INFO | [node] In iotAuth.js privilegeRequest: 
+2026-03-18 14:48:28,115 | INFO | [node] In iotAuthService.js sendPrivilegeReqViaTCP: 
+2026-03-18 14:48:28,118 | INFO | [node] net1.node2:Node2 prompt>
+2026-03-18 14:48:28,119 | INFO | [node] connected to auth! from local port 51053
+2026-03-18 14:48:28,120 | INFO | [node] received auth hello!
+2026-03-18 14:48:28,120 | INFO | [node] auth id matches
+2026-03-18 14:48:28,120 | INFO | [node] {
+2026-03-18 14:48:28,120 | INFO | [node]   nonce: <Buffer 24 e1 7a 9d 79 5e ff e1>,
+2026-03-18 14:48:28,120 | INFO | [node]   replyNonce: <Buffer cf 7c c3 c4 7a f4 b5 ee>,
+2026-03-18 14:48:28,120 | INFO | [node]   sender: 'net1.node2',
+2026-03-18 14:48:28,120 | INFO | [node]   payload: {
+2026-03-18 14:48:28,120 | INFO | [node]     privilegeType: 'DelegationGrant',
+2026-03-18 14:48:28,120 | INFO | [node]     subject: 'Node3',
+2026-03-18 14:48:28,120 | INFO | [node]     object: 'ResourceA',
+2026-03-18 14:48:28,120 | INFO | [node]     validity: '1*day'
+2026-03-18 14:48:28,120 | INFO | [node]   }
+2026-03-18 14:48:28,120 | INFO | [node] }
+2026-03-18 14:48:28,120 | INFO | [node] {
+2026-03-18 14:48:28,120 | INFO | [node]   msgType: 82,
+2026-03-18 14:48:28,120 | INFO | [node]   payload: <Buffer 0a 6e 65 74 31 2e 6e 6f 64 65 32 65 8c 3c 47 2d 9c b6 02 0d 82 03 cd a9 05 a4 73 7a 1a d9 17 a0 50 a4 96 82 95 3e c6 96 a9 25 76 35 fc 4f 37 fd 98 45 ... 137 more bytes>
+2026-03-18 14:48:28,120 | INFO | [node] }
+2026-03-18 14:48:28,122 | INFO | [node] received privilege response!
+2026-03-18 14:48:28,122 | INFO | [node] Finished privilege request
+2026-03-18 14:48:28,122 | INFO | [node] {
+2026-03-18 14:48:28,122 | INFO | [node]   replyNonce: <Buffer 24 e1 7a 9d 79 5e ff e1>,
+2026-03-18 14:48:28,123 | INFO | [node]   communicationPolicy: {
+2026-03-18 14:48:28,123 | INFO | [node]     newCommunicationPolicy: {
+2026-03-18 14:48:28,123 | INFO | [node]       Target: 'ResourceA',
+2026-03-18 14:48:28,123 | INFO | [node]       AbsoluteValidity: 0,
+2026-03-18 14:48:28,123 | INFO | [node]       RelativeValidity: 0,
+2026-03-18 14:48:28,123 | INFO | [node]       TargetType: 'Group',
+2026-03-18 14:48:28,123 | INFO | [node]       Expiration: 1773956908121,
+2026-03-18 14:48:28,123 | INFO | [node]       IsDelegated: 1,
+2026-03-18 14:48:28,123 | INFO | [node]       ID: 52,
+2026-03-18 14:48:28,123 | INFO | [node]       RelativeValidityStr: '1*hour',
+2026-03-18 14:48:28,123 | INFO | [node]       MaxNumSessionKeyOwners: 2,
+2026-03-18 14:48:28,123 | INFO | [node]       AbsoluteValidityStr: '1*day',
+2026-03-18 14:48:28,123 | INFO | [node]       RequestingGroup: 'Node3'
+2026-03-18 14:48:28,123 | INFO | [node]     },
+2026-03-18 14:48:28,123 | INFO | [node]     curCommPolicyCount: '52',
+2026-03-18 14:48:28,123 | INFO | [node]     action: 'DelegationGrant'
+2026-03-18 14:48:28,123 | INFO | [node]   }
+2026-03-18 14:48:28,123 | INFO | [node] }
+2026-03-18 14:48:28,123 | INFO | [node] disconnected from auth
+2026-03-18 14:48:28,124 | INFO | 
+=== LATENCY RESULT (process start -> 3rd delegation (Node2 -> Node3) response) ===
+2026-03-18 14:48:28,124 | INFO | 0.038878 seconds
+2026-03-18 14:48:28,124 | INFO | 38.88 ms
+
+
+2026-03-18 14:48:28,124 | INFO | 
+=== Start process: Node3 delegateAuthority Node4 ResourceA 1*day ===
+2026-03-18 14:48:28,154 | INFO | [node] loading from config file: configs/net1/node3.config
+2026-03-18 14:48:28,154 | INFO | [node] initializing...
+2026-03-18 14:48:28,154 | INFO | [node] current parameters: {
+2026-03-18 14:48:28,154 | INFO | [node]   numKeysPerRequest: 3,
+2026-03-18 14:48:28,154 | INFO | [node]   migrationEnabled: false,
+2026-03-18 14:48:28,154 | INFO | [node]   authFailureThreshold: 3,
+2026-03-18 14:48:28,154 | INFO | [node]   migrationFailureThreshold: 3
+2026-03-18 14:48:28,154 | INFO | [node] }
+2026-03-18 14:48:28,155 | INFO | [node] net1.node3:Node3 prompt>
+2026-03-18 14:48:28,155 | INFO | [node] delegateAuthority (Perform privilege to grant delegation authority) command
+2026-03-18 14:48:28,155 | INFO | [node] Enter the delegatee(subject) delegated(object) validity
+2026-03-18 14:48:28,155 | INFO | [node] Node4,ResourceA,1*day / subject: Node4 / object: ResourceA / validity: 1*day
+2026-03-18 14:48:28,155 | INFO | [node] In iotAuth.js privilegeRequest: 
+2026-03-18 14:48:28,155 | INFO | [node] In iotAuthService.js sendPrivilegeReqViaTCP: 
+2026-03-18 14:48:28,159 | INFO | [node] net1.node3:Node3 prompt>
+2026-03-18 14:48:28,160 | INFO | [node] connected to auth! from local port 51054
+2026-03-18 14:48:28,160 | INFO | [node] received auth hello!
+2026-03-18 14:48:28,160 | INFO | [node] auth id matches
+2026-03-18 14:48:28,161 | INFO | [node] {
+2026-03-18 14:48:28,161 | INFO | [node]   nonce: <Buffer 5f 3b aa cc 7f 06 d9 05>,
+2026-03-18 14:48:28,161 | INFO | [node]   replyNonce: <Buffer b5 16 4a 5e 40 6a 83 62>,
+2026-03-18 14:48:28,161 | INFO | [node]   sender: 'net1.node3',
+2026-03-18 14:48:28,161 | INFO | [node]   payload: {
+2026-03-18 14:48:28,161 | INFO | [node]     privilegeType: 'DelegationGrant',
+2026-03-18 14:48:28,161 | INFO | [node]     subject: 'Node4',
+2026-03-18 14:48:28,161 | INFO | [node]     object: 'ResourceA',
+2026-03-18 14:48:28,161 | INFO | [node]     validity: '1*day'
+2026-03-18 14:48:28,161 | INFO | [node]   }
+2026-03-18 14:48:28,161 | INFO | [node] }
+2026-03-18 14:48:28,161 | INFO | [node] {
+2026-03-18 14:48:28,161 | INFO | [node]   msgType: 82,
+2026-03-18 14:48:28,161 | INFO | [node]   payload: <Buffer 0a 6e 65 74 31 2e 6e 6f 64 65 33 48 18 f7 c8 9b c1 a3 72 d6 af 20 91 a1 ee 40 1e 95 23 c1 fc 87 1a 1d 70 43 ab f8 de 96 2e 40 61 28 90 9b 63 dc 15 0e ... 137 more bytes>
+2026-03-18 14:48:28,161 | INFO | [node] }
+2026-03-18 14:48:28,163 | INFO | [node] received privilege response!
+2026-03-18 14:48:28,163 | INFO | [node] Finished privilege request
+2026-03-18 14:48:28,163 | INFO | [node] {
+2026-03-18 14:48:28,163 | INFO | [node]   replyNonce: <Buffer 5f 3b aa cc 7f 06 d9 05>,
+2026-03-18 14:48:28,163 | INFO | [node]   communicationPolicy: {
+2026-03-18 14:48:28,163 | INFO | [node]     newCommunicationPolicy: {
+2026-03-18 14:48:28,163 | INFO | [node]       Target: 'ResourceA',
+2026-03-18 14:48:28,163 | INFO | [node]       AbsoluteValidity: 0,
+2026-03-18 14:48:28,163 | INFO | [node]       RelativeValidity: 0,
+2026-03-18 14:48:28,163 | INFO | [node]       TargetType: 'Group',
+2026-03-18 14:48:28,163 | INFO | [node]       Expiration: 1773956908161,
+2026-03-18 14:48:28,163 | INFO | [node]       IsDelegated: 1,
+2026-03-18 14:48:28,163 | INFO | [node]       ID: 53,
+2026-03-18 14:48:28,163 | INFO | [node]       RelativeValidityStr: '1*hour',
+2026-03-18 14:48:28,163 | INFO | [node]       MaxNumSessionKeyOwners: 2,
+2026-03-18 14:48:28,163 | INFO | [node]       AbsoluteValidityStr: '1*day',
+2026-03-18 14:48:28,163 | INFO | [node]       RequestingGroup: 'Node4'
+2026-03-18 14:48:28,163 | INFO | [node]     },
+2026-03-18 14:48:28,163 | INFO | [node]     curCommPolicyCount: '53',
+2026-03-18 14:48:28,163 | INFO | [node]     action: 'DelegationGrant'
+2026-03-18 14:48:28,164 | INFO | [node]   }
+2026-03-18 14:48:28,164 | INFO | [node] }
+2026-03-18 14:48:28,164 | INFO | [node] disconnected from auth
+2026-03-18 14:48:28,165 | INFO | 
+=== LATENCY RESULT (process start -> 4th delegation (Node3 -> Node4) response) ===
+2026-03-18 14:48:28,165 | INFO | 0.039365 seconds
+2026-03-18 14:48:28,165 | INFO | 39.36 ms
+
+
+2026-03-18 14:48:28,165 | INFO | 
+=== Start process: Node4 delegateAuthority Node5 ResourceA 1*day ===
+2026-03-18 14:48:28,194 | INFO | [node] loading from config file: configs/net1/node4.config
+2026-03-18 14:48:28,194 | INFO | [node] initializing...
+2026-03-18 14:48:28,194 | INFO | [node] current parameters: {
+2026-03-18 14:48:28,194 | INFO | [node]   numKeysPerRequest: 3,
+2026-03-18 14:48:28,194 | INFO | [node]   migrationEnabled: false,
+2026-03-18 14:48:28,194 | INFO | [node]   authFailureThreshold: 3,
+2026-03-18 14:48:28,194 | INFO | [node]   migrationFailureThreshold: 3
+2026-03-18 14:48:28,194 | INFO | [node] }
+2026-03-18 14:48:28,195 | INFO | [node] net1.node4:Node4 prompt>
+2026-03-18 14:48:28,195 | INFO | [node] delegateAuthority (Perform privilege to grant delegation authority) command
+2026-03-18 14:48:28,195 | INFO | [node] Enter the delegatee(subject) delegated(object) validity
+2026-03-18 14:48:28,195 | INFO | [node] Node5,ResourceA,1*day / subject: Node5 / object: ResourceA / validity: 1*day
+2026-03-18 14:48:28,195 | INFO | [node] In iotAuth.js privilegeRequest: 
+2026-03-18 14:48:28,195 | INFO | [node] In iotAuthService.js sendPrivilegeReqViaTCP: 
+2026-03-18 14:48:28,199 | INFO | [node] net1.node4:Node4 prompt>
+2026-03-18 14:48:28,200 | INFO | [node] connected to auth! from local port 51055
+2026-03-18 14:48:28,200 | INFO | [node] received auth hello!
+2026-03-18 14:48:28,200 | INFO | [node] auth id matches
+2026-03-18 14:48:28,200 | INFO | [node] {
+2026-03-18 14:48:28,200 | INFO | [node]   nonce: <Buffer 07 31 88 63 f9 b0 0a 46>,
+2026-03-18 14:48:28,200 | INFO | [node]   replyNonce: <Buffer 6b 74 f7 a4 34 06 8d ee>,
+2026-03-18 14:48:28,200 | INFO | [node]   sender: 'net1.node4',
+2026-03-18 14:48:28,201 | INFO | [node]   payload: {
+2026-03-18 14:48:28,201 | INFO | [node]     privilegeType: 'DelegationGrant',
+2026-03-18 14:48:28,201 | INFO | [node]     subject: 'Node5',
+2026-03-18 14:48:28,201 | INFO | [node]     object: 'ResourceA',
+2026-03-18 14:48:28,201 | INFO | [node]     validity: '1*day'
+2026-03-18 14:48:28,201 | INFO | [node]   }
+2026-03-18 14:48:28,201 | INFO | [node] }
+2026-03-18 14:48:28,201 | INFO | [node] {
+2026-03-18 14:48:28,201 | INFO | [node]   msgType: 82,
+2026-03-18 14:48:28,201 | INFO | [node]   payload: <Buffer 0a 6e 65 74 31 2e 6e 6f 64 65 34 53 8e 14 31 f9 08 ba 85 f1 c1 dc d0 0e 8f 46 bc 40 dc d0 32 90 57 2e 15 8d b5 3b 54 49 e1 32 74 2a ec 0c 2d 9b 3c ea ... 137 more bytes>
+2026-03-18 14:48:28,201 | INFO | [node] }
+2026-03-18 14:48:28,203 | INFO | [node] received privilege response!
+2026-03-18 14:48:28,203 | INFO | [node] Finished privilege request
+2026-03-18 14:48:28,203 | INFO | [node] {
+2026-03-18 14:48:28,203 | INFO | [node]   replyNonce: <Buffer 07 31 88 63 f9 b0 0a 46>,
+2026-03-18 14:48:28,203 | INFO | [node]   communicationPolicy: {
+2026-03-18 14:48:28,203 | INFO | [node]     newCommunicationPolicy: {
+2026-03-18 14:48:28,203 | INFO | [node]       Target: 'ResourceA',
+2026-03-18 14:48:28,203 | INFO | [node]       AbsoluteValidity: 0,
+2026-03-18 14:48:28,203 | INFO | [node]       RelativeValidity: 0,
+2026-03-18 14:48:28,203 | INFO | [node]       TargetType: 'Group',
+2026-03-18 14:48:28,203 | INFO | [node]       Expiration: 1773956908201,
+2026-03-18 14:48:28,203 | INFO | [node]       IsDelegated: 1,
+2026-03-18 14:48:28,203 | INFO | [node]       ID: 54,
+2026-03-18 14:48:28,203 | INFO | [node]       RelativeValidityStr: '1*hour',
+2026-03-18 14:48:28,203 | INFO | [node]       MaxNumSessionKeyOwners: 2,
+2026-03-18 14:48:28,203 | INFO | [node]       AbsoluteValidityStr: '1*day',
+2026-03-18 14:48:28,203 | INFO | [node]       RequestingGroup: 'Node5'
+2026-03-18 14:48:28,203 | INFO | [node]     },
+2026-03-18 14:48:28,203 | INFO | [node]     curCommPolicyCount: '54',
+2026-03-18 14:48:28,203 | INFO | [node]     action: 'DelegationGrant'
+2026-03-18 14:48:28,203 | INFO | [node]   }
+2026-03-18 14:48:28,203 | INFO | [node] }
+2026-03-18 14:48:28,203 | INFO | [node] disconnected from auth
+2026-03-18 14:48:28,205 | INFO | 
+=== LATENCY RESULT (process start -> 5th delegation (Node4 -> Node5) response) ===
+2026-03-18 14:48:28,205 | INFO | 0.038243 seconds
+2026-03-18 14:48:28,205 | INFO | 38.24 ms
+
+
+2026-03-18 14:48:28,205 | INFO | 
+=== Start process: Node5 delegateAuthority Node6 ResourceA 1*day ===
+2026-03-18 14:48:28,234 | INFO | [node] loading from config file: configs/net1/node5.config
+2026-03-18 14:48:28,234 | INFO | [node] initializing...
+2026-03-18 14:48:28,234 | INFO | [node] current parameters: {
+2026-03-18 14:48:28,234 | INFO | [node]   numKeysPerRequest: 3,
+2026-03-18 14:48:28,234 | INFO | [node]   migrationEnabled: false,
+2026-03-18 14:48:28,234 | INFO | [node]   authFailureThreshold: 3,
+2026-03-18 14:48:28,234 | INFO | [node]   migrationFailureThreshold: 3
+2026-03-18 14:48:28,234 | INFO | [node] }
+2026-03-18 14:48:28,235 | INFO | [node] net1.node5:Node5 prompt>
+2026-03-18 14:48:28,235 | INFO | [node] delegateAuthority (Perform privilege to grant delegation authority) command
+2026-03-18 14:48:28,235 | INFO | [node] Enter the delegatee(subject) delegated(object) validity
+2026-03-18 14:48:28,235 | INFO | [node] Node6,ResourceA,1*day / subject: Node6 / object: ResourceA / validity: 1*day
+2026-03-18 14:48:28,235 | INFO | [node] In iotAuth.js privilegeRequest: 
+2026-03-18 14:48:28,235 | INFO | [node] In iotAuthService.js sendPrivilegeReqViaTCP: 
+2026-03-18 14:48:28,239 | INFO | [node] net1.node5:Node5 prompt>
+2026-03-18 14:48:28,240 | INFO | [node] connected to auth! from local port 51056
+2026-03-18 14:48:28,240 | INFO | [node] received auth hello!
+2026-03-18 14:48:28,240 | INFO | [node] auth id matches
+2026-03-18 14:48:28,241 | INFO | [node] {
+2026-03-18 14:48:28,241 | INFO | [node]   nonce: <Buffer b9 70 80 2b 36 98 4f b0>,
+2026-03-18 14:48:28,241 | INFO | [node]   replyNonce: <Buffer 24 98 9f 5e c4 78 00 ba>,
+2026-03-18 14:48:28,241 | INFO | [node]   sender: 'net1.node5',
+2026-03-18 14:48:28,241 | INFO | [node]   payload: {
+2026-03-18 14:48:28,241 | INFO | [node]     privilegeType: 'DelegationGrant',
+2026-03-18 14:48:28,241 | INFO | [node]     subject: 'Node6',
+2026-03-18 14:48:28,241 | INFO | [node]     object: 'ResourceA',
+2026-03-18 14:48:28,241 | INFO | [node]     validity: '1*day'
+2026-03-18 14:48:28,241 | INFO | [node]   }
+2026-03-18 14:48:28,241 | INFO | [node] }
+2026-03-18 14:48:28,241 | INFO | [node] {
+2026-03-18 14:48:28,241 | INFO | [node]   msgType: 82,
+2026-03-18 14:48:28,241 | INFO | [node]   payload: <Buffer 0a 6e 65 74 31 2e 6e 6f 64 65 35 3c a3 97 2a 1a c3 35 eb f0 ed 2b a3 eb 36 15 c1 d9 ed 77 ec 48 e5 d0 85 cf 20 a2 6e 54 77 26 0d f9 ef 9e 4f 21 92 28 ... 137 more bytes>
+2026-03-18 14:48:28,241 | INFO | [node] }
+2026-03-18 14:48:28,243 | INFO | [node] received privilege response!
+2026-03-18 14:48:28,243 | INFO | [node] Finished privilege request
+2026-03-18 14:48:28,243 | INFO | [node] {
+2026-03-18 14:48:28,243 | INFO | [node]   replyNonce: <Buffer b9 70 80 2b 36 98 4f b0>,
+2026-03-18 14:48:28,243 | INFO | [node]   communicationPolicy: {
+2026-03-18 14:48:28,243 | INFO | [node]     newCommunicationPolicy: {
+2026-03-18 14:48:28,243 | INFO | [node]       Target: 'ResourceA',
+2026-03-18 14:48:28,243 | INFO | [node]       AbsoluteValidity: 0,
+2026-03-18 14:48:28,243 | INFO | [node]       RelativeValidity: 0,
+2026-03-18 14:48:28,243 | INFO | [node]       TargetType: 'Group',
+2026-03-18 14:48:28,243 | INFO | [node]       Expiration: 1773956908241,
+2026-03-18 14:48:28,243 | INFO | [node]       IsDelegated: 1,
+2026-03-18 14:48:28,243 | INFO | [node]       ID: 55,
+2026-03-18 14:48:28,243 | INFO | [node]       RelativeValidityStr: '1*hour',
+2026-03-18 14:48:28,243 | INFO | [node]       MaxNumSessionKeyOwners: 2,
+2026-03-18 14:48:28,243 | INFO | [node]       AbsoluteValidityStr: '1*day',
+2026-03-18 14:48:28,243 | INFO | [node]       RequestingGroup: 'Node6'
+2026-03-18 14:48:28,243 | INFO | [node]     },
+2026-03-18 14:48:28,243 | INFO | [node]     curCommPolicyCount: '55',
+2026-03-18 14:48:28,243 | INFO | [node]     action: 'DelegationGrant'
+2026-03-18 14:48:28,243 | INFO | [node]   }
+2026-03-18 14:48:28,243 | INFO | [node] }
+2026-03-18 14:48:28,243 | INFO | [node] disconnected from auth
+2026-03-18 14:48:28,245 | INFO | 
+=== LATENCY RESULT (process start -> 6th delegation (Node5 -> Node6) response) ===
+2026-03-18 14:48:28,245 | INFO | 0.038694 seconds
+2026-03-18 14:48:28,245 | INFO | 38.69 ms
+
+
+2026-03-18 14:48:28,245 | INFO | 
+=== Start process: Node6 delegateAuthority Node7 ResourceA 1*day ===
+2026-03-18 14:48:28,274 | INFO | [node] loading from config file: configs/net1/node6.config
+2026-03-18 14:48:28,275 | INFO | [node] initializing...
+2026-03-18 14:48:28,275 | INFO | [node] current parameters: {
+2026-03-18 14:48:28,275 | INFO | [node]   numKeysPerRequest: 3,
+2026-03-18 14:48:28,275 | INFO | [node]   migrationEnabled: false,
+2026-03-18 14:48:28,275 | INFO | [node]   authFailureThreshold: 3,
+2026-03-18 14:48:28,275 | INFO | [node]   migrationFailureThreshold: 3
+2026-03-18 14:48:28,275 | INFO | [node] }
+2026-03-18 14:48:28,275 | INFO | [node] net1.node6:Node6 prompt>
+2026-03-18 14:48:28,275 | INFO | [node] delegateAuthority (Perform privilege to grant delegation authority) command
+2026-03-18 14:48:28,275 | INFO | [node] Enter the delegatee(subject) delegated(object) validity
+2026-03-18 14:48:28,275 | INFO | [node] Node7,ResourceA,1*day / subject: Node7 / object: ResourceA / validity: 1*day
+2026-03-18 14:48:28,276 | INFO | [node] In iotAuth.js privilegeRequest: 
+2026-03-18 14:48:28,276 | INFO | [node] In iotAuthService.js sendPrivilegeReqViaTCP: 
+2026-03-18 14:48:28,279 | INFO | [node] net1.node6:Node6 prompt>
+2026-03-18 14:48:28,280 | INFO | [node] connected to auth! from local port 51057
+2026-03-18 14:48:28,281 | INFO | [node] received auth hello!
+2026-03-18 14:48:28,281 | INFO | [node] auth id matches
+2026-03-18 14:48:28,281 | INFO | [node] {
+2026-03-18 14:48:28,281 | INFO | [node]   nonce: <Buffer 09 71 9e 1f 48 2d 31 bb>,
+2026-03-18 14:48:28,281 | INFO | [node]   replyNonce: <Buffer f9 c5 78 b4 e6 35 63 bb>,
+2026-03-18 14:48:28,281 | INFO | [node]   sender: 'net1.node6',
+2026-03-18 14:48:28,281 | INFO | [node]   payload: {
+2026-03-18 14:48:28,281 | INFO | [node]     privilegeType: 'DelegationGrant',
+2026-03-18 14:48:28,281 | INFO | [node]     subject: 'Node7',
+2026-03-18 14:48:28,281 | INFO | [node]     object: 'ResourceA',
+2026-03-18 14:48:28,281 | INFO | [node]     validity: '1*day'
+2026-03-18 14:48:28,281 | INFO | [node]   }
+2026-03-18 14:48:28,281 | INFO | [node] }
+2026-03-18 14:48:28,281 | INFO | [node] {
+2026-03-18 14:48:28,281 | INFO | [node]   msgType: 82,
+2026-03-18 14:48:28,281 | INFO | [node]   payload: <Buffer 0a 6e 65 74 31 2e 6e 6f 64 65 36 af 57 e7 93 03 a9 2a 32 69 26 95 da c0 00 55 f0 12 cd 4c 02 32 8a e2 3e 18 f1 2f a5 50 c0 91 40 15 e8 8e 18 a8 d3 55 ... 137 more bytes>
+2026-03-18 14:48:28,281 | INFO | [node] }
+2026-03-18 14:48:28,283 | INFO | [node] received privilege response!
+2026-03-18 14:48:28,284 | INFO | [node] Finished privilege request
+2026-03-18 14:48:28,284 | INFO | [node] {
+2026-03-18 14:48:28,284 | INFO | [node]   replyNonce: <Buffer 09 71 9e 1f 48 2d 31 bb>,
+2026-03-18 14:48:28,284 | INFO | [node]   communicationPolicy: {
+2026-03-18 14:48:28,284 | INFO | [node]     newCommunicationPolicy: {
+2026-03-18 14:48:28,284 | INFO | [node]       Target: 'ResourceA',
+2026-03-18 14:48:28,284 | INFO | [node]       AbsoluteValidity: 0,
+2026-03-18 14:48:28,284 | INFO | [node]       RelativeValidity: 0,
+2026-03-18 14:48:28,284 | INFO | [node]       TargetType: 'Group',
+2026-03-18 14:48:28,284 | INFO | [node]       Expiration: 1773956908282,
+2026-03-18 14:48:28,284 | INFO | [node]       IsDelegated: 1,
+2026-03-18 14:48:28,284 | INFO | [node]       ID: 56,
+2026-03-18 14:48:28,284 | INFO | [node]       RelativeValidityStr: '1*hour',
+2026-03-18 14:48:28,284 | INFO | [node]       MaxNumSessionKeyOwners: 2,
+2026-03-18 14:48:28,284 | INFO | [node]       AbsoluteValidityStr: '1*day',
+2026-03-18 14:48:28,284 | INFO | [node]       RequestingGroup: 'Node7'
+2026-03-18 14:48:28,284 | INFO | [node]     },
+2026-03-18 14:48:28,284 | INFO | [node]     curCommPolicyCount: '56',
+2026-03-18 14:48:28,284 | INFO | [node]     action: 'DelegationGrant'
+2026-03-18 14:48:28,284 | INFO | [node]   }
+2026-03-18 14:48:28,284 | INFO | [node] }
+2026-03-18 14:48:28,284 | INFO | [node] disconnected from auth
+2026-03-18 14:48:28,285 | INFO | 
+=== LATENCY RESULT (process start -> 7th delegation (Node7 -> Node8) response) ===
+2026-03-18 14:48:28,285 | INFO | 0.039027 seconds
+2026-03-18 14:48:28,285 | INFO | 39.03 ms
+
+
+2026-03-18 14:48:28,285 | INFO | 
+=== Start process: Node7 delegateAuthority Node8 ResourceA 1*day ===
+2026-03-18 14:48:28,315 | INFO | [node] loading from config file: configs/net1/node7.config
+2026-03-18 14:48:28,315 | INFO | [node] initializing...
+2026-03-18 14:48:28,315 | INFO | [node] current parameters: {
+2026-03-18 14:48:28,315 | INFO | [node]   numKeysPerRequest: 3,
+2026-03-18 14:48:28,315 | INFO | [node]   migrationEnabled: false,
+2026-03-18 14:48:28,315 | INFO | [node]   authFailureThreshold: 3,
+2026-03-18 14:48:28,315 | INFO | [node]   migrationFailureThreshold: 3
+2026-03-18 14:48:28,315 | INFO | [node] }
+2026-03-18 14:48:28,316 | INFO | [node] net1.node7:Node7 prompt>
+2026-03-18 14:48:28,316 | INFO | [node] delegateAuthority (Perform privilege to grant delegation authority) command
+2026-03-18 14:48:28,316 | INFO | [node] Enter the delegatee(subject) delegated(object) validity
+2026-03-18 14:48:28,316 | INFO | [node] Node8,ResourceA,1*day / subject: Node8 / object: ResourceA / validity: 1*day
+2026-03-18 14:48:28,316 | INFO | [node] In iotAuth.js privilegeRequest: 
+2026-03-18 14:48:28,316 | INFO | [node] In iotAuthService.js sendPrivilegeReqViaTCP: 
+2026-03-18 14:48:28,319 | INFO | [node] net1.node7:Node7 prompt>
+2026-03-18 14:48:28,321 | INFO | [node] connected to auth! from local port 51058
+2026-03-18 14:48:28,321 | INFO | [node] received auth hello!
+2026-03-18 14:48:28,321 | INFO | [node] auth id matches
+2026-03-18 14:48:28,321 | INFO | [node] {
+2026-03-18 14:48:28,321 | INFO | [node]   nonce: <Buffer 6d b5 fd d2 c7 6d d3 f4>,
+2026-03-18 14:48:28,321 | INFO | [node]   replyNonce: <Buffer 7e 61 68 4e 47 5e 4a fa>,
+2026-03-18 14:48:28,321 | INFO | [node]   sender: 'net1.node7',
+2026-03-18 14:48:28,321 | INFO | [node]   payload: {
+2026-03-18 14:48:28,321 | INFO | [node]     privilegeType: 'DelegationGrant',
+2026-03-18 14:48:28,321 | INFO | [node]     subject: 'Node8',
+2026-03-18 14:48:28,321 | INFO | [node]     object: 'ResourceA',
+2026-03-18 14:48:28,321 | INFO | [node]     validity: '1*day'
+2026-03-18 14:48:28,321 | INFO | [node]   }
+2026-03-18 14:48:28,321 | INFO | [node] }
+2026-03-18 14:48:28,322 | INFO | [node] {
+2026-03-18 14:48:28,322 | INFO | [node]   msgType: 82,
+2026-03-18 14:48:28,322 | INFO | [node]   payload: <Buffer 0a 6e 65 74 31 2e 6e 6f 64 65 37 76 20 e5 8c 1d 1e 1a 97 4f c3 19 68 73 09 c8 d5 69 23 66 05 92 5c d5 83 16 c5 fa 8d 2b f6 82 a6 13 26 00 05 18 12 b3 ... 137 more bytes>
+2026-03-18 14:48:28,322 | INFO | [node] }
+2026-03-18 14:48:28,324 | INFO | [node] received privilege response!
+2026-03-18 14:48:28,324 | INFO | [node] Finished privilege request
+2026-03-18 14:48:28,324 | INFO | [node] {
+2026-03-18 14:48:28,324 | INFO | [node]   replyNonce: <Buffer 6d b5 fd d2 c7 6d d3 f4>,
+2026-03-18 14:48:28,324 | INFO | [node]   communicationPolicy: {
+2026-03-18 14:48:28,324 | INFO | [node]     newCommunicationPolicy: {
+2026-03-18 14:48:28,324 | INFO | [node]       Target: 'ResourceA',
+2026-03-18 14:48:28,324 | INFO | [node]       AbsoluteValidity: 0,
+2026-03-18 14:48:28,324 | INFO | [node]       RelativeValidity: 0,
+2026-03-18 14:48:28,324 | INFO | [node]       TargetType: 'Group',
+2026-03-18 14:48:28,324 | INFO | [node]       Expiration: 1773956908322,
+2026-03-18 14:48:28,324 | INFO | [node]       IsDelegated: 1,
+2026-03-18 14:48:28,324 | INFO | [node]       ID: 57,
+2026-03-18 14:48:28,324 | INFO | [node]       RelativeValidityStr: '1*hour',
+2026-03-18 14:48:28,324 | INFO | [node]       MaxNumSessionKeyOwners: 2,
+2026-03-18 14:48:28,324 | INFO | [node]       AbsoluteValidityStr: '1*day',
+2026-03-18 14:48:28,324 | INFO | [node]       RequestingGroup: 'Node8'
+2026-03-18 14:48:28,324 | INFO | [node]     },
+2026-03-18 14:48:28,324 | INFO | [node]     curCommPolicyCount: '57',
+2026-03-18 14:48:28,324 | INFO | [node]     action: 'DelegationGrant'
+2026-03-18 14:48:28,324 | INFO | [node]   }
+2026-03-18 14:48:28,324 | INFO | [node] }
+2026-03-18 14:48:28,324 | INFO | [node] disconnected from auth
+2026-03-18 14:48:28,326 | INFO | 
+=== LATENCY RESULT (process start -> 8th delegation (Node7 -> Node8) response) ===
+2026-03-18 14:48:28,326 | INFO | 0.038991 seconds
+2026-03-18 14:48:28,326 | INFO | 38.99 ms
+
+
+2026-03-18 14:48:28,326 | INFO | 
+=== Start process: Node8 delegateAuthority Node9 ResourceA 1*day ===
+2026-03-18 14:48:28,355 | INFO | [node] loading from config file: configs/net1/node8.config
+2026-03-18 14:48:28,355 | INFO | [node] initializing...
+2026-03-18 14:48:28,356 | INFO | [node] current parameters: {
+2026-03-18 14:48:28,356 | INFO | [node]   numKeysPerRequest: 3,
+2026-03-18 14:48:28,356 | INFO | [node]   migrationEnabled: false,
+2026-03-18 14:48:28,356 | INFO | [node]   authFailureThreshold: 3,
+2026-03-18 14:48:28,356 | INFO | [node]   migrationFailureThreshold: 3
+2026-03-18 14:48:28,356 | INFO | [node] }
+2026-03-18 14:48:28,356 | INFO | [node] net1.node8:Node8 prompt>
+2026-03-18 14:48:28,356 | INFO | [node] delegateAuthority (Perform privilege to grant delegation authority) command
+2026-03-18 14:48:28,356 | INFO | [node] Enter the delegatee(subject) delegated(object) validity
+2026-03-18 14:48:28,356 | INFO | [node] Node9,ResourceA,1*day / subject: Node9 / object: ResourceA / validity: 1*day
+2026-03-18 14:48:28,356 | INFO | [node] In iotAuth.js privilegeRequest: 
+2026-03-18 14:48:28,357 | INFO | [node] In iotAuthService.js sendPrivilegeReqViaTCP: 
+2026-03-18 14:48:28,360 | INFO | [node] net1.node8:Node8 prompt>
+2026-03-18 14:48:28,361 | INFO | [node] connected to auth! from local port 51059
+2026-03-18 14:48:28,362 | INFO | [node] received auth hello!
+2026-03-18 14:48:28,362 | INFO | [node] auth id matches
+2026-03-18 14:48:28,362 | INFO | [node] {
+2026-03-18 14:48:28,362 | INFO | [node]   nonce: <Buffer ff 0d 94 e6 1f e2 f9 6e>,
+2026-03-18 14:48:28,362 | INFO | [node]   replyNonce: <Buffer 77 7d 23 71 46 e3 0e 48>,
+2026-03-18 14:48:28,362 | INFO | [node]   sender: 'net1.node8',
+2026-03-18 14:48:28,362 | INFO | [node]   payload: {
+2026-03-18 14:48:28,362 | INFO | [node]     privilegeType: 'DelegationGrant',
+2026-03-18 14:48:28,362 | INFO | [node]     subject: 'Node9',
+2026-03-18 14:48:28,362 | INFO | [node]     object: 'ResourceA',
+2026-03-18 14:48:28,362 | INFO | [node]     validity: '1*day'
+2026-03-18 14:48:28,362 | INFO | [node]   }
+2026-03-18 14:48:28,362 | INFO | [node] }
+2026-03-18 14:48:28,362 | INFO | [node] {
+2026-03-18 14:48:28,362 | INFO | [node]   msgType: 82,
+2026-03-18 14:48:28,362 | INFO | [node]   payload: <Buffer 0a 6e 65 74 31 2e 6e 6f 64 65 38 38 26 bf f9 6e da 52 30 57 3b 33 5a 6b 42 94 e2 7e 65 9e 9b d8 17 6b 56 25 fe 83 9c 2b 81 ac 36 11 60 2f 22 73 16 12 ... 137 more bytes>
+2026-03-18 14:48:28,362 | INFO | [node] }
+2026-03-18 14:48:28,364 | INFO | [node] received privilege response!
+2026-03-18 14:48:28,364 | INFO | [node] Finished privilege request
+2026-03-18 14:48:28,364 | INFO | [node] {
+2026-03-18 14:48:28,364 | INFO | [node]   replyNonce: <Buffer ff 0d 94 e6 1f e2 f9 6e>,
+2026-03-18 14:48:28,364 | INFO | [node]   communicationPolicy: {
+2026-03-18 14:48:28,364 | INFO | [node]     newCommunicationPolicy: {
+2026-03-18 14:48:28,365 | INFO | [node]       Target: 'ResourceA',
+2026-03-18 14:48:28,365 | INFO | [node]       AbsoluteValidity: 0,
+2026-03-18 14:48:28,365 | INFO | [node]       RelativeValidity: 0,
+2026-03-18 14:48:28,365 | INFO | [node]       TargetType: 'Group',
+2026-03-18 14:48:28,365 | INFO | [node]       Expiration: 1773956908363,
+2026-03-18 14:48:28,365 | INFO | [node]       IsDelegated: 1,
+2026-03-18 14:48:28,365 | INFO | [node]       ID: 58,
+2026-03-18 14:48:28,365 | INFO | [node]       RelativeValidityStr: '1*hour',
+2026-03-18 14:48:28,365 | INFO | [node]       MaxNumSessionKeyOwners: 2,
+2026-03-18 14:48:28,365 | INFO | [node]       AbsoluteValidityStr: '1*day',
+2026-03-18 14:48:28,365 | INFO | [node]       RequestingGroup: 'Node9'
+2026-03-18 14:48:28,365 | INFO | [node]     },
+2026-03-18 14:48:28,365 | INFO | [node]     curCommPolicyCount: '58',
+2026-03-18 14:48:28,365 | INFO | [node]     action: 'DelegationGrant'
+2026-03-18 14:48:28,365 | INFO | [node]   }
+2026-03-18 14:48:28,365 | INFO | [node] }
+2026-03-18 14:48:28,365 | INFO | [node] disconnected from auth
+2026-03-18 14:48:28,366 | INFO | 
+=== LATENCY RESULT (process start -> 9th delegation (Node8 -> Node9) response) ===
+2026-03-18 14:48:28,366 | INFO | 0.038867 seconds
+2026-03-18 14:48:28,366 | INFO | 38.87 ms
+
+
+2026-03-18 14:48:28,366 | INFO | 
+=== Start process: Node9 delegateAuthority Node10 ResourceA 1*day ===
+2026-03-18 14:48:28,395 | INFO | [node] loading from config file: configs/net1/node9.config
+2026-03-18 14:48:28,395 | INFO | [node] initializing...
+2026-03-18 14:48:28,395 | INFO | [node] current parameters: {
+2026-03-18 14:48:28,396 | INFO | [node]   numKeysPerRequest: 3,
+2026-03-18 14:48:28,396 | INFO | [node]   migrationEnabled: false,
+2026-03-18 14:48:28,396 | INFO | [node]   authFailureThreshold: 3,
+2026-03-18 14:48:28,396 | INFO | [node]   migrationFailureThreshold: 3
+2026-03-18 14:48:28,396 | INFO | [node] }
+2026-03-18 14:48:28,396 | INFO | [node] net1.node9:Node9 prompt>
+2026-03-18 14:48:28,396 | INFO | [node] delegateAuthority (Perform privilege to grant delegation authority) command
+2026-03-18 14:48:28,396 | INFO | [node] Enter the delegatee(subject) delegated(object) validity
+2026-03-18 14:48:28,396 | INFO | [node] Node10,ResourceA,1*day / subject: Node10 / object: ResourceA / validity: 1*day
+2026-03-18 14:48:28,396 | INFO | [node] In iotAuth.js privilegeRequest: 
+2026-03-18 14:48:28,396 | INFO | [node] In iotAuthService.js sendPrivilegeReqViaTCP: 
+2026-03-18 14:48:28,400 | INFO | [node] net1.node9:Node9 prompt>
+2026-03-18 14:48:28,401 | INFO | [node] connected to auth! from local port 51060
+2026-03-18 14:48:28,402 | INFO | [node] received auth hello!
+2026-03-18 14:48:28,402 | INFO | [node] auth id matches
+2026-03-18 14:48:28,402 | INFO | [node] {
+2026-03-18 14:48:28,402 | INFO | [node]   nonce: <Buffer 82 3d 52 6b 2b 1c ca a5>,
+2026-03-18 14:48:28,402 | INFO | [node]   replyNonce: <Buffer 6d 1e 71 e8 3d 81 8e da>,
+2026-03-18 14:48:28,402 | INFO | [node]   sender: 'net1.node9',
+2026-03-18 14:48:28,402 | INFO | [node]   payload: {
+2026-03-18 14:48:28,402 | INFO | [node]     privilegeType: 'DelegationGrant',
+2026-03-18 14:48:28,402 | INFO | [node]     subject: 'Node10',
+2026-03-18 14:48:28,402 | INFO | [node]     object: 'ResourceA',
+2026-03-18 14:48:28,402 | INFO | [node]     validity: '1*day'
+2026-03-18 14:48:28,402 | INFO | [node]   }
+2026-03-18 14:48:28,402 | INFO | [node] }
+2026-03-18 14:48:28,402 | INFO | [node] {
+2026-03-18 14:48:28,402 | INFO | [node]   msgType: 82,
+2026-03-18 14:48:28,402 | INFO | [node]   payload: <Buffer 0a 6e 65 74 31 2e 6e 6f 64 65 39 ab e2 0c df a6 0e 15 0e 2f 0b a5 fc 7c ec 0a 75 9d 94 ac 60 f5 86 70 07 14 59 85 eb 6a fa 86 d0 53 27 30 06 be 23 26 ... 137 more bytes>
+2026-03-18 14:48:28,402 | INFO | [node] }
+2026-03-18 14:48:28,404 | INFO | [node] received privilege response!
+2026-03-18 14:48:28,404 | INFO | [node] Finished privilege request
+2026-03-18 14:48:28,404 | INFO | [node] {
+2026-03-18 14:48:28,404 | INFO | [node]   replyNonce: <Buffer 82 3d 52 6b 2b 1c ca a5>,
+2026-03-18 14:48:28,404 | INFO | [node]   communicationPolicy: {
+2026-03-18 14:48:28,404 | INFO | [node]     newCommunicationPolicy: {
+2026-03-18 14:48:28,404 | INFO | [node]       Target: 'ResourceA',
+2026-03-18 14:48:28,404 | INFO | [node]       AbsoluteValidity: 0,
+2026-03-18 14:48:28,405 | INFO | [node]       RelativeValidity: 0,
+2026-03-18 14:48:28,405 | INFO | [node]       TargetType: 'Group',
+2026-03-18 14:48:28,405 | INFO | [node]       Expiration: 1773956908403,
+2026-03-18 14:48:28,405 | INFO | [node]       IsDelegated: 1,
+2026-03-18 14:48:28,405 | INFO | [node]       ID: 59,
+2026-03-18 14:48:28,405 | INFO | [node]       RelativeValidityStr: '1*hour',
+2026-03-18 14:48:28,405 | INFO | [node]       MaxNumSessionKeyOwners: 2,
+2026-03-18 14:48:28,405 | INFO | [node]       AbsoluteValidityStr: '1*day',
+2026-03-18 14:48:28,405 | INFO | [node]       RequestingGroup: 'Node10'
+2026-03-18 14:48:28,405 | INFO | [node]     },
+2026-03-18 14:48:28,405 | INFO | [node]     curCommPolicyCount: '59',
+2026-03-18 14:48:28,405 | INFO | [node]     action: 'DelegationGrant'
+2026-03-18 14:48:28,405 | INFO | [node]   }
+2026-03-18 14:48:28,405 | INFO | [node] }
+2026-03-18 14:48:28,405 | INFO | [node] disconnected from auth
+2026-03-18 14:48:28,406 | INFO | 
+=== LATENCY RESULT (process start -> 10th delegation (Node9 -> Node10) response) ===
+2026-03-18 14:48:28,406 | INFO | 0.038549 seconds
+2026-03-18 14:48:28,406 | INFO | 38.55 ms
+
+
+2026-03-18 14:48:28,406 | INFO | 
+=== Start process: Node10 access ResourceA ===
+2026-03-18 14:48:28,436 | INFO | [node] loading from config file: configs/net1/node10.config
+2026-03-18 14:48:28,436 | INFO | [node] initializing...
+2026-03-18 14:48:28,436 | INFO | [node] current parameters: {
+2026-03-18 14:48:28,436 | INFO | [node]   numKeysPerRequest: 3,
+2026-03-18 14:48:28,436 | INFO | [node]   migrationEnabled: false,
+2026-03-18 14:48:28,436 | INFO | [node]   authFailureThreshold: 3,
+2026-03-18 14:48:28,436 | INFO | [node]   migrationFailureThreshold: 3
+2026-03-18 14:48:28,436 | INFO | [node] }
+2026-03-18 14:48:28,437 | INFO | [node] net1.node10:Node10 prompt>
+2026-03-18 14:48:28,437 | INFO | [node] initComm command targeted to net1.resourceA
+2026-03-18 14:48:28,437 | INFO | [node] Distribution protocol: TCP
+2026-03-18 14:48:28,441 | INFO | [node] net1.node10:Node10 prompt>
+2026-03-18 14:48:28,442 | INFO | [node] connected to auth! from local port 51061
+2026-03-18 14:48:28,443 | INFO | [node] received auth hello!
+2026-03-18 14:48:28,443 | INFO | [node] { authId: 101, nonce: <Buffer ad cc 01 b9 8c da ec b5> }
+2026-03-18 14:48:28,443 | INFO | [node] auth id matches
+2026-03-18 14:48:28,445 | INFO | [node] received session key response encrypted with distribution key
+2026-03-18 14:48:28,446 | INFO | [node] replyNonce in sessionKeyResp: <Buffer 31 36 0d 70 c9 07 ad 57>
+2026-03-18 14:48:28,446 | INFO | [node] auth nonce verified
+2026-03-18 14:48:28,446 | INFO | [node] received 3 keys
+2026-03-18 14:48:28,446 | INFO | [node] currentSessionKey: {
+2026-03-18 14:48:28,446 | INFO | [node]   id: 10100006,
+2026-03-18 14:48:28,446 | INFO | [node]   cipherKeyVal: <Buffer 0c 9c a7 de f6 8d 85 0a 76 5d 12 27 08 de ab 50>,
+2026-03-18 14:48:28,446 | INFO | [node]   macKeyVal: <Buffer bb ac 7b f1 9a e7 18 b2 09 2b 61 6d d9 86 e0 29 bb d8 9d 28 8c 90 1d d0 38 0f fd 9a b4 bc b5 0e>,
+2026-03-18 14:48:28,446 | INFO | [node]   absValidity: 2026-03-19T21:48:28.444Z,
+2026-03-18 14:48:28,446 | INFO | [node]   relValidity: 3600000
+2026-03-18 14:48:28,446 | INFO | [node] }
+2026-03-18 14:48:28,446 | INFO | [node] Session protocol: TCP
+2026-03-18 14:48:28,446 | INFO | [node] chosen commSessionKey: 
+2026-03-18 14:48:28,446 | INFO | [node] {
+2026-03-18 14:48:28,446 | INFO | [node]   id: 10100006,
+2026-03-18 14:48:28,446 | INFO | [node]   cipherKeyVal: <Buffer 0c 9c a7 de f6 8d 85 0a 76 5d 12 27 08 de ab 50>,
+2026-03-18 14:48:28,446 | INFO | [node]   macKeyVal: <Buffer bb ac 7b f1 9a e7 18 b2 09 2b 61 6d d9 86 e0 29 bb d8 9d 28 8c 90 1d d0 38 0f fd 9a b4 bc b5 0e>,
+2026-03-18 14:48:28,446 | INFO | [node]   absValidity: 2026-03-19T21:48:28.444Z,
+2026-03-18 14:48:28,446 | INFO | [node]   relValidity: 3600000
+2026-03-18 14:48:28,446 | INFO | [node] }
+2026-03-18 14:48:28,446 | INFO | [node] options
+2026-03-18 14:48:28,446 | INFO | [node] {
+2026-03-18 14:48:28,446 | INFO | [node]   serverHost: 'localhost',
+2026-03-18 14:48:28,446 | INFO | [node]   serverPort: 21100,
+2026-03-18 14:48:28,446 | INFO | [node]   sessionKey: {
+2026-03-18 14:48:28,446 | INFO | [node]     id: 10100006,
+2026-03-18 14:48:28,446 | INFO | [node]     cipherKeyVal: <Buffer 0c 9c a7 de f6 8d 85 0a 76 5d 12 27 08 de ab 50>,
+2026-03-18 14:48:28,446 | INFO | [node]     macKeyVal: <Buffer bb ac 7b f1 9a e7 18 b2 09 2b 61 6d d9 86 e0 29 bb d8 9d 28 8c 90 1d d0 38 0f fd 9a b4 bc b5 0e>,
+2026-03-18 14:48:28,446 | INFO | [node]     absValidity: 2026-03-19T21:48:28.444Z,
+2026-03-18 14:48:28,446 | INFO | [node]     relValidity: 3600000
+2026-03-18 14:48:28,446 | INFO | [node]   },
+2026-03-18 14:48:28,446 | INFO | [node]   sessionCryptoSpec: { cipher: 'AES-128-CBC', mac: 'SHA256' },
+2026-03-18 14:48:28,446 | INFO | [node]   sessionProtocol: 'TCP',
+2026-03-18 14:48:28,446 | INFO | [node]   handshakeTimeout: 5000
+2026-03-18 14:48:28,446 | INFO | [node] }
+2026-03-18 14:48:28,447 | INFO | [node] disconnected from auth
+2026-03-18 14:48:28,447 | INFO | [node] chosen nonce: <Buffer a1 aa 6c 06 9f f4 0e 7c>
+2026-03-18 14:48:28,447 | INFO | [node] switching to HANDSHAKE_1_SENT
+2026-03-18 14:48:28,449 | INFO | [node] received session key handshake2!
+2026-03-18 14:48:28,449 | INFO | [node] client ret: {
+2026-03-18 14:48:28,449 | INFO | [node]   nonce: <Buffer 78 14 fe 9d cb a9 04 b6>,
+2026-03-18 14:48:28,449 | INFO | [node]   replyNonce: <Buffer a1 aa 6c 06 9f f4 0e 7c>
+2026-03-18 14:48:28,449 | INFO | [node] }
+2026-03-18 14:48:28,449 | INFO | [node] server authenticated/authorized by solving nonce!
+2026-03-18 14:48:28,449 | INFO | [node] Handler: communication initialization succeeded
+2026-03-18 14:48:28,449 | INFO | [node] switching to IN_COMM
+2026-03-18 14:48:28,450 | INFO | 
+=== LATENCY RESULT (process start -> access (Node10 -> ResourceA) response) ===
+2026-03-18 14:48:28,450 | INFO | 0.042915 seconds
+2026-03-18 14:48:28,450 | INFO | 42.91 ms
+
+
+2026-03-18 14:48:28,450 | INFO | 
+=== Start process: User(Alex) revoke Node1 ResourceA ===
+2026-03-18 14:48:28,480 | INFO | [node] loading from config file: configs/net1/Alex.config
+2026-03-18 14:48:28,480 | INFO | [node] initializing...
+2026-03-18 14:48:28,480 | INFO | [node] current parameters: {
+2026-03-18 14:48:28,480 | INFO | [node]   numKeysPerRequest: 3,
+2026-03-18 14:48:28,480 | INFO | [node]   migrationEnabled: false,
+2026-03-18 14:48:28,480 | INFO | [node]   authFailureThreshold: 3,
+2026-03-18 14:48:28,480 | INFO | [node]   migrationFailureThreshold: 3
+2026-03-18 14:48:28,480 | INFO | [node] }
+2026-03-18 14:48:28,481 | INFO | [node] net1.Alex:Users prompt>
+2026-03-18 14:48:28,481 | INFO | [node] revoke (Perform privilege to revoke delegation authority) command
+2026-03-18 14:48:28,481 | INFO | [node] Enter the delegatee(subject) delegated(object)
+2026-03-18 14:48:28,481 | INFO | [node] Full String: Node1,ResourceA / subject: Node1 / object: ResourceA
+2026-03-18 14:48:28,481 | INFO | [node] In iotAuth.js privilegeRequest: 
+2026-03-18 14:48:28,481 | INFO | [node] In iotAuthService.js sendPrivilegeReqViaTCP: 
+2026-03-18 14:48:28,485 | INFO | [node] net1.Alex:Users prompt>
+2026-03-18 14:48:28,486 | INFO | [node] connected to auth! from local port 51064
+2026-03-18 14:48:28,486 | INFO | [node] received auth hello!
+2026-03-18 14:48:28,487 | INFO | [node] auth id matches
+2026-03-18 14:48:28,487 | INFO | [node] {
+2026-03-18 14:48:28,487 | INFO | [node]   nonce: <Buffer 25 90 aa 17 d8 64 6e 38>,
+2026-03-18 14:48:28,487 | INFO | [node]   replyNonce: <Buffer 86 e4 bd 85 92 27 e4 9e>,
+2026-03-18 14:48:28,487 | INFO | [node]   sender: 'net1.Alex',
+2026-03-18 14:48:28,487 | INFO | [node]   payload: {
+2026-03-18 14:48:28,487 | INFO | [node]     privilegeType: 'DelegationRevoke',
+2026-03-18 14:48:28,487 | INFO | [node]     subject: 'Node1',
+2026-03-18 14:48:28,487 | INFO | [node]     object: 'ResourceA',
+2026-03-18 14:48:28,487 | INFO | [node]     validity: null
+2026-03-18 14:48:28,487 | INFO | [node]   }
+2026-03-18 14:48:28,487 | INFO | [node] }
+2026-03-18 14:48:28,487 | INFO | [node] {
+2026-03-18 14:48:28,487 | INFO | [node]   msgType: 82,
+2026-03-18 14:48:28,487 | INFO | [node]   payload: <Buffer 09 6e 65 74 31 2e 41 6c 65 78 fe ec 33 c5 2e bd c9 f8 41 1b 00 74 51 bc 4d 78 09 82 52 d9 6b 91 bb ab d6 f3 17 8f f8 9d 46 66 48 b6 af dc 85 7a cf 61 ... 136 more bytes>
+2026-03-18 14:48:28,487 | INFO | [node] }
+2026-03-18 14:48:28,489 | INFO | [node] received privilege response!
+2026-03-18 14:48:28,489 | INFO | [node] Finished privilege request
+2026-03-18 14:48:28,489 | INFO | [node] {
+2026-03-18 14:48:28,489 | INFO | [node]   replyNonce: <Buffer 25 90 aa 17 d8 64 6e 38>,
+2026-03-18 14:48:28,489 | INFO | [node]   communicationPolicy: {
+2026-03-18 14:48:28,489 | INFO | [node]     action: 'DelegationRevoke',
+2026-03-18 14:48:28,489 | INFO | [node]     revokedTarget: 'ID 50\tRequestingGroup: Node1\tTargetType: TARGET_GROUP\tTarget: ResourceA\tCipher: AES/CBC/PKCS5Padding\tCipherKeySize: 16\tMAC Algorithm: HmacSHA256\tAbsoluteValidity: 86400000\tRelativeValidity: 3600000\tExpiration: 1773956908039',
+2026-03-18 14:48:28,489 | INFO | [node]     revokedCascadedPolicyIDs: [
+2026-03-18 14:48:28,489 | INFO | [node]       '51', '52', '53',
+2026-03-18 14:48:28,489 | INFO | [node]       '54', '55', '56',
+2026-03-18 14:48:28,489 | INFO | [node]       '57', '58', '59'
+2026-03-18 14:48:28,489 | INFO | [node]     ]
+2026-03-18 14:48:28,489 | INFO | [node]   }
+2026-03-18 14:48:28,489 | INFO | [node] }
+2026-03-18 14:48:28,489 | INFO | [node] disconnected from auth
+2026-03-18 14:48:28,491 | INFO | 
+=== LATENCY RESULT (process start -> revocation (Users -> Node1) response) ===
+2026-03-18 14:48:28,491 | INFO | 0.038780 seconds
+2026-03-18 14:48:28,491 | INFO | 38.78 ms
+
+
+2026-03-18 14:48:28,491 | INFO | 
+=== TOTAL END-TO-END LATENCY RESULT (wall-clock time) ===
+2026-03-18 14:48:28,491 | INFO | From first delegation start to final revocation response
+2026-03-18 14:48:28,491 | INFO | 0.494498 seconds
+2026-03-18 14:48:28,491 | INFO | 494.50 ms
+
+2026-03-18 14:48:28,491 | INFO | Total sum of all stagse: delegation1, delegation2, delegation3, delegation4, delegation5, access
+2026-03-18 14:48:28,491 | INFO | 0.360674 seconds
+2026-03-18 14:48:28,491 | INFO | 360.67 ms
+

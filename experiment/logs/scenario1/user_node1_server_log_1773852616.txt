@@ -1,0 +1,168 @@
+2026-03-18 09:50:16,560 | INFO | 
+=== Start process: User(Alex) delegateAuthority MyAgents ResourceA 1*day ===
+2026-03-18 09:50:16,595 | INFO | [node] loading from config file: configs/net1/Alex.config
+2026-03-18 09:50:16,595 | INFO | [node] initializing...
+2026-03-18 09:50:16,595 | INFO | [node] current parameters: {
+2026-03-18 09:50:16,595 | INFO | [node]   numKeysPerRequest: 3,
+2026-03-18 09:50:16,595 | INFO | [node]   migrationEnabled: false,
+2026-03-18 09:50:16,595 | INFO | [node]   authFailureThreshold: 3,
+2026-03-18 09:50:16,595 | INFO | [node]   migrationFailureThreshold: 3
+2026-03-18 09:50:16,595 | INFO | [node] }
+2026-03-18 09:50:16,596 | INFO | [node] net1.Alex:Users prompt>
+2026-03-18 09:50:16,596 | INFO | [node] delegateAuthority (Perform privilege to grant delegation authority) command
+2026-03-18 09:50:16,596 | INFO | [node] Enter the delegatee(subject) delegated(object) validity
+2026-03-18 09:50:16,596 | INFO | [node] Node1,ResourceA,1*day / subject: Node1 / object: ResourceA / validity: 1*day
+2026-03-18 09:50:16,596 | INFO | [node] In iotAuth.js privilegeRequest: 
+2026-03-18 09:50:16,596 | INFO | [node] In iotAuthService.js sendPrivilegeReqViaTCP: 
+2026-03-18 09:50:16,600 | INFO | [node] net1.Alex:Users prompt>
+2026-03-18 09:50:16,601 | INFO | [node] connected to auth! from local port 49819
+2026-03-18 09:50:16,601 | INFO | [node] received auth hello!
+2026-03-18 09:50:16,601 | INFO | [node] auth id matches
+2026-03-18 09:50:16,602 | INFO | [node] {
+2026-03-18 09:50:16,602 | INFO | [node]   nonce: <Buffer f5 07 e8 12 33 c9 e3 1e>,
+2026-03-18 09:50:16,602 | INFO | [node]   replyNonce: <Buffer b7 a7 77 ec d5 93 bc a0>,
+2026-03-18 09:50:16,602 | INFO | [node]   sender: 'net1.Alex',
+2026-03-18 09:50:16,602 | INFO | [node]   payload: {
+2026-03-18 09:50:16,602 | INFO | [node]     privilegeType: 'DelegationGrant',
+2026-03-18 09:50:16,602 | INFO | [node]     subject: 'Node1',
+2026-03-18 09:50:16,602 | INFO | [node]     object: 'ResourceA',
+2026-03-18 09:50:16,602 | INFO | [node]     validity: '1*day'
+2026-03-18 09:50:16,602 | INFO | [node]   }
+2026-03-18 09:50:16,602 | INFO | [node] }
+2026-03-18 09:50:16,602 | INFO | [node] {
+2026-03-18 09:50:16,602 | INFO | [node]   msgType: 82,
+2026-03-18 09:50:16,602 | INFO | [node]   payload: <Buffer 09 6e 65 74 31 2e 41 6c 65 78 f2 d4 50 0f 8b 9c a8 58 27 dc 02 ff b1 9d 25 b9 70 a6 08 cc ec da 7e 11 f5 68 98 ac e6 2f e5 d8 c9 f5 aa de 38 bc 88 b6 ... 136 more bytes>
+2026-03-18 09:50:16,602 | INFO | [node] }
+2026-03-18 09:50:16,605 | INFO | [node] received an Auth alert!
+2026-03-18 09:50:16,606 | INFO | [node] Handler: Error in secure comm - details: received an Auth alert! code: 1
+2026-03-18 09:50:16,606 | INFO | [node] disconnected from auth
+2026-03-18 09:50:16,607 | INFO | 
+=== LATENCY RESULT (process start -> delegation (Users -> Node1) response) ===
+2026-03-18 09:50:16,607 | INFO | 0.045292 seconds
+2026-03-18 09:50:16,607 | INFO | 45.29 ms
+
+
+2026-03-18 09:50:16,607 | INFO | 
+=== Start process: User(Alex) delegateAuthority MyAgents ResourceA 1*day ===
+2026-03-18 09:50:16,636 | INFO | [node] loading from config file: configs/net1/node1.config
+2026-03-18 09:50:16,636 | INFO | [node] initializing...
+2026-03-18 09:50:16,636 | INFO | [node] current parameters: {
+2026-03-18 09:50:16,637 | INFO | [node]   numKeysPerRequest: 3,
+2026-03-18 09:50:16,637 | INFO | [node]   migrationEnabled: false,
+2026-03-18 09:50:16,637 | INFO | [node]   authFailureThreshold: 3,
+2026-03-18 09:50:16,637 | INFO | [node]   migrationFailureThreshold: 3
+2026-03-18 09:50:16,637 | INFO | [node] }
+2026-03-18 09:50:16,637 | INFO | [node] net1.node1:Node1 prompt>
+2026-03-18 09:50:16,637 | INFO | [node] initComm command targeted to net1.resourceA
+2026-03-18 09:50:16,638 | INFO | [node] Distribution protocol: TCP
+2026-03-18 09:50:16,641 | INFO | [node] net1.node1:Node1 prompt>
+2026-03-18 09:50:16,642 | INFO | [node] connected to auth! from local port 49820
+2026-03-18 09:50:16,643 | INFO | [node] received auth hello!
+2026-03-18 09:50:16,643 | INFO | [node] { authId: 101, nonce: <Buffer 46 08 e1 15 dc eb 03 72> }
+2026-03-18 09:50:16,643 | INFO | [node] auth id matches
+2026-03-18 09:50:16,646 | INFO | [node] received session key response encrypted with distribution key
+2026-03-18 09:50:16,646 | INFO | [node] replyNonce in sessionKeyResp: <Buffer d0 e4 ff 1c 10 8c e3 c6>
+2026-03-18 09:50:16,646 | INFO | [node] auth nonce verified
+2026-03-18 09:50:16,646 | INFO | [node] received 3 keys
+2026-03-18 09:50:16,646 | INFO | [node] currentSessionKey: {
+2026-03-18 09:50:16,646 | INFO | [node]   id: 10100036,
+2026-03-18 09:50:16,646 | INFO | [node]   cipherKeyVal: <Buffer 12 5d 21 93 b7 25 1f cd c1 fc 5b 8b d5 d2 89 4e>,
+2026-03-18 09:50:16,646 | INFO | [node]   macKeyVal: <Buffer 2f a4 bc 26 75 83 d6 1d 97 47 29 f2 7e f2 b5 9e a3 f6 9f 0d ce 8b 1b 0f e3 c6 25 3f 5f 61 3d b9>,
+2026-03-18 09:50:16,646 | INFO | [node]   absValidity: 2026-03-19T16:50:16.644Z,
+2026-03-18 09:50:16,646 | INFO | [node]   relValidity: 3600000
+2026-03-18 09:50:16,646 | INFO | [node] }
+2026-03-18 09:50:16,647 | INFO | [node] Session protocol: TCP
+2026-03-18 09:50:16,647 | INFO | [node] chosen commSessionKey: 
+2026-03-18 09:50:16,647 | INFO | [node] {
+2026-03-18 09:50:16,647 | INFO | [node]   id: 10100036,
+2026-03-18 09:50:16,647 | INFO | [node]   cipherKeyVal: <Buffer 12 5d 21 93 b7 25 1f cd c1 fc 5b 8b d5 d2 89 4e>,
+2026-03-18 09:50:16,647 | INFO | [node]   macKeyVal: <Buffer 2f a4 bc 26 75 83 d6 1d 97 47 29 f2 7e f2 b5 9e a3 f6 9f 0d ce 8b 1b 0f e3 c6 25 3f 5f 61 3d b9>,
+2026-03-18 09:50:16,647 | INFO | [node]   absValidity: 2026-03-19T16:50:16.644Z,
+2026-03-18 09:50:16,647 | INFO | [node]   relValidity: 3600000
+2026-03-18 09:50:16,647 | INFO | [node] }
+2026-03-18 09:50:16,647 | INFO | [node] options
+2026-03-18 09:50:16,647 | INFO | [node] {
+2026-03-18 09:50:16,647 | INFO | [node]   serverHost: 'localhost',
+2026-03-18 09:50:16,647 | INFO | [node]   serverPort: 21100,
+2026-03-18 09:50:16,647 | INFO | [node]   sessionKey: {
+2026-03-18 09:50:16,647 | INFO | [node]     id: 10100036,
+2026-03-18 09:50:16,647 | INFO | [node]     cipherKeyVal: <Buffer 12 5d 21 93 b7 25 1f cd c1 fc 5b 8b d5 d2 89 4e>,
+2026-03-18 09:50:16,647 | INFO | [node]     macKeyVal: <Buffer 2f a4 bc 26 75 83 d6 1d 97 47 29 f2 7e f2 b5 9e a3 f6 9f 0d ce 8b 1b 0f e3 c6 25 3f 5f 61 3d b9>,
+2026-03-18 09:50:16,647 | INFO | [node]     absValidity: 2026-03-19T16:50:16.644Z,
+2026-03-18 09:50:16,647 | INFO | [node]     relValidity: 3600000
+2026-03-18 09:50:16,647 | INFO | [node]   },
+2026-03-18 09:50:16,647 | INFO | [node]   sessionCryptoSpec: { cipher: 'AES-128-CBC', mac: 'SHA256' },
+2026-03-18 09:50:16,647 | INFO | [node]   sessionProtocol: 'TCP',
+2026-03-18 09:50:16,647 | INFO | [node]   handshakeTimeout: 5000
+2026-03-18 09:50:16,647 | INFO | [node] }
+2026-03-18 09:50:16,647 | INFO | [node] disconnected from auth
+2026-03-18 09:50:16,647 | INFO | [node] chosen nonce: <Buffer 85 91 a2 d2 53 ca 8c 7e>
+2026-03-18 09:50:16,647 | INFO | [node] switching to HANDSHAKE_1_SENT
+2026-03-18 09:50:16,650 | INFO | [node] received session key handshake2!
+2026-03-18 09:50:16,650 | INFO | [node] client ret: {
+2026-03-18 09:50:16,650 | INFO | [node]   nonce: <Buffer 8f f3 33 c6 5c 13 91 20>,
+2026-03-18 09:50:16,650 | INFO | [node]   replyNonce: <Buffer 85 91 a2 d2 53 ca 8c 7e>
+2026-03-18 09:50:16,650 | INFO | [node] }
+2026-03-18 09:50:16,650 | INFO | [node] server authenticated/authorized by solving nonce!
+2026-03-18 09:50:16,650 | INFO | [node] Handler: communication initialization succeeded
+2026-03-18 09:50:16,650 | INFO | [node] switching to IN_COMM
+2026-03-18 09:50:16,651 | INFO | 
+=== LATENCY RESULT (process start -> access (Node1 -> ResourceA) response) ===
+2026-03-18 09:50:16,651 | INFO | 0.042716 seconds
+2026-03-18 09:50:16,651 | INFO | 42.72 ms
+
+
+2026-03-18 09:50:16,651 | INFO | 
+=== Start process: User(Alex) revoke MyAgents ResourceA ===
+2026-03-18 09:50:16,681 | INFO | [node] loading from config file: configs/net1/Alex.config
+2026-03-18 09:50:16,681 | INFO | [node] initializing...
+2026-03-18 09:50:16,681 | INFO | [node] current parameters: {
+2026-03-18 09:50:16,681 | INFO | [node]   numKeysPerRequest: 3,
+2026-03-18 09:50:16,682 | INFO | [node]   migrationEnabled: false,
+2026-03-18 09:50:16,682 | INFO | [node]   authFailureThreshold: 3,
+2026-03-18 09:50:16,682 | INFO | [node]   migrationFailureThreshold: 3
+2026-03-18 09:50:16,682 | INFO | [node] }
+2026-03-18 09:50:16,682 | INFO | [node] net1.Alex:Users prompt>
+2026-03-18 09:50:16,682 | INFO | [node] revoke (Perform privilege to revoke delegation authority) command
+2026-03-18 09:50:16,682 | INFO | [node] Enter the delegatee(subject) delegated(object)
+2026-03-18 09:50:16,682 | INFO | [node] Full String: MyAgents,ResourceA / subject: MyAgents / object: ResourceA
+2026-03-18 09:50:16,682 | INFO | [node] In iotAuth.js privilegeRequest: 
+2026-03-18 09:50:16,682 | INFO | [node] In iotAuthService.js sendPrivilegeReqViaTCP: 
+2026-03-18 09:50:16,686 | INFO | [node] net1.Alex:Users prompt>
+2026-03-18 09:50:16,688 | INFO | [node] connected to auth! from local port 49823
+2026-03-18 09:50:16,688 | INFO | [node] received auth hello!
+2026-03-18 09:50:16,688 | INFO | [node] auth id matches
+2026-03-18 09:50:16,689 | INFO | [node] {
+2026-03-18 09:50:16,689 | INFO | [node]   nonce: <Buffer 9b 42 2e 47 d3 ac f3 86>,
+2026-03-18 09:50:16,689 | INFO | [node]   replyNonce: <Buffer f3 a4 24 f2 42 53 76 f3>,
+2026-03-18 09:50:16,689 | INFO | [node]   sender: 'net1.Alex',
+2026-03-18 09:50:16,689 | INFO | [node]   payload: {
+2026-03-18 09:50:16,689 | INFO | [node]     privilegeType: 'DelegationRevoke',
+2026-03-18 09:50:16,689 | INFO | [node]     subject: 'MyAgents',
+2026-03-18 09:50:16,689 | INFO | [node]     object: 'ResourceA',
+2026-03-18 09:50:16,689 | INFO | [node]     validity: null
+2026-03-18 09:50:16,689 | INFO | [node]   }
+2026-03-18 09:50:16,689 | INFO | [node] }
+2026-03-18 09:50:16,689 | INFO | [node] {
+2026-03-18 09:50:16,689 | INFO | [node]   msgType: 82,
+2026-03-18 09:50:16,689 | INFO | [node]   payload: <Buffer 09 6e 65 74 31 2e 41 6c 65 78 ba 48 75 1c 23 0e 99 c9 05 cb be 95 6a 76 7c e0 c7 f7 7d e4 7b c1 76 7d 98 55 d6 b3 e5 d1 25 a1 52 3f 3b b2 07 a5 01 a5 ... 136 more bytes>
+2026-03-18 09:50:16,689 | INFO | [node] }
+2026-03-18 09:50:16,690 | INFO | [node] received an Auth alert!
+2026-03-18 09:50:16,690 | INFO | [node] Handler: Error in secure comm - details: received an Auth alert! code: 1
+2026-03-18 09:50:16,690 | INFO | [node] disconnected from auth
+2026-03-18 09:50:16,691 | INFO | 
+=== LATENCY RESULT (process start -> revocation (Users -> MyAgents) response) ===
+2026-03-18 09:50:16,691 | INFO | 0.038725 seconds
+2026-03-18 09:50:16,691 | INFO | 38.72 ms
+
+
+2026-03-18 09:50:16,691 | INFO | 
+=== TOTAL END-TO-END LATENCY RESULT (wall-clock time) ===
+2026-03-18 09:50:16,691 | INFO | From first delegation start to final revocation response
+2026-03-18 09:50:16,691 | INFO | 0.131164 seconds
+2026-03-18 09:50:16,691 | INFO | 131.16 ms
+
+2026-03-18 09:50:16,692 | INFO | Total sum of all stagse: delegation1, delegation2, delegation3, delegation4, revocation
+2026-03-18 09:50:16,692 | INFO | 0.126733 seconds
+2026-03-18 09:50:16,692 | INFO | 126.73 ms
+

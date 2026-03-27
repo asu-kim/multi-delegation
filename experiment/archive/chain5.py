@@ -17,8 +17,11 @@ READY_PATTERNS = [
 RESPONSE_PATTERNS = [
     re.compile(r"\bdisconnected from auth\b", re.IGNORECASE),
 ]
+ACCESS_RESPONSE_PATTERNS = [
+    re.compile(r"\bswitching to IN_COMM\b", re.IGNORECASE),
+]
 
-LOG_FILE = f"end_to_end_log_{int(time.time())}.txt"
+LOG_FILE = f"chain5_log_{int(time.time())}.txt"
 
 
 def setup_logging(log_file: str):
@@ -36,7 +39,7 @@ def matches_any(line: str, patterns) -> bool:
     return any(p.search(line) for p in patterns)
 
 
-def run_and_measure(workdir, node_cmd, send_command, timeout_sec):
+def run_and_measure(workdir, node_cmd, send_command, timeout_sec, pattern):
     t0 = time.perf_counter()
     workflow_id = "wf-" + uuid.uuid4().hex[:12]
 
@@ -69,7 +72,7 @@ def run_and_measure(workdir, node_cmd, send_command, timeout_sec):
                     proc.stdin.flush()
                     sent = True
 
-            if matches_any(line, RESPONSE_PATTERNS):
+            if matches_any(line, pattern):
                 latency = now - t0
                 return latency
 
@@ -97,68 +100,106 @@ def main():
 
     total_start = time.perf_counter()
 
-    logging.info("\n=== Start process: User(Alex) delegateAuthority MyAgents ResourceA 1*day ===")
+    logging.info("\n=== Start process: User(Alex) delegateAuthority Node1 ResourceA 1*day ===")
     node_cmd = "node user.js configs/net1/Alex.config"
-    send_command = "delegateAuthority MyAgents ResourceA 1*day"
+    send_command = "delegateAuthority Node1 ResourceA 1*day"
     delegation1_latency_sec = run_and_measure(
         workdir=workdir,
         node_cmd=node_cmd.split(),
         send_command=send_command,
         timeout_sec=args.timeout,
+        pattern=RESPONSE_PATTERNS,
     )
-    logging.info("\n=== LATENCY RESULT (process start -> first delegation (Users -> MyAgents) response) ===")
+    logging.info("\n=== LATENCY RESULT (process start -> 1st delegation (Users -> Node1) response) ===")
     logging.info(f"{delegation1_latency_sec:.6f} seconds")
     logging.info(f"{delegation1_latency_sec * 1000:.2f} ms\n\n")
+    
 
-    logging.info("\n=== Start process: MyAgents(alexAgent) delegateAuthority ExternalAgents ResourceA 1*day ===")
-    node_cmd = "node user.js configs/net1/alexAgent.config"
-    send_command = "delegateAuthority ExternalAgents ResourceA 1*day"
+    logging.info("\n=== Start process: Node1 delegateAuthority Node2 ResourceA 1*day ===")
+    node_cmd = "node user.js configs/net1/node1.config"
+    send_command = "delegateAuthority Node2 ResourceA 1*day"
     delegation2_latency_sec = run_and_measure(
         workdir=workdir,
         node_cmd=node_cmd.split(),
         send_command=send_command,
         timeout_sec=args.timeout,
+        pattern=RESPONSE_PATTERNS, 
     )
-    logging.info("\n=== LATENCY RESULT (process start -> second delegation (MyAgents -> ExternalAgents) response) ===")
+    logging.info("\n=== LATENCY RESULT (process start -> 2nd delegation (Node1 -> Node2) response) ===")
     logging.info(f"{delegation2_latency_sec:.6f} seconds")
     logging.info(f"{delegation2_latency_sec * 1000:.2f} ms\n\n")
 
-    logging.info("\n=== Start process: ExternalAgents(highTrustAgent) delegateAuthority NodeA ResourceA 1*day ===")
-    node_cmd = "node user.js configs/net1/highTrustAgent.config"
-    send_command = "delegateAuthority NodeA ResourceA 1*day"
+
+    logging.info("\n=== Start process: Node2 delegateAuthority Node3 ResourceA 1*day ===")
+    node_cmd = "node user.js configs/net1/node2.config"
+    send_command = "delegateAuthority Node3 ResourceA 1*day"
     delegation3_latency_sec = run_and_measure(
         workdir=workdir,
         node_cmd=node_cmd.split(),
         send_command=send_command,
         timeout_sec=args.timeout,
+        pattern=RESPONSE_PATTERNS, 
     )
-    logging.info("\n=== LATENCY RESULT (process start -> third delegation (ExternalAgents -> NodeA) response) ===")
+    logging.info("\n=== LATENCY RESULT (process start -> 3rd delegation (Node2 -> Node3) response) ===")
     logging.info(f"{delegation3_latency_sec:.6f} seconds")
     logging.info(f"{delegation3_latency_sec * 1000:.2f} ms\n\n")
 
-    logging.info("\n=== Start process: NodeA(nodeA) delegateAuthority NodeB ResourceA 1*day ===")
-    node_cmd = "node user.js configs/net1/nodeA.config"
-    send_command = "delegateAuthority NodeB ResourceA 1*day"
+    logging.info("\n=== Start process: Node3 delegateAuthority Node4 ResourceA 1*day ===")
+    node_cmd = "node user.js configs/net1/node3.config"
+    send_command = "delegateAuthority Node4 ResourceA 1*day"
     delegation4_latency_sec = run_and_measure(
         workdir=workdir,
         node_cmd=node_cmd.split(),
         send_command=send_command,
         timeout_sec=args.timeout,
+        pattern=RESPONSE_PATTERNS, 
     )
-    logging.info("\n=== LATENCY RESULT (process start -> forth delegation (NodeA -> NodeB) response) ===")
+    logging.info("\n=== LATENCY RESULT (process start -> 4th delegation (Node3 -> Node4) response) ===")
     logging.info(f"{delegation4_latency_sec:.6f} seconds")
     logging.info(f"{delegation4_latency_sec * 1000:.2f} ms\n\n")
 
-    logging.info("\n=== Start process: User(Alex) revoke MyAgents ResourceA ===")
+    logging.info("\n=== Start process: Node4 delegateAuthority Node5 ResourceA 1*day ===")
+    node_cmd = "node user.js configs/net1/node4.config"
+    send_command = "delegateAuthority Node5 ResourceA 1*day"
+    delegation5_latency_sec = run_and_measure(
+        workdir=workdir,
+        node_cmd=node_cmd.split(),
+        send_command=send_command,
+        timeout_sec=args.timeout,
+        pattern=RESPONSE_PATTERNS, 
+    )
+    logging.info("\n=== LATENCY RESULT (process start -> 5th delegation (Node4 -> Node5) response) ===")
+    logging.info(f"{delegation5_latency_sec:.6f} seconds")
+    logging.info(f"{delegation5_latency_sec * 1000:.2f} ms\n\n")
+
+
+    logging.info("\n=== Start process: Node5 access ResourceA ===")
+    node_cmd = "node user.js configs/net1/node5.config"
+    send_command = "initComm"
+    access_latency_sec = run_and_measure(
+        workdir=workdir,
+        node_cmd=node_cmd.split(),
+        send_command=send_command,
+        timeout_sec=args.timeout,
+        pattern=ACCESS_RESPONSE_PATTERNS,
+    )
+    logging.info("\n=== LATENCY RESULT (process start -> access (Node5 -> ResourceA) response) ===")
+    logging.info(f"{access_latency_sec:.6f} seconds")
+    logging.info(f"{access_latency_sec * 1000:.2f} ms\n\n")
+
+
+
+    logging.info("\n=== Start process: User(Alex) revoke Node1 ResourceA ===")
     node_cmd = "node user.js configs/net1/Alex.config"
-    send_command = "revoke MyAgents ResourceA"
+    send_command = "revoke Node1 ResourceA"
     revoke_latency_sec = run_and_measure(
         workdir=workdir,
         node_cmd=node_cmd.split(),
         send_command=send_command,
         timeout_sec=args.timeout,
+        pattern=RESPONSE_PATTERNS, 
     )
-    logging.info("\n=== LATENCY RESULT (process start -> revocation (Users -> MyAgents) response) ===")
+    logging.info("\n=== LATENCY RESULT (process start -> revocation (Users -> Node1) response) ===")
     logging.info(f"{revoke_latency_sec:.6f} seconds")
     logging.info(f"{revoke_latency_sec * 1000:.2f} ms\n\n")
 
@@ -169,8 +210,8 @@ def main():
     logging.info("From first delegation start to final revocation response")
     logging.info(f"{total_latency_sec:.6f} seconds")
     logging.info(f"{total_latency_sec * 1000:.2f} ms\n")
-    logging.info("Total sum of all stagse: delegation1, delegation2, delegation3, delegation4, revocation")
-    latency_sum = delegation4_latency_sec + delegation3_latency_sec + delegation2_latency_sec + delegation1_latency_sec + revoke_latency_sec
+    logging.info("Total sum of all stagse: delegation1, delegation2, delegation3, delegation4, delegation5, access")
+    latency_sum =  access_latency_sec + delegation5_latency_sec + delegation4_latency_sec + delegation3_latency_sec + delegation2_latency_sec + delegation1_latency_sec
     logging.info(f"{latency_sum:.6f} seconds")
     logging.info(f"{latency_sum * 1000:.2f} ms\n")
 
