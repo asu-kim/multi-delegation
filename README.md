@@ -1,7 +1,7 @@
 # multi-delegation
 
 This repository contains the experimental implementation of a multi-step delegation workflow built on top of the Secure Swarm Toolkit (SST).
-The project explores how an entity can securely delegate its access across multiple agents while ensuring predefined conditions.
+The project explores how an entity can securely delegate its access across multiple entities while ensuring predefined conditions.
 
 
 # Directory structure
