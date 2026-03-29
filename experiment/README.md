@@ -1,6 +1,6 @@
 # Logs Directory Overview
 
-This directory contains all experiment outpus, organized by approach (`baseline`/ and `proposed_approach/`) and execution stage.
+This directory contains all experiment outputs, organized by approach (`baseline`/ and `proposed_approach/`) and execution stage.
 
 ### Timestamp Semantics
 
@@ -9,6 +9,7 @@ Each log file is prefixed with a timestamp `t_<k>` indicating the stage of the w
 - **t = 1-4 (Delegation)**: These logs capture the delegation process, where access rights are granted from a privileged entity to other nodes.
 - **t = 5 (Access Checking after Delegation)**: Verifies whether delegated nodes can successfully access their assigned resources after delegation is applied.
 - **t = 6-9 (Revocation)**: Represents the revocation phase, where previously delegated access rights (`N_0` to `N_1`) are removed.
+  - There are no baseline revocation logs, since there is no functionality to revoke access in the baseline SST. Revocation is performed with an external program (SQLPro Studio) to manually remove communication policies.
 - **t = 10 (Access Checking after Revocation)**: Confirms that revoked nodes can no longer access the resources, while unaffected nodes retain valid access.
 
 ### Log Types 
