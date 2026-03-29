@@ -1,4 +1,0 @@
-2026-03-03 18:55:12,660 | INFO | 
-=== LATENCY RESULT (process start -> first response marker) ===
-2026-03-03 18:55:12,660 | INFO | 0.119819 seconds
-2026-03-03 18:55:12,660 | INFO | 119.82 ms

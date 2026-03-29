@@ -1,0 +1,77 @@
+loading from config file: configs/net1/node0.config
+initializing...
+current parameters: {
+  numKeysPerRequest: 1,
+  migrationEnabled: false,
+  authFailureThreshold: 3,
+  migrationFailureThreshold: 3
+}
+Privilege request: configs/net1/node0.config | type=DelegationRevoke, subject=Node1, object=ResourceA, validity=1*day
+In iotAuth.js privilegeRequest: 
+In iotAuthService.js sendPrivilegeReqViaTCP: 
+connected to auth! from local port 50049
+received auth hello!
+auth id matches
+{
+  nonce: <Buffer da 4b 47 18 9b aa b5 35>,
+  replyNonce: <Buffer 30 4e b3 30 e0 38 f0 17>,
+  sender: 'net1.node0',
+  payload: {
+    privilegeType: 'DelegationRevoke',
+    subject: 'Node1',
+    object: 'ResourceA',
+    validity: '1*day'
+  }
+}
+{
+  msgType: 82,
+  payload: <Buffer 0a 6e 65 74 31 2e 6e 6f 64 65 30 da 13 89 78 e4 4c 4c ad 18 8e ed a8 ad cf 88 11 da d4 a7 4d 69 78 b0 15 6c 6c 64 51 23 26 01 7e 32 73 a5 ad 17 84 44 ... 137 more bytes>
+}
+received privilege response!
+Handler: privilege request completed
+Privilege result: {
+  replyNonce: <Buffer da 4b 47 18 9b aa b5 35>,
+  communicationPolicy: {
+    action: 'DelegationRevoke',
+    revokedTarget: 'ID 34\tRequestingGroup: Node1\tTargetType: TARGET_GROUP\tTarget: ResourceA\tCipher: AES/CBC/PKCS5Padding\tCipherKeySize: 16\tMAC Algorithm: HmacSHA256\tAbsoluteValidity: 86400000\tRelativeValidity: 3600000\tExpiration: 1774731051196',
+    revokedCascadedPolicyIDs: [ '38' ]
+  }
+}
+Finished privilege request
+{
+  replyNonce: <Buffer da 4b 47 18 9b aa b5 35>,
+  communicationPolicy: {
+    action: 'DelegationRevoke',
+    revokedTarget: 'ID 34\tRequestingGroup: Node1\tTargetType: TARGET_GROUP\tTarget: ResourceA\tCipher: AES/CBC/PKCS5Padding\tCipherKeySize: 16\tMAC Algorithm: HmacSHA256\tAbsoluteValidity: 86400000\tRelativeValidity: 3600000\tExpiration: 1774731051196',
+    revokedCascadedPolicyIDs: [ '38' ]
+  }
+}
+disconnected from auth
+[PASS] configs/net1/node0.config | Node1 -> ResourceA | 106.283 ms
+
+========== SUMMARY ==========
+Total tests   : 1
+Success       : 1
+Fail          : 0
+Success rate  : 100.00%
+Total latency : 106.283 ms
+Avg latency   : 106.283 ms
+End-to-end    : 107.640 ms
+
+Detailed results:
+[
+  {
+    nodeConfig: 'configs/net1/node0.config',
+    type: 'DelegationRevoke',
+    subject: 'Node1',
+    object: 'ResourceA',
+    validity: '1*day',
+    success: true,
+    latencyMs: 106.283458,
+    reason: 'privilege completed',
+    privilege: {
+      replyNonce: <Buffer da 4b 47 18 9b aa b5 35>,
+      communicationPolicy: [Object]
+    }
+  }
+]

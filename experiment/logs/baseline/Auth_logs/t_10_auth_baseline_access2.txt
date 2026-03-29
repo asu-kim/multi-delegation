@@ -1,0 +1,191 @@
+SLF4J(I): Connected with provider of type [org.slf4j.simple.SimpleServiceProvider]
+[main] INFO org.iot.auth.AuthServer - Properties file specified: ../properties/exampleAuth101.properties
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = auth_id:101
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = host_name:0.0.0.0
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = entity_tcp_port:21900
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = entity_tcp_port_timeout:20000
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = entity_udp_port:21902
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = entity_udp_port_timeout:20000
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = trusted_auth_port:21901
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = trusted_auth_port_idle_timeout:600000
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = contextual_callback_port:21903
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = contextual_callback_port_idle_timeout:20000
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = contextual_callback_enabled:true
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = entity_key_store_path:../databases/auth101/my_keystores/Auth101Entity.pfx
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = internet_key_store_path:../databases/auth101/my_keystores/Auth101Internet.pfx
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = database_key_store_path:../databases/auth101/my_keystores/Auth101Database.pfx
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = database_encryption_key_path:../databases/auth101/my_keystores/Auth101Database.bin
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = trusted_ca_cert_paths:[../credentials/ca/CACert.pem]
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = auth_database_dir:../databases/auth101
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = auth_db_protection_method:1
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = backup_enabled:false
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = bluetooth_enabled:false
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = qps_throttling_enabled:false
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = qps_limit:10.0
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = qps_calculation_bucket_size_in_sec:60
+[main] INFO org.iot.auth.AuthServer - Finished loading Auth Server properties.
+[main] INFO org.iot.auth.AuthServer - Please enter Auth password: 
+[main] INFO org.iot.auth.db.dao.SQLiteConnector - Auth DB protection method selected: ENCRYPT_CREDENTIALS
+[main] INFO org.iot.auth.db.dao.SQLiteConnector - Credential encryption - ENABLED
+[main] INFO org.iot.auth.db.dao.SQLiteConnector - Entire DB encryption - DISABLED
+[main] INFO org.iot.auth.db.dao.SQLiteConnector - select all registered entities Table lookup
+[main] INFO org.iot.auth.db.dao.SQLiteConnector - select all policies Table lookup
+[main] INFO org.iot.auth.db.dao.SQLiteConnector - select all trusted auth Table lookup
+[main] INFO org.iot.auth.AuthServer - Finished initializing Auth DB.
+[main] INFO org.eclipse.jetty.util.ssl.SslContextFactory - x509=X509@6ab778a(1,h=[localhost],a=[],w=[]) for Client@4e3958e7[provider=null,keyStore=null,trustStore=null]
+[main] INFO org.iot.auth.AuthServer - Auth server information. Auth ID: 101, Entity Ports TCP: 21900 UDP: 21902, Trusted auth Port: 21901, Host name: 0.0.0.0
+[main] INFO org.iot.auth.AuthServer - Bluetooth entities - DISABLED
+[Thread-4] INFO org.iot.auth.AuthCommandLine - 
+Enter command (e.g., help, show re/cp/ta/sk/maps, clean sk, reset re/sk, issue cert [ic], backup ): 
+[main] INFO org.eclipse.jetty.server.Server - jetty-10.0.14; built: 2023-02-22T23:12:32.272Z; git: 976721d0f3e903a243584d47870ad2f2c1bf9e55; jvm 23.0.1+11-39
+[main] INFO org.eclipse.jetty.util.ssl.SslContextFactory - x509=X509@29d80d2b(1,h=[localhost],a=[],w=[]) for Server@58e1d9d[provider=null,keyStore=null,trustStore=null]
+[main] INFO org.eclipse.jetty.server.AbstractConnector - Started ServerConnector@7770f470{SSL, (ssl, http/1.1)}{0.0.0.0:21901}
+[main] INFO org.eclipse.jetty.server.Server - Started Server@6e535154{STARTING}[10.0.14,sto=0] @1619ms
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57323 
+[Thread-22] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57323 with auth nonce 27 9a 9f 99 fc 3b 6f 44 
+[Thread-22] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-22] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"group":"ResourceA"}
+[Thread-22] INFO org.iot.auth.db.dao.SQLiteConnector - selectMetaData Table lookup
+[Thread-22] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57323
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57325 
+[Thread-23] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57325 with auth nonce 09 b0 d7 29 10 ae 15 9e 
+[Thread-23] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-23] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"keyId":10100030}
+[Thread-23] INFO org.iot.auth.server.SessionKeyReqPurpose - class java.lang.Long
+[Thread-23] INFO org.iot.auth.server.EntityTcpConnectionHandler - ID of Auth that generated this key: 101
+[Thread-23] INFO org.iot.auth.server.EntityTcpConnectionHandler - This session key was generated by me.
+[Thread-23] INFO org.iot.auth.db.dao.SQLiteConnector - selectCachedSessionKeyByID Table lookup
+[Thread-23] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57325
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57326 
+[Thread-24] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57326 with auth nonce 86 77 64 f5 e4 d9 47 2f 
+[Thread-24] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-24] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"group":"ResourceB"}
+[Thread-24] INFO org.iot.auth.db.dao.SQLiteConnector - selectMetaData Table lookup
+[Thread-24] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57326
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57328 
+[Thread-25] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57328 with auth nonce 35 8c 55 19 a5 fd 8c 1a 
+[Thread-25] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-25] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"keyId":10100031}
+[Thread-25] INFO org.iot.auth.server.SessionKeyReqPurpose - class java.lang.Long
+[Thread-25] INFO org.iot.auth.server.EntityTcpConnectionHandler - ID of Auth that generated this key: 101
+[Thread-25] INFO org.iot.auth.server.EntityTcpConnectionHandler - This session key was generated by me.
+[Thread-25] INFO org.iot.auth.db.dao.SQLiteConnector - selectCachedSessionKeyByID Table lookup
+[Thread-25] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57328
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57329 
+[Thread-26] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57329 with auth nonce 73 06 78 41 95 e2 08 5b 
+[Thread-26] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-26] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"group":"ResourceC"}
+[Thread-26] INFO org.iot.auth.db.dao.SQLiteConnector - selectMetaData Table lookup
+[Thread-26] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57329
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57331 
+[Thread-27] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57331 with auth nonce 20 2d e6 5d 79 27 3f b9 
+[Thread-27] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-27] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"keyId":10100032}
+[Thread-27] INFO org.iot.auth.server.SessionKeyReqPurpose - class java.lang.Long
+[Thread-27] INFO org.iot.auth.server.EntityTcpConnectionHandler - ID of Auth that generated this key: 101
+[Thread-27] INFO org.iot.auth.server.EntityTcpConnectionHandler - This session key was generated by me.
+[Thread-27] INFO org.iot.auth.db.dao.SQLiteConnector - selectCachedSessionKeyByID Table lookup
+[Thread-27] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57331
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57332 
+[Thread-28] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57332 with auth nonce 91 5f 69 71 96 bc 4e f3 
+[Thread-28] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-28] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"group":"ResourceD"}
+[Thread-28] INFO org.iot.auth.db.dao.SQLiteConnector - selectMetaData Table lookup
+[Thread-28] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57332
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57334 
+[Thread-29] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57334 with auth nonce 93 7d f7 b5 5b cd d4 e8 
+[Thread-29] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-29] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"keyId":10100033}
+[Thread-29] INFO org.iot.auth.server.SessionKeyReqPurpose - class java.lang.Long
+[Thread-29] INFO org.iot.auth.server.EntityTcpConnectionHandler - ID of Auth that generated this key: 101
+[Thread-29] INFO org.iot.auth.server.EntityTcpConnectionHandler - This session key was generated by me.
+[Thread-29] INFO org.iot.auth.db.dao.SQLiteConnector - selectCachedSessionKeyByID Table lookup
+[Thread-29] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57334
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57335 
+[Thread-30] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57335 with auth nonce e2 cd 2c a8 0b a9 f1 28 
+[Thread-30] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-30] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"group":"ResourceA"}
+[Thread-30] INFO org.iot.auth.server.EntityTcpConnectionHandler - InvalidSessionKeyTargetException: Unrecognized Purpose: {"group":"ResourceA"}
+[Thread-30] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_ALERT to entity at Port /[0:0:0:0:0:0:0:1]:57335 with auth alert code INVALID_SESSION_KEY_REQ
+[Thread-30] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57335
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57336 
+[Thread-31] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57336 with auth nonce 8c c5 ee f0 60 9b ee 23 
+[Thread-31] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-31] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"group":"ResourceB"}
+[Thread-31] INFO org.iot.auth.server.EntityTcpConnectionHandler - InvalidSessionKeyTargetException: Unrecognized Purpose: {"group":"ResourceB"}
+[Thread-31] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_ALERT to entity at Port /[0:0:0:0:0:0:0:1]:57336 with auth alert code INVALID_SESSION_KEY_REQ
+[Thread-31] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57336
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57337 
+[Thread-32] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57337 with auth nonce 43 ee 1f 36 a5 6d 2f 36 
+[Thread-32] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-32] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"group":"ResourceC"}
+[Thread-32] INFO org.iot.auth.server.EntityTcpConnectionHandler - InvalidSessionKeyTargetException: Unrecognized Purpose: {"group":"ResourceC"}
+[Thread-32] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_ALERT to entity at Port /[0:0:0:0:0:0:0:1]:57337 with auth alert code INVALID_SESSION_KEY_REQ
+[Thread-32] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57337
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57338 
+[Thread-33] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57338 with auth nonce 5b e0 04 c0 67 7c ad 67 
+[Thread-33] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-33] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"group":"ResourceD"}
+[Thread-33] INFO org.iot.auth.server.EntityTcpConnectionHandler - InvalidSessionKeyTargetException: Unrecognized Purpose: {"group":"ResourceD"}
+[Thread-33] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_ALERT to entity at Port /[0:0:0:0:0:0:0:1]:57338 with auth alert code INVALID_SESSION_KEY_REQ
+[Thread-33] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57338
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57339 
+[Thread-34] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57339 with auth nonce 45 ef 34 ce 4d 85 1c 08 
+[Thread-34] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-34] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"group":"ResourceA"}
+[Thread-34] INFO org.iot.auth.db.dao.SQLiteConnector - selectMetaData Table lookup
+[Thread-34] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57339
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57341 
+[Thread-35] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57341 with auth nonce 3d 77 95 52 cc e9 61 a0 
+[Thread-35] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-35] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"keyId":10100034}
+[Thread-35] INFO org.iot.auth.server.SessionKeyReqPurpose - class java.lang.Long
+[Thread-35] INFO org.iot.auth.server.EntityTcpConnectionHandler - ID of Auth that generated this key: 101
+[Thread-35] INFO org.iot.auth.server.EntityTcpConnectionHandler - This session key was generated by me.
+[Thread-35] INFO org.iot.auth.db.dao.SQLiteConnector - selectCachedSessionKeyByID Table lookup
+[Thread-35] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57341
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57342 
+[Thread-36] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57342 with auth nonce fa 69 89 29 75 3d b8 58 
+[Thread-36] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-36] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"group":"ResourceB"}
+[Thread-36] INFO org.iot.auth.db.dao.SQLiteConnector - selectMetaData Table lookup
+[Thread-36] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57342
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57344 
+[Thread-37] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57344 with auth nonce fc 3e ff 3e bd ab a2 4e 
+[Thread-37] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-37] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"keyId":10100035}
+[Thread-37] INFO org.iot.auth.server.SessionKeyReqPurpose - class java.lang.Long
+[Thread-37] INFO org.iot.auth.server.EntityTcpConnectionHandler - ID of Auth that generated this key: 101
+[Thread-37] INFO org.iot.auth.server.EntityTcpConnectionHandler - This session key was generated by me.
+[Thread-37] INFO org.iot.auth.db.dao.SQLiteConnector - selectCachedSessionKeyByID Table lookup
+[Thread-37] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57344
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57345 
+[Thread-38] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57345 with auth nonce 2d f1 4b 6b c5 5d f7 aa 
+[Thread-38] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-38] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"group":"ResourceC"}
+[Thread-38] INFO org.iot.auth.db.dao.SQLiteConnector - selectMetaData Table lookup
+[Thread-38] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57345
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57347 
+[Thread-39] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57347 with auth nonce 38 5c 80 63 a2 61 a2 9f 
+[Thread-39] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-39] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"keyId":10100036}
+[Thread-39] INFO org.iot.auth.server.SessionKeyReqPurpose - class java.lang.Long
+[Thread-39] INFO org.iot.auth.server.EntityTcpConnectionHandler - ID of Auth that generated this key: 101
+[Thread-39] INFO org.iot.auth.server.EntityTcpConnectionHandler - This session key was generated by me.
+[Thread-39] INFO org.iot.auth.db.dao.SQLiteConnector - selectCachedSessionKeyByID Table lookup
+[Thread-39] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57347
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57348 
+[Thread-40] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57348 with auth nonce 81 34 33 a5 dd a2 ea b6 
+[Thread-40] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-40] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"group":"ResourceD"}
+[Thread-40] INFO org.iot.auth.db.dao.SQLiteConnector - selectMetaData Table lookup
+[Thread-40] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57348
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:57350 
+[Thread-41] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:57350 with auth nonce 7c 5b 8e 91 ab 6d 21 1f 
+[Thread-41] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received session key request message encrypted with distribution key!
+[Thread-41] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"keyId":10100037}
+[Thread-41] INFO org.iot.auth.server.SessionKeyReqPurpose - class java.lang.Long
+[Thread-41] INFO org.iot.auth.server.EntityTcpConnectionHandler - ID of Auth that generated this key: 101
+[Thread-41] INFO org.iot.auth.server.EntityTcpConnectionHandler - This session key was generated by me.
+[Thread-41] INFO org.iot.auth.db.dao.SQLiteConnector - selectCachedSessionKeyByID Table lookup
+[Thread-41] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:57350

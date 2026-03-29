@@ -1,0 +1,189 @@
+loading from config file: configs/net1/node0.config
+initializing...
+current parameters: {
+  numKeysPerRequest: 1,
+  migrationEnabled: false,
+  authFailureThreshold: 3,
+  migrationFailureThreshold: 3
+}
+Privilege request: configs/net1/node0.config | type=DelegationGrant, subject=Node1, object=ResourceA, validity=1*day
+In iotAuth.js privilegeRequest: 
+In iotAuthService.js sendPrivilegeReqViaTCP: 
+connected to auth! from local port 50000
+received auth hello!
+auth id matches
+{
+  nonce: <Buffer 78 a7 55 4e 2e 8b f4 67>,
+  replyNonce: <Buffer d0 c4 be 3a fb 0f 97 40>,
+  sender: 'net1.node0',
+  payload: {
+    privilegeType: 'DelegationGrant',
+    subject: 'Node1',
+    object: 'ResourceA',
+    validity: '1*day'
+  }
+}
+{
+  msgType: 82,
+  payload: <Buffer 0a 6e 65 74 31 2e 6e 6f 64 65 30 71 7f 3d e0 08 a0 58 7e 94 75 66 d0 57 f5 8b a0 47 bc 01 ae a7 d0 30 98 11 d2 7e 54 63 85 d1 cb b6 f9 3b 08 0e 98 23 ... 137 more bytes>
+}
+received privilege response!
+Handler: privilege request completed
+Privilege result: {
+  replyNonce: <Buffer 78 a7 55 4e 2e 8b f4 67>,
+  communicationPolicy: {
+    newCommunicationPolicy: {
+      Target: 'ResourceA',
+      AbsoluteValidity: 0,
+      RelativeValidity: 0,
+      TargetType: 'Group',
+      Expiration: 1774731051196,
+      IsDelegated: 1,
+      ID: 34,
+      RelativeValidityStr: '1*hour',
+      MaxNumSessionKeyOwners: 2,
+      AbsoluteValidityStr: '1*day',
+      RequestingGroup: 'Node1'
+    },
+    curCommPolicyCount: '34',
+    action: 'DelegationGrant'
+  }
+}
+Finished privilege request
+{
+  replyNonce: <Buffer 78 a7 55 4e 2e 8b f4 67>,
+  communicationPolicy: {
+    newCommunicationPolicy: {
+      Target: 'ResourceA',
+      AbsoluteValidity: 0,
+      RelativeValidity: 0,
+      TargetType: 'Group',
+      Expiration: 1774731051196,
+      IsDelegated: 1,
+      ID: 34,
+      RelativeValidityStr: '1*hour',
+      MaxNumSessionKeyOwners: 2,
+      AbsoluteValidityStr: '1*day',
+      RequestingGroup: 'Node1'
+    },
+    curCommPolicyCount: '34',
+    action: 'DelegationGrant'
+  }
+}
+disconnected from auth
+[PASS] configs/net1/node0.config | Node1 -> ResourceA | 106.231 ms
+loading from config file: configs/net1/node0.config
+initializing...
+current parameters: {
+  numKeysPerRequest: 1,
+  migrationEnabled: false,
+  authFailureThreshold: 3,
+  migrationFailureThreshold: 3
+}
+Privilege request: configs/net1/node0.config | type=DelegationGrant, subject=Node1, object=ResourceB, validity=1*day
+In iotAuth.js privilegeRequest: 
+In iotAuthService.js sendPrivilegeReqViaTCP: 
+connected to auth! from local port 50001
+received auth hello!
+auth id matches
+{
+  nonce: <Buffer 46 82 8a 2a ee 6d 69 a3>,
+  replyNonce: <Buffer b4 60 83 c7 ac a1 61 e1>,
+  sender: 'net1.node0',
+  payload: {
+    privilegeType: 'DelegationGrant',
+    subject: 'Node1',
+    object: 'ResourceB',
+    validity: '1*day'
+  }
+}
+{
+  msgType: 82,
+  payload: <Buffer 0a 6e 65 74 31 2e 6e 6f 64 65 30 cf d5 34 4f 8a ee c9 30 32 4a 90 78 02 6e c6 de 1a 33 5a 9b fd 9b b5 16 12 8a db 5b d5 7d 26 38 5d 9d f9 40 5f 7e f0 ... 137 more bytes>
+}
+received privilege response!
+Handler: privilege request completed
+Privilege result: {
+  replyNonce: <Buffer 46 82 8a 2a ee 6d 69 a3>,
+  communicationPolicy: {
+    newCommunicationPolicy: {
+      Target: 'ResourceB',
+      AbsoluteValidity: 0,
+      RelativeValidity: 0,
+      TargetType: 'Group',
+      Expiration: 1774731051292,
+      IsDelegated: 1,
+      ID: 35,
+      RelativeValidityStr: '1*hour',
+      MaxNumSessionKeyOwners: 2,
+      AbsoluteValidityStr: '1*day',
+      RequestingGroup: 'Node1'
+    },
+    curCommPolicyCount: '35',
+    action: 'DelegationGrant'
+  }
+}
+Finished privilege request
+{
+  replyNonce: <Buffer 46 82 8a 2a ee 6d 69 a3>,
+  communicationPolicy: {
+    newCommunicationPolicy: {
+      Target: 'ResourceB',
+      AbsoluteValidity: 0,
+      RelativeValidity: 0,
+      TargetType: 'Group',
+      Expiration: 1774731051292,
+      IsDelegated: 1,
+      ID: 35,
+      RelativeValidityStr: '1*hour',
+      MaxNumSessionKeyOwners: 2,
+      AbsoluteValidityStr: '1*day',
+      RequestingGroup: 'Node1'
+    },
+    curCommPolicyCount: '35',
+    action: 'DelegationGrant'
+  }
+}
+disconnected from auth
+[PASS] configs/net1/node0.config | Node1 -> ResourceB | 101.092 ms
+
+========== SUMMARY ==========
+Total tests   : 2
+Success       : 2
+Fail          : 0
+Success rate  : 100.00%
+Total latency : 207.323 ms
+Avg latency   : 103.662 ms
+End-to-end    : 209.291 ms
+
+Detailed results:
+[
+  {
+    nodeConfig: 'configs/net1/node0.config',
+    type: 'DelegationGrant',
+    subject: 'Node1',
+    object: 'ResourceA',
+    validity: '1*day',
+    success: true,
+    latencyMs: 106.231167,
+    reason: 'privilege completed',
+    privilege: {
+      replyNonce: <Buffer 78 a7 55 4e 2e 8b f4 67>,
+      communicationPolicy: [Object]
+    }
+  },
+  {
+    nodeConfig: 'configs/net1/node0.config',
+    type: 'DelegationGrant',
+    subject: 'Node1',
+    object: 'ResourceB',
+    validity: '1*day',
+    success: true,
+    latencyMs: 101.092125,
+    reason: 'privilege completed',
+    privilege: {
+      replyNonce: <Buffer 46 82 8a 2a ee 6d 69 a3>,
+      communicationPolicy: [Object]
+    }
+  }
+]
