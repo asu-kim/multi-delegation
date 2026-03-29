@@ -13,10 +13,10 @@ This serves as the Key Distribution Service (KDS) responsible for:
   - enforcing new policies' validity periods
 - **experiment**: Contains runnable experiment code and collected logs for demonstrating the user/agent workflow.
   - **Entity scripts**: Measures and logs execution latency
-    - `user_latency.py`: user-side workflow who will delegate its access to `resource` to `personalAgnet`
-    - `personalAgent_latency.py`: personalAgent-side workflow who will get access of the `resource` from the `user` and will delegate its access to `externalAgent`
-    - `externalAgent_latency.py`: externalAgent-side workflow who will get access from `personalAgent` and will access to the `resoure`
-  - **logs**: `logs/` stores experiment runs grouped by run directory (e.g., `log1`, `log2`)
-    - Each run directory contains timestamed logs such as `user_log_*.txt`, `personalAgent_log_*.txt`, and `externalAgent_log_*.txt`
+    - `user_latency.py`: user-side workflow who will delegate its access to `resource` to `personalAgent`
+    - `personalAgent_latency.py`: personalAgent-side workflow who will get access to the `resource` from the `user` and will delegate its access to `externalAgent`
+    - `externalAgent_latency.py`: externalAgent-side workflow who will get access from `personalAgent` and will access the `resource`
+  - **logs**: `logs/` stores experiment runs grouped by run directory (e.g., `baseline`, `proposed_approach`)
+    - Each run directory contains timestamped logs such as `t_N_baseline_*.txt` or `t_N_prop_*.txt`, and an `Auth_logs/` subdirectory with the corresponding Auth server logs
   
 Detailed instructions for reproducing our experiments can be found in [experiment/README.md](experiment/README.md).
