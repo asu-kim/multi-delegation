@@ -4,7 +4,6 @@ import random
 from pathlib import Path
 import networkx as nx
 
-
 CRYPTO_SPEC_OBJ = {
     "cipher": "AES-128-CBC",
     "mac": "SHA256",
@@ -72,7 +71,7 @@ def generate_dag(nodes, edge_prob=0.35, seed=None, force_chain=False):
     dag = nx.DiGraph()
     dag.add_nodes_from(nodes)
 
-    if force_chain:
+    if force_chain:  # If force_chain is true: add node1 -> node2 -> node3 -> ... -> nodeN
         for i in range(len(nodes) - 1):
             dag.add_edge(nodes[i], nodes[i + 1])
 
@@ -144,13 +143,13 @@ def print_dag_hierarchy(title, dag):
 
 
 def build_graph(
-    node_count,
-    resource_count,
-    auth_id,
-    edge_prob,
-    seed,
-    validity,
-    print_detail,
+        node_count,
+        resource_count,
+        auth_id,
+        edge_prob,
+        seed,
+        validity,
+        print_detail,
 ):
     node_groups = [
         f"Node{i}"
@@ -198,15 +197,15 @@ def build_graph(
     required_access = {}
 
     for resource, edges in resource_edges.items():
-        delegated_to = {
-            dst
-            for _, dst in edges
-        }
-        heads = [
-            node
-            for node in node_groups
-            if node not in delegated_to
-        ]
+        delegated_to = set()
+        for _, dst in edges:
+            delegated_to.add(dst)
+
+        heads = []
+        for node in node_groups:
+            if node not in delegated_to:
+                heads.append(node)
+
         for head in heads:
             required_access.setdefault(head, set()).add(resource)
 
@@ -244,12 +243,12 @@ def build_graph(
             print_dag_edges(f"[{resource}]", edges)
 
     return {
-        "authList": [make_auth(auth_id)],
-        "authTrusts": [],
-        "assignments": assignments,
-        "entityList": entity_list,
-        "privilegeList": privilege_list,
-    }, overall_dag, resource_edges
+               "authList": [make_auth(auth_id)],
+               "authTrusts": [],
+               "assignments": assignments,
+               "entityList": entity_list,
+               "privilegeList": privilege_list,
+           }, overall_dag, resource_edges
 
 
 def main():
@@ -258,7 +257,8 @@ def main():
     parser.add_argument("--nodes", type=int, default=7, help="Number of nodes: Node1..NodeN")
     parser.add_argument("--resources", type=int, default=3, help="Number of resources (Resource1..ResourceN)")
     parser.add_argument("--auth-id", type=int, default=101, help="Single Auth ID used for all assignments")
-    parser.add_argument("--edge-prob", type=float, default=0.20, help="Probability of extra DAG edges")
+    parser.add_argument("--edge-prob", type=float, default=0.20,
+                        help="Probability of extra DAG edges. If this value is 1, then it will return all possible edges. ex) 3 nodes -> 3! edges")
     parser.add_argument("--seed", type=int, default=None, help="Random seed for reproducibility")
     parser.add_argument("--validity", default="1*day", help="Privilege validity")
     parser.add_argument("--print-detail", default=True, help="Print Resource-specific DAG delegation edge")
@@ -286,6 +286,7 @@ def main():
     output_path = Path(args.output)
     output_path.write_text(json.dumps(graph, indent="\t"))
     print(f"\nWrote {output_path}")
+
 
 if __name__ == "__main__":
     main()
