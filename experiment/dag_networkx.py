@@ -1,6 +1,7 @@
 import argparse
 import json
 import random
+import subprocess
 from pathlib import Path
 import networkx as nx
 
@@ -43,6 +44,7 @@ def make_node_entity(i: int, net_name: str = "net1"):
         "credentialPrefix": f"Net1.Node{i}",
         "distributionCryptoSpec": dict(CRYPTO_SPEC_OBJ),
         "sessionCryptoSpec": dict(CRYPTO_SPEC_OBJ),
+        "backupToAuthIds": [],
     }
 
 
@@ -62,6 +64,7 @@ def make_resource_entity(resource_name: str, port: int = 21100, net_name: str = 
         "distributionCryptoSpec": dict(CRYPTO_SPEC_OBJ),
         "sessionCryptoSpec": dict(CRYPTO_SPEC_OBJ),
         "host": "localhost",
+        "backupToAuthIds": [],
     }
 
 
@@ -247,8 +250,9 @@ def build_graph(
                "authTrusts": [],
                "assignments": assignments,
                "entityList": entity_list,
+               "filesharingLists": [],
                "privilegeList": privilege_list,
-           }, overall_dag, resource_edges
+           }, overall_dag, resource_edges, required_access
 
 
 def main():
@@ -273,7 +277,7 @@ def main():
     if not 0 <= args.edge_prob <= 1:
         raise ValueError("--edge-prob must be between 0 and 1")
 
-    graph, overall_dag, resource_edges = build_graph(
+    graph, overall_dag, resource_edges, required_access = build_graph(
         node_count=args.nodes,
         resource_count=args.resources,
         auth_id=args.auth_id,
@@ -283,9 +287,62 @@ def main():
         print_detail=args.print_detail,
     )
 
-    output_path = Path(args.output)
-    output_path.write_text(json.dumps(graph, indent="\t"))
-    print(f"\nWrote {output_path}")
+    output_graph_path = Path(args.output)
+    output_graph_path.write_text(json.dumps(graph, indent="\t"))
+    print(f"\nWrote {output_graph_path}")
+
+    initial_access = []
+    for node in sorted(required_access):
+        for resource in sorted(required_access[node]):
+            initial_access.append(
+                {
+                    "RequestingGroup": node,
+                    "TargetType": "Group",
+                    "Target": resource,
+                    "MaxNumSessionKeyOwners": 2,
+                    "SessionCryptoSpec": "AES-128-CBC:SHA256",
+                    "AbsoluteValidity": "1*day",
+                    "RelativeValidity": "2*hour",
+                    "Expiration": "Infinity",
+                    "IsDelegated": 0,
+                }
+            )
+
+    access_path = output_graph_path.with_suffix(".json")
+    access_path.write_text(json.dumps(initial_access, indent=4))
+    print(f"Wrote {access_path}")
+
+    # Run generateAll.sh from multi-delegation/iotauth/examples
+    experiment_dir = Path(__file__).resolve().parent
+    project_root = experiment_dir.parent
+    examples_dir = project_root / "iotauth" / "examples"
+
+    graph_arg = Path("../../experiment") / output_graph_path.name
+    policy_arg = Path("../../experiment") / access_path.name
+
+    cmd = [
+        "./generateAll.sh",
+        "-g",
+        str(graph_arg),
+        "-po",
+        str(policy_arg),
+    ]
+
+    print("\nRuns:")
+    print(f"  cd {examples_dir}")
+    print(f"  {' '.join(cmd)}")
+
+    subprocess.run(
+        ["./cleanAll.sh"],
+        cwd=examples_dir,
+        check=True,
+    )
+    
+    subprocess.run(
+        cmd,
+        cwd=examples_dir,
+        check=True,
+    )
 
 
 if __name__ == "__main__":
