@@ -1,0 +1,390 @@
+{
+	"authList": [
+		{
+			"id": 101,
+			"entityHost": "localhost",
+			"authHost": "localhost",
+			"tcpPort": 21900,
+			"udpPort": 21902,
+			"authPort": 21901,
+			"callbackPort": 21903,
+			"dbProtectionMethod": 1,
+			"backupEnabled": false,
+			"contextualCallbackEnabled": true
+		}
+	],
+	"authTrusts": [],
+	"assignments": {
+		"net1.node1": 101,
+		"net1.node2": 101,
+		"net1.node3": 101,
+		"net1.node4": 101,
+		"net1.node5": 101,
+		"net1.node6": 101,
+		"net1.resource1": 101,
+		"net1.resource2": 101,
+		"net1.resource3": 101
+	},
+	"entityList": [
+		{
+			"group": "Node1",
+			"name": "net1.node1",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node1",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node2",
+			"name": "net1.node2",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node2",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node3",
+			"name": "net1.node3",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node3",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node4",
+			"name": "net1.node4",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node4",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node5",
+			"name": "net1.node5",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node5",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node6",
+			"name": "net1.node6",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node6",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Resource1",
+			"name": "net1.resource1",
+			"port": 21100,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Resource1",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Resource2",
+			"name": "net1.resource2",
+			"port": 21101,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Resource2",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Resource3",
+			"name": "net1.resource3",
+			"port": 21102,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Resource3",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": []
+		}
+	],
+	"filesharingLists": [],
+	"privilegeList": [
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node2",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node4",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node5",
+			"subject": "Node6",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node2",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node4",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node5",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node6",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node5",
+			"subject": "Node6",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node2",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node5",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node6",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node5",
+			"subject": "Node6",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node3",
+			"subject": "Node4",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node5",
+			"subject": "Node6",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node1",
+			"subject": "Node2",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		}
+	]
+}

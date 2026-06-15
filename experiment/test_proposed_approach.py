@@ -5,6 +5,7 @@ import time
 import threading
 import queue
 import subprocess
+import sys
 from pathlib import Path
 import networkx as nx
 
@@ -282,6 +283,7 @@ def build_graph(
         print("\nResource-specific DAG delegation edges:")
         for resource, edges in resource_edges.items():
             print_dag_edges(f"[{resource}]", edges)
+    sys.stdout.flush()
 
     return {
                "authList": [make_auth(auth_id)],
@@ -293,12 +295,12 @@ def build_graph(
            }, overall_dag, resource_edges, required_access, access_before_revoke, access_after_revoke
 
 
-def start_output_reader(proc):
+def start_output_reader(proc, prefix):
     q = queue.Queue()
 
     def reader():
         for line in proc.stdout:
-            print(line, end="")
+            print(f"[{prefix}] {line}", end="")
             q.put(line)
 
     t = threading.Thread(target=reader, daemon=True)
@@ -307,7 +309,7 @@ def start_output_reader(proc):
     return q
 
 
-def wait_for_output(output_q, patterns, timeout=10):
+def wait_for_output(output_q, patterns, timeout=0.05):
     if isinstance(patterns, str):
         patterns = [patterns]
 
@@ -316,7 +318,7 @@ def wait_for_output(output_q, patterns, timeout=10):
 
     while time.perf_counter() - start < timeout:
         try:
-            line = output_q.get(timeout=0.1)
+            line = output_q.get(timeout=0.01)
         except queue.Empty:
             continue
 
@@ -335,7 +337,7 @@ def test_access_by_init_comm(
     node_outputs,
     output_path,
     phase_name,
-    timeout=10,
+    timeout=1,
 ):
     results = []
 
@@ -362,7 +364,7 @@ def test_access_by_init_comm(
                     output_q,
                     [
                         "switching to IN_COMM",
-                        "Handler: communication initialization succeeded",
+                        # "Handler: communication initialization succeeded",
                     ],
                     timeout=timeout,
                 )
@@ -384,8 +386,9 @@ def test_access_by_init_comm(
             print(
                 f"[{phase_name}] {node} -> {resource}: "
                 f"{'SUCCESS' if success else 'FAIL'} "
+                , flush=True
             )
-            time.sleep(1)
+            # time.sleep(0.5)
 
     output_path.write_text(json.dumps(results, indent=4))
     print(f"Wrote {output_path}")
@@ -462,6 +465,8 @@ def main():
     after_revoke_path.write_text(json.dumps({k: list(v) for k, v in access_after_revoke.items()}, indent=4))
     print(f"Wrote {after_revoke_path}")
 
+    sys.stdout.flush()
+
     # Run generateAll.sh from multi-delegation/iotauth/examples
     experiment_dir = Path(__file__).resolve().parent
     project_root = experiment_dir.parent
@@ -521,11 +526,11 @@ def main():
         auth_proc.stdin.write("asdf\n")
         auth_proc.stdin.flush()
 
-        auth_output_q = start_output_reader(auth_proc)
+        auth_output_q = start_output_reader(auth_proc, "Auth")
         wait_for_output(
             auth_output_q,
             ["Started Server@"],
-            timeout=10,
+            timeout=5,
         )
         print("Auth server is ready")
 
@@ -542,13 +547,13 @@ def main():
                 text=True,
                 bufsize=1,
             )
-            output_q = start_output_reader(proc)
+            output_q = start_output_reader(proc, f"resource{i}")
             wait_for_output(
                 output_q,
                 [
                     "Handler: listening on port",
                 ],
-                timeout=10,
+                timeout=5,
             )
             resource_procs.append(proc)
             print(f"Started Resource{i}")
@@ -569,18 +574,20 @@ def main():
                 bufsize=1,
             )
             node_procs[node_name] = proc
-            node_outputs[node_name] = start_output_reader(proc)
+            node_outputs[node_name] = start_output_reader(proc, f"node{i}")
             wait_for_output(
                 node_outputs[node_name],
                 [
                     "current parameters:",
                     f"net1.node{i}:Node{i} prompt>",
                 ],
-                timeout=10,
+                timeout=5,
             )
             print(f"{node_name} is ready")
 
-        experiment_start = time.perf_counter()
+        time.sleep(5)
+
+        experiment_start1 = time.perf_counter()
 
         # Perform delegation
         for privilege in graph["privilegeList"]:
@@ -605,13 +612,16 @@ def main():
             wait_for_output(
                 output_q,
                 [
-                    "Finished privilege request",
+                    # "Finished privilege request",
                     "disconnected from auth",
                 ],
-                timeout=10,
+                timeout=1,
             )
-            time.sleep(1)
+            sys.stdout.flush()
+            # time.sleep(0.5)
+        experiment_end1 = time.perf_counter()
 
+        experiment_start2 = time.perf_counter()
         # Test assigned accesses after delegation
         before_revoke_test_path = Path("access_before_revoke_test.json")
         before_revoke_results = test_access_by_init_comm(
@@ -622,6 +632,49 @@ def main():
             phase_name="before_revoke",
         )
 
+        experiment_end2 = time.perf_counter()
+
+        # Stop nodes
+        for node_name, proc in node_procs.items():
+            print(f"Stopping {node_name}")
+            proc.terminate()
+            try:
+                proc.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                proc.kill()
+
+        node_procs = {}
+        node_outputs = {}
+        # Reopen the nodes
+        for i in range(1, args.nodes + 1):
+            node_name = f"Node{i}"
+            proc = subprocess.Popen(
+                [
+                    "node",
+                    "user.js",
+                    f"configs/net1/node{i}.config",
+                ],
+                cwd=example_entities_dir,
+                stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                text=True,
+                bufsize=1,
+            )
+            node_procs[node_name] = proc
+            node_outputs[node_name] = start_output_reader(proc, f"node{i}")
+            wait_for_output(
+                node_outputs[node_name],
+                [
+                    "current parameters:",
+                    f"net1.node{i}:Node{i} prompt>",
+                ],
+                timeout=5,
+            )
+            print(f"{node_name} is ready")
+        sys.stdout.flush()
+
+        experiment_start3 = time.perf_counter()
         # Perform revocation
         for privilege in graph["privilegeList"]:
             if privilege["privilegeType"] != "DelegationRevoke":
@@ -644,35 +697,44 @@ def main():
             wait_for_output(
                 output_q,
                 [
-                    "Finished privilege request",
+                    # "Finished privilege request",
                     "disconnected from auth",
                 ],
-                timeout=10,
+                timeout=5,
             )
-            time.sleep(1)
+            sys.stdout.flush()
+            # time.sleep(0.5)
+        experiment_end3 = time.perf_counter()
 
+        experiment_start4 = time.perf_counter()
         # Test assigned accesses after revocation
         after_revoke_test_path = Path("access_after_revoke_test.json")
         after_revoke_results = test_access_by_init_comm(
-            access_map=access_after_revoke,
+            access_map=access_before_revoke,
             node_procs=node_procs,
             node_outputs=node_outputs,
             output_path=after_revoke_test_path,
-            phase_name="before_revoke",
+            phase_name="after_revoke",
         )
+        experiment_end4 = time.perf_counter()
 
-        experiment_end = time.perf_counter()
-        total_latency_ms = (experiment_end - experiment_start) * 1000
+        delegation_latency_ms = (experiment_end1 - experiment_start1) * 1000
+        before_revoke_access_latency_ms = (experiment_end2 - experiment_start2) * 1000
+        revocation_latency_ms = (experiment_end3 - experiment_start3) * 1000
+        after_revoke_access_latency_ms = (experiment_end4 - experiment_start4) * 1000
         summary = {
             "phase": "delegation_grant_to_access_check",
-            "total_latency_ms": total_latency_ms,
+            "delegation_latency_ms": delegation_latency_ms,
+            "before_revoke_access_latency_ms": before_revoke_access_latency_ms,
+            "revocation_latency_ms": revocation_latency_ms,
+            "after_revoke_access_latency_ms": after_revoke_access_latency_ms,
             "access_check_count_before": len(before_revoke_results),
             "access_check_count_after": len(after_revoke_results),
         }
 
-        summary_path = output_prefix.with_suffix("_latency.json")
+        summary_path = output_prefix.with_name("latency.json")
         summary_path.write_text(json.dumps(summary, indent=4))
-        print(f"\nDelegation + access check latency: {total_latency_ms:.3f} ms")
+        print(f"Wrote latency in {summary_path}")
 
     finally:
         # Stopping Resources
@@ -683,7 +745,7 @@ def main():
                 proc.wait(timeout=10)
             except subprocess.TimeoutExpired:
                 proc.kill()
-
+        time.sleep(3)
         # Stopping Nodes
         for node_name, proc in node_procs.items():
             print(f"Stopping {node_name}")
@@ -692,7 +754,7 @@ def main():
                 proc.wait(timeout=10)
             except subprocess.TimeoutExpired:
                 proc.kill()
-
+        time.sleep(3)
         # Stopping Auth
         if auth_proc is not None:
             print("Stopping Auth server")

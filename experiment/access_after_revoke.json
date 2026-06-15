@@ -1,0 +1,29 @@
+{
+    "Node1": [
+        "Resource2",
+        "Resource3",
+        "Resource1"
+    ],
+    "Node3": [
+        "Resource2",
+        "Resource3",
+        "Resource1"
+    ],
+    "Node5": [
+        "Resource2",
+        "Resource3",
+        "Resource1"
+    ],
+    "Node4": [
+        "Resource3",
+        "Resource2"
+    ],
+    "Node2": [
+        "Resource2",
+        "Resource1"
+    ],
+    "Node6": [
+        "Resource3",
+        "Resource1"
+    ]
+}

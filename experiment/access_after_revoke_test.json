@@ -1,0 +1,146 @@
+[
+    {
+        "phase": "after_revoke",
+        "node": "Node1",
+        "resource": "Resource2",
+        "target": "net1.resource2",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node1",
+        "resource": "Resource3",
+        "target": "net1.resource3",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node1",
+        "resource": "Resource1",
+        "target": "net1.resource1",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node3",
+        "resource": "Resource2",
+        "target": "net1.resource2",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node3",
+        "resource": "Resource3",
+        "target": "net1.resource3",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node3",
+        "resource": "Resource1",
+        "target": "net1.resource1",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node5",
+        "resource": "Resource2",
+        "target": "net1.resource2",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node5",
+        "resource": "Resource3",
+        "target": "net1.resource3",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node5",
+        "resource": "Resource1",
+        "target": "net1.resource1",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node4",
+        "resource": "Resource2",
+        "target": "net1.resource2",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node4",
+        "resource": "Resource3",
+        "target": "net1.resource3",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node4",
+        "resource": "Resource1",
+        "target": "net1.resource1",
+        "success": false,
+        "error": "Timeout waiting for patterns: ['switching to IN_COMM']"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node2",
+        "resource": "Resource2",
+        "target": "net1.resource2",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node2",
+        "resource": "Resource3",
+        "target": "net1.resource3",
+        "success": false,
+        "error": "Timeout waiting for patterns: ['switching to IN_COMM']"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node2",
+        "resource": "Resource1",
+        "target": "net1.resource1",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node6",
+        "resource": "Resource2",
+        "target": "net1.resource2",
+        "success": false,
+        "error": "Timeout waiting for patterns: ['switching to IN_COMM']"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node6",
+        "resource": "Resource3",
+        "target": "net1.resource3",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node6",
+        "resource": "Resource1",
+        "target": "net1.resource1",
+        "success": true,
+        "error": null
+    }
+]
