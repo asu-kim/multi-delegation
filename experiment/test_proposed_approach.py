@@ -128,11 +128,20 @@ def make_revocation_privilege(src: str, dst: str, resource: str, validity: str):
 
 def select_resource_dag_edges(overall_dag, probability=0.5, seed=None):
     rng = random.Random(seed)
-    selected_edges = []
 
-    for src, dst in overall_dag.edges():
+    edges = list(overall_dag.edges())
+    rng.shuffle(edges)  # avoid always preferring earlier edges
+
+    selected_edges = []
+    already_delegated_nodes = set()
+
+    for src, dst in edges:
+        if dst in already_delegated_nodes:
+            continue
+
         if rng.random() < probability:
             selected_edges.append((src, dst))
+            already_delegated_nodes.add(dst)
 
     return selected_edges
 
@@ -262,6 +271,22 @@ def build_graph(
                 )
                 access_after_revoke[dst].remove(resource)
 
+    privilege_list.sort(
+        key=lambda p: (
+            p["object"],
+            int(p["privilegedGroup"].replace("Node", "")),
+            int(p["subject"].replace("Node", "")),
+        )
+    )
+
+    revocation_list.sort(
+        key=lambda p: (
+            p["object"],
+            int(p["privilegedGroup"].replace("Node", "")),
+            int(p["subject"].replace("Node", "")),
+        )
+    )
+
     privilege_list.extend(revocation_list)
 
     print("\nRequired initial access for head node(s):")
@@ -300,7 +325,7 @@ def start_output_reader(proc, prefix):
 
     def reader():
         for line in proc.stdout:
-            print(f"[{prefix}] {line}", end="")
+            print(f"[{prefix}] {line}", end="", flush=True)
             q.put(line)
 
     t = threading.Thread(target=reader, daemon=True)
@@ -309,9 +334,15 @@ def start_output_reader(proc, prefix):
     return q
 
 
-def wait_for_output(output_q, patterns, timeout=0.05):
-    if isinstance(patterns, str):
-        patterns = [patterns]
+def wait_for_output(output_q, success_patterns, timeout=1, failure_patterns=None):
+    if isinstance(success_patterns, str):
+        success_patterns = [success_patterns]
+
+    if failure_patterns is None:
+        failure_patterns = []
+
+    if isinstance(failure_patterns, str):
+        failure_patterns = [failure_patterns]
 
     start = time.perf_counter()
     collected = []
@@ -324,11 +355,29 @@ def wait_for_output(output_q, patterns, timeout=0.05):
 
         collected.append(line)
 
-        for pattern in patterns:
+        for pattern in failure_patterns:
+            if pattern in line:
+                raise RuntimeError(
+                    f"Failure pattern detected: {pattern}"
+                )
+
+        for pattern in success_patterns:
             if pattern in line:
                 return collected
 
-    raise TimeoutError(f"Timeout waiting for patterns: {patterns}")
+    raise TimeoutError(
+        f"Timeout waiting for patterns: {success_patterns}"
+    )
+
+
+def drain_output(output_q):
+    drained = []
+    while True:
+        try:
+            drained.append(output_q.get_nowait())
+        except queue.Empty:
+            break
+    return drained
 
 
 def test_access_by_init_comm(
@@ -351,7 +400,9 @@ def test_access_by_init_comm(
             cmd = f"initComm {target}\n"
 
             print(f"\n[{phase_name}] Testing {node} -> {target}")
-            print(f"{node}: {cmd.strip()}")
+            print(f"{node}: {cmd.strip()}", flush=True)
+
+            drain_output(output_q)
 
             proc.stdin.write(cmd)
             proc.stdin.flush()
@@ -362,15 +413,21 @@ def test_access_by_init_comm(
             try:
                 wait_for_output(
                     output_q,
-                    [
+                    success_patterns=[
                         "switching to IN_COMM",
-                        # "Handler: communication initialization succeeded",
+                    ],
+                    failure_patterns=[
+                        "Handler: Error in secure comm",
                     ],
                     timeout=timeout,
                 )
+            except RuntimeError as e:
+                success = False
+                error = f"AUTH_FAILURE: {e}"
+
             except TimeoutError as e:
                 success = False
-                error = str(e)
+                error = f"TIMEOUT: {e}"
 
             results.append(
                 {
@@ -388,7 +445,6 @@ def test_access_by_init_comm(
                 f"{'SUCCESS' if success else 'FAIL'} "
                 , flush=True
             )
-            # time.sleep(0.5)
 
     output_path.write_text(json.dumps(results, indent=4))
     print(f"Wrote {output_path}")
@@ -587,7 +643,7 @@ def main():
 
         time.sleep(5)
 
-        experiment_start1 = time.perf_counter()
+        delegation_start = time.perf_counter()
 
         # Perform delegation
         for privilege in graph["privilegeList"]:
@@ -619,7 +675,7 @@ def main():
             )
             sys.stdout.flush()
             # time.sleep(0.5)
-        experiment_end1 = time.perf_counter()
+        delegation_end = time.perf_counter()
 
         experiment_start2 = time.perf_counter()
         # Test assigned accesses after delegation
@@ -718,7 +774,7 @@ def main():
         )
         experiment_end4 = time.perf_counter()
 
-        delegation_latency_ms = (experiment_end1 - experiment_start1) * 1000
+        delegation_latency_ms = (delegation_end - delegation_start) * 1000
         before_revoke_access_latency_ms = (experiment_end2 - experiment_start2) * 1000
         revocation_latency_ms = (experiment_end3 - experiment_start3) * 1000
         after_revoke_access_latency_ms = (experiment_end4 - experiment_start4) * 1000
