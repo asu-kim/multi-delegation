@@ -589,7 +589,7 @@ def main():
             bufsize=1,
         )
 
-        auth_output_q = start_output_reader(auth_proc)
+        auth_output_q = start_output_reader(auth_proc, "Auth")
 
         wait_for_output(
             auth_output_q,
