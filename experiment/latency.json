@@ -1,9 +1,0 @@
-{
-    "phase": "delegation_grant_to_access_check",
-    "delegation_latency_ms": 870.2802080006222,
-    "before_revoke_access_latency_ms": 3343.4828330064192,
-    "revocation_latency_ms": 219.40425000502728,
-    "after_revoke_access_latency_ms": 5835.341250000056,
-    "access_check_count_before": 18,
-    "access_check_count_after": 18
-}
