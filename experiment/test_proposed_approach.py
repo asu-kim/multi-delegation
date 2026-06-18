@@ -72,7 +72,7 @@ def make_resource_entity(resource_name: str, port: int = 21100, net_name: str = 
     }
 
 
-def generate_dag(nodes, edge_prob=0.35, seed=None, force_chain=False):
+def generate_dag(nodes, edge_prob=0.4, seed=None, force_chain=False):
     rng = random.Random(seed)
 
     dag = nx.DiGraph()
@@ -465,7 +465,7 @@ def main():
     parser.add_argument("--nodes", type=int, default=6, help="Number of nodes: Node1..NodeN")
     parser.add_argument("--resources", type=int, default=3, help="Number of resources (Resource1..ResourceN)")
     parser.add_argument("--auth-id", type=int, default=101, help="Single Auth ID used for all assignments")
-    parser.add_argument("--edge-prob", type=float, default=0.20,
+    parser.add_argument("--edge-prob", type=float, default=0.4,
                         help="Probability of extra DAG edges. If this value is 1, then it will return all possible "
                              "edges. ex) 3 nodes -> 3! edges")
     parser.add_argument("--revoke-prob", type=float, default=0.3, help="Probability of generating DelegationRevoke "
