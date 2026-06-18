@@ -589,14 +589,30 @@ def main():
             bufsize=1,
         )
 
+        auth_output_q = start_output_reader(auth_proc)
+
+        wait_for_output(
+            auth_output_q,
+            ["Are you sure to continue(y/n)?"],
+            timeout=10,
+        )
+        
+        auth_proc.stdin.write("y\n")
+        auth_proc.stdin.flush()
+        
+        wait_for_output(
+            auth_output_q,
+            ["Please enter Auth password"],
+            timeout=10,
+        )
+        
         auth_proc.stdin.write("asdf\n")
         auth_proc.stdin.flush()
-
-        auth_output_q = start_output_reader(auth_proc, "Auth")
+        
         wait_for_output(
             auth_output_q,
             ["Started Server@"],
-            timeout=5,
+            timeout=10,
         )
         print("Auth server is ready")
 
