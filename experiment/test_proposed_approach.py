@@ -380,6 +380,13 @@ def drain_output(output_q):
     return drained
 
 
+def get_file_size_bytes(path):
+    path = Path(path)
+    if not path.exists():
+        return None
+    return path.stat().st_size
+
+
 def test_access_by_init_comm(
     access_map,
     node_procs,
@@ -487,7 +494,9 @@ def main():
         validity=args.validity,
         print_detail=args.print_detail,
     )
-    output_prefix = Path(args.output)
+    output_prefix = Path(f"results/{args.output}")
+    output_prefix.parent.mkdir(parents=True, exist_ok=True)
+
     output_graph_path = output_prefix.with_suffix(".graph")
     output_graph_path.write_text(json.dumps(graph, indent="\t"))
     print(f"\nWrote {output_graph_path}")
@@ -513,11 +522,11 @@ def main():
     access_path.write_text(json.dumps(initial_access, indent=4))
     print(f"Wrote {access_path}")
 
-    before_revoke_path = output_prefix.with_name("access_before_revoke.json")
+    before_revoke_path = output_prefix.with_name(f"{output_prefix.stem}_access_before_revoke.json")
     before_revoke_path.write_text(json.dumps({k: list(v) for k, v in access_before_revoke.items()}, indent=4))
     print(f"Wrote {before_revoke_path}")
 
-    after_revoke_path = output_prefix.with_name("access_after_revoke.json")
+    after_revoke_path = output_prefix.with_name(f"{output_prefix.stem}_access_after_revoke.json")
     after_revoke_path.write_text(json.dumps({k: list(v) for k, v in access_after_revoke.items()}, indent=4))
     print(f"Wrote {after_revoke_path}")
 
@@ -529,14 +538,15 @@ def main():
     examples_dir = project_root / "iotauth" / "examples"
     auth_dir = project_root / "iotauth" / "auth" / "auth-server"
     example_entities_dir = project_root / "iotauth" / "entity" / "node" / "example_entities"
+    auth_db_path = project_root / "iotauth" / "auth" / "databases" / "auth101" / "auth.db"
 
     resource_procs = []
     auth_proc = None
     node_procs = {}
     node_outputs = {}
 
-    graph_arg = Path("../../experiment") / output_graph_path.name
-    policy_arg = Path("../../experiment") / access_path.name
+    graph_arg = Path("../../experiment/results") / output_graph_path.name
+    policy_arg = Path("../../experiment/results") / access_path.name
 
     cmd = [
         "./generateAll.sh",
@@ -643,6 +653,7 @@ def main():
 
         time.sleep(5)
 
+        auth_db_size_before_delegation = get_file_size_bytes(auth_db_path)
         delegation_start = time.perf_counter()
 
         # Perform delegation
@@ -676,6 +687,7 @@ def main():
             sys.stdout.flush()
             # time.sleep(0.5)
         delegation_end = time.perf_counter()
+        auth_db_size_after_delegation = get_file_size_bytes(auth_db_path)
 
         experiment_start2 = time.perf_counter()
         # Test assigned accesses after delegation
@@ -689,6 +701,7 @@ def main():
         )
 
         experiment_end2 = time.perf_counter()
+        auth_db_size_after_access_checking = get_file_size_bytes(auth_db_path)
 
         # Stop nodes
         for node_name, proc in node_procs.items():
@@ -730,6 +743,7 @@ def main():
             print(f"{node_name} is ready")
         sys.stdout.flush()
 
+        auth_db_size_before_revocation = get_file_size_bytes(auth_db_path)
         experiment_start3 = time.perf_counter()
         # Perform revocation
         for privilege in graph["privilegeList"]:
@@ -761,6 +775,7 @@ def main():
             sys.stdout.flush()
             # time.sleep(0.5)
         experiment_end3 = time.perf_counter()
+        auth_db_size_after_revocation = get_file_size_bytes(auth_db_path)
 
         experiment_start4 = time.perf_counter()
         # Test assigned accesses after revocation
@@ -773,13 +788,21 @@ def main():
             phase_name="after_revoke",
         )
         experiment_end4 = time.perf_counter()
+        auth_db_size_after_access_checking2 = get_file_size_bytes(auth_db_path)
 
         delegation_latency_ms = (delegation_end - delegation_start) * 1000
         before_revoke_access_latency_ms = (experiment_end2 - experiment_start2) * 1000
         revocation_latency_ms = (experiment_end3 - experiment_start3) * 1000
         after_revoke_access_latency_ms = (experiment_end4 - experiment_start4) * 1000
         summary = {
-            "phase": "delegation_grant_to_access_check",
+            "auth_db_size_bytes": {
+                "before_delegation": auth_db_size_before_delegation,
+                "after_delegation": auth_db_size_after_delegation,
+                "after_access_checking1": auth_db_size_after_access_checking,
+                "before_revocation": auth_db_size_before_revocation,
+                "after_revocation": auth_db_size_after_revocation,
+                "after_access_checking2": auth_db_size_after_access_checking2,
+            },
             "delegation_latency_ms": delegation_latency_ms,
             "before_revoke_access_latency_ms": before_revoke_access_latency_ms,
             "revocation_latency_ms": revocation_latency_ms,
@@ -788,7 +811,7 @@ def main():
             "access_check_count_after": len(after_revoke_results),
         }
 
-        summary_path = output_prefix.with_name("latency.json")
+        summary_path = output_prefix.with_name(f"{output_prefix.stem}_latency.json")
         summary_path.write_text(json.dumps(summary, indent=4))
         print(f"Wrote latency in {summary_path}")
 
