@@ -257,8 +257,8 @@ def build_graph(
                     validity,
                 )
             )
+
             access_before_revoke.setdefault(dst, set()).add(resource)
-            access_after_revoke.setdefault(dst, set()).add(resource)
 
             if revocation_rng.random() < revocation_probability:
                 revocation_list.append(
@@ -269,7 +269,29 @@ def build_graph(
                         validity,
                     )
                 )
-                access_after_revoke[dst].remove(resource)
+
+    access_after_revoke = {
+        node: set(resources)
+        for node, resources in access_before_revoke.items()
+    }
+
+    for revoke_privilege in revocation_list:
+        src = revoke_privilege["privilegedGroup"]
+        dst = revoke_privilege["subject"]
+        resource = revoke_privilege["object"]
+
+        edges = resource_edges[resource]
+
+        resource_dag = nx.DiGraph()
+        resource_dag.add_nodes_from(node_groups)
+        resource_dag.add_edges_from(edges)
+
+        revoked_nodes = {dst}
+        revoked_nodes.update(nx.descendants(resource_dag, dst))
+
+        for revoked_node in revoked_nodes:
+            if revoked_node in access_after_revoke:
+                access_after_revoke[revoked_node].discard(resource)
 
     privilege_list.sort(
         key=lambda p: (
@@ -494,7 +516,7 @@ def main():
         validity=args.validity,
         print_detail=args.print_detail,
     )
-    output_prefix = Path(f"results/{args.output}")
+    output_prefix = Path(f"results/{args.output}/{args.output}")
     output_prefix.parent.mkdir(parents=True, exist_ok=True)
 
     output_graph_path = output_prefix.with_suffix(".graph")
@@ -545,8 +567,8 @@ def main():
     node_procs = {}
     node_outputs = {}
 
-    graph_arg = Path("../../experiment/results") / output_graph_path.name
-    policy_arg = Path("../../experiment/results") / access_path.name
+    graph_arg = Path(f"../../experiment/results/{args.output}/") / output_graph_path.name
+    policy_arg = Path(f"../../experiment/results/{args.output}/") / access_path.name
 
     cmd = [
         "./generateAll.sh",
@@ -691,7 +713,7 @@ def main():
 
         experiment_start2 = time.perf_counter()
         # Test assigned accesses after delegation
-        before_revoke_test_path = Path("access_before_revoke_test.json")
+        before_revoke_test_path = output_prefix.with_name(f"{output_prefix.stem}_access_before_revoke_test.json")
         before_revoke_results = test_access_by_init_comm(
             access_map=access_before_revoke,
             node_procs=node_procs,
@@ -779,7 +801,7 @@ def main():
 
         experiment_start4 = time.perf_counter()
         # Test assigned accesses after revocation
-        after_revoke_test_path = Path("access_after_revoke_test.json")
+        after_revoke_test_path =  output_prefix.with_name(f"{output_prefix.stem}_access_after_revoke_test.json")
         after_revoke_results = test_access_by_init_comm(
             access_map=access_before_revoke,
             node_procs=node_procs,
@@ -807,8 +829,18 @@ def main():
             "before_revoke_access_latency_ms": before_revoke_access_latency_ms,
             "revocation_latency_ms": revocation_latency_ms,
             "after_revoke_access_latency_ms": after_revoke_access_latency_ms,
-            "access_check_count_before": len(before_revoke_results),
-            "access_check_count_after": len(after_revoke_results),
+            "access_check_before": {
+                "success": sum(1 for r in before_revoke_results if r["success"]),
+                "total": len(before_revoke_results),
+            },
+            "access_check_after": {
+                "success": sum(1 for r in after_revoke_results if r["success"]),
+                "expected_success": sum(
+                    len(resources)
+                    for resources in access_after_revoke.values()
+                ),
+                "total_access_checking": len(after_revoke_results),
+            },
         }
 
         summary_path = output_prefix.with_name(f"{output_prefix.stem}_latency.json")
