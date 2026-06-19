@@ -2,32 +2,16 @@
     {
         "phase": "after_revoke",
         "node": "Node1",
-        "resource": "Resource1",
-        "target": "net1.resource1",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node1",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node1",
-        "resource": "Resource10",
-        "target": "net1.resource10",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node1",
         "resource": "Resource3",
         "target": "net1.resource3",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node1",
+        "resource": "Resource8",
+        "target": "net1.resource8",
         "success": true,
         "error": null
     },
@@ -42,8 +26,8 @@
     {
         "phase": "after_revoke",
         "node": "Node1",
-        "resource": "Resource7",
-        "target": "net1.resource7",
+        "resource": "Resource5",
+        "target": "net1.resource5",
         "success": true,
         "error": null
     },
@@ -58,14 +42,6 @@
     {
         "phase": "after_revoke",
         "node": "Node1",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node1",
         "resource": "Resource9",
         "target": "net1.resource9",
         "success": true,
@@ -74,8 +50,96 @@
     {
         "phase": "after_revoke",
         "node": "Node1",
+        "resource": "Resource10",
+        "target": "net1.resource10",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node1",
+        "resource": "Resource4",
+        "target": "net1.resource4",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node1",
+        "resource": "Resource1",
+        "target": "net1.resource1",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node1",
+        "resource": "Resource7",
+        "target": "net1.resource7",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node2",
+        "resource": "Resource3",
+        "target": "net1.resource3",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node2",
         "resource": "Resource8",
         "target": "net1.resource8",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node2",
+        "resource": "Resource6",
+        "target": "net1.resource6",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node2",
+        "resource": "Resource5",
+        "target": "net1.resource5",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node2",
+        "resource": "Resource2",
+        "target": "net1.resource2",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node2",
+        "resource": "Resource9",
+        "target": "net1.resource9",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node2",
+        "resource": "Resource4",
+        "target": "net1.resource4",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node2",
+        "resource": "Resource10",
+        "target": "net1.resource10",
         "success": true,
         "error": null
     },
@@ -90,96 +154,8 @@
     {
         "phase": "after_revoke",
         "node": "Node2",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node2",
-        "resource": "Resource10",
-        "target": "net1.resource10",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node2",
-        "resource": "Resource3",
-        "target": "net1.resource3",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node2",
-        "resource": "Resource6",
-        "target": "net1.resource6",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node2",
         "resource": "Resource7",
         "target": "net1.resource7",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node2",
-        "resource": "Resource2",
-        "target": "net1.resource2",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node2",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node2",
-        "resource": "Resource9",
-        "target": "net1.resource9",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node2",
-        "resource": "Resource8",
-        "target": "net1.resource8",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node4",
-        "resource": "Resource1",
-        "target": "net1.resource1",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node4",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node4",
-        "resource": "Resource10",
-        "target": "net1.resource10",
         "success": true,
         "error": null
     },
@@ -194,8 +170,64 @@
     {
         "phase": "after_revoke",
         "node": "Node4",
+        "resource": "Resource8",
+        "target": "net1.resource8",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node4",
         "resource": "Resource6",
         "target": "net1.resource6",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node4",
+        "resource": "Resource5",
+        "target": "net1.resource5",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node4",
+        "resource": "Resource2",
+        "target": "net1.resource2",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node4",
+        "resource": "Resource9",
+        "target": "net1.resource9",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node4",
+        "resource": "Resource10",
+        "target": "net1.resource10",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node4",
+        "resource": "Resource4",
+        "target": "net1.resource4",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node4",
+        "resource": "Resource1",
+        "target": "net1.resource1",
         "success": true,
         "error": null
     },
@@ -209,41 +241,25 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node4",
-        "resource": "Resource2",
-        "target": "net1.resource2",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node4",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node4",
-        "resource": "Resource9",
-        "target": "net1.resource9",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node4",
-        "resource": "Resource8",
-        "target": "net1.resource8",
+        "node": "Node9",
+        "resource": "Resource3",
+        "target": "net1.resource3",
         "success": true,
         "error": null
     },
     {
         "phase": "after_revoke",
         "node": "Node9",
-        "resource": "Resource1",
-        "target": "net1.resource1",
+        "resource": "Resource8",
+        "target": "net1.resource8",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node9",
+        "resource": "Resource6",
+        "target": "net1.resource6",
         "success": true,
         "error": null
     },
@@ -258,50 +274,10 @@
     {
         "phase": "after_revoke",
         "node": "Node9",
-        "resource": "Resource10",
-        "target": "net1.resource10",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node9",
-        "resource": "Resource3",
-        "target": "net1.resource3",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node9",
-        "resource": "Resource6",
-        "target": "net1.resource6",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node9",
-        "resource": "Resource7",
-        "target": "net1.resource7",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node9",
         "resource": "Resource2",
         "target": "net1.resource2",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node9",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
@@ -314,8 +290,96 @@
     {
         "phase": "after_revoke",
         "node": "Node9",
+        "resource": "Resource10",
+        "target": "net1.resource10",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node9",
+        "resource": "Resource4",
+        "target": "net1.resource4",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node9",
+        "resource": "Resource1",
+        "target": "net1.resource1",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node9",
+        "resource": "Resource7",
+        "target": "net1.resource7",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node3",
+        "resource": "Resource3",
+        "target": "net1.resource3",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node3",
         "resource": "Resource8",
         "target": "net1.resource8",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node3",
+        "resource": "Resource6",
+        "target": "net1.resource6",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node3",
+        "resource": "Resource5",
+        "target": "net1.resource5",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node3",
+        "resource": "Resource2",
+        "target": "net1.resource2",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node3",
+        "resource": "Resource9",
+        "target": "net1.resource9",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node3",
+        "resource": "Resource10",
+        "target": "net1.resource10",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node3",
+        "resource": "Resource4",
+        "target": "net1.resource4",
         "success": true,
         "error": null
     },
@@ -330,96 +394,8 @@
     {
         "phase": "after_revoke",
         "node": "Node3",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node3",
-        "resource": "Resource10",
-        "target": "net1.resource10",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node3",
-        "resource": "Resource3",
-        "target": "net1.resource3",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node3",
-        "resource": "Resource6",
-        "target": "net1.resource6",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node3",
         "resource": "Resource7",
         "target": "net1.resource7",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node3",
-        "resource": "Resource2",
-        "target": "net1.resource2",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node3",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node3",
-        "resource": "Resource9",
-        "target": "net1.resource9",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node3",
-        "resource": "Resource8",
-        "target": "net1.resource8",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node5",
-        "resource": "Resource1",
-        "target": "net1.resource1",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node5",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node5",
-        "resource": "Resource10",
-        "target": "net1.resource10",
         "success": true,
         "error": null
     },
@@ -434,8 +410,64 @@
     {
         "phase": "after_revoke",
         "node": "Node5",
+        "resource": "Resource8",
+        "target": "net1.resource8",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node5",
         "resource": "Resource6",
         "target": "net1.resource6",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node5",
+        "resource": "Resource5",
+        "target": "net1.resource5",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node5",
+        "resource": "Resource2",
+        "target": "net1.resource2",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node5",
+        "resource": "Resource9",
+        "target": "net1.resource9",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node5",
+        "resource": "Resource10",
+        "target": "net1.resource10",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node5",
+        "resource": "Resource4",
+        "target": "net1.resource4",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node5",
+        "resource": "Resource1",
+        "target": "net1.resource1",
         "success": true,
         "error": null
     },
@@ -449,65 +481,17 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node5",
-        "resource": "Resource2",
-        "target": "net1.resource2",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node5",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node5",
-        "resource": "Resource9",
-        "target": "net1.resource9",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node5",
-        "resource": "Resource8",
-        "target": "net1.resource8",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node6",
-        "resource": "Resource1",
-        "target": "net1.resource1",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node6",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node6",
-        "resource": "Resource10",
-        "target": "net1.resource10",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
         "node": "Node6",
         "resource": "Resource3",
         "target": "net1.resource3",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node6",
+        "resource": "Resource8",
+        "target": "net1.resource8",
         "success": true,
         "error": null
     },
@@ -522,8 +506,8 @@
     {
         "phase": "after_revoke",
         "node": "Node6",
-        "resource": "Resource7",
-        "target": "net1.resource7",
+        "resource": "Resource5",
+        "target": "net1.resource5",
         "success": true,
         "error": null
     },
@@ -538,14 +522,6 @@
     {
         "phase": "after_revoke",
         "node": "Node6",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node6",
         "resource": "Resource9",
         "target": "net1.resource9",
         "success": true,
@@ -554,32 +530,32 @@
     {
         "phase": "after_revoke",
         "node": "Node6",
-        "resource": "Resource8",
-        "target": "net1.resource8",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node8",
-        "resource": "Resource1",
-        "target": "net1.resource1",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node8",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node8",
         "resource": "Resource10",
         "target": "net1.resource10",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node6",
+        "resource": "Resource4",
+        "target": "net1.resource4",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node6",
+        "resource": "Resource1",
+        "target": "net1.resource1",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node6",
+        "resource": "Resource7",
+        "target": "net1.resource7",
         "success": true,
         "error": null
     },
@@ -594,18 +570,26 @@
     {
         "phase": "after_revoke",
         "node": "Node8",
-        "resource": "Resource6",
-        "target": "net1.resource6",
+        "resource": "Resource8",
+        "target": "net1.resource8",
         "success": true,
         "error": null
     },
     {
         "phase": "after_revoke",
         "node": "Node8",
-        "resource": "Resource7",
-        "target": "net1.resource7",
-        "success": true,
-        "error": null
+        "resource": "Resource6",
+        "target": "net1.resource6",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node8",
+        "resource": "Resource5",
+        "target": "net1.resource5",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
@@ -618,30 +602,30 @@
     {
         "phase": "after_revoke",
         "node": "Node8",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node8",
         "resource": "Resource9",
         "target": "net1.resource9",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node8",
+        "resource": "Resource10",
+        "target": "net1.resource10",
         "success": true,
         "error": null
     },
     {
         "phase": "after_revoke",
         "node": "Node8",
-        "resource": "Resource8",
-        "target": "net1.resource8",
-        "success": true,
-        "error": null
+        "resource": "Resource4",
+        "target": "net1.resource4",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
-        "node": "Node7",
+        "node": "Node8",
         "resource": "Resource1",
         "target": "net1.resource1",
         "success": true,
@@ -649,19 +633,11 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node7",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node7",
-        "resource": "Resource10",
-        "target": "net1.resource10",
-        "success": true,
-        "error": null
+        "node": "Node8",
+        "resource": "Resource7",
+        "target": "net1.resource7",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
@@ -674,6 +650,14 @@
     {
         "phase": "after_revoke",
         "node": "Node7",
+        "resource": "Resource8",
+        "target": "net1.resource8",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node7",
         "resource": "Resource6",
         "target": "net1.resource6",
         "success": true,
@@ -682,24 +666,16 @@
     {
         "phase": "after_revoke",
         "node": "Node7",
-        "resource": "Resource7",
-        "target": "net1.resource7",
-        "success": true,
-        "error": null
+        "resource": "Resource5",
+        "target": "net1.resource5",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
         "node": "Node7",
         "resource": "Resource2",
         "target": "net1.resource2",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node7",
-        "resource": "Resource4",
-        "target": "net1.resource4",
         "success": true,
         "error": null
     },
@@ -714,14 +690,22 @@
     {
         "phase": "after_revoke",
         "node": "Node7",
-        "resource": "Resource8",
-        "target": "net1.resource8",
-        "success": true,
-        "error": null
+        "resource": "Resource10",
+        "target": "net1.resource10",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
-        "node": "Node14",
+        "node": "Node7",
+        "resource": "Resource4",
+        "target": "net1.resource4",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node7",
         "resource": "Resource1",
         "target": "net1.resource1",
         "success": true,
@@ -729,19 +713,11 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node14",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node14",
-        "resource": "Resource10",
-        "target": "net1.resource10",
-        "success": true,
-        "error": null
+        "node": "Node7",
+        "resource": "Resource7",
+        "target": "net1.resource7",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
@@ -754,6 +730,14 @@
     {
         "phase": "after_revoke",
         "node": "Node14",
+        "resource": "Resource8",
+        "target": "net1.resource8",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node14",
         "resource": "Resource6",
         "target": "net1.resource6",
         "success": true,
@@ -762,26 +746,18 @@
     {
         "phase": "after_revoke",
         "node": "Node14",
-        "resource": "Resource7",
-        "target": "net1.resource7",
-        "success": true,
-        "error": null
+        "resource": "Resource5",
+        "target": "net1.resource5",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
         "node": "Node14",
         "resource": "Resource2",
         "target": "net1.resource2",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node14",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
@@ -794,8 +770,96 @@
     {
         "phase": "after_revoke",
         "node": "Node14",
+        "resource": "Resource10",
+        "target": "net1.resource10",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node14",
+        "resource": "Resource4",
+        "target": "net1.resource4",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node14",
+        "resource": "Resource1",
+        "target": "net1.resource1",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node14",
+        "resource": "Resource7",
+        "target": "net1.resource7",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node12",
+        "resource": "Resource3",
+        "target": "net1.resource3",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node12",
         "resource": "Resource8",
         "target": "net1.resource8",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node12",
+        "resource": "Resource6",
+        "target": "net1.resource6",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node12",
+        "resource": "Resource5",
+        "target": "net1.resource5",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node12",
+        "resource": "Resource2",
+        "target": "net1.resource2",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node12",
+        "resource": "Resource9",
+        "target": "net1.resource9",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node12",
+        "resource": "Resource10",
+        "target": "net1.resource10",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node12",
+        "resource": "Resource4",
+        "target": "net1.resource4",
         "success": true,
         "error": null
     },
@@ -810,22 +874,14 @@
     {
         "phase": "after_revoke",
         "node": "Node12",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
+        "resource": "Resource7",
+        "target": "net1.resource7",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
-        "node": "Node12",
-        "resource": "Resource10",
-        "target": "net1.resource10",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node12",
+        "node": "Node16",
         "resource": "Resource3",
         "target": "net1.resource3",
         "success": true,
@@ -833,7 +889,15 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node12",
+        "node": "Node16",
+        "resource": "Resource8",
+        "target": "net1.resource8",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node16",
         "resource": "Resource6",
         "target": "net1.resource6",
         "success": true,
@@ -841,41 +905,41 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node12",
-        "resource": "Resource7",
-        "target": "net1.resource7",
-        "success": true,
-        "error": null
+        "node": "Node16",
+        "resource": "Resource5",
+        "target": "net1.resource5",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
-        "node": "Node12",
+        "node": "Node16",
         "resource": "Resource2",
         "target": "net1.resource2",
-        "success": true,
-        "error": null
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
-        "node": "Node12",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node12",
+        "node": "Node16",
         "resource": "Resource9",
         "target": "net1.resource9",
-        "success": true,
-        "error": null
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
-        "node": "Node12",
-        "resource": "Resource8",
-        "target": "net1.resource8",
+        "node": "Node16",
+        "resource": "Resource10",
+        "target": "net1.resource10",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node16",
+        "resource": "Resource4",
+        "target": "net1.resource4",
         "success": true,
         "error": null
     },
@@ -884,40 +948,8 @@
         "node": "Node16",
         "resource": "Resource1",
         "target": "net1.resource1",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node16",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node16",
-        "resource": "Resource10",
-        "target": "net1.resource10",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node16",
-        "resource": "Resource3",
-        "target": "net1.resource3",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node16",
-        "resource": "Resource6",
-        "target": "net1.resource6",
-        "success": true,
-        "error": null
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
@@ -929,7 +961,39 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node16",
+        "node": "Node18",
+        "resource": "Resource3",
+        "target": "net1.resource3",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node18",
+        "resource": "Resource8",
+        "target": "net1.resource8",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node18",
+        "resource": "Resource6",
+        "target": "net1.resource6",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node18",
+        "resource": "Resource5",
+        "target": "net1.resource5",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node18",
         "resource": "Resource2",
         "target": "net1.resource2",
         "success": true,
@@ -937,25 +1001,25 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node16",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node16",
+        "node": "Node18",
         "resource": "Resource9",
         "target": "net1.resource9",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node18",
+        "resource": "Resource10",
+        "target": "net1.resource10",
         "success": true,
         "error": null
     },
     {
         "phase": "after_revoke",
-        "node": "Node16",
-        "resource": "Resource8",
-        "target": "net1.resource8",
+        "node": "Node18",
+        "resource": "Resource4",
+        "target": "net1.resource4",
         "success": true,
         "error": null
     },
@@ -970,38 +1034,6 @@
     {
         "phase": "after_revoke",
         "node": "Node18",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node18",
-        "resource": "Resource10",
-        "target": "net1.resource10",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node18",
-        "resource": "Resource3",
-        "target": "net1.resource3",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node18",
-        "resource": "Resource6",
-        "target": "net1.resource6",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node18",
         "resource": "Resource7",
         "target": "net1.resource7",
         "success": true,
@@ -1009,7 +1041,39 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node18",
+        "node": "Node17",
+        "resource": "Resource3",
+        "target": "net1.resource3",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node17",
+        "resource": "Resource8",
+        "target": "net1.resource8",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node17",
+        "resource": "Resource6",
+        "target": "net1.resource6",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node17",
+        "resource": "Resource5",
+        "target": "net1.resource5",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node17",
         "resource": "Resource2",
         "target": "net1.resource2",
         "success": true,
@@ -1017,25 +1081,25 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node18",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node18",
+        "node": "Node17",
         "resource": "Resource9",
         "target": "net1.resource9",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node17",
+        "resource": "Resource10",
+        "target": "net1.resource10",
         "success": true,
         "error": null
     },
     {
         "phase": "after_revoke",
-        "node": "Node18",
-        "resource": "Resource8",
-        "target": "net1.resource8",
+        "node": "Node17",
+        "resource": "Resource4",
+        "target": "net1.resource4",
         "success": true,
         "error": null
     },
@@ -1044,40 +1108,8 @@
         "node": "Node17",
         "resource": "Resource1",
         "target": "net1.resource1",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node17",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node17",
-        "resource": "Resource10",
-        "target": "net1.resource10",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node17",
-        "resource": "Resource3",
-        "target": "net1.resource3",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node17",
-        "resource": "Resource6",
-        "target": "net1.resource6",
-        "success": true,
-        "error": null
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
@@ -1089,23 +1121,47 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node17",
+        "node": "Node13",
+        "resource": "Resource3",
+        "target": "net1.resource3",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node13",
+        "resource": "Resource8",
+        "target": "net1.resource8",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node13",
+        "resource": "Resource6",
+        "target": "net1.resource6",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node13",
+        "resource": "Resource5",
+        "target": "net1.resource5",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node13",
         "resource": "Resource2",
         "target": "net1.resource2",
-        "success": true,
-        "error": null
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
-        "node": "Node17",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node17",
+        "node": "Node13",
         "resource": "Resource9",
         "target": "net1.resource9",
         "success": true,
@@ -1113,11 +1169,19 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node17",
-        "resource": "Resource8",
-        "target": "net1.resource8",
-        "success": true,
-        "error": null
+        "node": "Node13",
+        "resource": "Resource10",
+        "target": "net1.resource10",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node13",
+        "resource": "Resource4",
+        "target": "net1.resource4",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
@@ -1130,22 +1194,14 @@
     {
         "phase": "after_revoke",
         "node": "Node13",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
+        "resource": "Resource7",
+        "target": "net1.resource7",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
-        "node": "Node13",
-        "resource": "Resource10",
-        "target": "net1.resource10",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node13",
+        "node": "Node10",
         "resource": "Resource3",
         "target": "net1.resource3",
         "success": true,
@@ -1153,39 +1209,39 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node13",
+        "node": "Node10",
+        "resource": "Resource8",
+        "target": "net1.resource8",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node10",
         "resource": "Resource6",
         "target": "net1.resource6",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node10",
+        "resource": "Resource5",
+        "target": "net1.resource5",
         "success": true,
         "error": null
     },
     {
         "phase": "after_revoke",
-        "node": "Node13",
-        "resource": "Resource7",
-        "target": "net1.resource7",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node13",
+        "node": "Node10",
         "resource": "Resource2",
         "target": "net1.resource2",
-        "success": true,
-        "error": null
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
-        "node": "Node13",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node13",
+        "node": "Node10",
         "resource": "Resource9",
         "target": "net1.resource9",
         "success": true,
@@ -1193,9 +1249,17 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node13",
-        "resource": "Resource8",
-        "target": "net1.resource8",
+        "node": "Node10",
+        "resource": "Resource10",
+        "target": "net1.resource10",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node10",
+        "resource": "Resource4",
+        "target": "net1.resource4",
         "success": true,
         "error": null
     },
@@ -1204,40 +1268,8 @@
         "node": "Node10",
         "resource": "Resource1",
         "target": "net1.resource1",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node10",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node10",
-        "resource": "Resource10",
-        "target": "net1.resource10",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node10",
-        "resource": "Resource3",
-        "target": "net1.resource3",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node10",
-        "resource": "Resource6",
-        "target": "net1.resource6",
-        "success": true,
-        "error": null
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
@@ -1249,31 +1281,15 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node10",
-        "resource": "Resource2",
-        "target": "net1.resource2",
-        "success": true,
-        "error": null
+        "node": "Node15",
+        "resource": "Resource3",
+        "target": "net1.resource3",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
-        "node": "Node10",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node10",
-        "resource": "Resource9",
-        "target": "net1.resource9",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node10",
+        "node": "Node15",
         "resource": "Resource8",
         "target": "net1.resource8",
         "success": true,
@@ -1282,6 +1298,214 @@
     {
         "phase": "after_revoke",
         "node": "Node15",
+        "resource": "Resource6",
+        "target": "net1.resource6",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node15",
+        "resource": "Resource5",
+        "target": "net1.resource5",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node15",
+        "resource": "Resource2",
+        "target": "net1.resource2",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node15",
+        "resource": "Resource9",
+        "target": "net1.resource9",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node15",
+        "resource": "Resource10",
+        "target": "net1.resource10",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node15",
+        "resource": "Resource4",
+        "target": "net1.resource4",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node15",
+        "resource": "Resource1",
+        "target": "net1.resource1",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node15",
+        "resource": "Resource7",
+        "target": "net1.resource7",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node20",
+        "resource": "Resource3",
+        "target": "net1.resource3",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node20",
+        "resource": "Resource8",
+        "target": "net1.resource8",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node20",
+        "resource": "Resource6",
+        "target": "net1.resource6",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node20",
+        "resource": "Resource5",
+        "target": "net1.resource5",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node20",
+        "resource": "Resource2",
+        "target": "net1.resource2",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node20",
+        "resource": "Resource9",
+        "target": "net1.resource9",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node20",
+        "resource": "Resource10",
+        "target": "net1.resource10",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node20",
+        "resource": "Resource4",
+        "target": "net1.resource4",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node20",
+        "resource": "Resource1",
+        "target": "net1.resource1",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node20",
+        "resource": "Resource7",
+        "target": "net1.resource7",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node11",
+        "resource": "Resource3",
+        "target": "net1.resource3",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node11",
+        "resource": "Resource8",
+        "target": "net1.resource8",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node11",
+        "resource": "Resource6",
+        "target": "net1.resource6",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node11",
+        "resource": "Resource5",
+        "target": "net1.resource5",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node11",
+        "resource": "Resource2",
+        "target": "net1.resource2",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node11",
+        "resource": "Resource9",
+        "target": "net1.resource9",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node11",
+        "resource": "Resource10",
+        "target": "net1.resource10",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node11",
+        "resource": "Resource4",
+        "target": "net1.resource4",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node11",
         "resource": "Resource1",
         "target": "net1.resource1",
         "success": true,
@@ -1289,198 +1513,6 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node15",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node15",
-        "resource": "Resource10",
-        "target": "net1.resource10",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node15",
-        "resource": "Resource3",
-        "target": "net1.resource3",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node15",
-        "resource": "Resource6",
-        "target": "net1.resource6",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node15",
-        "resource": "Resource7",
-        "target": "net1.resource7",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node15",
-        "resource": "Resource2",
-        "target": "net1.resource2",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node15",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node15",
-        "resource": "Resource9",
-        "target": "net1.resource9",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node15",
-        "resource": "Resource8",
-        "target": "net1.resource8",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node20",
-        "resource": "Resource1",
-        "target": "net1.resource1",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node20",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node20",
-        "resource": "Resource10",
-        "target": "net1.resource10",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node20",
-        "resource": "Resource3",
-        "target": "net1.resource3",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node20",
-        "resource": "Resource6",
-        "target": "net1.resource6",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node20",
-        "resource": "Resource7",
-        "target": "net1.resource7",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node20",
-        "resource": "Resource2",
-        "target": "net1.resource2",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node20",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node20",
-        "resource": "Resource9",
-        "target": "net1.resource9",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node20",
-        "resource": "Resource8",
-        "target": "net1.resource8",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node11",
-        "resource": "Resource1",
-        "target": "net1.resource1",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node11",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node11",
-        "resource": "Resource10",
-        "target": "net1.resource10",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node11",
-        "resource": "Resource3",
-        "target": "net1.resource3",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node11",
-        "resource": "Resource6",
-        "target": "net1.resource6",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
         "node": "Node11",
         "resource": "Resource7",
         "target": "net1.resource7",
@@ -1489,23 +1521,47 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node11",
+        "node": "Node19",
+        "resource": "Resource3",
+        "target": "net1.resource3",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node19",
+        "resource": "Resource8",
+        "target": "net1.resource8",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node19",
+        "resource": "Resource6",
+        "target": "net1.resource6",
+        "success": true,
+        "error": null
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node19",
+        "resource": "Resource5",
+        "target": "net1.resource5",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node19",
         "resource": "Resource2",
         "target": "net1.resource2",
-        "success": true,
-        "error": null
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     },
     {
         "phase": "after_revoke",
-        "node": "Node11",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node11",
+        "node": "Node19",
         "resource": "Resource9",
         "target": "net1.resource9",
         "success": true,
@@ -1513,9 +1569,17 @@
     },
     {
         "phase": "after_revoke",
-        "node": "Node11",
-        "resource": "Resource8",
-        "target": "net1.resource8",
+        "node": "Node19",
+        "resource": "Resource10",
+        "target": "net1.resource10",
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
+    },
+    {
+        "phase": "after_revoke",
+        "node": "Node19",
+        "resource": "Resource4",
+        "target": "net1.resource4",
         "success": true,
         "error": null
     },
@@ -1530,73 +1594,9 @@
     {
         "phase": "after_revoke",
         "node": "Node19",
-        "resource": "Resource5",
-        "target": "net1.resource5",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node19",
-        "resource": "Resource10",
-        "target": "net1.resource10",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node19",
-        "resource": "Resource3",
-        "target": "net1.resource3",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node19",
-        "resource": "Resource6",
-        "target": "net1.resource6",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node19",
         "resource": "Resource7",
         "target": "net1.resource7",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node19",
-        "resource": "Resource2",
-        "target": "net1.resource2",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node19",
-        "resource": "Resource4",
-        "target": "net1.resource4",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node19",
-        "resource": "Resource9",
-        "target": "net1.resource9",
-        "success": true,
-        "error": null
-    },
-    {
-        "phase": "after_revoke",
-        "node": "Node19",
-        "resource": "Resource8",
-        "target": "net1.resource8",
-        "success": true,
-        "error": null
+        "success": false,
+        "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
     }
 ]
