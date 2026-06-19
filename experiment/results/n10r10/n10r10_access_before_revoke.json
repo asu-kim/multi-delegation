@@ -1,0 +1,122 @@
+{
+    "Node1": [
+        "Resource7",
+        "Resource10",
+        "Resource8",
+        "Resource6",
+        "Resource3",
+        "Resource4",
+        "Resource1",
+        "Resource5",
+        "Resource9",
+        "Resource2"
+    ],
+    "Node2": [
+        "Resource7",
+        "Resource10",
+        "Resource8",
+        "Resource6",
+        "Resource3",
+        "Resource4",
+        "Resource1",
+        "Resource5",
+        "Resource9",
+        "Resource2"
+    ],
+    "Node6": [
+        "Resource7",
+        "Resource10",
+        "Resource8",
+        "Resource4",
+        "Resource6",
+        "Resource1",
+        "Resource3",
+        "Resource5",
+        "Resource9",
+        "Resource2"
+    ],
+    "Node3": [
+        "Resource7",
+        "Resource10",
+        "Resource8",
+        "Resource4",
+        "Resource6",
+        "Resource3",
+        "Resource1",
+        "Resource5",
+        "Resource9",
+        "Resource2"
+    ],
+    "Node7": [
+        "Resource7",
+        "Resource10",
+        "Resource8",
+        "Resource6",
+        "Resource3",
+        "Resource4",
+        "Resource1",
+        "Resource5",
+        "Resource9",
+        "Resource2"
+    ],
+    "Node4": [
+        "Resource7",
+        "Resource10",
+        "Resource8",
+        "Resource6",
+        "Resource1",
+        "Resource4",
+        "Resource3",
+        "Resource5",
+        "Resource9",
+        "Resource2"
+    ],
+    "Node5": [
+        "Resource7",
+        "Resource10",
+        "Resource8",
+        "Resource4",
+        "Resource6",
+        "Resource3",
+        "Resource1",
+        "Resource5",
+        "Resource9",
+        "Resource2"
+    ],
+    "Node10": [
+        "Resource7",
+        "Resource10",
+        "Resource8",
+        "Resource6",
+        "Resource3",
+        "Resource4",
+        "Resource1",
+        "Resource5",
+        "Resource9",
+        "Resource2"
+    ],
+    "Node9": [
+        "Resource7",
+        "Resource10",
+        "Resource8",
+        "Resource6",
+        "Resource3",
+        "Resource4",
+        "Resource1",
+        "Resource5",
+        "Resource9",
+        "Resource2"
+    ],
+    "Node8": [
+        "Resource7",
+        "Resource10",
+        "Resource8",
+        "Resource6",
+        "Resource3",
+        "Resource4",
+        "Resource1",
+        "Resource5",
+        "Resource9",
+        "Resource2"
+    ]
+}
