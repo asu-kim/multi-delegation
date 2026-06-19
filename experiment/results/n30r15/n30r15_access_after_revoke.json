@@ -1,0 +1,279 @@
+{
+    "Node1": [
+        "Resource14",
+        "Resource15",
+        "Resource9",
+        "Resource4",
+        "Resource2",
+        "Resource11",
+        "Resource1",
+        "Resource3",
+        "Resource5",
+        "Resource7",
+        "Resource13",
+        "Resource10",
+        "Resource12",
+        "Resource8",
+        "Resource6"
+    ],
+    "Node4": [
+        "Resource14",
+        "Resource15",
+        "Resource9",
+        "Resource11",
+        "Resource1",
+        "Resource3",
+        "Resource5",
+        "Resource7",
+        "Resource10",
+        "Resource12",
+        "Resource8",
+        "Resource6"
+    ],
+    "Node6": [
+        "Resource15",
+        "Resource14",
+        "Resource9",
+        "Resource4",
+        "Resource11",
+        "Resource1",
+        "Resource3",
+        "Resource7",
+        "Resource13",
+        "Resource10",
+        "Resource6"
+    ],
+    "Node18": [
+        "Resource14",
+        "Resource9",
+        "Resource2",
+        "Resource7",
+        "Resource6"
+    ],
+    "Node2": [
+        "Resource14",
+        "Resource15",
+        "Resource11",
+        "Resource4",
+        "Resource2",
+        "Resource3",
+        "Resource7",
+        "Resource13",
+        "Resource10",
+        "Resource6"
+    ],
+    "Node8": [
+        "Resource15",
+        "Resource2",
+        "Resource11",
+        "Resource3",
+        "Resource5",
+        "Resource7",
+        "Resource13",
+        "Resource10",
+        "Resource8"
+    ],
+    "Node3": [
+        "Resource14",
+        "Resource15",
+        "Resource9",
+        "Resource4",
+        "Resource11",
+        "Resource3",
+        "Resource5",
+        "Resource7",
+        "Resource13",
+        "Resource12",
+        "Resource10",
+        "Resource6"
+    ],
+    "Node14": [
+        "Resource14",
+        "Resource15",
+        "Resource11",
+        "Resource4",
+        "Resource7",
+        "Resource13",
+        "Resource10",
+        "Resource6"
+    ],
+    "Node7": [
+        "Resource15",
+        "Resource14",
+        "Resource9",
+        "Resource11",
+        "Resource3",
+        "Resource7",
+        "Resource13",
+        "Resource10",
+        "Resource12",
+        "Resource6"
+    ],
+    "Node10": [
+        "Resource14",
+        "Resource9",
+        "Resource7",
+        "Resource13",
+        "Resource10",
+        "Resource6"
+    ],
+    "Node5": [
+        "Resource15",
+        "Resource14",
+        "Resource9",
+        "Resource2",
+        "Resource3",
+        "Resource13",
+        "Resource6"
+    ],
+    "Node21": [
+        "Resource14",
+        "Resource3",
+        "Resource7"
+    ],
+    "Node19": [
+        "Resource14",
+        "Resource9",
+        "Resource7",
+        "Resource13",
+        "Resource10",
+        "Resource8"
+    ],
+    "Node24": [
+        "Resource15",
+        "Resource9",
+        "Resource3",
+        "Resource13",
+        "Resource10"
+    ],
+    "Node23": [
+        "Resource14",
+        "Resource15",
+        "Resource13",
+        "Resource10",
+        "Resource12",
+        "Resource8"
+    ],
+    "Node16": [
+        "Resource14",
+        "Resource15",
+        "Resource4",
+        "Resource11",
+        "Resource3",
+        "Resource5",
+        "Resource7",
+        "Resource10",
+        "Resource6"
+    ],
+    "Node13": [
+        "Resource14",
+        "Resource15",
+        "Resource9",
+        "Resource10",
+        "Resource12",
+        "Resource6"
+    ],
+    "Node22": [
+        "Resource14",
+        "Resource9",
+        "Resource5",
+        "Resource7",
+        "Resource10",
+        "Resource6"
+    ],
+    "Node26": [
+        "Resource14",
+        "Resource3",
+        "Resource5",
+        "Resource10",
+        "Resource12"
+    ],
+    "Node20": [
+        "Resource3",
+        "Resource7",
+        "Resource13",
+        "Resource12",
+        "Resource6"
+    ],
+    "Node25": [
+        "Resource14",
+        "Resource7",
+        "Resource13",
+        "Resource12"
+    ],
+    "Node29": [
+        "Resource14",
+        "Resource15",
+        "Resource9",
+        "Resource4",
+        "Resource3",
+        "Resource7",
+        "Resource10",
+        "Resource12"
+    ],
+    "Node12": [
+        "Resource14",
+        "Resource15",
+        "Resource9",
+        "Resource3",
+        "Resource5",
+        "Resource7",
+        "Resource13",
+        "Resource12",
+        "Resource6"
+    ],
+    "Node11": [
+        "Resource15",
+        "Resource9",
+        "Resource4",
+        "Resource11",
+        "Resource13",
+        "Resource10"
+    ],
+    "Node28": [
+        "Resource5",
+        "Resource7",
+        "Resource13",
+        "Resource6"
+    ],
+    "Node15": [
+        "Resource14",
+        "Resource4",
+        "Resource2",
+        "Resource7",
+        "Resource13",
+        "Resource10",
+        "Resource8",
+        "Resource6"
+    ],
+    "Node17": [
+        "Resource14",
+        "Resource15",
+        "Resource9",
+        "Resource3",
+        "Resource5",
+        "Resource12",
+        "Resource6"
+    ],
+    "Node27": [
+        "Resource3",
+        "Resource5",
+        "Resource6"
+    ],
+    "Node9": [
+        "Resource14",
+        "Resource15",
+        "Resource9",
+        "Resource3",
+        "Resource5",
+        "Resource7",
+        "Resource13",
+        "Resource10",
+        "Resource6"
+    ],
+    "Node30": [
+        "Resource3",
+        "Resource13",
+        "Resource12"
+    ]
+}
