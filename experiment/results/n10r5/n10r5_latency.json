@@ -7,16 +7,16 @@
         "after_revocation": 98304,
         "after_access_checking2": 106496
     },
-    "delegation_latency_ms": 1819.481346057728,
-    "before_revoke_access_latency_ms": 6047.593272989616,
-    "revocation_latency_ms": 413.08128694072366,
-    "after_revoke_access_latency_ms": 6392.121427925304,
+    "delegation_latency_ms": 2057.925143977627,
+    "before_revoke_access_latency_ms": 5916.511356830597,
+    "revocation_latency_ms": 532.8580350615084,
+    "after_revoke_access_latency_ms": 5111.449738033116,
     "access_check_before": {
         "success": 50,
         "total": 50
     },
     "access_check_after": {
-        "success": 50,
+        "success": 36,
         "expected_success": 36,
         "total_access_checking": 50
     }

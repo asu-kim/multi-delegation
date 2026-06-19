@@ -1,26 +1,26 @@
 {
     "Node1": [
-        "Resource5",
         "Resource3",
-        "Resource1",
+        "Resource5",
+        "Resource2",
         "Resource4",
-        "Resource2"
+        "Resource1"
     ],
     "Node2": [
-        "Resource5",
         "Resource3",
-        "Resource1",
+        "Resource5",
+        "Resource2",
         "Resource4",
-        "Resource2"
+        "Resource1"
     ],
     "Node6": [
         "Resource5",
-        "Resource1",
-        "Resource2"
+        "Resource2",
+        "Resource1"
     ],
     "Node3": [
-        "Resource5",
         "Resource3",
+        "Resource5",
         "Resource2"
     ],
     "Node7": [
@@ -29,30 +29,30 @@
         "Resource1"
     ],
     "Node4": [
-        "Resource5",
         "Resource3",
+        "Resource5",
         "Resource2"
     ],
     "Node5": [
-        "Resource5",
         "Resource3",
-        "Resource1",
+        "Resource5",
+        "Resource2",
         "Resource4",
-        "Resource2"
+        "Resource1"
     ],
     "Node10": [
-        "Resource5",
         "Resource3",
-        "Resource1",
-        "Resource4"
+        "Resource5",
+        "Resource4",
+        "Resource1"
     ],
     "Node9": [
         "Resource3"
     ],
     "Node8": [
-        "Resource5",
         "Resource3",
-        "Resource4",
-        "Resource2"
+        "Resource5",
+        "Resource2",
+        "Resource4"
     ]
 }

@@ -1,22 +1,22 @@
 {
     "auth_db_size_bytes": {
-        "before_delegation": 184320,
-        "after_delegation": 245760,
-        "after_access_checking1": 352256,
-        "before_revocation": 352256,
-        "after_revocation": 352256,
-        "after_access_checking2": 446464
+        "before_delegation": 192512,
+        "after_delegation": 253952,
+        "after_access_checking1": 360448,
+        "before_revocation": 360448,
+        "after_revocation": 360448,
+        "after_access_checking2": 385024
     },
-    "delegation_latency_ms": 23519.507879158482,
-    "before_revoke_access_latency_ms": 55534.27612804808,
-    "revocation_latency_ms": 4686.441106023267,
-    "after_revoke_access_latency_ms": 54620.286853052676,
+    "delegation_latency_ms": 26262.809199048206,
+    "before_revoke_access_latency_ms": 55516.552112065256,
+    "revocation_latency_ms": 5663.470048923045,
+    "after_revoke_access_latency_ms": 35023.47973617725,
     "access_check_before": {
         "success": 450,
         "total": 450
     },
     "access_check_after": {
-        "success": 450,
+        "success": 217,
         "expected_success": 217,
         "total_access_checking": 450
     }
