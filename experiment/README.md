@@ -26,6 +26,8 @@ pip install networkx
 2. Update iotauth submodule
 ```
 git submodule update --init --recursive
+cd $PROJECT_ROOT/iotauth
+git pull
 ```
 3. Build Auth
 ```
@@ -35,7 +37,9 @@ make
 
 ## Running the Experiment
 
-The number of nodes, number of resources, and output directory name can be manually configured.
+The number of nodes, the number of resources, and the output directory name can be manually configured.
+
+⚠️ **Important Note!** Set Auth password as `asdf`.
 
 #### For Linux:
 ```
@@ -59,7 +63,7 @@ python3 test_proposed_approach.py --nodes 10 --resources 5 --output n10r5 2>&1 |
 ```
 This creates `log_name.txt` inside the `experiment` directory where the Python script is executed.
 
-At the beginning of the `log_name.txt` file, you can find generated experiment topology, including:
+At the beginning of the `log_name.txt` file, you can find the generated experiment topology, including:
 - initial access privileges assigned to head nodes,
 - the overall DAG delegation graph and hierarchy, and
 - resource-specific delegation edges used to generate delegation and revocation privileges.
@@ -126,7 +130,7 @@ This corresponds to the set `P_r` i.e., the node-resource pairs that should rema
 Actual access-checking results using `n10r5_access_before_revoke.json.`
 
 The script tests the original pre-revocation access pairs and records which accesses still succeed after revocation. 
-Pairs that lose access after revocation produce an authorization failure such as:
+Pairs that lose access after revocation produce an authorization failure, such as:
 ```
 "success": false,
 "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
