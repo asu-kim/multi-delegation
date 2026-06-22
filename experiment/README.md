@@ -37,12 +37,12 @@ make
 
 The number of nodes, number of resources, and output directory name can be manually configured.
 
-####For Linux:
+#### For Linux:
 ```
 python3 test_proposed_approach.py --nodes 10 --resources 5 --output n10r5
 ```
 
-####For macOS:
+#### For macOS:
 ```
 python3 test_proposed_approach_mac.py --nodes 10 --resources 5 --output n10r5
 ```
@@ -88,7 +88,7 @@ Resource-specific DAG delegation edges:
 ```
 
 
-##Output Files
+## Output Files
 The experiment generates seven output files in `results/n10r5` directory.
 
 ### 1. `n10r5.graph`
