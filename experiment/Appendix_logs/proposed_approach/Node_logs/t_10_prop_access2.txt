@@ -1,0 +1,493 @@
+loading from config file: configs/net1/node0.config
+initializing...
+current parameters: {
+  numKeysPerRequest: 1,
+  migrationEnabled: false,
+  authFailureThreshold: 3,
+  migrationFailureThreshold: 3
+}
+Connecting: configs/net1/node0.config -> net1.resourceA localhost 21100
+Distribution protocol: TCP
+connected to auth! from local port 50117
+received auth hello!
+{ authId: 101, nonce: <Buffer b4 70 61 37 c9 b5 b1 68> }
+auth id matches
+received session key response encrypted with distribution key
+replyNonce in sessionKeyResp: <Buffer 9c 1f 9a c9 62 91 d6 65>
+auth nonce verified
+received 1 keys
+currentSessionKey: {
+  id: 10100018,
+  cipherKeyVal: <Buffer 33 a6 ee 07 88 af e6 d7 ff d4 b1 28 cb 49 42 23>,
+  macKeyVal: <Buffer b2 7e e6 69 37 2a 4b 84 e4 ed 9e c3 1e 08 bb b0 a0 3a a9 93 fc 61 f3 fe f5 3e d6 a2 4c c4 5b 46>,
+  absValidity: 2026-03-28T20:59:21.759Z,
+  relValidity: 7200000
+}
+Session protocol: TCP
+chosen commSessionKey: 
+{
+  id: 10100018,
+  cipherKeyVal: <Buffer 33 a6 ee 07 88 af e6 d7 ff d4 b1 28 cb 49 42 23>,
+  macKeyVal: <Buffer b2 7e e6 69 37 2a 4b 84 e4 ed 9e c3 1e 08 bb b0 a0 3a a9 93 fc 61 f3 fe f5 3e d6 a2 4c c4 5b 46>,
+  absValidity: 2026-03-28T20:59:21.759Z,
+  relValidity: 7200000
+}
+options
+{
+  serverHost: 'localhost',
+  serverPort: 21100,
+  sessionKey: {
+    id: 10100018,
+    cipherKeyVal: <Buffer 33 a6 ee 07 88 af e6 d7 ff d4 b1 28 cb 49 42 23>,
+    macKeyVal: <Buffer b2 7e e6 69 37 2a 4b 84 e4 ed 9e c3 1e 08 bb b0 a0 3a a9 93 fc 61 f3 fe f5 3e d6 a2 4c c4 5b 46>,
+    absValidity: 2026-03-28T20:59:21.759Z,
+    relValidity: 7200000
+  },
+  sessionCryptoSpec: { cipher: 'AES-128-CBC', mac: 'SHA256' },
+  sessionProtocol: 'TCP',
+  handshakeTimeout: 5000
+}
+disconnected from auth
+chosen nonce: <Buffer 4f 3d 91 12 e7 8c 36 7a>
+switching to HANDSHAKE_1_SENT
+received session key handshake2!
+client ret: {
+  nonce: <Buffer e0 07 1f fd a6 25 d3 bc>,
+  replyNonce: <Buffer 4f 3d 91 12 e7 8c 36 7a>
+}
+server authenticated/authorized by solving nonce!
+Handler: communication initialization succeeded
+switching to IN_COMM
+[PASS] configs/net1/node0.config -> undefined | 106.125 ms
+ServerHostPort is null, trying to close previous socket...
+loading from config file: configs/net1/node0.config
+initializing...
+current parameters: {
+  numKeysPerRequest: 1,
+  migrationEnabled: false,
+  authFailureThreshold: 3,
+  migrationFailureThreshold: 3
+}
+Connecting: configs/net1/node0.config -> net1.resourceB localhost 21200
+Distribution protocol: TCP
+Handler: secure connection with the server closed.
+connected to auth! from local port 50120
+received auth hello!
+{ authId: 101, nonce: <Buffer 78 61 94 3b fc e1 fc 0c> }
+auth id matches
+received session key response encrypted with distribution key
+replyNonce in sessionKeyResp: <Buffer 17 1b 3c 02 87 46 c4 64>
+auth nonce verified
+received 1 keys
+currentSessionKey: {
+  id: 10100019,
+  cipherKeyVal: <Buffer 83 5f 9e 7e 66 a5 67 a6 f7 f1 f9 79 2b 06 e2 e4>,
+  macKeyVal: <Buffer 0e e5 df 09 d4 30 96 52 05 76 72 a2 5e 62 f0 d2 e6 bc fc 73 ad 9d ac 70 4e e7 32 00 da 34 ba ba>,
+  absValidity: 2026-03-28T20:59:21.855Z,
+  relValidity: 7200000
+}
+Session protocol: TCP
+chosen commSessionKey: 
+{
+  id: 10100019,
+  cipherKeyVal: <Buffer 83 5f 9e 7e 66 a5 67 a6 f7 f1 f9 79 2b 06 e2 e4>,
+  macKeyVal: <Buffer 0e e5 df 09 d4 30 96 52 05 76 72 a2 5e 62 f0 d2 e6 bc fc 73 ad 9d ac 70 4e e7 32 00 da 34 ba ba>,
+  absValidity: 2026-03-28T20:59:21.855Z,
+  relValidity: 7200000
+}
+options
+{
+  serverHost: 'localhost',
+  serverPort: 21200,
+  sessionKey: {
+    id: 10100019,
+    cipherKeyVal: <Buffer 83 5f 9e 7e 66 a5 67 a6 f7 f1 f9 79 2b 06 e2 e4>,
+    macKeyVal: <Buffer 0e e5 df 09 d4 30 96 52 05 76 72 a2 5e 62 f0 d2 e6 bc fc 73 ad 9d ac 70 4e e7 32 00 da 34 ba ba>,
+    absValidity: 2026-03-28T20:59:21.855Z,
+    relValidity: 7200000
+  },
+  sessionCryptoSpec: { cipher: 'AES-128-CBC', mac: 'SHA256' },
+  sessionProtocol: 'TCP',
+  handshakeTimeout: 5000
+}
+disconnected from auth
+chosen nonce: <Buffer 54 a3 f0 a8 78 a3 9c 55>
+switching to HANDSHAKE_1_SENT
+received session key handshake2!
+client ret: {
+  nonce: <Buffer 04 c3 65 28 8a 38 06 52>,
+  replyNonce: <Buffer 54 a3 f0 a8 78 a3 9c 55>
+}
+server authenticated/authorized by solving nonce!
+Handler: communication initialization succeeded
+switching to IN_COMM
+[PASS] configs/net1/node0.config -> undefined | 101.065 ms
+ServerHostPort is null, trying to close previous socket...
+loading from config file: configs/net1/node0.config
+initializing...
+current parameters: {
+  numKeysPerRequest: 1,
+  migrationEnabled: false,
+  authFailureThreshold: 3,
+  migrationFailureThreshold: 3
+}
+Connecting: configs/net1/node0.config -> net1.resourceC localhost 21300
+Distribution protocol: TCP
+Handler: secure connection with the server closed.
+connected to auth! from local port 50123
+received auth hello!
+{ authId: 101, nonce: <Buffer 23 f5 c1 b0 3e 33 88 3f> }
+auth id matches
+received session key response encrypted with distribution key
+replyNonce in sessionKeyResp: <Buffer 6e 51 aa 10 3e 06 fd fc>
+auth nonce verified
+received 1 keys
+currentSessionKey: {
+  id: 10100020,
+  cipherKeyVal: <Buffer a6 9a 6c 24 b9 cb c8 f5 ee 4a 09 98 bf 06 00 2b>,
+  macKeyVal: <Buffer 8f f4 dc 54 ba 91 92 52 ed fd 09 c8 0b e1 5b 8e c8 8c b6 83 29 bc ec 02 82 60 1f af 21 f9 2d fc>,
+  absValidity: 2026-03-28T20:59:21.958Z,
+  relValidity: 7200000
+}
+Session protocol: TCP
+chosen commSessionKey: 
+{
+  id: 10100020,
+  cipherKeyVal: <Buffer a6 9a 6c 24 b9 cb c8 f5 ee 4a 09 98 bf 06 00 2b>,
+  macKeyVal: <Buffer 8f f4 dc 54 ba 91 92 52 ed fd 09 c8 0b e1 5b 8e c8 8c b6 83 29 bc ec 02 82 60 1f af 21 f9 2d fc>,
+  absValidity: 2026-03-28T20:59:21.958Z,
+  relValidity: 7200000
+}
+options
+{
+  serverHost: 'localhost',
+  serverPort: 21300,
+  sessionKey: {
+    id: 10100020,
+    cipherKeyVal: <Buffer a6 9a 6c 24 b9 cb c8 f5 ee 4a 09 98 bf 06 00 2b>,
+    macKeyVal: <Buffer 8f f4 dc 54 ba 91 92 52 ed fd 09 c8 0b e1 5b 8e c8 8c b6 83 29 bc ec 02 82 60 1f af 21 f9 2d fc>,
+    absValidity: 2026-03-28T20:59:21.958Z,
+    relValidity: 7200000
+  },
+  sessionCryptoSpec: { cipher: 'AES-128-CBC', mac: 'SHA256' },
+  sessionProtocol: 'TCP',
+  handshakeTimeout: 5000
+}
+disconnected from auth
+chosen nonce: <Buffer 00 f9 46 52 a7 b4 a1 73>
+switching to HANDSHAKE_1_SENT
+received session key handshake2!
+client ret: {
+  nonce: <Buffer d3 75 60 4d 84 78 9b 37>,
+  replyNonce: <Buffer 00 f9 46 52 a7 b4 a1 73>
+}
+server authenticated/authorized by solving nonce!
+Handler: communication initialization succeeded
+switching to IN_COMM
+[PASS] configs/net1/node0.config -> undefined | 100.873 ms
+ServerHostPort is null, trying to close previous socket...
+loading from config file: configs/net1/node0.config
+initializing...
+current parameters: {
+  numKeysPerRequest: 1,
+  migrationEnabled: false,
+  authFailureThreshold: 3,
+  migrationFailureThreshold: 3
+}
+Connecting: configs/net1/node0.config -> net1.resourceD localhost 21400
+Distribution protocol: TCP
+Handler: secure connection with the server closed.
+connected to auth! from local port 50126
+received auth hello!
+{ authId: 101, nonce: <Buffer 26 2c d4 5c 61 af 61 dd> }
+auth id matches
+received session key response encrypted with distribution key
+replyNonce in sessionKeyResp: <Buffer bd 13 39 6c 8f 91 5c bc>
+auth nonce verified
+received 1 keys
+currentSessionKey: {
+  id: 10100021,
+  cipherKeyVal: <Buffer 19 87 a5 ad 27 54 1b 7a 25 36 10 3e ac a4 5a 47>,
+  macKeyVal: <Buffer 94 35 53 21 ac 8e e1 b1 6f 7c 47 e5 37 cb 46 cc 6d 1c 95 05 10 00 8f 65 2c 78 51 b4 cc 1f 24 4d>,
+  absValidity: 2026-03-28T20:59:22.062Z,
+  relValidity: 7200000
+}
+Session protocol: TCP
+chosen commSessionKey: 
+{
+  id: 10100021,
+  cipherKeyVal: <Buffer 19 87 a5 ad 27 54 1b 7a 25 36 10 3e ac a4 5a 47>,
+  macKeyVal: <Buffer 94 35 53 21 ac 8e e1 b1 6f 7c 47 e5 37 cb 46 cc 6d 1c 95 05 10 00 8f 65 2c 78 51 b4 cc 1f 24 4d>,
+  absValidity: 2026-03-28T20:59:22.062Z,
+  relValidity: 7200000
+}
+options
+{
+  serverHost: 'localhost',
+  serverPort: 21400,
+  sessionKey: {
+    id: 10100021,
+    cipherKeyVal: <Buffer 19 87 a5 ad 27 54 1b 7a 25 36 10 3e ac a4 5a 47>,
+    macKeyVal: <Buffer 94 35 53 21 ac 8e e1 b1 6f 7c 47 e5 37 cb 46 cc 6d 1c 95 05 10 00 8f 65 2c 78 51 b4 cc 1f 24 4d>,
+    absValidity: 2026-03-28T20:59:22.062Z,
+    relValidity: 7200000
+  },
+  sessionCryptoSpec: { cipher: 'AES-128-CBC', mac: 'SHA256' },
+  sessionProtocol: 'TCP',
+  handshakeTimeout: 5000
+}
+disconnected from auth
+chosen nonce: <Buffer f0 ab fb 6e 5d 64 30 44>
+switching to HANDSHAKE_1_SENT
+received session key handshake2!
+client ret: {
+  nonce: <Buffer 8e 45 b6 35 97 1a 21 ae>,
+  replyNonce: <Buffer f0 ab fb 6e 5d 64 30 44>
+}
+server authenticated/authorized by solving nonce!
+Handler: communication initialization succeeded
+switching to IN_COMM
+[PASS] configs/net1/node0.config -> undefined | 101.002 ms
+ServerHostPort is null, trying to close previous socket...
+loading from config file: configs/net1/node1.config
+initializing...
+current parameters: {
+  numKeysPerRequest: 1,
+  migrationEnabled: false,
+  authFailureThreshold: 3,
+  migrationFailureThreshold: 3
+}
+Connecting: configs/net1/node1.config -> net1.resourceA localhost 21100
+Distribution protocol: TCP
+Handler: secure connection with the server closed.
+connected to auth! from local port 50129
+received auth hello!
+{ authId: 101, nonce: <Buffer de b0 b5 fc 59 13 7d 7c> }
+auth id matches
+received an Auth alert!
+disconnected from auth
+[FAIL-ERROR] configs/net1/node1.config -> undefined | 100.884 ms | received an Auth alert! code: 1
+ServerHostPort is null, trying to close previous socket...
+loading from config file: configs/net1/node1.config
+initializing...
+current parameters: {
+  numKeysPerRequest: 1,
+  migrationEnabled: false,
+  authFailureThreshold: 3,
+  migrationFailureThreshold: 3
+}
+Connecting: configs/net1/node1.config -> net1.resourceB localhost 21200
+Distribution protocol: TCP
+connected to auth! from local port 50130
+received auth hello!
+{ authId: 101, nonce: <Buffer 85 fb 33 8c e9 0f 22 ff> }
+auth id matches
+received an Auth alert!
+disconnected from auth
+[FAIL-ERROR] configs/net1/node1.config -> undefined | 101.139 ms | received an Auth alert! code: 1
+ServerHostPort is null, trying to close previous socket...
+loading from config file: configs/net1/node2.config
+initializing...
+current parameters: {
+  numKeysPerRequest: 1,
+  migrationEnabled: false,
+  authFailureThreshold: 3,
+  migrationFailureThreshold: 3
+}
+Connecting: configs/net1/node2.config -> net1.resourceC localhost 21300
+Distribution protocol: TCP
+connected to auth! from local port 50131
+received auth hello!
+{ authId: 101, nonce: <Buffer 7f d8 3c 91 55 f7 60 6a> }
+auth id matches
+received an Auth alert!
+disconnected from auth
+[FAIL-ERROR] configs/net1/node2.config -> undefined | 102.034 ms | received an Auth alert! code: 1
+ServerHostPort is null, trying to close previous socket...
+loading from config file: configs/net1/node2.config
+initializing...
+current parameters: {
+  numKeysPerRequest: 1,
+  migrationEnabled: false,
+  authFailureThreshold: 3,
+  migrationFailureThreshold: 3
+}
+Connecting: configs/net1/node2.config -> net1.resourceD localhost 21400
+Distribution protocol: TCP
+connected to auth! from local port 50132
+received auth hello!
+{ authId: 101, nonce: <Buffer 83 92 2d ac 7b 7e 5b f9> }
+auth id matches
+received an Auth alert!
+disconnected from auth
+[FAIL-ERROR] configs/net1/node2.config -> undefined | 101.352 ms | received an Auth alert! code: 1
+ServerHostPort is null, trying to close previous socket...
+loading from config file: configs/net1/node3.config
+initializing...
+current parameters: {
+  numKeysPerRequest: 1,
+  migrationEnabled: false,
+  authFailureThreshold: 3,
+  migrationFailureThreshold: 3
+}
+Connecting: configs/net1/node3.config -> net1.resourceA localhost 21100
+Distribution protocol: TCP
+connected to auth! from local port 50133
+received auth hello!
+{ authId: 101, nonce: <Buffer b8 ba e0 b1 7a dd 4c 42> }
+auth id matches
+received an Auth alert!
+disconnected from auth
+[FAIL-ERROR] configs/net1/node3.config -> undefined | 100.933 ms | received an Auth alert! code: 1
+ServerHostPort is null, trying to close previous socket...
+loading from config file: configs/net1/node4.config
+initializing...
+current parameters: {
+  numKeysPerRequest: 1,
+  migrationEnabled: false,
+  authFailureThreshold: 3,
+  migrationFailureThreshold: 3
+}
+Connecting: configs/net1/node4.config -> net1.resourceB localhost 21200
+Distribution protocol: TCP
+connected to auth! from local port 50134
+received auth hello!
+{ authId: 101, nonce: <Buffer b8 bf 49 d5 48 73 1f b2> }
+auth id matches
+received an Auth alert!
+disconnected from auth
+[FAIL-ERROR] configs/net1/node4.config -> undefined | 101.710 ms | received an Auth alert! code: 1
+ServerHostPort is null, trying to close previous socket...
+loading from config file: configs/net1/node5.config
+initializing...
+current parameters: {
+  numKeysPerRequest: 1,
+  migrationEnabled: false,
+  authFailureThreshold: 3,
+  migrationFailureThreshold: 3
+}
+Connecting: configs/net1/node5.config -> net1.resourceC localhost 21300
+Distribution protocol: TCP
+connected to auth! from local port 50135
+received auth hello!
+{ authId: 101, nonce: <Buffer 0f 07 43 e8 9c c3 61 7b> }
+auth id matches
+received an Auth alert!
+disconnected from auth
+[FAIL-ERROR] configs/net1/node5.config -> undefined | 101.605 ms | received an Auth alert! code: 1
+ServerHostPort is null, trying to close previous socket...
+loading from config file: configs/net1/node6.config
+initializing...
+current parameters: {
+  numKeysPerRequest: 1,
+  migrationEnabled: false,
+  authFailureThreshold: 3,
+  migrationFailureThreshold: 3
+}
+Connecting: configs/net1/node6.config -> net1.resourceD localhost 21400
+Distribution protocol: TCP
+connected to auth! from local port 50136
+received auth hello!
+{ authId: 101, nonce: <Buffer 9d 86 ae 48 05 e8 33 c3> }
+auth id matches
+received an Auth alert!
+disconnected from auth
+[FAIL-ERROR] configs/net1/node6.config -> undefined | 101.575 ms | received an Auth alert! code: 1
+ServerHostPort is null, trying to close previous socket...
+
+========== SUMMARY ==========
+Total tests   : 12
+Success       : 4
+Fail          : 8
+Success rate  : 33.33%
+Total latency : 1220.297 ms
+Avg latency   : 101.691 ms
+End-to-end    : 1235.111 ms
+
+Detailed results:
+[
+  {
+    nodeConfig: 'configs/net1/node0.config',
+    resource: 'ResourceA',
+    success: true,
+    latencyMs: 106.125208,
+    reason: 'connected'
+  },
+  {
+    nodeConfig: 'configs/net1/node0.config',
+    resource: 'ResourceB',
+    success: true,
+    latencyMs: 101.064875,
+    reason: 'connected'
+  },
+  {
+    nodeConfig: 'configs/net1/node0.config',
+    resource: 'ResourceC',
+    success: true,
+    latencyMs: 100.872875,
+    reason: 'connected'
+  },
+  {
+    nodeConfig: 'configs/net1/node0.config',
+    resource: 'ResourceD',
+    success: true,
+    latencyMs: 101.001958,
+    reason: 'connected'
+  },
+  {
+    nodeConfig: 'configs/net1/node1.config',
+    resource: 'ResourceA',
+    success: false,
+    latencyMs: 100.883792,
+    reason: 'received an Auth alert! code: 1'
+  },
+  {
+    nodeConfig: 'configs/net1/node1.config',
+    resource: 'ResourceB',
+    success: false,
+    latencyMs: 101.139,
+    reason: 'received an Auth alert! code: 1'
+  },
+  {
+    nodeConfig: 'configs/net1/node2.config',
+    resource: 'ResourceC',
+    success: false,
+    latencyMs: 102.034208,
+    reason: 'received an Auth alert! code: 1'
+  },
+  {
+    nodeConfig: 'configs/net1/node2.config',
+    resource: 'ResourceD',
+    success: false,
+    latencyMs: 101.352041,
+    reason: 'received an Auth alert! code: 1'
+  },
+  {
+    nodeConfig: 'configs/net1/node3.config',
+    resource: 'ResourceA',
+    success: false,
+    latencyMs: 100.93275,
+    reason: 'received an Auth alert! code: 1'
+  },
+  {
+    nodeConfig: 'configs/net1/node4.config',
+    resource: 'ResourceB',
+    success: false,
+    latencyMs: 101.70975,
+    reason: 'received an Auth alert! code: 1'
+  },
+  {
+    nodeConfig: 'configs/net1/node5.config',
+    resource: 'ResourceC',
+    success: false,
+    latencyMs: 101.605042,
+    reason: 'received an Auth alert! code: 1'
+  },
+  {
+    nodeConfig: 'configs/net1/node6.config',
+    resource: 'ResourceD',
+    success: false,
+    latencyMs: 101.575166,
+    reason: 'received an Auth alert! code: 1'
+  }
+]

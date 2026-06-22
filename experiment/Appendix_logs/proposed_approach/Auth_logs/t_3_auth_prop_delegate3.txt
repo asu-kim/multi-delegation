@@ -1,0 +1,71 @@
+SLF4J(I): Connected with provider of type [org.slf4j.simple.SimpleServiceProvider]
+[main] INFO org.iot.auth.AuthServer - Properties file specified: ../properties/exampleAuth101.properties
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = auth_id:101
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = host_name:0.0.0.0
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = entity_tcp_port:21900
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = entity_tcp_port_timeout:20000
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = entity_udp_port:21902
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = entity_udp_port_timeout:20000
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = trusted_auth_port:21901
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = trusted_auth_port_idle_timeout:600000
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = contextual_callback_port:21903
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = contextual_callback_port_idle_timeout:20000
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = contextual_callback_enabled:true
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = entity_key_store_path:../databases/auth101/my_keystores/Auth101Entity.pfx
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = internet_key_store_path:../databases/auth101/my_keystores/Auth101Internet.pfx
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = database_key_store_path:../databases/auth101/my_keystores/Auth101Database.pfx
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = database_encryption_key_path:../databases/auth101/my_keystores/Auth101Database.bin
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = trusted_ca_cert_paths:[../credentials/ca/CACert.pem]
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = auth_database_dir:../databases/auth101
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = auth_db_protection_method:1
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = backup_enabled:false
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = bluetooth_enabled:false
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = qps_throttling_enabled:false
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = qps_limit:10.0
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = qps_calculation_bucket_size_in_sec:60
+[main] INFO org.iot.auth.config.AuthServerProperties - key:value = cleanup_cycle_in_ms:120000
+[main] INFO org.iot.auth.AuthServer - Finished loading Auth Server properties.
+[main] INFO org.iot.auth.AuthServer - Please enter Auth password: 
+[main] INFO org.iot.auth.db.dao.SQLiteConnector - Auth DB protection method selected: ENCRYPT_CREDENTIALS
+[main] INFO org.iot.auth.db.dao.SQLiteConnector - Credential encryption - ENABLED
+[main] INFO org.iot.auth.db.dao.SQLiteConnector - Entire DB encryption - DISABLED
+[main] INFO org.iot.auth.db.dao.SQLiteConnector - selectAllRegEntities Table lookup
+[main] INFO org.iot.auth.db.dao.SQLiteConnector - selectAllPolicies Table lookup
+[main] INFO org.iot.auth.db.dao.SQLiteConnector - selectAllTrustedAuths Table lookup
+[main] INFO org.iot.auth.AuthServer - Finished initializing Auth DB.
+[main] INFO org.eclipse.jetty.util.ssl.SslContextFactory - x509=X509@6f45df59(1,h=[localhost],a=[],w=[]) for Client@38e79ae3[provider=null,keyStore=null,trustStore=null]
+[main] INFO org.iot.auth.AuthServer - Auth server information. Auth ID: 101, Entity Ports TCP: 21900 UDP: 21902, Trusted auth Port: 21901, Host name: 0.0.0.0
+[main] INFO org.iot.auth.AuthServer - Bluetooth entities - DISABLED
+[Thread-4] INFO org.iot.auth.AuthCommandLine - 
+Enter command (e.g., help, show re/cp/ta/sk/maps, clean sk, reset re/sk, issue cert [ic], backup ): 
+[Timer-1] INFO org.iot.auth.db.dao.SQLiteConnector - deleteExpiredCommunicationPolicies Table lookup
+[Timer-1] INFO org.iot.auth.db.dao.SQLiteConnector - No expired communication policies.
+[Timer-1] INFO org.iot.auth.AuthServer - Expired communication policies cleaned.
+[main] INFO org.eclipse.jetty.server.Server - jetty-10.0.14; built: 2023-02-22T23:12:32.272Z; git: 976721d0f3e903a243584d47870ad2f2c1bf9e55; jvm 23.0.1+11-39
+[main] INFO org.eclipse.jetty.util.ssl.SslContextFactory - x509=X509@69504ae9(1,h=[localhost],a=[],w=[]) for Server@387a8303[provider=null,keyStore=null,trustStore=null]
+[main] INFO org.eclipse.jetty.server.AbstractConnector - Started ServerConnector@6c40365c{SSL, (ssl, http/1.1)}{0.0.0.0:21901}
+[main] INFO org.eclipse.jetty.server.Server - Started Server@480d3575{STARTING}[10.0.14,sto=0] @1687ms
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:50005 
+[Thread-23] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:50005 with auth nonce 05 78 d9 10 ee c8 6f 22 
+[Thread-23] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received privilege request message!
+[Thread-23] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received request message encrypted with distribution key!
+[Thread-23] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"privilegeType":"DelegationGrant","subject":"Node3","object":"ResourceA","validity":"1*day"}
+[Thread-23] INFO org.iot.auth.db.dao.SQLiteConnector - selectPrivilegeByPrivilegedGroup Table lookup
+[Thread-23] INFO org.iot.auth.db.dao.SQLiteConnector - selectMetaDataValue Table lookup
+[Thread-23] INFO org.iot.auth.db.dao.SQLiteConnector - selectAllPolicies Table lookup
+[Thread-23] INFO org.iot.auth.db.dao.SQLiteConnector - 38 34 1774644699710 0
+[Thread-23] INFO org.iot.auth.db.dao.SQLiteConnector - selectMetaDataValue Table lookup
+[Thread-23] INFO org.iot.auth.message.PrivilegeReqMessage - communicationPolicyStr: {"newCommunicationPolicy":{"Target":"ResourceA","AbsoluteValidity":0,"RelativeValidity":0,"TargetType":"Group","Expiration":1774731051196,"IsDelegated":1,"ID":38,"RelativeValidityStr":"1*hour","MaxNumSessionKeyOwners":2,"AbsoluteValidityStr":"1*day","RequestingGroup":"Node3"},"curCommPolicyCount":"38","action":"DelegationGrant"}
+[Thread-23] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:50005
+[Thread-1] INFO org.iot.auth.AuthServer - An entity connected from: /[0:0:0:0:0:0:0:1]:50006 
+[Thread-24] INFO org.iot.auth.server.EntityTcpConnectionHandler - Sending AUTH_HELLO to entity at Port /[0:0:0:0:0:0:0:1]:50006 with auth nonce 64 5f 7d ba dc 25 d9 ec 
+[Thread-24] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received privilege request message!
+[Thread-24] INFO org.iot.auth.server.EntityTcpConnectionHandler - Received request message encrypted with distribution key!
+[Thread-24] INFO org.iot.auth.message.SessionKeyReqMessage - Received JSON: {"privilegeType":"DelegationGrant","subject":"Node4","object":"ResourceB","validity":"1*day"}
+[Thread-24] INFO org.iot.auth.db.dao.SQLiteConnector - selectPrivilegeByPrivilegedGroup Table lookup
+[Thread-24] INFO org.iot.auth.db.dao.SQLiteConnector - selectMetaDataValue Table lookup
+[Thread-24] INFO org.iot.auth.db.dao.SQLiteConnector - selectAllPolicies Table lookup
+[Thread-24] INFO org.iot.auth.db.dao.SQLiteConnector - 39 35 1774644699806 0
+[Thread-24] INFO org.iot.auth.db.dao.SQLiteConnector - selectMetaDataValue Table lookup
+[Thread-24] INFO org.iot.auth.message.PrivilegeReqMessage - communicationPolicyStr: {"newCommunicationPolicy":{"Target":"ResourceB","AbsoluteValidity":0,"RelativeValidity":0,"TargetType":"Group","Expiration":1774731051292,"IsDelegated":1,"ID":39,"RelativeValidityStr":"1*hour","MaxNumSessionKeyOwners":2,"AbsoluteValidityStr":"1*day","RequestingGroup":"Node4"},"curCommPolicyCount":"39","action":"DelegationGrant"}
+[Thread-24] INFO org.iot.auth.server.EntityTcpConnectionHandler - Closing connection with socket at /[0:0:0:0:0:0:0:1]:50006
