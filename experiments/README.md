@@ -9,11 +9,21 @@ This experiment evaluates delegation, access verification, revocation, and post-
 
 ## Setup
 
-Let $PROJECT_ROOT denote the root directory of this repository:
+Download the anonymized repository by clicking the `Full repo ZIP` button on the top right. 
+After extracting the ZIP file, a directory named `multi-delegation-462E` will be created.
+
+Let `$PROJECT_ROOT` denote the root directory of the extracted repository:
+
+```text
+$PROJECT_ROOT/
+├── experiment/
+├── iotauth/
+└── ...
 ```
-$PROJECT_ROOT
-├── experiment
-└── iotauth
+For example, 
+```
+cd multi-delegation-462E
+export PROJECT_ROOT=$(pwd)
 ```
 
 1. Create a Python virtual environment and install `networkx`.
