@@ -35,11 +35,13 @@ pip install networkx
 ```
 2. Setup Auth
 ```
+cd $PROJECT_ROOT/iotauth
+find . -type f -name "*.sh" -exec chmod +x {} \;
+
 cd $PROJECT_ROOT/iotauth/auth/auth-server 
 make
 
 cd $PROJECT_ROOT/iotauth/examples
-chmod +x *.sh
 ./initConfigs.sh 
 ```
 
