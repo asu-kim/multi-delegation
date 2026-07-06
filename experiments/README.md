@@ -33,19 +33,21 @@ python3 -m venv venv
 source venv/bin/activate
 pip install networkx
 ```
-2. Update iotauth submodule
-```
-git submodule update --init --recursive
-cd $PROJECT_ROOT/iotauth
-git pull
-```
-3. Build Auth
+2. Setup Auth
 ```
 cd $PROJECT_ROOT/iotauth/auth/auth-server 
 make
+
+cd $PROJECT_ROOT/iotauth/examples
+chmod +x *.sh
+./initConfigs.sh 
 ```
 
 ## Running the Experiment
+After building Auth, back to the experiments folder.
+```
+cd $PROJECT_ROOT/experiments
+```
 
 The number of nodes, the number of resources, and the output directory name can be manually configured.
 

@@ -567,8 +567,8 @@ def main():
     node_procs = {}
     node_outputs = {}
 
-    graph_arg = Path(f"../../experiment/results/{args.output}/") / output_graph_path.name
-    policy_arg = Path(f"../../experiment/results/{args.output}/") / access_path.name
+    graph_arg = Path(f"../../experiments/results/{args.output}/") / output_graph_path.name
+    policy_arg = Path(f"../../experiments/results/{args.output}/") / access_path.name
 
     cmd = [
         "./generateAll.sh",
