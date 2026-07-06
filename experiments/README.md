@@ -9,7 +9,7 @@ This experiment evaluates delegation, access verification, revocation, and post-
 
 ## Setup
 
-Download the anonymized repository by clicking the `Full repo ZIP` button on the top right. 
+Download the anonymized repository by clicking the **Full repo ZIP** button on the top right. 
 After extracting the ZIP file, a directory named `multi-delegation-462E` will be created.
 
 Let `$PROJECT_ROOT` denote the root directory of the extracted repository:
@@ -21,20 +21,20 @@ $PROJECT_ROOT/
 └── ...
 ```
 For example, 
-```
+```text
 cd multi-delegation-462E
 export PROJECT_ROOT=$(pwd)
 ```
 
 1. Create a Python virtual environment and install `networkx`.
 
-```
+```text
 python3 -m venv venv
 source venv/bin/activate
 pip install networkx
 ```
 2. Setup Auth
-```
+```text
 cd $PROJECT_ROOT/iotauth
 find . -type f -name "*.sh" -exec chmod +x {} \;
 
@@ -47,7 +47,7 @@ cd $PROJECT_ROOT/iotauth/examples
 
 ## Running the Experiment
 After building Auth, back to the experiments folder.
-```
+```text
 cd $PROJECT_ROOT/experiments
 ```
 
@@ -56,23 +56,23 @@ The number of nodes, the number of resources, and the output directory name can 
 ⚠️ **Important Note!** Set Auth password as `asdf`.
 
 #### For Linux:
-```
+```text
 python3 test_proposed_approach.py --nodes 10 --resources 5 --output n10r5
 ```
 
 #### For macOS:
-```
+```text
 python3 test_proposed_approach_mac.py --nodes 10 --resources 5 --output n10r5
 ```
 
 This command creates the following output directory:
-```
+```text
 $PROJECT_ROOT/experiment/results/n10r5/
 ```
 
 ### Saving Terminal Logs
 To save terminal output while running the experiment, use:
-```
+```text
 python3 test_proposed_approach.py --nodes 10 --resources 5 --output n10r5 2>&1 | tee log_name.txt
 ```
 This creates `log_name.txt` inside the `experiment` directory where the Python script is executed.
@@ -82,7 +82,7 @@ At the beginning of the `log_name.txt` file, you can find the generated experime
 - the overall DAG delegation graph and hierarchy, and
 - resource-specific delegation edges used to generate delegation and revocation privileges.
 Example:
-```
+```text
 Required initial access for head node(s):
   Node1: Resource1, Resource2, Resource3, Resource4, Resource5
   ...
@@ -145,7 +145,7 @@ Actual access-checking results using `n10r5_access_before_revoke.json.`
 
 The script tests the original pre-revocation access pairs and records which accesses still succeed after revocation. 
 Pairs that lose access after revocation produce an authorization failure, such as:
-```
+```text
 "success": false,
 "error": "AUTH_FAILURE: Failure pattern detected: Handler: Error in secure comm"
 ```
@@ -155,7 +155,7 @@ Therefore, the number of successful accesses in this file should match the total
 Summary file containing Auth database size, latency, and access-checking results for each phase.
 
 Example:
-```
+```text
 {
     "auth_db_size_bytes": {
         "before_delegation": 77824,
@@ -183,22 +183,22 @@ Example:
 
 ## Add Network Latency
 If you want to emulate network delay in a Linux environment, add 5 ms latency with 1 ms jitter using:
-```
+```text
 sudo tc qdisc add dev lo root netem delay 5ms 1ms
 ```
 
 To remove the network emulation:
-```
+```text
 sudo tc qdisc del dev lo root
 ```
 
 ## Count Privileges
 To count the number of `DelegationGrant` and `DelegationRevoke` privileges, use below command:
-```
+```text
 python3 count_privileges.py results/n10r5/n10r5.graph
 ```
 Example output:
-```
+```text
 DelegationGrant : 33
 DelegationRevoke: 10
 ```
