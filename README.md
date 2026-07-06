@@ -1,12 +1,24 @@
 # multi-delegation
 
-This repository contains the experimental implementation of a multi-step delegation workflow built on top of the Secure Swarm Toolkit (SST).
-The project explores how an entity can securely delegate its access across multiple entities while ensuring predefined conditions.
+## Overview
 
+
+Modern cyber-physical systems (CPS) and Internet of Things (IoT) deployments increasingly rely on autonomous entities while operating in decentralized edge environments. 
+In such systems, access rights often need to be delegated dynamically: for example, when one autonomous agent temporarily authorizes another to perform a specific task. 
+These delegated permissions must be granted securely, limited by predefined conditions, and revoked correctly once they are no longer valid.
+
+This repository extends the Secure Swarm Toolkit (SST) with a delegation-aware authorization mechanism that supports:
+
+- multi-level access delegation
+- dynamic authorization policy updates
+- time-bounded delegated permissions
+- cascading revocation of delegated privileges
+
+The implementation introduces new authorization metadata and database structures into SST's Auth component, enabling delegated access to be propagated and revoked while preserving delegation provenance and enforcing policy validity.
 
 # Directory structure
 
-- **iotauth**: Includes the Secure Swarm Toolkit (SST) Auth component as a Git submodule.
+- **iotauth**: Includes the Secure Swarm Toolkit (SST) Auth component.
 This serves as the Key Distribution Service (KDS) responsible for:
   - generating session keys for delegated access
   - validating delegation privilege through `Delegation Privilege Table (DPT).`

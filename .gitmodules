@@ -1,4 +1,0 @@
-[submodule "iotauth"]
-	path = iotauth
-	url = https://github.com/iotauth/iotauth.git
-	branch = main
