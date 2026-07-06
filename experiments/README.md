@@ -191,3 +191,14 @@ To remove the network emulation:
 ```
 sudo tc qdisc del dev lo root
 ```
+
+## Count Privileges
+To count the number of `DelegationGrant` and `DelegationRevoke` privileges, use below command:
+```
+python3 count_privileges.py results/n10r5/n10r5.graph
+```
+Example output:
+```
+DelegationGrant : 33
+DelegationRevoke: 10
+```
