@@ -42,23 +42,6 @@ Please check [QUICKSTART.md](https://github.com/iotauth/iotauth/blob/main/QUICKS
 ---
 See "How to run examples" in [README.md under *examples/*](https://github.com/iotauth/iotauth/blob/main/examples/README.md) for a fully working example.
 
-# Contributors
----
-## Active Contributors
-- [Hokeun Kim](https://hokeun.github.io/) (Assistant Professor at Arizona State University)
-- [Salomon Lee](https://www.linkedin.com/in/salomon-lee-637b0921) (Senior Scientific Programmer, Polaris Wireless)
-- [Dongha Kim](https://github.com/Jakio815) (Ph.D. Student at Arizona State University)
-- [Carlos Beltran Quinonez](https://github.com/CarlosBeltranQ) (M.S. Student at Arizona State University)
-- [Sunyoung Kim](https://github.com/sunnykim638) (Undergraduate Student at Arizona State University)
-- [Jose Felix](https://github.com/JFelix000) (M.S. Student at Arizona State University)
-- [Kushal Paliwal](https://github.com/kushalpaliwal01) (M.S. Graduate, Volunteer Researcher at Arizona State University)
-- [Krutyanjay Shinde](https://github.com/kjshinde) (M.S. Graduate, Volunteer Researcher at Arizona State University)
-
-## Former Contributors
-- [Eunsuk Kang](https://eskang.github.io/) (Associate Professor at Carnegie Mellon University)
-- [Marten Lohstroh](https://people.eecs.berkeley.edu/~marten/) (CEO at Xronos Inc.)
-- [Taekyung Kim](https://github.com/LukeKimm) (Commissioned Officer in the Republic of Korea Army)
-- [Yeongbin Jo](https://github.com/yeongbin7) (Embedded Software Engineer at Hyundai Rotem)
 
 # External libraries
 ---
