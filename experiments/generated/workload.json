@@ -1,0 +1,629 @@
+{
+	"metadata": {
+		"seed": 7,
+		"num_requests": 20,
+		"resource_selection": "daily_demand"
+	},
+	"requests": [
+		{
+			"request_id": 0,
+			"zone": "C",
+			"auth_id": 103,
+			"manager": "ManagerC",
+			"resource": "Item_ITM12510",
+			"item_id": "ITM12510",
+			"storage_location_id": "L79",
+			"resource_position": {
+				"x": 36.4723,
+				"y": 14.3969
+			},
+			"robot_positions": {
+				"RobotC1": {
+					"x": 6.0616,
+					"y": 15.83
+				},
+				"RobotC2": {
+					"x": 16.2253,
+					"y": 31.827
+				},
+				"RobotC3": {
+					"x": 15.0,
+					"y": 6.1305
+				}
+			},
+			"selected_robot": "RobotC3",
+			"selected_robot_distance_m": 23.0085,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 1,
+			"zone": "B",
+			"auth_id": 102,
+			"manager": "ManagerB",
+			"resource": "Item_ITM10358",
+			"item_id": "ITM10358",
+			"storage_location_id": "L7",
+			"resource_position": {
+				"x": 65.4241,
+				"y": 90.8063
+			},
+			"robot_positions": {
+				"RobotB1": {
+					"x": 75.3199,
+					"y": 87.7491
+				},
+				"RobotB2": {
+					"x": 51.356,
+					"y": 78.574
+				},
+				"RobotB3": {
+					"x": 64.3274,
+					"y": 83.3859
+				}
+			},
+			"selected_robot": "RobotB3",
+			"selected_robot_distance_m": 7.501,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 2,
+			"zone": "D",
+			"auth_id": 104,
+			"manager": "ManagerD",
+			"resource": "Item_ITM11040",
+			"item_id": "ITM11040",
+			"storage_location_id": "L39",
+			"resource_position": {
+				"x": 91.9984,
+				"y": 47.2341
+			},
+			"robot_positions": {
+				"RobotD1": {
+					"x": 78.7494,
+					"y": 48.1109
+				},
+				"RobotD2": {
+					"x": 74.7584,
+					"y": 25.9659
+				},
+				"RobotD3": {
+					"x": 94.4179,
+					"y": 5.4216
+				}
+			},
+			"selected_robot": "RobotD1",
+			"selected_robot_distance_m": 13.278,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 3,
+			"zone": "D",
+			"auth_id": 104,
+			"manager": "ManagerD",
+			"resource": "Item_ITM13193",
+			"item_id": "ITM13193",
+			"storage_location_id": "L68",
+			"resource_position": {
+				"x": 91.0962,
+				"y": 14.2298
+			},
+			"robot_positions": {
+				"RobotD1": {
+					"x": 79.0801,
+					"y": 41.7121
+				},
+				"RobotD2": {
+					"x": 59.2573,
+					"y": 9.4339
+				},
+				"RobotD3": {
+					"x": 55.8716,
+					"y": 39.1532
+				}
+			},
+			"selected_robot": "RobotD1",
+			"selected_robot_distance_m": 29.9944,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 4,
+			"zone": "C",
+			"auth_id": 103,
+			"manager": "ManagerC",
+			"resource": "Item_ITM10180",
+			"item_id": "ITM10180",
+			"storage_location_id": "L1",
+			"resource_position": {
+				"x": 27.3872,
+				"y": 3.1394
+			},
+			"robot_positions": {
+				"RobotC1": {
+					"x": 6.8049,
+					"y": 25.6024
+				},
+				"RobotC2": {
+					"x": 23.9856,
+					"y": 5.0232
+				},
+				"RobotC3": {
+					"x": 35.1039,
+					"y": 48.8387
+				}
+			},
+			"selected_robot": "RobotC2",
+			"selected_robot_distance_m": 3.8884,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 5,
+			"zone": "B",
+			"auth_id": 102,
+			"manager": "ManagerB",
+			"resource": "Item_ITM10513",
+			"item_id": "ITM10513",
+			"storage_location_id": "L95",
+			"resource_position": {
+				"x": 81.9457,
+				"y": 68.6199
+			},
+			"robot_positions": {
+				"RobotB1": {
+					"x": 79.2041,
+					"y": 60.4221
+				},
+				"RobotB2": {
+					"x": 65.4878,
+					"y": 82.7978
+				},
+				"RobotB3": {
+					"x": 91.3915,
+					"y": 83.3429
+				}
+			},
+			"selected_robot": "RobotB1",
+			"selected_robot_distance_m": 8.6441,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 6,
+			"zone": "C",
+			"auth_id": 103,
+			"manager": "ManagerC",
+			"resource": "Item_ITM11533",
+			"item_id": "ITM11533",
+			"storage_location_id": "L50",
+			"resource_position": {
+				"x": 22.6592,
+				"y": 14.9883
+			},
+			"robot_positions": {
+				"RobotC1": {
+					"x": 41.3755,
+					"y": 39.2817
+				},
+				"RobotC2": {
+					"x": 42.2899,
+					"y": 39.2349
+				},
+				"RobotC3": {
+					"x": 33.2018,
+					"y": 26.1452
+				}
+			},
+			"selected_robot": "RobotC3",
+			"selected_robot_distance_m": 15.35,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 7,
+			"zone": "D",
+			"auth_id": 104,
+			"manager": "ManagerD",
+			"resource": "Item_ITM10194",
+			"item_id": "ITM10194",
+			"storage_location_id": "L26",
+			"resource_position": {
+				"x": 78.9948,
+				"y": 22.8103
+			},
+			"robot_positions": {
+				"RobotD1": {
+					"x": 92.0307,
+					"y": 21.3906
+				},
+				"RobotD2": {
+					"x": 59.6909,
+					"y": 47.0874
+				},
+				"RobotD3": {
+					"x": 87.9114,
+					"y": 44.8755
+				}
+			},
+			"selected_robot": "RobotD1",
+			"selected_robot_distance_m": 13.113,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 8,
+			"zone": "C",
+			"auth_id": 103,
+			"manager": "ManagerC",
+			"resource": "Item_ITM12492",
+			"item_id": "ITM12492",
+			"storage_location_id": "L39",
+			"resource_position": {
+				"x": 34.02,
+				"y": 21.3796
+			},
+			"robot_positions": {
+				"RobotC1": {
+					"x": 10.118,
+					"y": 9.4707
+				},
+				"RobotC2": {
+					"x": 32.0809,
+					"y": 21.8639
+				},
+				"RobotC3": {
+					"x": 6.7048,
+					"y": 45.5753
+				}
+			},
+			"selected_robot": "RobotC2",
+			"selected_robot_distance_m": 1.9987,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 9,
+			"zone": "C",
+			"auth_id": 103,
+			"manager": "ManagerC",
+			"resource": "Item_ITM12449",
+			"item_id": "ITM12449",
+			"storage_location_id": "L71",
+			"resource_position": {
+				"x": 26.2598,
+				"y": 43.7569
+			},
+			"robot_positions": {
+				"RobotC1": {
+					"x": 9.029,
+					"y": 39.1752
+				},
+				"RobotC2": {
+					"x": 21.082,
+					"y": 6.0633
+				},
+				"RobotC3": {
+					"x": 8.6175,
+					"y": 7.5145
+				}
+			},
+			"selected_robot": "RobotC1",
+			"selected_robot_distance_m": 17.8295,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 10,
+			"zone": "C",
+			"auth_id": 103,
+			"manager": "ManagerC",
+			"resource": "Item_ITM12092",
+			"item_id": "ITM12092",
+			"storage_location_id": "L99",
+			"resource_position": {
+				"x": 43.7739,
+				"y": 15.6874
+			},
+			"robot_positions": {
+				"RobotC1": {
+					"x": 28.7862,
+					"y": 29.3027
+				},
+				"RobotC2": {
+					"x": 32.5627,
+					"y": 48.7329
+				},
+				"RobotC3": {
+					"x": 49.0884,
+					"y": 11.3628
+				}
+			},
+			"selected_robot": "RobotC3",
+			"selected_robot_distance_m": 6.8518,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 11,
+			"zone": "A",
+			"auth_id": 101,
+			"manager": "ManagerA",
+			"resource": "Item_ITM10296",
+			"item_id": "ITM10296",
+			"storage_location_id": "L83",
+			"resource_position": {
+				"x": 21.226,
+				"y": 91.3426
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 16.5059,
+					"y": 97.7037
+				},
+				"RobotA2": {
+					"x": 17.7731,
+					"y": 55.79
+				},
+				"RobotA3": {
+					"x": 0.3405,
+					"y": 58.9538
+				}
+			},
+			"selected_robot": "RobotA1",
+			"selected_robot_distance_m": 7.9211,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 12,
+			"zone": "C",
+			"auth_id": 103,
+			"manager": "ManagerC",
+			"resource": "Item_ITM11363",
+			"item_id": "ITM11363",
+			"storage_location_id": "L68",
+			"resource_position": {
+				"x": 12.2048,
+				"y": 28.7212
+			},
+			"robot_positions": {
+				"RobotC1": {
+					"x": 29.3985,
+					"y": 4.3389
+				},
+				"RobotC2": {
+					"x": 9.7591,
+					"y": 20.3285
+				},
+				"RobotC3": {
+					"x": 33.596,
+					"y": 34.5113
+				}
+			},
+			"selected_robot": "RobotC2",
+			"selected_robot_distance_m": 8.7418,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 13,
+			"zone": "A",
+			"auth_id": 101,
+			"manager": "ManagerA",
+			"resource": "Item_ITM11875",
+			"item_id": "ITM11875",
+			"storage_location_id": "L15",
+			"resource_position": {
+				"x": 16.1916,
+				"y": 57.5425
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 0.4902,
+					"y": 85.5711
+				},
+				"RobotA2": {
+					"x": 34.2756,
+					"y": 75.1305
+				},
+				"RobotA3": {
+					"x": 44.1494,
+					"y": 66.1179
+				}
+			},
+			"selected_robot": "RobotA2",
+			"selected_robot_distance_m": 25.2263,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 14,
+			"zone": "B",
+			"auth_id": 102,
+			"manager": "ManagerB",
+			"resource": "Item_ITM11610",
+			"item_id": "ITM11610",
+			"storage_location_id": "L76",
+			"resource_position": {
+				"x": 59.0363,
+				"y": 79.08
+			},
+			"robot_positions": {
+				"RobotB1": {
+					"x": 67.2402,
+					"y": 69.8409
+				},
+				"RobotB2": {
+					"x": 72.2067,
+					"y": 53.6235
+				},
+				"RobotB3": {
+					"x": 76.1485,
+					"y": 80.4397
+				}
+			},
+			"selected_robot": "RobotB1",
+			"selected_robot_distance_m": 12.3557,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 15,
+			"zone": "A",
+			"auth_id": 101,
+			"manager": "ManagerA",
+			"resource": "Item_ITM10848",
+			"item_id": "ITM10848",
+			"storage_location_id": "L4",
+			"resource_position": {
+				"x": 26.7941,
+				"y": 68.2844
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 22.5048,
+					"y": 72.7943
+				},
+				"RobotA2": {
+					"x": 35.0253,
+					"y": 91.0679
+				},
+				"RobotA3": {
+					"x": 5.1396,
+					"y": 63.0306
+				}
+			},
+			"selected_robot": "RobotA1",
+			"selected_robot_distance_m": 6.2239,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 16,
+			"zone": "D",
+			"auth_id": 104,
+			"manager": "ManagerD",
+			"resource": "Item_ITM10194",
+			"item_id": "ITM10194",
+			"storage_location_id": "L26",
+			"resource_position": {
+				"x": 78.9948,
+				"y": 22.8103
+			},
+			"robot_positions": {
+				"RobotD1": {
+					"x": 71.2137,
+					"y": 39.5468
+				},
+				"RobotD2": {
+					"x": 84.4527,
+					"y": 29.8481
+				},
+				"RobotD3": {
+					"x": 59.5257,
+					"y": 8.7572
+				}
+			},
+			"selected_robot": "RobotD2",
+			"selected_robot_distance_m": 8.9062,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 17,
+			"zone": "D",
+			"auth_id": 104,
+			"manager": "ManagerD",
+			"resource": "Item_ITM11827",
+			"item_id": "ITM11827",
+			"storage_location_id": "L40",
+			"resource_position": {
+				"x": 73.7049,
+				"y": 33.2076
+			},
+			"robot_positions": {
+				"RobotD1": {
+					"x": 60.7797,
+					"y": 36.9646
+				},
+				"RobotD2": {
+					"x": 77.1219,
+					"y": 47.7929
+				},
+				"RobotD3": {
+					"x": 74.0812,
+					"y": 21.1941
+				}
+			},
+			"selected_robot": "RobotD3",
+			"selected_robot_distance_m": 12.0194,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 18,
+			"zone": "B",
+			"auth_id": 102,
+			"manager": "ManagerB",
+			"resource": "Item_ITM10034",
+			"item_id": "ITM10034",
+			"storage_location_id": "L36",
+			"resource_position": {
+				"x": 98.8128,
+				"y": 52.3291
+			},
+			"robot_positions": {
+				"RobotB1": {
+					"x": 53.3344,
+					"y": 55.2567
+				},
+				"RobotB2": {
+					"x": 80.5377,
+					"y": 75.2992
+				},
+				"RobotB3": {
+					"x": 52.7151,
+					"y": 72.5493
+				}
+			},
+			"selected_robot": "RobotB2",
+			"selected_robot_distance_m": 29.3531,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		},
+		{
+			"request_id": 19,
+			"zone": "B",
+			"auth_id": 102,
+			"manager": "ManagerB",
+			"resource": "Item_ITM10358",
+			"item_id": "ITM10358",
+			"storage_location_id": "L7",
+			"resource_position": {
+				"x": 65.4241,
+				"y": 90.8063
+			},
+			"robot_positions": {
+				"RobotB1": {
+					"x": 50.1396,
+					"y": 82.454
+				},
+				"RobotB2": {
+					"x": 79.8438,
+					"y": 82.4299
+				},
+				"RobotB3": {
+					"x": 98.4049,
+					"y": 94.3572
+				}
+			},
+			"selected_robot": "RobotB2",
+			"selected_robot_distance_m": 16.6761,
+			"selection_basis": "nearest_robot_euclidean_distance",
+			"resource_selection_mode": "daily_demand"
+		}
+	]
+}
