@@ -12,9 +12,9 @@ Outputs:
 Design:
   * Dataset item -> SST resource
   * Zone A/B/C/D -> Auth 101/102/103/104
-  * One Manager entity per zone
+  * One Supervisor entity per zone
   * N Robot entities per zone
-  * Manager initially owns Access to every resource in its zone
+  * Supervisor initially owns Access to every resource in its zone
   * Runtime workload selects a resource and the nearest robot; delegation itself is
     executed later by run_warehouse_experiment.py
 
@@ -72,6 +72,8 @@ ZONE_NETS = {
     "D": "net4",
 }
 
+WAREHOUSE_BOUNDS = (0.0, 100.0, 0.0, 100.0)
+
 # 100 m x 100 m synthetic warehouse split into four zones.
 ZONE_BOUNDS = {
     "A": (0.0, 50.0, 50.0, 100.0),
@@ -108,7 +110,7 @@ def parse_args() -> argparse.Namespace:
         "--robots-per-zone",
         type=int,
         default=5,
-        help="Number of robot entities managed by each zone Manager",
+        help="Number of robot entities managed by each zone Supervisor",
     )
     parser.add_argument(
         "--requests",
@@ -124,15 +126,24 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--resource-selection",
-        choices=("daily_demand", "forecast", "uniform"),
+        choices=("daily_demand", "uniform"),
         default="daily_demand",
         help="How workload requests choose resources",
+    )
+    parser.add_argument(
+        "--robot-motion-radius",
+        type=float,
+        default=10.0,
+        help=(
+            "Maximum meters a robot moves between requests. "
+            "Request 0 uses a random position; later positions use bounded random motion."
+        ),
     )
     parser.add_argument("--seed", type=int, default=7)
     parser.add_argument(
         "--validity",
         default="1*day",
-        help="Initial Manager->resource Access validity stored in .graph",
+        help="Initial Supervisor->resource Access validity stored in .graph",
     )
     return parser.parse_args()
 
@@ -160,13 +171,13 @@ def resource_entity_name(item: dict[str, Any]) -> str:
     return f"{net}.item_{safe_token(item['item_id']).lower()}"
 
 
-def manager_group(zone: str) -> str:
-    return f"Manager{zone}"
+def supervisor_group(zone: str) -> str:
+    return f"Supervisor{zone}"
 
 
-def manager_entity_name(zone: str) -> str:
+def supervisor_entity_name(zone: str) -> str:
     net = ZONE_NETS[zone]
-    return f"{net}.manager{zone.upper()}"
+    return f"{net}.supervisor"
 
 
 def robot_group(zone: str, index: int) -> str:
@@ -175,7 +186,7 @@ def robot_group(zone: str, index: int) -> str:
 
 def robot_entity_name(zone: str, index: int) -> str:
     net = ZONE_NETS[zone]
-    return f"{net}.robot{zone.upper()}{index}"
+    return f"{net}.robot{zone}{index}"
 
 
 def next_auth_id(zone: str) -> int:
@@ -196,7 +207,6 @@ def load_items(
         "storage_location_id",
         "zone",
         "daily_demand",
-        "forecasted_demand_next_7d",
     }
     missing = sorted(required_columns - set(df.columns))
     if missing:
@@ -226,9 +236,6 @@ def load_items(
                 "storage_location_id": str(row["storage_location_id"]),
                 "daily_demand": float(row["daily_demand"])
                 if pd.notna(row["daily_demand"])
-                else 0.0,
-                "forecasted_demand_next_7d": float(row["forecasted_demand_next_7d"])
-                if pd.notna(row["forecasted_demand_next_7d"])
                 else 0.0,
                 "category": str(row["category"]) if "category" in df.columns else "",
                 "picking_time_seconds": float(row["picking_time_seconds"])
@@ -328,10 +335,10 @@ def make_resource_entity(
     }
 
 
-def make_access_privilege(manager: str, robot: str, resource: str, validity: str) -> dict[str, Any]:
+def make_access_privilege(robot: str, resource: str, validity: str) -> dict[str, Any]:
     return {
         "privilegeType": "DelegationGrant",
-        "privilegedGroup": manager,
+        "privilegedGroup": "Supervisors",
         "subject": robot,
         "object": resource,
         "validity": validity,
@@ -339,21 +346,21 @@ def make_access_privilege(manager: str, robot: str, resource: str, validity: str
     }
 
 
-def make_revoke_privilege(manager: str, robot: str, resource: str) -> dict[str, Any]:
+def make_revoke_privilege(robot: str, resource: str) -> dict[str, Any]:
     return {
         "privilegeType": "DelegationRevoke",
-        "privilegedGroup": manager,
+        "privilegedGroup": "Supervisors",
         "subject": robot,
         "object": resource,
     }
 
 
-def generate_managers() -> list[dict[str, str]]:
+def generate_supervisors() -> list[dict[str, str]]:
     return [
         {
             "zone": zone,
-            "group": manager_group(zone),
-            "name": manager_entity_name(zone),
+            "group": "Supervisors",
+            "name": supervisor_entity_name(zone),
         }
         for zone in ZONES
     ]
@@ -379,13 +386,13 @@ def generate_robots(robots_per_zone: int) -> list[dict[str, Any]]:
 
 def build_assignments(
     items: list[dict[str, Any]],
-    managers: list[dict[str, str]],
+    supervisors: list[dict[str, str]],
     robots: list[dict[str, Any]],
 ) -> dict[str, int]:
     assignments: dict[str, int] = {}
 
-    for manager in managers:
-        assignments[manager["name"]] = ZONE_AUTH_IDS[manager["zone"]]
+    for supervisor in supervisors:
+        assignments[supervisor["name"]] = ZONE_AUTH_IDS[supervisor["zone"]]
 
     for robot in robots:
         assignments[robot["name"]] = ZONE_AUTH_IDS[robot["zone"]]
@@ -418,20 +425,20 @@ def assign_resource_ports(
 
 def build_graph(
     items: list[dict[str, Any]],
-    managers: list[dict[str, str]],
+    supervisors: list[dict[str, str]],
     robots: list[dict[str, Any]],
     validity: str,
 ) -> dict[str, Any]:
     entity_list: list[dict[str, Any]] = []
 
-    # Add managers
-    for manager in managers:
+    # Add supervisors
+    for supervisor in supervisors:
         entity_list.append(
             make_node_entity(
-                group=manager["group"],
-                name=manager["name"],
-                net=ZONE_NETS[manager["zone"]],
-                zone=manager["zone"],
+                group="Supervisors",
+                name=supervisor["name"],
+                net=ZONE_NETS[supervisor["zone"]],
+                zone=supervisor["zone"],
             )
         )
 
@@ -467,28 +474,25 @@ def build_graph(
 
     privilege_list: list[dict[str, Any]] = []
 
-    # For every resource, allow its zone Manager to delegate/revoke
+    # For every resource, allow its zone Supervisor to delegate/revoke
     # the resource access to any robot managed in the same zone.
     for item in items:
-        zone = item["zone"]
-
-        manager = manager_group(zone)
         resource = resource_group(item)
 
-        for robot in robots_by_zone[zone]:
+        for robot in robots:
             robot_name = robot["group"]
 
-            # Manager can delegate this resource to this robot
+            # Supervisor can delegate this resource to this robot
             privilege_list.append(
-                make_access_privilege(manager=manager, robot=robot_name, resource=resource, validity=validity))
+                make_access_privilege(robot=robot_name, resource=resource, validity=validity))
 
-            # Manager can revoke this delegated access
-            privilege_list.append(make_revoke_privilege(manager=manager, robot=robot_name, resource=resource))
+            # Supervisor can revoke this delegated access
+            privilege_list.append(make_revoke_privilege(robot=robot_name, resource=resource))
 
     return {
         "authList": [make_auth(zone) for zone in ZONES],
         "authTrusts": make_auth_trusts(),
-        "assignments": build_assignments(items, managers, robots,),
+        "assignments": build_assignments(items, supervisors, robots,),
         "entityList": entity_list,
         "filesharingLists": [],
         "privilegeList": privilege_list,
@@ -552,69 +556,75 @@ def generate_storage_coordinates(
     }
 
 
-def random_initial_robot_positions(
-    robots: list[dict[str, Any]],
-    rng: random.Random,
-) -> dict[str, dict[str, float]]:
+def random_robot_positions(robots: list[dict[str, Any]], rng: random.Random,) -> dict[str, dict[str, float]]:
     positions = {}
+
+    xmin, xmax, ymin, ymax = WAREHOUSE_BOUNDS
+
     for robot in robots:
-        zone = robot["zone"]
-        xmin, xmax, ymin, ymax = ZONE_BOUNDS[zone]
-        positions[robot["group"]] = {
+        group = robot["group"]
+
+        positions[group] = {
             "x": rng.uniform(xmin, xmax),
             "y": rng.uniform(ymin, ymax),
         }
+
     return positions
 
 
 def move_robot_positions(
-    robots: list[dict[str, Any]],
-    rng: random.Random,
+        robots: list[dict[str, Any]],
+        previous: dict[str, dict[str, float]],
+        rng: random.Random,
+        motion_radius: float,
 ) -> dict[str, dict[str, float]]:
     positions = {}
-
     for robot in robots:
         group = robot["group"]
-        zone = robot["zone"]
 
-        xmin, xmax, ymin, ymax = ZONE_BOUNDS[zone]
+        xmin, xmax, ymin, ymax = WAREHOUSE_BOUNDS
+        angle = rng.uniform(0.0, 2.0 * math.pi)
+        radius = rng.uniform(0.0, motion_radius)
 
-        x = rng.uniform(xmin, xmax)
-        y = rng.uniform(ymin, ymax)
+        x = previous[group]["x"] + radius * math.cos(angle)
+        y = previous[group]["y"] + radius * math.sin(angle)
 
-        positions[group] = {"x": x, "y": y,}
+        # Keep the robot inside its Supervisor's zone.
+        x = min(max(x, xmin), xmax)
+        y = min(max(y, ymin), ymax)
+
+        positions[group] = {"x": x, "y": y}
 
     return positions
 
 
-def euclidean_distance(
-    p1: dict[str, float],
-    p2: dict[str, float],
-) -> float:
+def euclidean_distance(p1: dict[str, float], p2: dict[str, float],) -> float:
     return math.hypot(p1["x"] - p2["x"], p1["y"] - p2["y"])
 
 
 def nearest_robot(
     item: dict[str, Any],
-    robots_by_zone: dict[str, list[dict[str, Any]]],
+    robots: list[dict[str, Any]],
     positions: dict[str, dict[str, float]],
     layout: dict[str, Any],
 ) -> tuple[dict[str, Any], float]:
+
     resource = resource_group(item)
     resource_pos = layout["item_locations"][resource]
 
-    candidates = robots_by_zone[item["zone"]]
     best_robot = min(
-        candidates,
+        robots,
         key=lambda robot: euclidean_distance(
             positions[robot["group"]],
             resource_pos,
         ),
     )
+
     distance = euclidean_distance(
         positions[best_robot["group"]],
         resource_pos,
     )
+
     return best_robot, distance
 
 
@@ -626,11 +636,6 @@ def select_item(
     if mode == "uniform":
         return rng.choice(items)
 
-    if mode == "forecast":
-        weights = [
-            max(float(item["forecasted_demand_next_7d"]), 0.0)
-            for item in items
-        ]
     else:
         weights = [
             max(float(item["daily_demand"]), 0.0)
@@ -649,31 +654,41 @@ def generate_workload(
     layout: dict[str, Any],
     num_requests: int,
     resource_selection: str,
+    robot_motion_radius: float,
     seed: int,
 ) -> dict[str, Any]:
+
     if num_requests < 1:
         raise ValueError("--requests must be >= 1")
 
     rng = random.Random(seed + 10_000)
+    positions = random_robot_positions(robots, rng)
 
-    robots_by_zone: dict[str, list[dict[str, Any]]] = defaultdict(list)
-    for robot in robots:
-        robots_by_zone[robot["zone"]].append(robot)
-
-    positions = random_initial_robot_positions(robots, rng)
     requests = []
 
     for request_id in range(num_requests):
+
+        # Every request gets a new random warehouse-wide
+        # position for every robot.
         if request_id > 0:
             positions = move_robot_positions(
                 robots,
+                previous=positions,
                 rng=rng,
+                motion_radius=robot_motion_radius,
             )
 
-        item = select_item(rng, items, resource_selection)
+        # Select a resource based on demand.
+        item = select_item(
+            rng,
+            items,
+            resource_selection,
+        )
+
+        # Search ALL robots, regardless of Auth/zone.
         robot, distance_m = nearest_robot(
             item=item,
-            robots_by_zone=robots_by_zone,
+            robots=robots,
             positions=positions,
             layout=layout,
         )
@@ -681,32 +696,46 @@ def generate_workload(
         resource = resource_group(item)
         resource_pos = layout["item_locations"][resource]
 
-        zone_robot_positions = {
-            r["group"]: {
-                "x": round(positions[r["group"]]["x"], 4),
-                "y": round(positions[r["group"]]["y"], 4),
-            }
-            for r in robots_by_zone[item["zone"]]
-        }
-
         requests.append(
             {
                 "request_id": request_id,
-                "zone": item["zone"],
-                "auth_id": ZONE_AUTH_IDS[item["zone"]],
-                "manager": manager_group(item["zone"]),
+
+                # Resource's administrative zone
+                "resource_zone": item["zone"],
+
+                # The Supervisor associated with the resource's zone
+                "supervisor": supervisor_entity_name(item["zone"]),
+
+                "supervisor_group": "Supervisor",
+
                 "resource": resource,
                 "item_id": item["item_id"],
                 "storage_location_id": item["storage_location_id"],
+
                 "resource_position": {
                     "x": resource_pos["x"],
                     "y": resource_pos["y"],
                 },
-                "robot_positions": zone_robot_positions,
+
+                # All robots, not only robots belonging to resource zone
+                "robot_positions": {
+                    robot_info["group"]: {
+                        "x": round(
+                            positions[robot_info["group"]]["x"], 4
+                        ),
+                        "y": round(
+                            positions[robot_info["group"]]["y"], 4
+                        ),
+                    }
+                    for robot_info in robots
+                },
+
                 "selected_robot": robot["group"],
-                "selected_robot_distance_m": round(distance_m, 4),
-                "selection_basis": "nearest_robot_euclidean_distance",
-                "resource_selection_mode": resource_selection,
+                "selected_robot_home_zone": robot["zone"],
+                "selected_robot_distance_m": round(distance_m, 4,),
+
+                "cross_auth": ( robot["zone"] != item["zone"]),
+
             }
         )
 
@@ -715,6 +744,7 @@ def generate_workload(
             "seed": seed,
             "num_requests": num_requests,
             "resource_selection": resource_selection,
+            "robot_motion_radius_m": robot_motion_radius,
         },
         "requests": requests,
     }
@@ -722,7 +752,7 @@ def generate_workload(
 
 def summarize(
     items: list[dict[str, Any]],
-    managers: list[dict[str, str]],
+    supervisors: list[dict[str, str]],
     robots: list[dict[str, Any]],
     layout: dict[str, Any],
     workload: dict[str, Any],
@@ -738,7 +768,7 @@ def summarize(
     print("\nGenerated warehouse experiment")
     print("--------------------------------")
     print(f"Resources: {len(items)}")
-    print(f"Managers:  {len(managers)}")
+    print(f"Supervisors:  {len(supervisors)}")
     print(f"Robots:    {len(robots)}")
     print(f"Requests:  {len(workload['requests'])}")
     print(f"Storage locations: {len(layout['storage_locations'])}")
@@ -763,12 +793,12 @@ def main() -> None:
         num_resources=args.num_resources,
         seed=args.seed,
     )
-    managers = generate_managers()
+    supervisors = generate_supervisors()
     robots = generate_robots(args.robots_per_zone)
 
     graph = build_graph(
         items=items,
-        managers=managers,
+        supervisors=supervisors,
         robots=robots,
         validity=args.validity,
     )
@@ -779,6 +809,7 @@ def main() -> None:
         layout=layout,
         num_requests=args.requests,
         resource_selection=args.resource_selection,
+        robot_motion_radius=args.robot_motion_radius,
         seed=args.seed,
     )
 
@@ -790,7 +821,7 @@ def main() -> None:
     write_json(layout, layout_path)
     write_json(workload, workload_path)
 
-    summarize(items, managers, robots, layout, workload)
+    summarize(items, supervisors, robots, layout, workload)
 
     print("\nWrote:")
     print(f"  {graph_path}")
