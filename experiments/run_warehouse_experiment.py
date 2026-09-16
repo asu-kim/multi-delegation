@@ -7,7 +7,7 @@ Run the generated warehouse workload against the SST/IoTAuth implementation.
 Expected repository layout (matching the user's existing experiment scripts):
 
     <project_root>/
-    ├── experiment/
+    ├── experiments/
     │   ├── run_warehouse_experiment.py
     │   └── generated/
     │       ├── warehouse.graph
@@ -16,8 +16,8 @@ Expected repository layout (matching the user's existing experiment scripts):
         ├── examples/
         │   ├── cleanAll.sh
         │   └── generateAll.sh
-        ├── auth/auth-server/
-        │   ├── target/auth-server-jar-with-dependencies.jar
+        ├── auth/
+        │   ├── auth-server/target/auth-server-jar-with-dependencies.jar
         │   └── properties/
         └── entity/node/example_entities/
             ├── user.js
@@ -26,11 +26,11 @@ Expected repository layout (matching the user's existing experiment scripts):
 
 Workflow per request:
     1. Use the workload's selected nearest robot.
-    2. Manager executes:
+    2. Supervisor executes:
            delegateAuthority <Robot> <Resource> <validity>
     3. Robot executes:
            initComm <Resource>
-    4. Manager executes:
+    4. Supervisor executes:
            revoke <Robot> <Resource>
     5. Robot retries:
            initComm <Resource>
@@ -42,10 +42,7 @@ The runner measures:
     - revocation latency
     - post-revocation authorization latency/result
 
-IMPORTANT:
-  Starting thousands of resource server processes is expensive. Use a small generated
-  graph first, or use --max-active-resources to activate only resources that appear in
-  the first N workload requests.
+All workload requests are executed, and every resource server in the graph is started.
 """
 
 from __future__ import annotations
@@ -88,26 +85,6 @@ def parse_args() -> argparse.Namespace:
         "--validity",
         default="1*day",
         help="Validity passed to delegateAuthority",
-    )
-    parser.add_argument(
-        "--requests",
-        type=int,
-        default=0,
-        help="Run only the first N workload requests. 0 means all.",
-    )
-    parser.add_argument(
-        "--max-active-resources",
-        type=int,
-        default=0,
-        help=(
-            "Maximum number of resource server processes to start. "
-            "0 means every resource needed by the selected requests."
-        ),
-    )
-    parser.add_argument(
-        "--generate",
-        action="store_true",
-        help="Run cleanAll.sh and generateAll.sh before starting processes.",
     )
     parser.add_argument(
         "--startup-timeout",
@@ -181,22 +158,35 @@ def wait_for_any_output(
     output_q: queue.Queue[str],
     patterns: list[str],
     timeout: float,
+    failure_patterns: list[str] | None = None,
+    completion_pattern: str | None = None,
 ) -> tuple[str | None, list[str]]:
     """
-    Wait until any literal pattern occurs in output.
-    Returns (matched_pattern, consumed_lines).
+    Wait for a result marker, optionally followed by a completion marker.
+    Failure takes precedence over success. With completion_pattern, return only
+    after that marker follows a result; a disconnect alone is not a result.
+    Returns (result_marker, consumed_lines), or (None, lines) on timeout.
     """
     deadline = time.monotonic() + timeout
     consumed: list[str] = []
+    matched: str | None = None
+    failures = failure_patterns or []
 
     while time.monotonic() < deadline:
         remaining = max(0.01, deadline - time.monotonic())
         try:
             line = output_q.get(timeout=min(0.1, remaining))
             consumed.append(line)
-            for pattern in patterns:
-                if pattern in line:
-                    return pattern, consumed
+            failure = next((p for p in failures if p in line), None)
+            if failure is not None:
+                matched = failure
+            elif matched is None:
+                matched = next((p for p in patterns if p in line), None)
+
+            if matched is not None and (
+                completion_pattern is None or completion_pattern in line
+            ):
+                return matched, consumed
         except queue.Empty:
             pass
 
@@ -212,20 +202,15 @@ def wait_for_access_result(
       success: "switching to IN_COMM"
       failure: "Handler: Error in secure comm"
 
+    Auth disconnection is normal before the resource handshake completes.
+    Only IN_COMM confirms that the connection is ready.
     A timeout is kept separate from an explicit authorization/secure-comm denial.
     """
     SUCCESS_PATTERNS = [
         "switching to IN_COMM",
-        "Handler: communication initialization succeeded",
     ]
     DENY_PATTERNS = [
         "Handler: Error in secure comm",
-        "Comm init failed",
-        "No available key",
-        "not authorized",
-        "unauthorized",
-        "denied",
-        "rejected",
     ]
 
     deadline = time.monotonic() + timeout
@@ -269,8 +254,8 @@ def entity_config_path(
 ) -> Path:
     """
     Convert:
-        net1.managera -> configs/net1/managera.config
-        net1.robota1  -> configs/net1/robota1.config
+        net1.supervisor -> configs/net1/supervisor.config
+        net1.robotA1  -> configs/net1/robotA1.config
         net1.item_x   -> configs/net1/item_x.config
     """
     name = entity["name"]
@@ -289,7 +274,7 @@ def auth_properties_path(
     Existing experiments use ../properties/exampleAuth101.properties.
     generateAll.sh normally creates exampleAuth<ID>.properties for each Auth.
     """
-    return auth_dir / "properties" / f"exampleAuth{auth_id}.properties"
+    return auth_dir.parent / "properties" / f"exampleAuth{auth_id}.properties"
 
 
 def run_generate_all(
@@ -312,12 +297,21 @@ def run_generate_all(
     # generateAll.sh in the user's existing scripts is invoked from iotauth/examples
     # with a graph path relative to that directory. Use os.path.relpath rather than
     # assuming experiment/../../ paths.
+    policy_path = graph_path.with_suffix(".policy.json")
+    if not policy_path.is_file():
+        raise FileNotFoundError(
+            f"Initial access policy file not found: {policy_path}\n"
+            "Run generate_warehouse.py first to generate the graph and policies."
+        )
     graph_arg = os.path.relpath(graph_path.resolve(), examples_dir.resolve())
+    policy_arg = os.path.relpath(policy_path.resolve(), examples_dir.resolve())
+    cmd = ["./generateAll.sh", "-g", str(graph_arg), "-po", str(policy_arg)]
 
     print("\nGenerating IoTAuth configs/credentials:")
     print(f"  cd {examples_dir}")
     print("  ./cleanAll.sh")
-    print(f"  ./generateAll.sh -g {graph_arg}")
+    print(f"  {' '.join(cmd)}")
+    print(f"  Initial Supervisor access policies: {policy_path}")
 
     subprocess.run(
         ["./cleanAll.sh"],
@@ -325,7 +319,7 @@ def run_generate_all(
         check=True,
     )
     subprocess.run(
-        ["./generateAll.sh", "-g", graph_arg],
+        cmd,
         cwd=examples_dir,
         check=True,
     )
@@ -338,21 +332,21 @@ def classify_entities(
     dict[str, dict[str, Any]],
     dict[str, dict[str, Any]],
 ]:
-    managers = {}
+    supervisors = {}
     robots = {}
     resources = {}
 
     for entity in graph.get("entityList", []):
         group = str(entity.get("group", ""))
 
-        if group.startswith("Manager"):
-            managers[group] = entity
+        if group.startswith("Supervisor"):
+            supervisors[entity["name"]] = entity
         elif group.startswith("Robot"):
             robots[group] = entity
         elif group.startswith("Item_"):
             resources[group] = entity
 
-    return managers, robots, resources
+    return supervisors, robots, resources
 
 
 def start_auths(
@@ -367,7 +361,8 @@ def start_auths(
     if not jar.exists():
         raise FileNotFoundError(
             f"Auth server jar not found: {jar}\n"
-            "Build the auth server before running this experiment."
+            f"Build the auth server first from {auth_dir.parent}:\n"
+            "  mvn -pl auth-server -am install -DskipTests"
         )
 
     auth_procs: dict[int, subprocess.Popen[str]] = {}
@@ -506,10 +501,10 @@ def start_resource_entity(
 def required_entities_from_requests(
     requests: list[dict[str, Any]],
 ) -> tuple[set[str], set[str], set[str]]:
-    managers = {req["manager"] for req in requests}
+    supervisors = {req["supervisor"] for req in requests}
     robots = {req["selected_robot"] for req in requests}
     resources = {req["resource"] for req in requests}
-    return managers, robots, resources
+    return supervisors, robots, resources
 
 
 def access_attempt(
@@ -533,66 +528,81 @@ def access_attempt(
 
 
 def delegate(
-    manager_proc: subprocess.Popen[str],
-    manager_output: queue.Queue[str],
+    supervisor_proc: subprocess.Popen[str],
+    supervisor_output: queue.Queue[str],
     robot: str,
     resource: str,
     validity: str,
     timeout: float,
 ) -> dict[str, Any]:
-    drain_queue(manager_output)
+    drain_queue(supervisor_output)
 
-    command = f"delegateAuthority {robot} {resource} {validity}\n"
+    command = f"delegateAuthority {robot} {resource} {validity} 1*day 1*hour\n"
     start = time.perf_counter()
-    send_command(manager_proc, command)
+    send_command(supervisor_proc, command)
 
     matched, lines = wait_for_any_output(
-        manager_output,
+        supervisor_output,
         [
-            "disconnected from auth",
             "Finished privilege request",
         ],
         timeout=timeout,
+        completion_pattern="disconnected from auth",
+        failure_patterns=[
+            "Handler: Error in secure comm",
+        ],
     )
     end = time.perf_counter()
 
     return {
         "command": command.strip(),
         "completion_marker": matched,
-        "completed": matched is not None,
+        "completed": matched == "Finished privilege request",
+        "status": (
+            "success" if matched == "Finished privilege request"
+            else "failed" if matched is not None
+            else "timeout"
+        ),
         "latency_ms": (end - start) * 1000.0,
         "output_tail": lines[-20:],
     }
 
 
 def revoke(
-    manager_proc: subprocess.Popen[str],
-    manager_output: queue.Queue[str],
+    supervisor_proc: subprocess.Popen[str],
+    supervisor_output: queue.Queue[str],
     robot: str,
     resource: str,
     timeout: float,
 ) -> dict[str, Any]:
-    drain_queue(manager_output)
+    drain_queue(supervisor_output)
 
     command = f"revoke {robot} {resource}\n"
     start = time.perf_counter()
-    send_command(manager_proc, command)
+    send_command(supervisor_proc, command)
 
     matched, lines = wait_for_any_output(
-        manager_output,
+        supervisor_output,
         [
-            "disconnected from auth",
             "Finished privilege request",
-            "revoke",
         ],
         timeout=timeout,
+        completion_pattern="disconnected from auth",
+        failure_patterns=[
+            "Handler: Error in secure comm",
+        ],
     )
     end = time.perf_counter()
 
     return {
         "command": command.strip(),
         "completion_marker": matched,
-        "completed": matched is not None,
+        "completed": matched == "Finished privilege request",
+        "status": (
+            "success" if matched == "Finished privilege request"
+            else "failed" if matched is not None
+            else "timeout"
+        ),
         "latency_ms": (end - start) * 1000.0,
         "output_tail": lines[-20:],
     }
@@ -689,59 +699,32 @@ def main() -> None:
     workload = load_json(workload_path)
     requests = list(workload["requests"])
 
-    if args.requests > 0:
-        requests = requests[: args.requests]
-
     if not requests:
         raise ValueError("No workload requests selected")
 
-    # Limit active resources, if requested. Requests for inactive resources are
-    # dropped rather than silently failing at runtime.
-    if args.max_active_resources > 0:
-        allowed_resources = []
-        seen = set()
-        for req in requests:
-            resource = req["resource"]
-            if resource not in seen:
-                if len(allowed_resources) >= args.max_active_resources:
-                    continue
-                allowed_resources.append(resource)
-                seen.add(resource)
+    supervisors_by_name, robots_by_group, resources_by_group = classify_entities(graph)
 
-        allowed_set = set(allowed_resources)
-        requests = [
-            req for req in requests if req["resource"] in allowed_set
-        ]
-
-    if not requests:
-        raise ValueError(
-            "Resource limit removed every request; increase --max-active-resources"
-        )
-
-    managers_by_group, robots_by_group, resources_by_group = classify_entities(graph)
-
-    required_managers, required_robots, required_resources = (
+    required_supervisors, required_robots, required_resources = (
         required_entities_from_requests(requests)
     )
 
-    missing_managers = required_managers - managers_by_group.keys()
+    missing_supervisors = required_supervisors - supervisors_by_name.keys()
     missing_robots = required_robots - robots_by_group.keys()
     missing_resources = required_resources - resources_by_group.keys()
 
-    if missing_managers or missing_robots or missing_resources:
+    if missing_supervisors or missing_robots or missing_resources:
         raise ValueError(
             "Workload references entities absent from graph:\n"
-            f"  managers={sorted(missing_managers)}\n"
+            f"  supervisors={sorted(missing_supervisors)}\n"
             f"  robots={sorted(missing_robots)}\n"
             f"  resources={sorted(missing_resources)}"
         )
 
-    if args.generate:
-        run_generate_all(graph_path, project_root)
+    run_generate_all(graph_path, project_root)
 
     auth_procs: dict[int, subprocess.Popen[str]] = {}
-    manager_procs: dict[str, subprocess.Popen[str]] = {}
-    manager_outputs: dict[str, queue.Queue[str]] = {}
+    supervisor_procs: dict[str, subprocess.Popen[str]] = {}
+    supervisor_outputs: dict[str, queue.Queue[str]] = {}
     robot_procs: dict[str, subprocess.Popen[str]] = {}
     robot_outputs: dict[str, queue.Queue[str]] = {}
     resource_procs: dict[str, subprocess.Popen[str]] = {}
@@ -755,16 +738,16 @@ def main() -> None:
             startup_timeout=args.startup_timeout,
         )
 
-        print("\nStarting Managers")
-        for group in sorted(required_managers):
+        print("\nStarting Supervisors")
+        for group in sorted(required_supervisors):
             proc, output_q = start_user_entity(
                 group,
-                managers_by_group[group],
+                supervisors_by_name[group],
                 example_entities_dir,
                 args.startup_timeout,
             )
-            manager_procs[group] = proc
-            manager_outputs[group] = output_q
+            supervisor_procs[group] = proc
+            supervisor_outputs[group] = output_q
 
         print("\nStarting Robots")
         for group in sorted(required_robots):
@@ -778,7 +761,7 @@ def main() -> None:
             robot_outputs[group] = output_q
 
         print("\nStarting Resources")
-        for group in sorted(required_resources):
+        for group in sorted(resources_by_group):
             proc, _ = start_resource_entity(
                 group,
                 resources_by_group[group],
@@ -792,20 +775,20 @@ def main() -> None:
 
         print("\nRunning workload")
         for index, request in enumerate(requests, start=1):
-            manager = request["manager"]
+            supervisor = request["supervisor"]
             robot = request["selected_robot"]
             resource = request["resource"]
 
             print(
                 f"\n[{index}/{len(requests)}] "
-                f"zone={request['zone']} "
-                f"{manager} -> {robot} -> {resource} "
+                f"zone={request['resource_zone']} "
+                f"{supervisor} -> {robot} -> {resource} "
                 f"(distance={request['selected_robot_distance_m']} m)"
             )
 
             delegation_result = delegate(
-                manager_proc=manager_procs[manager],
-                manager_output=manager_outputs[manager],
+                supervisor_proc=supervisor_procs[supervisor],
+                supervisor_output=supervisor_outputs[supervisor],
                 robot=robot,
                 resource=resource,
                 validity=args.validity,
@@ -822,8 +805,8 @@ def main() -> None:
             )
 
             revocation_result = revoke(
-                manager_proc=manager_procs[manager],
-                manager_output=manager_outputs[manager],
+                supervisor_proc=supervisor_procs[supervisor],
+                supervisor_output=supervisor_outputs[supervisor],
                 robot=robot,
                 resource=resource,
                 timeout=args.command_timeout,
@@ -838,9 +821,9 @@ def main() -> None:
 
             record = {
                 "request_id": request["request_id"],
-                "zone": request["zone"],
-                "auth_id": request["auth_id"],
-                "manager": manager,
+                "resource_zone": request["resource_zone"],
+                "auth_id": graph["assignments"][supervisor],
+                "supervisor": supervisor,
                 "robot": robot,
                 "resource": resource,
                 "item_id": request["item_id"],
@@ -853,6 +836,8 @@ def main() -> None:
                 "revocation": revocation_result,
                 "after_revoke_access": after_access,
             }
+            if "position_id" in request:
+                record["position_id"] = request["position_id"]
             results.append(record)
 
             # Save incrementally so an interrupted long run still leaves data.
@@ -899,7 +884,7 @@ def main() -> None:
                 terminate_process(proc, group)
             for group, proc in robot_procs.items():
                 terminate_process(proc, group)
-            for group, proc in manager_procs.items():
+            for group, proc in supervisor_procs.items():
                 terminate_process(proc, group)
             for auth_id, proc in auth_procs.items():
                 terminate_process(proc, f"Auth{auth_id}")

@@ -6,6 +6,7 @@ Generate an SST/IoTAuth warehouse experiment from logistics_dataset.csv.
 
 Outputs:
   - warehouse.graph
+  - warehouse.policy.json
   - warehouse_layout.json
   - workload.json
 
@@ -14,8 +15,8 @@ Design:
   * Zone A/B/C/D -> Auth 101/102/103/104
   * One Supervisor entity per zone
   * N Robot entities per zone
-  * Supervisor initially owns Access to every resource in its zone
-  * Runtime workload selects a resource and the nearest robot; delegation itself is
+  * Every Supervisor initially owns Access to every resource
+  * Runtime workload selects distinct resources and their nearest available robots; delegation itself is
     executed later by run_warehouse_experiment.py
 
 Example:
@@ -48,13 +49,6 @@ from pathlib import Path
 from typing import Any
 
 import pandas as pd
-
-
-DEFAULT_INFO = {
-    "cryptoSpec": "AES-128-CBC:SHA256",
-    "absValidity": "1*day",
-    "relValidity": "1*hour",
-}
 
 ZONES = ("A", "B", "C", "D")
 
@@ -116,7 +110,13 @@ def parse_args() -> argparse.Namespace:
         "--requests",
         type=int,
         default=100,
-        help="Number of workload requests to generate",
+        help="Number of robot-position batches to generate",
+    )
+    parser.add_argument(
+        "--items-per-position",
+        type=int,
+        default=3,
+        help="Distinct items per robot-position batch (default: 3); robots are not reused within a batch",
     )
     parser.add_argument(
         "--num-resources",
@@ -135,8 +135,8 @@ def parse_args() -> argparse.Namespace:
         type=float,
         default=10.0,
         help=(
-            "Maximum meters a robot moves between requests. "
-            "Request 0 uses a random position; later positions use bounded random motion."
+            "Maximum meters a robot moves between position batches. "
+            "Batch 0 uses a random position; later positions use bounded random motion."
         ),
     )
     parser.add_argument("--seed", type=int, default=7)
@@ -339,10 +339,9 @@ def make_access_privilege(robot: str, resource: str, validity: str) -> dict[str,
     return {
         "privilegeType": "DelegationGrant",
         "privilegedGroup": "Supervisors",
-        "subject": robot,
-        "object": resource,
+        "subjectGroup": robot,
+        "objectGroup": resource,
         "validity": validity,
-        "info": dict(DEFAULT_INFO),
     }
 
 
@@ -350,8 +349,8 @@ def make_revoke_privilege(robot: str, resource: str) -> dict[str, Any]:
     return {
         "privilegeType": "DelegationRevoke",
         "privilegedGroup": "Supervisors",
-        "subject": robot,
-        "object": resource,
+        "subjectGroup": robot,
+        "objectGroup": resource,
     }
 
 
@@ -497,6 +496,36 @@ def build_graph(
         "filesharingLists": [],
         "privilegeList": privilege_list,
     }
+
+
+def build_supervisor_access_policies(graph: dict[str, Any]) -> list[dict[str, Any]]:
+    """Give every Supervisor group initial access to every item group."""
+    supervisor_groups = sorted({
+        entity["group"] for entity in graph["entityList"]
+        if entity.get("group", "").startswith("Supervisor")
+    })
+    resource_groups = sorted({
+        entity["group"] for entity in graph["entityList"]
+        if entity.get("group", "").startswith("Item_")
+    })
+    if not supervisor_groups or not resource_groups:
+        raise ValueError("Initial access policies require Supervisors and items in the graph")
+
+    return [
+        {
+            "RequestingGroup": supervisor,
+            "TargetType": "Group",
+            "Target": resource,
+            "MaxNumSessionKeyOwners": 2,
+            "SessionCryptoSpec": "AES-128-CBC:SHA256",
+            "AbsoluteValidity": "1*day",
+            "RelativeValidity": "2*hour",
+            "Expiration": "Infinity",
+            "IsDelegated": 0,
+        }
+        for supervisor in supervisor_groups
+        for resource in resource_groups
+    ]
 
 
 def generate_storage_coordinates(
@@ -656,21 +685,28 @@ def generate_workload(
     resource_selection: str,
     robot_motion_radius: float,
     seed: int,
+    items_per_position: int = 3,
 ) -> dict[str, Any]:
 
     if num_requests < 1:
         raise ValueError("--requests must be >= 1")
+
+    if items_per_position < 1:
+        raise ValueError("--items-per-position must be >= 1")
+    if items_per_position > len(items):
+        raise ValueError("--items-per-position cannot exceed the number of items")
+    if items_per_position > len(robots):
+        raise ValueError("--items-per-position cannot exceed the number of robots")
 
     rng = random.Random(seed + 10_000)
     positions = random_robot_positions(robots, rng)
 
     requests = []
 
-    for request_id in range(num_requests):
+    for position_id in range(num_requests):
 
-        # Every request gets a new random warehouse-wide
-        # position for every robot.
-        if request_id > 0:
+        # Move robots once per batch; every item in the batch shares these positions.
+        if position_id > 0:
             positions = move_robot_positions(
                 robots,
                 previous=positions,
@@ -678,71 +714,80 @@ def generate_workload(
                 motion_radius=robot_motion_radius,
             )
 
-        # Select a resource based on demand.
-        item = select_item(
-            rng,
-            items,
-            resource_selection,
-        )
+        available_items = list(items)
+        available_robots = list(robots)
+        for _ in range(items_per_position):
+            # Select without replacement, preserving the requested demand weighting.
+            item = select_item(
+                rng,
+                available_items,
+                resource_selection,
+            )
 
-        # Search ALL robots, regardless of Auth/zone.
-        robot, distance_m = nearest_robot(
-            item=item,
-            robots=robots,
-            positions=positions,
-            layout=layout,
-        )
+            # Search unused robots across all Auths/zones.
+            robot, distance_m = nearest_robot(
+                item=item,
+                robots=available_robots,
+                positions=positions,
+                layout=layout,
+            )
 
-        resource = resource_group(item)
-        resource_pos = layout["item_locations"][resource]
+            resource = resource_group(item)
+            resource_pos = layout["item_locations"][resource]
 
-        requests.append(
-            {
-                "request_id": request_id,
+            requests.append(
+                {
+                    "request_id": len(requests),
+                    "position_id": position_id,
 
-                # Resource's administrative zone
-                "resource_zone": item["zone"],
+                    # Resource's administrative zone
+                    "resource_zone": item["zone"],
 
-                # The Supervisor associated with the resource's zone
-                "supervisor": supervisor_entity_name(item["zone"]),
+                    # The Supervisor associated with the selected robot's home zone
+                    "supervisor": supervisor_entity_name(robot["zone"]),
 
-                "supervisor_group": "Supervisor",
+                    "supervisor_group": "Supervisor",
 
-                "resource": resource,
-                "item_id": item["item_id"],
-                "storage_location_id": item["storage_location_id"],
+                    "resource": resource,
+                    "item_id": item["item_id"],
+                    "storage_location_id": item["storage_location_id"],
 
-                "resource_position": {
-                    "x": resource_pos["x"],
-                    "y": resource_pos["y"],
-                },
+                    "resource_position": {
+                        "x": resource_pos["x"],
+                        "y": resource_pos["y"],
+                    },
 
-                # All robots, not only robots belonging to resource zone
-                "robot_positions": {
-                    robot_info["group"]: {
-                        "x": round(
-                            positions[robot_info["group"]]["x"], 4
-                        ),
-                        "y": round(
-                            positions[robot_info["group"]]["y"], 4
-                        ),
-                    }
-                    for robot_info in robots
-                },
+                    # All robots, not only robots belonging to resource zone
+                    "robot_positions": {
+                        robot_info["group"]: {
+                            "x": round(
+                                positions[robot_info["group"]]["x"], 4
+                            ),
+                            "y": round(
+                                positions[robot_info["group"]]["y"], 4
+                            ),
+                        }
+                        for robot_info in robots
+                    },
 
-                "selected_robot": robot["group"],
-                "selected_robot_home_zone": robot["zone"],
-                "selected_robot_distance_m": round(distance_m, 4,),
+                    "selected_robot": robot["group"],
+                    "selected_robot_home_zone": robot["zone"],
+                    "selected_robot_distance_m": round(distance_m, 4,),
 
-                "cross_auth": ( robot["zone"] != item["zone"]),
+                    "cross_auth": ( robot["zone"] != item["zone"]),
 
-            }
-        )
+                }
+            )
+
+            available_items.remove(item)
+            available_robots.remove(robot)
 
     return {
         "metadata": {
             "seed": seed,
-            "num_requests": num_requests,
+            "num_requests": len(requests),
+            "num_positions": num_requests,
+            "items_per_position": items_per_position,
             "resource_selection": resource_selection,
             "robot_motion_radius_m": robot_motion_radius,
         },
@@ -802,22 +847,26 @@ def main() -> None:
         robots=robots,
         validity=args.validity,
     )
+    policies = build_supervisor_access_policies(graph)
     layout = generate_storage_coordinates(items, seed=args.seed)
     workload = generate_workload(
         items=items,
         robots=robots,
         layout=layout,
         num_requests=args.requests,
+        items_per_position=args.items_per_position,
         resource_selection=args.resource_selection,
         robot_motion_radius=args.robot_motion_radius,
         seed=args.seed,
     )
 
     graph_path = output_dir / "warehouse.graph"
+    policy_path = graph_path.with_suffix(".policy.json")
     layout_path = output_dir / "warehouse_layout.json"
     workload_path = output_dir / "workload.json"
 
     write_json(graph, graph_path)
+    write_json(policies, policy_path)
     write_json(layout, layout_path)
     write_json(workload, workload_path)
 
@@ -825,6 +874,7 @@ def main() -> None:
 
     print("\nWrote:")
     print(f"  {graph_path}")
+    print(f"  {policy_path}")
     print(f"  {layout_path}")
     print(f"  {workload_path}")
 
