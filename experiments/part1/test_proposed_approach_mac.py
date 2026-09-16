@@ -14,12 +14,6 @@ CRYPTO_SPEC_OBJ = {
     "mac": "SHA256",
 }
 
-PRIV_INFO = {
-    "cryptoSpec": "AES-128-CBC:SHA256",
-    "absValidity": "1*day",
-    "relValidity": "1*hour",
-}
-
 
 def make_auth(auth_id: int, base_port: int = 21900):
     return {
@@ -111,7 +105,6 @@ def make_delegation_privilege(src: str, dst: str, resource: str, validity: str):
         "subject": dst,
         "object": resource,
         "validity": validity,
-        "info": dict(PRIV_INFO),
     }
 
 
@@ -122,7 +115,6 @@ def make_revocation_privilege(src: str, dst: str, resource: str, validity: str):
         "subject": dst,
         "object": resource,
         "validity": validity,
-        "info": dict(PRIV_INFO),
     }
 
 
@@ -257,8 +249,8 @@ def build_graph(
                     validity,
                 )
             )
+
             access_before_revoke.setdefault(dst, set()).add(resource)
-            access_after_revoke.setdefault(dst, set()).add(resource)
 
             if revocation_rng.random() < revocation_probability:
                 revocation_list.append(
@@ -269,6 +261,7 @@ def build_graph(
                         validity,
                     )
                 )
+
     access_after_revoke = {
         node: set(resources)
         for node, resources in access_before_revoke.items()
@@ -610,30 +603,14 @@ def main():
             bufsize=1,
         )
 
-        auth_output_q = start_output_reader(auth_proc, "Auth")
-
-        wait_for_output(
-            auth_output_q,
-            ["Are you sure to continue(y/n)?"],
-            timeout=10,
-        )
-        
-        auth_proc.stdin.write("y\n")
-        auth_proc.stdin.flush()
-        
-        wait_for_output(
-            auth_output_q,
-            ["Please enter Auth password"],
-            timeout=10,
-        )
-        
         auth_proc.stdin.write("asdf\n")
         auth_proc.stdin.flush()
-        
+
+        auth_output_q = start_output_reader(auth_proc, "Auth")
         wait_for_output(
             auth_output_q,
             ["Started Server@"],
-            timeout=10,
+            timeout=5,
         )
         print("Auth server is ready")
 
@@ -703,7 +680,7 @@ def main():
             resource = privilege["object"]
             validity = privilege["validity"]
 
-            cmd = f"delegateAuthority {dst} {resource} {validity}\n"
+            cmd = f"delegateAuthority {dst} {resource} {validity} 1*day 1*hour\n"
 
             proc = node_procs[src]
             output_q = node_outputs[src]
