@@ -1,0 +1,164 @@
+{
+	"warehouse_width_m": 100.0,
+	"warehouse_height_m": 100.0,
+	"zone_bounds": {
+		"A": {
+			"xmin": 0.0,
+			"xmax": 50.0,
+			"ymin": 50.0,
+			"ymax": 100.0
+		},
+		"B": {
+			"xmin": 50.0,
+			"xmax": 100.0,
+			"ymin": 50.0,
+			"ymax": 100.0
+		},
+		"C": {
+			"xmin": 0.0,
+			"xmax": 50.0,
+			"ymin": 0.0,
+			"ymax": 50.0
+		},
+		"D": {
+			"xmin": 50.0,
+			"xmax": 100.0,
+			"ymin": 0.0,
+			"ymax": 50.0
+		}
+	},
+	"storage_locations": {
+		"A:L4": {
+			"zone": "A",
+			"storage_location_id": "L4",
+			"x": 16.1916,
+			"y": 57.5425
+		},
+		"A:L9": {
+			"zone": "A",
+			"storage_location_id": "L9",
+			"x": 32.5467,
+			"y": 53.6218
+		},
+		"C:L41": {
+			"zone": "C",
+			"storage_location_id": "L41",
+			"x": 26.7941,
+			"y": 18.2844
+		},
+		"C:L50": {
+			"zone": "C",
+			"storage_location_id": "L50",
+			"x": 2.8999,
+			"y": 25.3718
+		},
+		"C:L68": {
+			"zone": "C",
+			"storage_location_id": "L68",
+			"x": 1.8748,
+			"y": 21.6823
+		},
+		"C:L71": {
+			"zone": "C",
+			"storage_location_id": "L71",
+			"x": 3.4928,
+			"y": 4.5357
+		},
+		"C:L84": {
+			"zone": "C",
+			"storage_location_id": "L84",
+			"x": 21.226,
+			"y": 41.3426
+		},
+		"C:L99": {
+			"zone": "C",
+			"storage_location_id": "L99",
+			"x": 6.1901,
+			"y": 11.1619
+		},
+		"D:L40": {
+			"zone": "D",
+			"storage_location_id": "L40",
+			"x": 81.3717,
+			"y": 47.3854
+		},
+		"D:L5": {
+			"zone": "D",
+			"storage_location_id": "L5",
+			"x": 78.8551,
+			"y": 19.834
+		}
+	},
+	"item_locations": {
+		"Item_ITM10848": {
+			"zone": "A",
+			"storage_location_id": "L4",
+			"location_key": "A:L4",
+			"x": 16.1916,
+			"y": 57.5425
+		},
+		"Item_ITM11946": {
+			"zone": "A",
+			"storage_location_id": "L9",
+			"location_key": "A:L9",
+			"x": 32.5467,
+			"y": 53.6218
+		},
+		"Item_ITM11312": {
+			"zone": "C",
+			"storage_location_id": "L84",
+			"location_key": "C:L84",
+			"x": 21.226,
+			"y": 41.3426
+		},
+		"Item_ITM11327": {
+			"zone": "C",
+			"storage_location_id": "L41",
+			"location_key": "C:L41",
+			"x": 26.7941,
+			"y": 18.2844
+		},
+		"Item_ITM11363": {
+			"zone": "C",
+			"storage_location_id": "L68",
+			"location_key": "C:L68",
+			"x": 1.8748,
+			"y": 21.6823
+		},
+		"Item_ITM11533": {
+			"zone": "C",
+			"storage_location_id": "L50",
+			"location_key": "C:L50",
+			"x": 2.8999,
+			"y": 25.3718
+		},
+		"Item_ITM12092": {
+			"zone": "C",
+			"storage_location_id": "L99",
+			"location_key": "C:L99",
+			"x": 6.1901,
+			"y": 11.1619
+		},
+		"Item_ITM12449": {
+			"zone": "C",
+			"storage_location_id": "L71",
+			"location_key": "C:L71",
+			"x": 3.4928,
+			"y": 4.5357
+		},
+		"Item_ITM11827": {
+			"zone": "D",
+			"storage_location_id": "L40",
+			"location_key": "D:L40",
+			"x": 81.3717,
+			"y": 47.3854
+		},
+		"Item_ITM12876": {
+			"zone": "D",
+			"storage_location_id": "L5",
+			"location_key": "D:L5",
+			"x": 78.8551,
+			"y": 19.834
+		}
+	}
+}

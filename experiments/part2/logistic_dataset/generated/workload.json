@@ -1,0 +1,4092 @@
+{
+	"metadata": {
+		"seed": 7,
+		"num_requests": 60,
+		"num_positions": 20,
+		"items_per_position": 3,
+		"resource_selection": "daily_demand",
+		"robot_motion_radius_m": 10.0
+	},
+	"requests": [
+		{
+			"request_id": 0,
+			"position_id": 0,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM12092",
+			"item_id": "ITM12092",
+			"storage_location_id": "L99",
+			"resource_position": {
+				"x": 6.1901,
+				"y": 11.1619
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 25.6542,
+					"y": 28.8057
+				},
+				"RobotA2": {
+					"x": 54.3634,
+					"y": 33.4396
+				},
+				"RobotA3": {
+					"x": 88.3764,
+					"y": 43.8609
+				},
+				"RobotB1": {
+					"x": 18.0305,
+					"y": 99.8483
+				},
+				"RobotB2": {
+					"x": 53.7397,
+					"y": 96.6558
+				},
+				"RobotB3": {
+					"x": 64.9507,
+					"y": 74.4069
+				},
+				"RobotC1": {
+					"x": 12.1232,
+					"y": 31.66
+				},
+				"RobotC2": {
+					"x": 32.4505,
+					"y": 63.654
+				},
+				"RobotC3": {
+					"x": 30.0001,
+					"y": 12.2609
+				},
+				"RobotD1": {
+					"x": 89.2679,
+					"y": 35.4555
+				},
+				"RobotD2": {
+					"x": 97.0075,
+					"y": 53.3031
+				},
+				"RobotD3": {
+					"x": 83.8618,
+					"y": 41.9255
+				}
+			},
+			"selected_robot": "RobotC1",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 21.3394,
+			"cross_auth": false
+		},
+		{
+			"request_id": 1,
+			"position_id": 0,
+			"resource_zone": "A",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11946",
+			"item_id": "ITM11946",
+			"storage_location_id": "L9",
+			"resource_position": {
+				"x": 32.5467,
+				"y": 53.6218
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 25.6542,
+					"y": 28.8057
+				},
+				"RobotA2": {
+					"x": 54.3634,
+					"y": 33.4396
+				},
+				"RobotA3": {
+					"x": 88.3764,
+					"y": 43.8609
+				},
+				"RobotB1": {
+					"x": 18.0305,
+					"y": 99.8483
+				},
+				"RobotB2": {
+					"x": 53.7397,
+					"y": 96.6558
+				},
+				"RobotB3": {
+					"x": 64.9507,
+					"y": 74.4069
+				},
+				"RobotC1": {
+					"x": 12.1232,
+					"y": 31.66
+				},
+				"RobotC2": {
+					"x": 32.4505,
+					"y": 63.654
+				},
+				"RobotC3": {
+					"x": 30.0001,
+					"y": 12.2609
+				},
+				"RobotD1": {
+					"x": 89.2679,
+					"y": 35.4555
+				},
+				"RobotD2": {
+					"x": 97.0075,
+					"y": 53.3031
+				},
+				"RobotD3": {
+					"x": 83.8618,
+					"y": 41.9255
+				}
+			},
+			"selected_robot": "RobotC2",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 10.0326,
+			"cross_auth": true
+		},
+		{
+			"request_id": 2,
+			"position_id": 0,
+			"resource_zone": "D",
+			"supervisor": "net4.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11827",
+			"item_id": "ITM11827",
+			"storage_location_id": "L40",
+			"resource_position": {
+				"x": 81.3717,
+				"y": 47.3854
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 25.6542,
+					"y": 28.8057
+				},
+				"RobotA2": {
+					"x": 54.3634,
+					"y": 33.4396
+				},
+				"RobotA3": {
+					"x": 88.3764,
+					"y": 43.8609
+				},
+				"RobotB1": {
+					"x": 18.0305,
+					"y": 99.8483
+				},
+				"RobotB2": {
+					"x": 53.7397,
+					"y": 96.6558
+				},
+				"RobotB3": {
+					"x": 64.9507,
+					"y": 74.4069
+				},
+				"RobotC1": {
+					"x": 12.1232,
+					"y": 31.66
+				},
+				"RobotC2": {
+					"x": 32.4505,
+					"y": 63.654
+				},
+				"RobotC3": {
+					"x": 30.0001,
+					"y": 12.2609
+				},
+				"RobotD1": {
+					"x": 89.2679,
+					"y": 35.4555
+				},
+				"RobotD2": {
+					"x": 97.0075,
+					"y": 53.3031
+				},
+				"RobotD3": {
+					"x": 83.8618,
+					"y": 41.9255
+				}
+			},
+			"selected_robot": "RobotD3",
+			"selected_robot_home_zone": "D",
+			"selected_robot_distance_m": 6.001,
+			"cross_auth": false
+		},
+		{
+			"request_id": 3,
+			"position_id": 1,
+			"resource_zone": "A",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM10848",
+			"item_id": "ITM10848",
+			"storage_location_id": "L4",
+			"resource_position": {
+				"x": 16.1916,
+				"y": 57.5425
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 23.6666,
+					"y": 31.847
+				},
+				"RobotA2": {
+					"x": 53.9046,
+					"y": 32.9246
+				},
+				"RobotA3": {
+					"x": 80.8327,
+					"y": 43.5575
+				},
+				"RobotB1": {
+					"x": 23.6625,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 52.2198,
+					"y": 100.0
+				},
+				"RobotB3": {
+					"x": 58.0895,
+					"y": 67.4877
+				},
+				"RobotC1": {
+					"x": 9.4859,
+					"y": 30.9342
+				},
+				"RobotC2": {
+					"x": 31.5481,
+					"y": 58.7911
+				},
+				"RobotC3": {
+					"x": 39.761,
+					"y": 10.6289
+				},
+				"RobotD1": {
+					"x": 94.2325,
+					"y": 37.0449
+				},
+				"RobotD2": {
+					"x": 92.2632,
+					"y": 54.2963
+				},
+				"RobotD3": {
+					"x": 81.3739,
+					"y": 45.4461
+				}
+			},
+			"selected_robot": "RobotC2",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 15.4072,
+			"cross_auth": true
+		},
+		{
+			"request_id": 4,
+			"position_id": 1,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11363",
+			"item_id": "ITM11363",
+			"storage_location_id": "L68",
+			"resource_position": {
+				"x": 1.8748,
+				"y": 21.6823
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 23.6666,
+					"y": 31.847
+				},
+				"RobotA2": {
+					"x": 53.9046,
+					"y": 32.9246
+				},
+				"RobotA3": {
+					"x": 80.8327,
+					"y": 43.5575
+				},
+				"RobotB1": {
+					"x": 23.6625,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 52.2198,
+					"y": 100.0
+				},
+				"RobotB3": {
+					"x": 58.0895,
+					"y": 67.4877
+				},
+				"RobotC1": {
+					"x": 9.4859,
+					"y": 30.9342
+				},
+				"RobotC2": {
+					"x": 31.5481,
+					"y": 58.7911
+				},
+				"RobotC3": {
+					"x": 39.761,
+					"y": 10.6289
+				},
+				"RobotD1": {
+					"x": 94.2325,
+					"y": 37.0449
+				},
+				"RobotD2": {
+					"x": 92.2632,
+					"y": 54.2963
+				},
+				"RobotD3": {
+					"x": 81.3739,
+					"y": 45.4461
+				}
+			},
+			"selected_robot": "RobotC1",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 11.9802,
+			"cross_auth": false
+		},
+		{
+			"request_id": 5,
+			"position_id": 1,
+			"resource_zone": "A",
+			"supervisor": "net1.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11946",
+			"item_id": "ITM11946",
+			"storage_location_id": "L9",
+			"resource_position": {
+				"x": 32.5467,
+				"y": 53.6218
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 23.6666,
+					"y": 31.847
+				},
+				"RobotA2": {
+					"x": 53.9046,
+					"y": 32.9246
+				},
+				"RobotA3": {
+					"x": 80.8327,
+					"y": 43.5575
+				},
+				"RobotB1": {
+					"x": 23.6625,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 52.2198,
+					"y": 100.0
+				},
+				"RobotB3": {
+					"x": 58.0895,
+					"y": 67.4877
+				},
+				"RobotC1": {
+					"x": 9.4859,
+					"y": 30.9342
+				},
+				"RobotC2": {
+					"x": 31.5481,
+					"y": 58.7911
+				},
+				"RobotC3": {
+					"x": 39.761,
+					"y": 10.6289
+				},
+				"RobotD1": {
+					"x": 94.2325,
+					"y": 37.0449
+				},
+				"RobotD2": {
+					"x": 92.2632,
+					"y": 54.2963
+				},
+				"RobotD3": {
+					"x": 81.3739,
+					"y": 45.4461
+				}
+			},
+			"selected_robot": "RobotA1",
+			"selected_robot_home_zone": "A",
+			"selected_robot_distance_m": 23.516,
+			"cross_auth": false
+		},
+		{
+			"request_id": 6,
+			"position_id": 2,
+			"resource_zone": "C",
+			"supervisor": "net1.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11327",
+			"item_id": "ITM11327",
+			"storage_location_id": "L41",
+			"resource_position": {
+				"x": 26.7941,
+				"y": 18.2844
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 27.5702,
+					"y": 23.2868
+				},
+				"RobotA2": {
+					"x": 60.297,
+					"y": 30.4515
+				},
+				"RobotA3": {
+					"x": 85.499,
+					"y": 43.7909
+				},
+				"RobotB1": {
+					"x": 21.8958,
+					"y": 94.4001
+				},
+				"RobotB2": {
+					"x": 50.1511,
+					"y": 99.6732
+				},
+				"RobotB3": {
+					"x": 57.4124,
+					"y": 68.1228
+				},
+				"RobotC1": {
+					"x": 14.6713,
+					"y": 32.5029
+				},
+				"RobotC2": {
+					"x": 22.9744,
+					"y": 54.4234
+				},
+				"RobotC3": {
+					"x": 34.5702,
+					"y": 10.7866
+				},
+				"RobotD1": {
+					"x": 95.0608,
+					"y": 36.3452
+				},
+				"RobotD2": {
+					"x": 96.9342,
+					"y": 48.1103
+				},
+				"RobotD3": {
+					"x": 75.8117,
+					"y": 39.2845
+				}
+			},
+			"selected_robot": "RobotA1",
+			"selected_robot_home_zone": "A",
+			"selected_robot_distance_m": 5.0623,
+			"cross_auth": true
+		},
+		{
+			"request_id": 7,
+			"position_id": 2,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM12092",
+			"item_id": "ITM12092",
+			"storage_location_id": "L99",
+			"resource_position": {
+				"x": 6.1901,
+				"y": 11.1619
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 27.5702,
+					"y": 23.2868
+				},
+				"RobotA2": {
+					"x": 60.297,
+					"y": 30.4515
+				},
+				"RobotA3": {
+					"x": 85.499,
+					"y": 43.7909
+				},
+				"RobotB1": {
+					"x": 21.8958,
+					"y": 94.4001
+				},
+				"RobotB2": {
+					"x": 50.1511,
+					"y": 99.6732
+				},
+				"RobotB3": {
+					"x": 57.4124,
+					"y": 68.1228
+				},
+				"RobotC1": {
+					"x": 14.6713,
+					"y": 32.5029
+				},
+				"RobotC2": {
+					"x": 22.9744,
+					"y": 54.4234
+				},
+				"RobotC3": {
+					"x": 34.5702,
+					"y": 10.7866
+				},
+				"RobotD1": {
+					"x": 95.0608,
+					"y": 36.3452
+				},
+				"RobotD2": {
+					"x": 96.9342,
+					"y": 48.1103
+				},
+				"RobotD3": {
+					"x": 75.8117,
+					"y": 39.2845
+				}
+			},
+			"selected_robot": "RobotC1",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 22.9646,
+			"cross_auth": false
+		},
+		{
+			"request_id": 8,
+			"position_id": 2,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11363",
+			"item_id": "ITM11363",
+			"storage_location_id": "L68",
+			"resource_position": {
+				"x": 1.8748,
+				"y": 21.6823
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 27.5702,
+					"y": 23.2868
+				},
+				"RobotA2": {
+					"x": 60.297,
+					"y": 30.4515
+				},
+				"RobotA3": {
+					"x": 85.499,
+					"y": 43.7909
+				},
+				"RobotB1": {
+					"x": 21.8958,
+					"y": 94.4001
+				},
+				"RobotB2": {
+					"x": 50.1511,
+					"y": 99.6732
+				},
+				"RobotB3": {
+					"x": 57.4124,
+					"y": 68.1228
+				},
+				"RobotC1": {
+					"x": 14.6713,
+					"y": 32.5029
+				},
+				"RobotC2": {
+					"x": 22.9744,
+					"y": 54.4234
+				},
+				"RobotC3": {
+					"x": 34.5702,
+					"y": 10.7866
+				},
+				"RobotD1": {
+					"x": 95.0608,
+					"y": 36.3452
+				},
+				"RobotD2": {
+					"x": 96.9342,
+					"y": 48.1103
+				},
+				"RobotD3": {
+					"x": 75.8117,
+					"y": 39.2845
+				}
+			},
+			"selected_robot": "RobotC3",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 34.4631,
+			"cross_auth": false
+		},
+		{
+			"request_id": 9,
+			"position_id": 3,
+			"resource_zone": "A",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11946",
+			"item_id": "ITM11946",
+			"storage_location_id": "L9",
+			"resource_position": {
+				"x": 32.5467,
+				"y": 53.6218
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 25.4798,
+					"y": 23.1621
+				},
+				"RobotA2": {
+					"x": 60.5099,
+					"y": 30.4713
+				},
+				"RobotA3": {
+					"x": 88.4051,
+					"y": 48.8231
+				},
+				"RobotB1": {
+					"x": 28.8983,
+					"y": 96.4912
+				},
+				"RobotB2": {
+					"x": 46.5023,
+					"y": 100.0
+				},
+				"RobotB3": {
+					"x": 55.3537,
+					"y": 64.9716
+				},
+				"RobotC1": {
+					"x": 7.4016,
+					"y": 28.4106
+				},
+				"RobotC2": {
+					"x": 23.7221,
+					"y": 56.1557
+				},
+				"RobotC3": {
+					"x": 40.3642,
+					"y": 16.0543
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 36.1136
+				},
+				"RobotD2": {
+					"x": 98.6837,
+					"y": 47.2202
+				},
+				"RobotD3": {
+					"x": 76.9262,
+					"y": 38.4018
+				}
+			},
+			"selected_robot": "RobotC2",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 9.1812,
+			"cross_auth": true
+		},
+		{
+			"request_id": 10,
+			"position_id": 3,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11363",
+			"item_id": "ITM11363",
+			"storage_location_id": "L68",
+			"resource_position": {
+				"x": 1.8748,
+				"y": 21.6823
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 25.4798,
+					"y": 23.1621
+				},
+				"RobotA2": {
+					"x": 60.5099,
+					"y": 30.4713
+				},
+				"RobotA3": {
+					"x": 88.4051,
+					"y": 48.8231
+				},
+				"RobotB1": {
+					"x": 28.8983,
+					"y": 96.4912
+				},
+				"RobotB2": {
+					"x": 46.5023,
+					"y": 100.0
+				},
+				"RobotB3": {
+					"x": 55.3537,
+					"y": 64.9716
+				},
+				"RobotC1": {
+					"x": 7.4016,
+					"y": 28.4106
+				},
+				"RobotC2": {
+					"x": 23.7221,
+					"y": 56.1557
+				},
+				"RobotC3": {
+					"x": 40.3642,
+					"y": 16.0543
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 36.1136
+				},
+				"RobotD2": {
+					"x": 98.6837,
+					"y": 47.2202
+				},
+				"RobotD3": {
+					"x": 76.9262,
+					"y": 38.4018
+				}
+			},
+			"selected_robot": "RobotC1",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 8.7072,
+			"cross_auth": false
+		},
+		{
+			"request_id": 11,
+			"position_id": 3,
+			"resource_zone": "D",
+			"supervisor": "net1.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11827",
+			"item_id": "ITM11827",
+			"storage_location_id": "L40",
+			"resource_position": {
+				"x": 81.3717,
+				"y": 47.3854
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 25.4798,
+					"y": 23.1621
+				},
+				"RobotA2": {
+					"x": 60.5099,
+					"y": 30.4713
+				},
+				"RobotA3": {
+					"x": 88.4051,
+					"y": 48.8231
+				},
+				"RobotB1": {
+					"x": 28.8983,
+					"y": 96.4912
+				},
+				"RobotB2": {
+					"x": 46.5023,
+					"y": 100.0
+				},
+				"RobotB3": {
+					"x": 55.3537,
+					"y": 64.9716
+				},
+				"RobotC1": {
+					"x": 7.4016,
+					"y": 28.4106
+				},
+				"RobotC2": {
+					"x": 23.7221,
+					"y": 56.1557
+				},
+				"RobotC3": {
+					"x": 40.3642,
+					"y": 16.0543
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 36.1136
+				},
+				"RobotD2": {
+					"x": 98.6837,
+					"y": 47.2202
+				},
+				"RobotD3": {
+					"x": 76.9262,
+					"y": 38.4018
+				}
+			},
+			"selected_robot": "RobotA3",
+			"selected_robot_home_zone": "A",
+			"selected_robot_distance_m": 7.1788,
+			"cross_auth": true
+		},
+		{
+			"request_id": 12,
+			"position_id": 4,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11312",
+			"item_id": "ITM11312",
+			"storage_location_id": "L84",
+			"resource_position": {
+				"x": 21.226,
+				"y": 41.3426
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 21.5019,
+					"y": 18.0149
+				},
+				"RobotA2": {
+					"x": 60.5991,
+					"y": 30.4975
+				},
+				"RobotA3": {
+					"x": 91.7648,
+					"y": 52.6873
+				},
+				"RobotB1": {
+					"x": 27.9018,
+					"y": 96.6189
+				},
+				"RobotB2": {
+					"x": 43.6054,
+					"y": 90.6717
+				},
+				"RobotB3": {
+					"x": 54.9292,
+					"y": 68.2796
+				},
+				"RobotC1": {
+					"x": 3.4516,
+					"y": 30.4557
+				},
+				"RobotC2": {
+					"x": 22.3147,
+					"y": 54.9864
+				},
+				"RobotC3": {
+					"x": 31.2663,
+					"y": 14.7456
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 33.9245
+				},
+				"RobotD2": {
+					"x": 96.1322,
+					"y": 51.4456
+				},
+				"RobotD3": {
+					"x": 81.7097,
+					"y": 41.7535
+				}
+			},
+			"selected_robot": "RobotC2",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 13.6871,
+			"cross_auth": false
+		},
+		{
+			"request_id": 13,
+			"position_id": 4,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11363",
+			"item_id": "ITM11363",
+			"storage_location_id": "L68",
+			"resource_position": {
+				"x": 1.8748,
+				"y": 21.6823
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 21.5019,
+					"y": 18.0149
+				},
+				"RobotA2": {
+					"x": 60.5991,
+					"y": 30.4975
+				},
+				"RobotA3": {
+					"x": 91.7648,
+					"y": 52.6873
+				},
+				"RobotB1": {
+					"x": 27.9018,
+					"y": 96.6189
+				},
+				"RobotB2": {
+					"x": 43.6054,
+					"y": 90.6717
+				},
+				"RobotB3": {
+					"x": 54.9292,
+					"y": 68.2796
+				},
+				"RobotC1": {
+					"x": 3.4516,
+					"y": 30.4557
+				},
+				"RobotC2": {
+					"x": 22.3147,
+					"y": 54.9864
+				},
+				"RobotC3": {
+					"x": 31.2663,
+					"y": 14.7456
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 33.9245
+				},
+				"RobotD2": {
+					"x": 96.1322,
+					"y": 51.4456
+				},
+				"RobotD3": {
+					"x": 81.7097,
+					"y": 41.7535
+				}
+			},
+			"selected_robot": "RobotC1",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 8.914,
+			"cross_auth": false
+		},
+		{
+			"request_id": 14,
+			"position_id": 4,
+			"resource_zone": "C",
+			"supervisor": "net1.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM12449",
+			"item_id": "ITM12449",
+			"storage_location_id": "L71",
+			"resource_position": {
+				"x": 3.4928,
+				"y": 4.5357
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 21.5019,
+					"y": 18.0149
+				},
+				"RobotA2": {
+					"x": 60.5991,
+					"y": 30.4975
+				},
+				"RobotA3": {
+					"x": 91.7648,
+					"y": 52.6873
+				},
+				"RobotB1": {
+					"x": 27.9018,
+					"y": 96.6189
+				},
+				"RobotB2": {
+					"x": 43.6054,
+					"y": 90.6717
+				},
+				"RobotB3": {
+					"x": 54.9292,
+					"y": 68.2796
+				},
+				"RobotC1": {
+					"x": 3.4516,
+					"y": 30.4557
+				},
+				"RobotC2": {
+					"x": 22.3147,
+					"y": 54.9864
+				},
+				"RobotC3": {
+					"x": 31.2663,
+					"y": 14.7456
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 33.9245
+				},
+				"RobotD2": {
+					"x": 96.1322,
+					"y": 51.4456
+				},
+				"RobotD3": {
+					"x": 81.7097,
+					"y": 41.7535
+				}
+			},
+			"selected_robot": "RobotA1",
+			"selected_robot_home_zone": "A",
+			"selected_robot_distance_m": 22.4948,
+			"cross_auth": true
+		},
+		{
+			"request_id": 15,
+			"position_id": 5,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11312",
+			"item_id": "ITM11312",
+			"storage_location_id": "L84",
+			"resource_position": {
+				"x": 21.226,
+				"y": 41.3426
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 24.6346,
+					"y": 12.1279
+				},
+				"RobotA2": {
+					"x": 63.1534,
+					"y": 33.2064
+				},
+				"RobotA3": {
+					"x": 89.4233,
+					"y": 56.8557
+				},
+				"RobotB1": {
+					"x": 33.6462,
+					"y": 93.1974
+				},
+				"RobotB2": {
+					"x": 37.0929,
+					"y": 93.6063
+				},
+				"RobotB3": {
+					"x": 55.1995,
+					"y": 67.5679
+				},
+				"RobotC1": {
+					"x": 1.1996,
+					"y": 28.3298
+				},
+				"RobotC2": {
+					"x": 16.9938,
+					"y": 59.7767
+				},
+				"RobotC3": {
+					"x": 26.3528,
+					"y": 12.495
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 36.2286
+				},
+				"RobotD2": {
+					"x": 92.8233,
+					"y": 50.2141
+				},
+				"RobotD3": {
+					"x": 82.648,
+					"y": 43.9493
+				}
+			},
+			"selected_robot": "RobotC2",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 18.9137,
+			"cross_auth": false
+		},
+		{
+			"request_id": 16,
+			"position_id": 5,
+			"resource_zone": "A",
+			"supervisor": "net2.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11946",
+			"item_id": "ITM11946",
+			"storage_location_id": "L9",
+			"resource_position": {
+				"x": 32.5467,
+				"y": 53.6218
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 24.6346,
+					"y": 12.1279
+				},
+				"RobotA2": {
+					"x": 63.1534,
+					"y": 33.2064
+				},
+				"RobotA3": {
+					"x": 89.4233,
+					"y": 56.8557
+				},
+				"RobotB1": {
+					"x": 33.6462,
+					"y": 93.1974
+				},
+				"RobotB2": {
+					"x": 37.0929,
+					"y": 93.6063
+				},
+				"RobotB3": {
+					"x": 55.1995,
+					"y": 67.5679
+				},
+				"RobotC1": {
+					"x": 1.1996,
+					"y": 28.3298
+				},
+				"RobotC2": {
+					"x": 16.9938,
+					"y": 59.7767
+				},
+				"RobotC3": {
+					"x": 26.3528,
+					"y": 12.495
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 36.2286
+				},
+				"RobotD2": {
+					"x": 92.8233,
+					"y": 50.2141
+				},
+				"RobotD3": {
+					"x": 82.648,
+					"y": 43.9493
+				}
+			},
+			"selected_robot": "RobotB3",
+			"selected_robot_home_zone": "B",
+			"selected_robot_distance_m": 26.6016,
+			"cross_auth": true
+		},
+		{
+			"request_id": 17,
+			"position_id": 5,
+			"resource_zone": "D",
+			"supervisor": "net1.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM12876",
+			"item_id": "ITM12876",
+			"storage_location_id": "L5",
+			"resource_position": {
+				"x": 78.8551,
+				"y": 19.834
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 24.6346,
+					"y": 12.1279
+				},
+				"RobotA2": {
+					"x": 63.1534,
+					"y": 33.2064
+				},
+				"RobotA3": {
+					"x": 89.4233,
+					"y": 56.8557
+				},
+				"RobotB1": {
+					"x": 33.6462,
+					"y": 93.1974
+				},
+				"RobotB2": {
+					"x": 37.0929,
+					"y": 93.6063
+				},
+				"RobotB3": {
+					"x": 55.1995,
+					"y": 67.5679
+				},
+				"RobotC1": {
+					"x": 1.1996,
+					"y": 28.3298
+				},
+				"RobotC2": {
+					"x": 16.9938,
+					"y": 59.7767
+				},
+				"RobotC3": {
+					"x": 26.3528,
+					"y": 12.495
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 36.2286
+				},
+				"RobotD2": {
+					"x": 92.8233,
+					"y": 50.2141
+				},
+				"RobotD3": {
+					"x": 82.648,
+					"y": 43.9493
+				}
+			},
+			"selected_robot": "RobotA2",
+			"selected_robot_home_zone": "A",
+			"selected_robot_distance_m": 20.6244,
+			"cross_auth": true
+		},
+		{
+			"request_id": 18,
+			"position_id": 6,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11363",
+			"item_id": "ITM11363",
+			"storage_location_id": "L68",
+			"resource_position": {
+				"x": 1.8748,
+				"y": 21.6823
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 28.3113,
+					"y": 5.185
+				},
+				"RobotA2": {
+					"x": 67.5965,
+					"y": 26.7385
+				},
+				"RobotA3": {
+					"x": 86.7343,
+					"y": 52.3711
+				},
+				"RobotB1": {
+					"x": 29.6568,
+					"y": 95.1698
+				},
+				"RobotB2": {
+					"x": 38.1338,
+					"y": 87.5144
+				},
+				"RobotB3": {
+					"x": 48.4156,
+					"y": 71.6978
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 23.5968
+				},
+				"RobotC2": {
+					"x": 21.4555,
+					"y": 64.3521
+				},
+				"RobotC3": {
+					"x": 26.3709,
+					"y": 12.5242
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 35.7481
+				},
+				"RobotD2": {
+					"x": 92.9277,
+					"y": 59.33
+				},
+				"RobotD3": {
+					"x": 76.6959,
+					"y": 46.2117
+				}
+			},
+			"selected_robot": "RobotC1",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 2.6796,
+			"cross_auth": false
+		},
+		{
+			"request_id": 19,
+			"position_id": 6,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM12092",
+			"item_id": "ITM12092",
+			"storage_location_id": "L99",
+			"resource_position": {
+				"x": 6.1901,
+				"y": 11.1619
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 28.3113,
+					"y": 5.185
+				},
+				"RobotA2": {
+					"x": 67.5965,
+					"y": 26.7385
+				},
+				"RobotA3": {
+					"x": 86.7343,
+					"y": 52.3711
+				},
+				"RobotB1": {
+					"x": 29.6568,
+					"y": 95.1698
+				},
+				"RobotB2": {
+					"x": 38.1338,
+					"y": 87.5144
+				},
+				"RobotB3": {
+					"x": 48.4156,
+					"y": 71.6978
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 23.5968
+				},
+				"RobotC2": {
+					"x": 21.4555,
+					"y": 64.3521
+				},
+				"RobotC3": {
+					"x": 26.3709,
+					"y": 12.5242
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 35.7481
+				},
+				"RobotD2": {
+					"x": 92.9277,
+					"y": 59.33
+				},
+				"RobotD3": {
+					"x": 76.6959,
+					"y": 46.2117
+				}
+			},
+			"selected_robot": "RobotC3",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 20.2267,
+			"cross_auth": false
+		},
+		{
+			"request_id": 20,
+			"position_id": 6,
+			"resource_zone": "A",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11946",
+			"item_id": "ITM11946",
+			"storage_location_id": "L9",
+			"resource_position": {
+				"x": 32.5467,
+				"y": 53.6218
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 28.3113,
+					"y": 5.185
+				},
+				"RobotA2": {
+					"x": 67.5965,
+					"y": 26.7385
+				},
+				"RobotA3": {
+					"x": 86.7343,
+					"y": 52.3711
+				},
+				"RobotB1": {
+					"x": 29.6568,
+					"y": 95.1698
+				},
+				"RobotB2": {
+					"x": 38.1338,
+					"y": 87.5144
+				},
+				"RobotB3": {
+					"x": 48.4156,
+					"y": 71.6978
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 23.5968
+				},
+				"RobotC2": {
+					"x": 21.4555,
+					"y": 64.3521
+				},
+				"RobotC3": {
+					"x": 26.3709,
+					"y": 12.5242
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 35.7481
+				},
+				"RobotD2": {
+					"x": 92.9277,
+					"y": 59.33
+				},
+				"RobotD3": {
+					"x": 76.6959,
+					"y": 46.2117
+				}
+			},
+			"selected_robot": "RobotC2",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 15.4322,
+			"cross_auth": true
+		},
+		{
+			"request_id": 21,
+			"position_id": 7,
+			"resource_zone": "A",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11946",
+			"item_id": "ITM11946",
+			"storage_location_id": "L9",
+			"resource_position": {
+				"x": 32.5467,
+				"y": 53.6218
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 31.3726,
+					"y": 4.1683
+				},
+				"RobotA2": {
+					"x": 64.2056,
+					"y": 30.9721
+				},
+				"RobotA3": {
+					"x": 89.0406,
+					"y": 48.7678
+				},
+				"RobotB1": {
+					"x": 32.9125,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 38.5976,
+					"y": 78.5513
+				},
+				"RobotB3": {
+					"x": 51.4464,
+					"y": 65.7245
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 31.4631
+				},
+				"RobotC2": {
+					"x": 24.4931,
+					"y": 64.822
+				},
+				"RobotC3": {
+					"x": 23.7862,
+					"y": 12.9677
+				},
+				"RobotD1": {
+					"x": 91.6364,
+					"y": 32.635
+				},
+				"RobotD2": {
+					"x": 97.5668,
+					"y": 67.8358
+				},
+				"RobotD3": {
+					"x": 77.3911,
+					"y": 44.3113
+				}
+			},
+			"selected_robot": "RobotC2",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 13.7951,
+			"cross_auth": true
+		},
+		{
+			"request_id": 22,
+			"position_id": 7,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM12092",
+			"item_id": "ITM12092",
+			"storage_location_id": "L99",
+			"resource_position": {
+				"x": 6.1901,
+				"y": 11.1619
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 31.3726,
+					"y": 4.1683
+				},
+				"RobotA2": {
+					"x": 64.2056,
+					"y": 30.9721
+				},
+				"RobotA3": {
+					"x": 89.0406,
+					"y": 48.7678
+				},
+				"RobotB1": {
+					"x": 32.9125,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 38.5976,
+					"y": 78.5513
+				},
+				"RobotB3": {
+					"x": 51.4464,
+					"y": 65.7245
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 31.4631
+				},
+				"RobotC2": {
+					"x": 24.4931,
+					"y": 64.822
+				},
+				"RobotC3": {
+					"x": 23.7862,
+					"y": 12.9677
+				},
+				"RobotD1": {
+					"x": 91.6364,
+					"y": 32.635
+				},
+				"RobotD2": {
+					"x": 97.5668,
+					"y": 67.8358
+				},
+				"RobotD3": {
+					"x": 77.3911,
+					"y": 44.3113
+				}
+			},
+			"selected_robot": "RobotC3",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 17.6885,
+			"cross_auth": false
+		},
+		{
+			"request_id": 23,
+			"position_id": 7,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11363",
+			"item_id": "ITM11363",
+			"storage_location_id": "L68",
+			"resource_position": {
+				"x": 1.8748,
+				"y": 21.6823
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 31.3726,
+					"y": 4.1683
+				},
+				"RobotA2": {
+					"x": 64.2056,
+					"y": 30.9721
+				},
+				"RobotA3": {
+					"x": 89.0406,
+					"y": 48.7678
+				},
+				"RobotB1": {
+					"x": 32.9125,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 38.5976,
+					"y": 78.5513
+				},
+				"RobotB3": {
+					"x": 51.4464,
+					"y": 65.7245
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 31.4631
+				},
+				"RobotC2": {
+					"x": 24.4931,
+					"y": 64.822
+				},
+				"RobotC3": {
+					"x": 23.7862,
+					"y": 12.9677
+				},
+				"RobotD1": {
+					"x": 91.6364,
+					"y": 32.635
+				},
+				"RobotD2": {
+					"x": 97.5668,
+					"y": 67.8358
+				},
+				"RobotD3": {
+					"x": 77.3911,
+					"y": 44.3113
+				}
+			},
+			"selected_robot": "RobotC1",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 9.9588,
+			"cross_auth": false
+		},
+		{
+			"request_id": 24,
+			"position_id": 8,
+			"resource_zone": "A",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11946",
+			"item_id": "ITM11946",
+			"storage_location_id": "L9",
+			"resource_position": {
+				"x": 32.5467,
+				"y": 53.6218
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 37.4392,
+					"y": 10.9713
+				},
+				"RobotA2": {
+					"x": 71.4134,
+					"y": 37.7021
+				},
+				"RobotA3": {
+					"x": 92.7306,
+					"y": 54.1749
+				},
+				"RobotB1": {
+					"x": 32.9369,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 37.3521,
+					"y": 72.1847
+				},
+				"RobotB3": {
+					"x": 53.1519,
+					"y": 66.7185
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 34.1409
+				},
+				"RobotC2": {
+					"x": 25.6451,
+					"y": 70.3396
+				},
+				"RobotC3": {
+					"x": 19.0296,
+					"y": 14.4296
+				},
+				"RobotD1": {
+					"x": 91.8517,
+					"y": 32.0474
+				},
+				"RobotD2": {
+					"x": 95.9339,
+					"y": 68.6069
+				},
+				"RobotD3": {
+					"x": 78.2721,
+					"y": 40.1879
+				}
+			},
+			"selected_robot": "RobotC2",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 18.0864,
+			"cross_auth": true
+		},
+		{
+			"request_id": 25,
+			"position_id": 8,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11312",
+			"item_id": "ITM11312",
+			"storage_location_id": "L84",
+			"resource_position": {
+				"x": 21.226,
+				"y": 41.3426
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 37.4392,
+					"y": 10.9713
+				},
+				"RobotA2": {
+					"x": 71.4134,
+					"y": 37.7021
+				},
+				"RobotA3": {
+					"x": 92.7306,
+					"y": 54.1749
+				},
+				"RobotB1": {
+					"x": 32.9369,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 37.3521,
+					"y": 72.1847
+				},
+				"RobotB3": {
+					"x": 53.1519,
+					"y": 66.7185
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 34.1409
+				},
+				"RobotC2": {
+					"x": 25.6451,
+					"y": 70.3396
+				},
+				"RobotC3": {
+					"x": 19.0296,
+					"y": 14.4296
+				},
+				"RobotD1": {
+					"x": 91.8517,
+					"y": 32.0474
+				},
+				"RobotD2": {
+					"x": 95.9339,
+					"y": 68.6069
+				},
+				"RobotD3": {
+					"x": 78.2721,
+					"y": 40.1879
+				}
+			},
+			"selected_robot": "RobotC1",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 22.4145,
+			"cross_auth": false
+		},
+		{
+			"request_id": 26,
+			"position_id": 8,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11327",
+			"item_id": "ITM11327",
+			"storage_location_id": "L41",
+			"resource_position": {
+				"x": 26.7941,
+				"y": 18.2844
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 37.4392,
+					"y": 10.9713
+				},
+				"RobotA2": {
+					"x": 71.4134,
+					"y": 37.7021
+				},
+				"RobotA3": {
+					"x": 92.7306,
+					"y": 54.1749
+				},
+				"RobotB1": {
+					"x": 32.9369,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 37.3521,
+					"y": 72.1847
+				},
+				"RobotB3": {
+					"x": 53.1519,
+					"y": 66.7185
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 34.1409
+				},
+				"RobotC2": {
+					"x": 25.6451,
+					"y": 70.3396
+				},
+				"RobotC3": {
+					"x": 19.0296,
+					"y": 14.4296
+				},
+				"RobotD1": {
+					"x": 91.8517,
+					"y": 32.0474
+				},
+				"RobotD2": {
+					"x": 95.9339,
+					"y": 68.6069
+				},
+				"RobotD3": {
+					"x": 78.2721,
+					"y": 40.1879
+				}
+			},
+			"selected_robot": "RobotC3",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 8.6687,
+			"cross_auth": false
+		},
+		{
+			"request_id": 27,
+			"position_id": 9,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11312",
+			"item_id": "ITM11312",
+			"storage_location_id": "L84",
+			"resource_position": {
+				"x": 21.226,
+				"y": 41.3426
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 34.148,
+					"y": 6.5015
+				},
+				"RobotA2": {
+					"x": 71.4076,
+					"y": 37.6123
+				},
+				"RobotA3": {
+					"x": 92.5773,
+					"y": 54.0751
+				},
+				"RobotB1": {
+					"x": 29.3153,
+					"y": 93.2603
+				},
+				"RobotB2": {
+					"x": 37.2714,
+					"y": 72.2321
+				},
+				"RobotB3": {
+					"x": 57.6177,
+					"y": 75.2672
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 37.5347
+				},
+				"RobotC2": {
+					"x": 29.8074,
+					"y": 75.4632
+				},
+				"RobotC3": {
+					"x": 16.2738,
+					"y": 20.1142
+				},
+				"RobotD1": {
+					"x": 87.8781,
+					"y": 27.8812
+				},
+				"RobotD2": {
+					"x": 90.3503,
+					"y": 65.2547
+				},
+				"RobotD3": {
+					"x": 87.9656,
+					"y": 38.6313
+				}
+			},
+			"selected_robot": "RobotC1",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 21.5649,
+			"cross_auth": false
+		},
+		{
+			"request_id": 28,
+			"position_id": 9,
+			"resource_zone": "D",
+			"supervisor": "net4.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11827",
+			"item_id": "ITM11827",
+			"storage_location_id": "L40",
+			"resource_position": {
+				"x": 81.3717,
+				"y": 47.3854
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 34.148,
+					"y": 6.5015
+				},
+				"RobotA2": {
+					"x": 71.4076,
+					"y": 37.6123
+				},
+				"RobotA3": {
+					"x": 92.5773,
+					"y": 54.0751
+				},
+				"RobotB1": {
+					"x": 29.3153,
+					"y": 93.2603
+				},
+				"RobotB2": {
+					"x": 37.2714,
+					"y": 72.2321
+				},
+				"RobotB3": {
+					"x": 57.6177,
+					"y": 75.2672
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 37.5347
+				},
+				"RobotC2": {
+					"x": 29.8074,
+					"y": 75.4632
+				},
+				"RobotC3": {
+					"x": 16.2738,
+					"y": 20.1142
+				},
+				"RobotD1": {
+					"x": 87.8781,
+					"y": 27.8812
+				},
+				"RobotD2": {
+					"x": 90.3503,
+					"y": 65.2547
+				},
+				"RobotD3": {
+					"x": 87.9656,
+					"y": 38.6313
+				}
+			},
+			"selected_robot": "RobotD3",
+			"selected_robot_home_zone": "D",
+			"selected_robot_distance_m": 10.9596,
+			"cross_auth": false
+		},
+		{
+			"request_id": 29,
+			"position_id": 9,
+			"resource_zone": "A",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM10848",
+			"item_id": "ITM10848",
+			"storage_location_id": "L4",
+			"resource_position": {
+				"x": 16.1916,
+				"y": 57.5425
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 34.148,
+					"y": 6.5015
+				},
+				"RobotA2": {
+					"x": 71.4076,
+					"y": 37.6123
+				},
+				"RobotA3": {
+					"x": 92.5773,
+					"y": 54.0751
+				},
+				"RobotB1": {
+					"x": 29.3153,
+					"y": 93.2603
+				},
+				"RobotB2": {
+					"x": 37.2714,
+					"y": 72.2321
+				},
+				"RobotB3": {
+					"x": 57.6177,
+					"y": 75.2672
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 37.5347
+				},
+				"RobotC2": {
+					"x": 29.8074,
+					"y": 75.4632
+				},
+				"RobotC3": {
+					"x": 16.2738,
+					"y": 20.1142
+				},
+				"RobotD1": {
+					"x": 87.8781,
+					"y": 27.8812
+				},
+				"RobotD2": {
+					"x": 90.3503,
+					"y": 65.2547
+				},
+				"RobotD3": {
+					"x": 87.9656,
+					"y": 38.6313
+				}
+			},
+			"selected_robot": "RobotC2",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 22.5065,
+			"cross_auth": true
+		},
+		{
+			"request_id": 30,
+			"position_id": 10,
+			"resource_zone": "D",
+			"supervisor": "net4.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11827",
+			"item_id": "ITM11827",
+			"storage_location_id": "L40",
+			"resource_position": {
+				"x": 81.3717,
+				"y": 47.3854
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 34.4441,
+					"y": 7.2392
+				},
+				"RobotA2": {
+					"x": 62.7713,
+					"y": 33.9997
+				},
+				"RobotA3": {
+					"x": 90.569,
+					"y": 51.4551
+				},
+				"RobotB1": {
+					"x": 32.7229,
+					"y": 92.2488
+				},
+				"RobotB2": {
+					"x": 37.3223,
+					"y": 72.2774
+				},
+				"RobotB3": {
+					"x": 59.8389,
+					"y": 79.9172
+				},
+				"RobotC1": {
+					"x": 8.6912,
+					"y": 37.0192
+				},
+				"RobotC2": {
+					"x": 27.9064,
+					"y": 78.3135
+				},
+				"RobotC3": {
+					"x": 13.127,
+					"y": 24.0177
+				},
+				"RobotD1": {
+					"x": 95.3045,
+					"y": 33.0365
+				},
+				"RobotD2": {
+					"x": 90.6778,
+					"y": 67.4169
+				},
+				"RobotD3": {
+					"x": 87.0774,
+					"y": 40.2157
+				}
+			},
+			"selected_robot": "RobotD3",
+			"selected_robot_home_zone": "D",
+			"selected_robot_distance_m": 9.1629,
+			"cross_auth": false
+		},
+		{
+			"request_id": 31,
+			"position_id": 10,
+			"resource_zone": "D",
+			"supervisor": "net4.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM12876",
+			"item_id": "ITM12876",
+			"storage_location_id": "L5",
+			"resource_position": {
+				"x": 78.8551,
+				"y": 19.834
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 34.4441,
+					"y": 7.2392
+				},
+				"RobotA2": {
+					"x": 62.7713,
+					"y": 33.9997
+				},
+				"RobotA3": {
+					"x": 90.569,
+					"y": 51.4551
+				},
+				"RobotB1": {
+					"x": 32.7229,
+					"y": 92.2488
+				},
+				"RobotB2": {
+					"x": 37.3223,
+					"y": 72.2774
+				},
+				"RobotB3": {
+					"x": 59.8389,
+					"y": 79.9172
+				},
+				"RobotC1": {
+					"x": 8.6912,
+					"y": 37.0192
+				},
+				"RobotC2": {
+					"x": 27.9064,
+					"y": 78.3135
+				},
+				"RobotC3": {
+					"x": 13.127,
+					"y": 24.0177
+				},
+				"RobotD1": {
+					"x": 95.3045,
+					"y": 33.0365
+				},
+				"RobotD2": {
+					"x": 90.6778,
+					"y": 67.4169
+				},
+				"RobotD3": {
+					"x": 87.0774,
+					"y": 40.2157
+				}
+			},
+			"selected_robot": "RobotD1",
+			"selected_robot_home_zone": "D",
+			"selected_robot_distance_m": 21.0924,
+			"cross_auth": false
+		},
+		{
+			"request_id": 32,
+			"position_id": 10,
+			"resource_zone": "A",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM10848",
+			"item_id": "ITM10848",
+			"storage_location_id": "L4",
+			"resource_position": {
+				"x": 16.1916,
+				"y": 57.5425
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 34.4441,
+					"y": 7.2392
+				},
+				"RobotA2": {
+					"x": 62.7713,
+					"y": 33.9997
+				},
+				"RobotA3": {
+					"x": 90.569,
+					"y": 51.4551
+				},
+				"RobotB1": {
+					"x": 32.7229,
+					"y": 92.2488
+				},
+				"RobotB2": {
+					"x": 37.3223,
+					"y": 72.2774
+				},
+				"RobotB3": {
+					"x": 59.8389,
+					"y": 79.9172
+				},
+				"RobotC1": {
+					"x": 8.6912,
+					"y": 37.0192
+				},
+				"RobotC2": {
+					"x": 27.9064,
+					"y": 78.3135
+				},
+				"RobotC3": {
+					"x": 13.127,
+					"y": 24.0177
+				},
+				"RobotD1": {
+					"x": 95.3045,
+					"y": 33.0365
+				},
+				"RobotD2": {
+					"x": 90.6778,
+					"y": 67.4169
+				},
+				"RobotD3": {
+					"x": 87.0774,
+					"y": 40.2157
+				}
+			},
+			"selected_robot": "RobotC1",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 21.8509,
+			"cross_auth": true
+		},
+		{
+			"request_id": 33,
+			"position_id": 11,
+			"resource_zone": "D",
+			"supervisor": "net1.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM12876",
+			"item_id": "ITM12876",
+			"storage_location_id": "L5",
+			"resource_position": {
+				"x": 78.8551,
+				"y": 19.834
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 35.3112,
+					"y": 6.7186
+				},
+				"RobotA2": {
+					"x": 71.0709,
+					"y": 37.4285
+				},
+				"RobotA3": {
+					"x": 87.0527,
+					"y": 58.5789
+				},
+				"RobotB1": {
+					"x": 33.0706,
+					"y": 92.6957
+				},
+				"RobotB2": {
+					"x": 46.4735,
+					"y": 68.4645
+				},
+				"RobotB3": {
+					"x": 52.4961,
+					"y": 79.377
+				},
+				"RobotC1": {
+					"x": 6.9139,
+					"y": 37.5082
+				},
+				"RobotC2": {
+					"x": 30.8697,
+					"y": 73.2351
+				},
+				"RobotC3": {
+					"x": 14.7959,
+					"y": 25.0299
+				},
+				"RobotD1": {
+					"x": 89.7102,
+					"y": 36.7582
+				},
+				"RobotD2": {
+					"x": 87.5954,
+					"y": 59.5994
+				},
+				"RobotD3": {
+					"x": 81.9615,
+					"y": 43.7977
+				}
+			},
+			"selected_robot": "RobotA2",
+			"selected_robot_home_zone": "A",
+			"selected_robot_distance_m": 19.2395,
+			"cross_auth": true
+		},
+		{
+			"request_id": 34,
+			"position_id": 11,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11533",
+			"item_id": "ITM11533",
+			"storage_location_id": "L50",
+			"resource_position": {
+				"x": 2.8999,
+				"y": 25.3718
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 35.3112,
+					"y": 6.7186
+				},
+				"RobotA2": {
+					"x": 71.0709,
+					"y": 37.4285
+				},
+				"RobotA3": {
+					"x": 87.0527,
+					"y": 58.5789
+				},
+				"RobotB1": {
+					"x": 33.0706,
+					"y": 92.6957
+				},
+				"RobotB2": {
+					"x": 46.4735,
+					"y": 68.4645
+				},
+				"RobotB3": {
+					"x": 52.4961,
+					"y": 79.377
+				},
+				"RobotC1": {
+					"x": 6.9139,
+					"y": 37.5082
+				},
+				"RobotC2": {
+					"x": 30.8697,
+					"y": 73.2351
+				},
+				"RobotC3": {
+					"x": 14.7959,
+					"y": 25.0299
+				},
+				"RobotD1": {
+					"x": 89.7102,
+					"y": 36.7582
+				},
+				"RobotD2": {
+					"x": 87.5954,
+					"y": 59.5994
+				},
+				"RobotD3": {
+					"x": 81.9615,
+					"y": 43.7977
+				}
+			},
+			"selected_robot": "RobotC3",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 11.9009,
+			"cross_auth": false
+		},
+		{
+			"request_id": 35,
+			"position_id": 11,
+			"resource_zone": "A",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM10848",
+			"item_id": "ITM10848",
+			"storage_location_id": "L4",
+			"resource_position": {
+				"x": 16.1916,
+				"y": 57.5425
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 35.3112,
+					"y": 6.7186
+				},
+				"RobotA2": {
+					"x": 71.0709,
+					"y": 37.4285
+				},
+				"RobotA3": {
+					"x": 87.0527,
+					"y": 58.5789
+				},
+				"RobotB1": {
+					"x": 33.0706,
+					"y": 92.6957
+				},
+				"RobotB2": {
+					"x": 46.4735,
+					"y": 68.4645
+				},
+				"RobotB3": {
+					"x": 52.4961,
+					"y": 79.377
+				},
+				"RobotC1": {
+					"x": 6.9139,
+					"y": 37.5082
+				},
+				"RobotC2": {
+					"x": 30.8697,
+					"y": 73.2351
+				},
+				"RobotC3": {
+					"x": 14.7959,
+					"y": 25.0299
+				},
+				"RobotD1": {
+					"x": 89.7102,
+					"y": 36.7582
+				},
+				"RobotD2": {
+					"x": 87.5954,
+					"y": 59.5994
+				},
+				"RobotD3": {
+					"x": 81.9615,
+					"y": 43.7977
+				}
+			},
+			"selected_robot": "RobotC2",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 21.4873,
+			"cross_auth": true
+		},
+		{
+			"request_id": 36,
+			"position_id": 12,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM12092",
+			"item_id": "ITM12092",
+			"storage_location_id": "L99",
+			"resource_position": {
+				"x": 6.1901,
+				"y": 11.1619
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 35.2287,
+					"y": 6.6656
+				},
+				"RobotA2": {
+					"x": 69.4255,
+					"y": 30.7737
+				},
+				"RobotA3": {
+					"x": 78.224,
+					"y": 58.4341
+				},
+				"RobotB1": {
+					"x": 29.1608,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 44.7828,
+					"y": 71.286
+				},
+				"RobotB3": {
+					"x": 56.0252,
+					"y": 74.4353
+				},
+				"RobotC1": {
+					"x": 6.2976,
+					"y": 37.4611
+				},
+				"RobotC2": {
+					"x": 28.6388,
+					"y": 75.2654
+				},
+				"RobotC3": {
+					"x": 16.275,
+					"y": 34.3578
+				},
+				"RobotD1": {
+					"x": 87.0045,
+					"y": 37.4833
+				},
+				"RobotD2": {
+					"x": 81.7331,
+					"y": 53.2919
+				},
+				"RobotD3": {
+					"x": 81.4124,
+					"y": 36.8169
+				}
+			},
+			"selected_robot": "RobotC3",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 25.2934,
+			"cross_auth": false
+		},
+		{
+			"request_id": 37,
+			"position_id": 12,
+			"resource_zone": "A",
+			"supervisor": "net2.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11946",
+			"item_id": "ITM11946",
+			"storage_location_id": "L9",
+			"resource_position": {
+				"x": 32.5467,
+				"y": 53.6218
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 35.2287,
+					"y": 6.6656
+				},
+				"RobotA2": {
+					"x": 69.4255,
+					"y": 30.7737
+				},
+				"RobotA3": {
+					"x": 78.224,
+					"y": 58.4341
+				},
+				"RobotB1": {
+					"x": 29.1608,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 44.7828,
+					"y": 71.286
+				},
+				"RobotB3": {
+					"x": 56.0252,
+					"y": 74.4353
+				},
+				"RobotC1": {
+					"x": 6.2976,
+					"y": 37.4611
+				},
+				"RobotC2": {
+					"x": 28.6388,
+					"y": 75.2654
+				},
+				"RobotC3": {
+					"x": 16.275,
+					"y": 34.3578
+				},
+				"RobotD1": {
+					"x": 87.0045,
+					"y": 37.4833
+				},
+				"RobotD2": {
+					"x": 81.7331,
+					"y": 53.2919
+				},
+				"RobotD3": {
+					"x": 81.4124,
+					"y": 36.8169
+				}
+			},
+			"selected_robot": "RobotB2",
+			"selected_robot_home_zone": "B",
+			"selected_robot_distance_m": 21.4883,
+			"cross_auth": true
+		},
+		{
+			"request_id": 38,
+			"position_id": 12,
+			"resource_zone": "A",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM10848",
+			"item_id": "ITM10848",
+			"storage_location_id": "L4",
+			"resource_position": {
+				"x": 16.1916,
+				"y": 57.5425
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 35.2287,
+					"y": 6.6656
+				},
+				"RobotA2": {
+					"x": 69.4255,
+					"y": 30.7737
+				},
+				"RobotA3": {
+					"x": 78.224,
+					"y": 58.4341
+				},
+				"RobotB1": {
+					"x": 29.1608,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 44.7828,
+					"y": 71.286
+				},
+				"RobotB3": {
+					"x": 56.0252,
+					"y": 74.4353
+				},
+				"RobotC1": {
+					"x": 6.2976,
+					"y": 37.4611
+				},
+				"RobotC2": {
+					"x": 28.6388,
+					"y": 75.2654
+				},
+				"RobotC3": {
+					"x": 16.275,
+					"y": 34.3578
+				},
+				"RobotD1": {
+					"x": 87.0045,
+					"y": 37.4833
+				},
+				"RobotD2": {
+					"x": 81.7331,
+					"y": 53.2919
+				},
+				"RobotD3": {
+					"x": 81.4124,
+					"y": 36.8169
+				}
+			},
+			"selected_robot": "RobotC2",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 21.6572,
+			"cross_auth": true
+		},
+		{
+			"request_id": 39,
+			"position_id": 13,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11363",
+			"item_id": "ITM11363",
+			"storage_location_id": "L68",
+			"resource_position": {
+				"x": 1.8748,
+				"y": 21.6823
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 37.5473,
+					"y": 10.1775
+				},
+				"RobotA2": {
+					"x": 67.6164,
+					"y": 31.3124
+				},
+				"RobotA3": {
+					"x": 80.3748,
+					"y": 61.1291
+				},
+				"RobotB1": {
+					"x": 25.6206,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 49.4797,
+					"y": 73.5859
+				},
+				"RobotB3": {
+					"x": 50.7635,
+					"y": 70.1492
+				},
+				"RobotC1": {
+					"x": 0.1098,
+					"y": 38.1574
+				},
+				"RobotC2": {
+					"x": 29.697,
+					"y": 77.0467
+				},
+				"RobotC3": {
+					"x": 16.0831,
+					"y": 34.6923
+				},
+				"RobotD1": {
+					"x": 81.9156,
+					"y": 42.0328
+				},
+				"RobotD2": {
+					"x": 79.9009,
+					"y": 52.1548
+				},
+				"RobotD3": {
+					"x": 83.395,
+					"y": 41.0375
+				}
+			},
+			"selected_robot": "RobotC1",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 16.5694,
+			"cross_auth": false
+		},
+		{
+			"request_id": 40,
+			"position_id": 13,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11533",
+			"item_id": "ITM11533",
+			"storage_location_id": "L50",
+			"resource_position": {
+				"x": 2.8999,
+				"y": 25.3718
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 37.5473,
+					"y": 10.1775
+				},
+				"RobotA2": {
+					"x": 67.6164,
+					"y": 31.3124
+				},
+				"RobotA3": {
+					"x": 80.3748,
+					"y": 61.1291
+				},
+				"RobotB1": {
+					"x": 25.6206,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 49.4797,
+					"y": 73.5859
+				},
+				"RobotB3": {
+					"x": 50.7635,
+					"y": 70.1492
+				},
+				"RobotC1": {
+					"x": 0.1098,
+					"y": 38.1574
+				},
+				"RobotC2": {
+					"x": 29.697,
+					"y": 77.0467
+				},
+				"RobotC3": {
+					"x": 16.0831,
+					"y": 34.6923
+				},
+				"RobotD1": {
+					"x": 81.9156,
+					"y": 42.0328
+				},
+				"RobotD2": {
+					"x": 79.9009,
+					"y": 52.1548
+				},
+				"RobotD3": {
+					"x": 83.395,
+					"y": 41.0375
+				}
+			},
+			"selected_robot": "RobotC3",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 16.1453,
+			"cross_auth": false
+		},
+		{
+			"request_id": 41,
+			"position_id": 13,
+			"resource_zone": "C",
+			"supervisor": "net1.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM12449",
+			"item_id": "ITM12449",
+			"storage_location_id": "L71",
+			"resource_position": {
+				"x": 3.4928,
+				"y": 4.5357
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 37.5473,
+					"y": 10.1775
+				},
+				"RobotA2": {
+					"x": 67.6164,
+					"y": 31.3124
+				},
+				"RobotA3": {
+					"x": 80.3748,
+					"y": 61.1291
+				},
+				"RobotB1": {
+					"x": 25.6206,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 49.4797,
+					"y": 73.5859
+				},
+				"RobotB3": {
+					"x": 50.7635,
+					"y": 70.1492
+				},
+				"RobotC1": {
+					"x": 0.1098,
+					"y": 38.1574
+				},
+				"RobotC2": {
+					"x": 29.697,
+					"y": 77.0467
+				},
+				"RobotC3": {
+					"x": 16.0831,
+					"y": 34.6923
+				},
+				"RobotD1": {
+					"x": 81.9156,
+					"y": 42.0328
+				},
+				"RobotD2": {
+					"x": 79.9009,
+					"y": 52.1548
+				},
+				"RobotD3": {
+					"x": 83.395,
+					"y": 41.0375
+				}
+			},
+			"selected_robot": "RobotA1",
+			"selected_robot_home_zone": "A",
+			"selected_robot_distance_m": 34.5187,
+			"cross_auth": true
+		},
+		{
+			"request_id": 42,
+			"position_id": 14,
+			"resource_zone": "D",
+			"supervisor": "net1.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM12876",
+			"item_id": "ITM12876",
+			"storage_location_id": "L5",
+			"resource_position": {
+				"x": 78.8551,
+				"y": 19.834
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 37.9929,
+					"y": 9.2512
+				},
+				"RobotA2": {
+					"x": 67.4742,
+					"y": 33.4417
+				},
+				"RobotA3": {
+					"x": 80.5362,
+					"y": 61.4577
+				},
+				"RobotB1": {
+					"x": 26.2788,
+					"y": 98.504
+				},
+				"RobotB2": {
+					"x": 54.2751,
+					"y": 75.3422
+				},
+				"RobotB3": {
+					"x": 51.9387,
+					"y": 74.4906
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 45.9995
+				},
+				"RobotC2": {
+					"x": 29.8761,
+					"y": 77.4301
+				},
+				"RobotC3": {
+					"x": 9.3948,
+					"y": 28.7501
+				},
+				"RobotD1": {
+					"x": 84.3978,
+					"y": 47.8534
+				},
+				"RobotD2": {
+					"x": 78.6128,
+					"y": 52.1532
+				},
+				"RobotD3": {
+					"x": 91.9288,
+					"y": 43.017
+				}
+			},
+			"selected_robot": "RobotA2",
+			"selected_robot_home_zone": "A",
+			"selected_robot_distance_m": 17.7397,
+			"cross_auth": true
+		},
+		{
+			"request_id": 43,
+			"position_id": 14,
+			"resource_zone": "A",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11946",
+			"item_id": "ITM11946",
+			"storage_location_id": "L9",
+			"resource_position": {
+				"x": 32.5467,
+				"y": 53.6218
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 37.9929,
+					"y": 9.2512
+				},
+				"RobotA2": {
+					"x": 67.4742,
+					"y": 33.4417
+				},
+				"RobotA3": {
+					"x": 80.5362,
+					"y": 61.4577
+				},
+				"RobotB1": {
+					"x": 26.2788,
+					"y": 98.504
+				},
+				"RobotB2": {
+					"x": 54.2751,
+					"y": 75.3422
+				},
+				"RobotB3": {
+					"x": 51.9387,
+					"y": 74.4906
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 45.9995
+				},
+				"RobotC2": {
+					"x": 29.8761,
+					"y": 77.4301
+				},
+				"RobotC3": {
+					"x": 9.3948,
+					"y": 28.7501
+				},
+				"RobotD1": {
+					"x": 84.3978,
+					"y": 47.8534
+				},
+				"RobotD2": {
+					"x": 78.6128,
+					"y": 52.1532
+				},
+				"RobotD3": {
+					"x": 91.9288,
+					"y": 43.017
+				}
+			},
+			"selected_robot": "RobotC2",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 23.9576,
+			"cross_auth": true
+		},
+		{
+			"request_id": 44,
+			"position_id": 14,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM12092",
+			"item_id": "ITM12092",
+			"storage_location_id": "L99",
+			"resource_position": {
+				"x": 6.1901,
+				"y": 11.1619
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 37.9929,
+					"y": 9.2512
+				},
+				"RobotA2": {
+					"x": 67.4742,
+					"y": 33.4417
+				},
+				"RobotA3": {
+					"x": 80.5362,
+					"y": 61.4577
+				},
+				"RobotB1": {
+					"x": 26.2788,
+					"y": 98.504
+				},
+				"RobotB2": {
+					"x": 54.2751,
+					"y": 75.3422
+				},
+				"RobotB3": {
+					"x": 51.9387,
+					"y": 74.4906
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 45.9995
+				},
+				"RobotC2": {
+					"x": 29.8761,
+					"y": 77.4301
+				},
+				"RobotC3": {
+					"x": 9.3948,
+					"y": 28.7501
+				},
+				"RobotD1": {
+					"x": 84.3978,
+					"y": 47.8534
+				},
+				"RobotD2": {
+					"x": 78.6128,
+					"y": 52.1532
+				},
+				"RobotD3": {
+					"x": 91.9288,
+					"y": 43.017
+				}
+			},
+			"selected_robot": "RobotC3",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 17.8778,
+			"cross_auth": false
+		},
+		{
+			"request_id": 45,
+			"position_id": 15,
+			"resource_zone": "D",
+			"supervisor": "net4.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11827",
+			"item_id": "ITM11827",
+			"storage_location_id": "L40",
+			"resource_position": {
+				"x": 81.3717,
+				"y": 47.3854
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 36.5798,
+					"y": 10.9668
+				},
+				"RobotA2": {
+					"x": 64.1243,
+					"y": 41.7453
+				},
+				"RobotA3": {
+					"x": 89.014,
+					"y": 57.5666
+				},
+				"RobotB1": {
+					"x": 29.2349,
+					"y": 98.9652
+				},
+				"RobotB2": {
+					"x": 51.1708,
+					"y": 69.734
+				},
+				"RobotB3": {
+					"x": 52.4695,
+					"y": 74.3108
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 49.1206
+				},
+				"RobotC2": {
+					"x": 31.6289,
+					"y": 70.7662
+				},
+				"RobotC3": {
+					"x": 7.8324,
+					"y": 27.6599
+				},
+				"RobotD1": {
+					"x": 88.1552,
+					"y": 55.2441
+				},
+				"RobotD2": {
+					"x": 78.2829,
+					"y": 52.228
+				},
+				"RobotD3": {
+					"x": 95.3507,
+					"y": 39.9418
+				}
+			},
+			"selected_robot": "RobotD2",
+			"selected_robot_home_zone": "D",
+			"selected_robot_distance_m": 5.7438,
+			"cross_auth": false
+		},
+		{
+			"request_id": 46,
+			"position_id": 15,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11363",
+			"item_id": "ITM11363",
+			"storage_location_id": "L68",
+			"resource_position": {
+				"x": 1.8748,
+				"y": 21.6823
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 36.5798,
+					"y": 10.9668
+				},
+				"RobotA2": {
+					"x": 64.1243,
+					"y": 41.7453
+				},
+				"RobotA3": {
+					"x": 89.014,
+					"y": 57.5666
+				},
+				"RobotB1": {
+					"x": 29.2349,
+					"y": 98.9652
+				},
+				"RobotB2": {
+					"x": 51.1708,
+					"y": 69.734
+				},
+				"RobotB3": {
+					"x": 52.4695,
+					"y": 74.3108
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 49.1206
+				},
+				"RobotC2": {
+					"x": 31.6289,
+					"y": 70.7662
+				},
+				"RobotC3": {
+					"x": 7.8324,
+					"y": 27.6599
+				},
+				"RobotD1": {
+					"x": 88.1552,
+					"y": 55.2441
+				},
+				"RobotD2": {
+					"x": 78.2829,
+					"y": 52.228
+				},
+				"RobotD3": {
+					"x": 95.3507,
+					"y": 39.9418
+				}
+			},
+			"selected_robot": "RobotC3",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 8.4395,
+			"cross_auth": false
+		},
+		{
+			"request_id": 47,
+			"position_id": 15,
+			"resource_zone": "A",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11946",
+			"item_id": "ITM11946",
+			"storage_location_id": "L9",
+			"resource_position": {
+				"x": 32.5467,
+				"y": 53.6218
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 36.5798,
+					"y": 10.9668
+				},
+				"RobotA2": {
+					"x": 64.1243,
+					"y": 41.7453
+				},
+				"RobotA3": {
+					"x": 89.014,
+					"y": 57.5666
+				},
+				"RobotB1": {
+					"x": 29.2349,
+					"y": 98.9652
+				},
+				"RobotB2": {
+					"x": 51.1708,
+					"y": 69.734
+				},
+				"RobotB3": {
+					"x": 52.4695,
+					"y": 74.3108
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 49.1206
+				},
+				"RobotC2": {
+					"x": 31.6289,
+					"y": 70.7662
+				},
+				"RobotC3": {
+					"x": 7.8324,
+					"y": 27.6599
+				},
+				"RobotD1": {
+					"x": 88.1552,
+					"y": 55.2441
+				},
+				"RobotD2": {
+					"x": 78.2829,
+					"y": 52.228
+				},
+				"RobotD3": {
+					"x": 95.3507,
+					"y": 39.9418
+				}
+			},
+			"selected_robot": "RobotC2",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 17.169,
+			"cross_auth": true
+		},
+		{
+			"request_id": 48,
+			"position_id": 16,
+			"resource_zone": "A",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM10848",
+			"item_id": "ITM10848",
+			"storage_location_id": "L4",
+			"resource_position": {
+				"x": 16.1916,
+				"y": 57.5425
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 38.0248,
+					"y": 12.2906
+				},
+				"RobotA2": {
+					"x": 61.1962,
+					"y": 48.1129
+				},
+				"RobotA3": {
+					"x": 81.7336,
+					"y": 57.8908
+				},
+				"RobotB1": {
+					"x": 28.7242,
+					"y": 99.0276
+				},
+				"RobotB2": {
+					"x": 48.5356,
+					"y": 71.1045
+				},
+				"RobotB3": {
+					"x": 51.0572,
+					"y": 72.6819
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 43.7085
+				},
+				"RobotC2": {
+					"x": 36.2611,
+					"y": 69.4475
+				},
+				"RobotC3": {
+					"x": 0.0,
+					"y": 31.8501
+				},
+				"RobotD1": {
+					"x": 91.0066,
+					"y": 51.4181
+				},
+				"RobotD2": {
+					"x": 73.033,
+					"y": 60.5778
+				},
+				"RobotD3": {
+					"x": 97.4404,
+					"y": 30.9947
+				}
+			},
+			"selected_robot": "RobotC1",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 21.2967,
+			"cross_auth": true
+		},
+		{
+			"request_id": 49,
+			"position_id": 16,
+			"resource_zone": "A",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11946",
+			"item_id": "ITM11946",
+			"storage_location_id": "L9",
+			"resource_position": {
+				"x": 32.5467,
+				"y": 53.6218
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 38.0248,
+					"y": 12.2906
+				},
+				"RobotA2": {
+					"x": 61.1962,
+					"y": 48.1129
+				},
+				"RobotA3": {
+					"x": 81.7336,
+					"y": 57.8908
+				},
+				"RobotB1": {
+					"x": 28.7242,
+					"y": 99.0276
+				},
+				"RobotB2": {
+					"x": 48.5356,
+					"y": 71.1045
+				},
+				"RobotB3": {
+					"x": 51.0572,
+					"y": 72.6819
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 43.7085
+				},
+				"RobotC2": {
+					"x": 36.2611,
+					"y": 69.4475
+				},
+				"RobotC3": {
+					"x": 0.0,
+					"y": 31.8501
+				},
+				"RobotD1": {
+					"x": 91.0066,
+					"y": 51.4181
+				},
+				"RobotD2": {
+					"x": 73.033,
+					"y": 60.5778
+				},
+				"RobotD3": {
+					"x": 97.4404,
+					"y": 30.9947
+				}
+			},
+			"selected_robot": "RobotC2",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 16.2557,
+			"cross_auth": true
+		},
+		{
+			"request_id": 50,
+			"position_id": 16,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM12092",
+			"item_id": "ITM12092",
+			"storage_location_id": "L99",
+			"resource_position": {
+				"x": 6.1901,
+				"y": 11.1619
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 38.0248,
+					"y": 12.2906
+				},
+				"RobotA2": {
+					"x": 61.1962,
+					"y": 48.1129
+				},
+				"RobotA3": {
+					"x": 81.7336,
+					"y": 57.8908
+				},
+				"RobotB1": {
+					"x": 28.7242,
+					"y": 99.0276
+				},
+				"RobotB2": {
+					"x": 48.5356,
+					"y": 71.1045
+				},
+				"RobotB3": {
+					"x": 51.0572,
+					"y": 72.6819
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 43.7085
+				},
+				"RobotC2": {
+					"x": 36.2611,
+					"y": 69.4475
+				},
+				"RobotC3": {
+					"x": 0.0,
+					"y": 31.8501
+				},
+				"RobotD1": {
+					"x": 91.0066,
+					"y": 51.4181
+				},
+				"RobotD2": {
+					"x": 73.033,
+					"y": 60.5778
+				},
+				"RobotD3": {
+					"x": 97.4404,
+					"y": 30.9947
+				}
+			},
+			"selected_robot": "RobotC3",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 21.5945,
+			"cross_auth": false
+		},
+		{
+			"request_id": 51,
+			"position_id": 17,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11533",
+			"item_id": "ITM11533",
+			"storage_location_id": "L50",
+			"resource_position": {
+				"x": 2.8999,
+				"y": 25.3718
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 37.4822,
+					"y": 12.2702
+				},
+				"RobotA2": {
+					"x": 54.8919,
+					"y": 50.1182
+				},
+				"RobotA3": {
+					"x": 74.0948,
+					"y": 52.9737
+				},
+				"RobotB1": {
+					"x": 26.1231,
+					"y": 97.6366
+				},
+				"RobotB2": {
+					"x": 55.9905,
+					"y": 68.8405
+				},
+				"RobotB3": {
+					"x": 46.4999,
+					"y": 77.1584
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 42.2956
+				},
+				"RobotC2": {
+					"x": 34.26,
+					"y": 71.9237
+				},
+				"RobotC3": {
+					"x": 0.0,
+					"y": 34.313
+				},
+				"RobotD1": {
+					"x": 97.2595,
+					"y": 58.8873
+				},
+				"RobotD2": {
+					"x": 79.9112,
+					"y": 61.7112
+				},
+				"RobotD3": {
+					"x": 100.0,
+					"y": 31.1086
+				}
+			},
+			"selected_robot": "RobotC3",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 9.3997,
+			"cross_auth": false
+		},
+		{
+			"request_id": 52,
+			"position_id": 17,
+			"resource_zone": "C",
+			"supervisor": "net1.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM12092",
+			"item_id": "ITM12092",
+			"storage_location_id": "L99",
+			"resource_position": {
+				"x": 6.1901,
+				"y": 11.1619
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 37.4822,
+					"y": 12.2702
+				},
+				"RobotA2": {
+					"x": 54.8919,
+					"y": 50.1182
+				},
+				"RobotA3": {
+					"x": 74.0948,
+					"y": 52.9737
+				},
+				"RobotB1": {
+					"x": 26.1231,
+					"y": 97.6366
+				},
+				"RobotB2": {
+					"x": 55.9905,
+					"y": 68.8405
+				},
+				"RobotB3": {
+					"x": 46.4999,
+					"y": 77.1584
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 42.2956
+				},
+				"RobotC2": {
+					"x": 34.26,
+					"y": 71.9237
+				},
+				"RobotC3": {
+					"x": 0.0,
+					"y": 34.313
+				},
+				"RobotD1": {
+					"x": 97.2595,
+					"y": 58.8873
+				},
+				"RobotD2": {
+					"x": 79.9112,
+					"y": 61.7112
+				},
+				"RobotD3": {
+					"x": 100.0,
+					"y": 31.1086
+				}
+			},
+			"selected_robot": "RobotA1",
+			"selected_robot_home_zone": "A",
+			"selected_robot_distance_m": 31.3117,
+			"cross_auth": true
+		},
+		{
+			"request_id": 53,
+			"position_id": 17,
+			"resource_zone": "D",
+			"supervisor": "net4.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM12876",
+			"item_id": "ITM12876",
+			"storage_location_id": "L5",
+			"resource_position": {
+				"x": 78.8551,
+				"y": 19.834
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 37.4822,
+					"y": 12.2702
+				},
+				"RobotA2": {
+					"x": 54.8919,
+					"y": 50.1182
+				},
+				"RobotA3": {
+					"x": 74.0948,
+					"y": 52.9737
+				},
+				"RobotB1": {
+					"x": 26.1231,
+					"y": 97.6366
+				},
+				"RobotB2": {
+					"x": 55.9905,
+					"y": 68.8405
+				},
+				"RobotB3": {
+					"x": 46.4999,
+					"y": 77.1584
+				},
+				"RobotC1": {
+					"x": 0.0,
+					"y": 42.2956
+				},
+				"RobotC2": {
+					"x": 34.26,
+					"y": 71.9237
+				},
+				"RobotC3": {
+					"x": 0.0,
+					"y": 34.313
+				},
+				"RobotD1": {
+					"x": 97.2595,
+					"y": 58.8873
+				},
+				"RobotD2": {
+					"x": 79.9112,
+					"y": 61.7112
+				},
+				"RobotD3": {
+					"x": 100.0,
+					"y": 31.1086
+				}
+			},
+			"selected_robot": "RobotD3",
+			"selected_robot_home_zone": "D",
+			"selected_robot_distance_m": 23.963,
+			"cross_auth": false
+		},
+		{
+			"request_id": 54,
+			"position_id": 18,
+			"resource_zone": "A",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM10848",
+			"item_id": "ITM10848",
+			"storage_location_id": "L4",
+			"resource_position": {
+				"x": 16.1916,
+				"y": 57.5425
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 40.6647,
+					"y": 9.5397
+				},
+				"RobotA2": {
+					"x": 53.3264,
+					"y": 49.2297
+				},
+				"RobotA3": {
+					"x": 71.0231,
+					"y": 58.2059
+				},
+				"RobotB1": {
+					"x": 22.0226,
+					"y": 95.4027
+				},
+				"RobotB2": {
+					"x": 57.1063,
+					"y": 68.5181
+				},
+				"RobotB3": {
+					"x": 47.2169,
+					"y": 76.0021
+				},
+				"RobotC1": {
+					"x": 2.399,
+					"y": 44.6231
+				},
+				"RobotC2": {
+					"x": 35.707,
+					"y": 67.1155
+				},
+				"RobotC3": {
+					"x": 5.3875,
+					"y": 36.8221
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 54.1855
+				},
+				"RobotD2": {
+					"x": 83.3161,
+					"y": 58.556
+				},
+				"RobotD3": {
+					"x": 100.0,
+					"y": 29.895
+				}
+			},
+			"selected_robot": "RobotC1",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 18.8983,
+			"cross_auth": true
+		},
+		{
+			"request_id": 55,
+			"position_id": 18,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM12092",
+			"item_id": "ITM12092",
+			"storage_location_id": "L99",
+			"resource_position": {
+				"x": 6.1901,
+				"y": 11.1619
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 40.6647,
+					"y": 9.5397
+				},
+				"RobotA2": {
+					"x": 53.3264,
+					"y": 49.2297
+				},
+				"RobotA3": {
+					"x": 71.0231,
+					"y": 58.2059
+				},
+				"RobotB1": {
+					"x": 22.0226,
+					"y": 95.4027
+				},
+				"RobotB2": {
+					"x": 57.1063,
+					"y": 68.5181
+				},
+				"RobotB3": {
+					"x": 47.2169,
+					"y": 76.0021
+				},
+				"RobotC1": {
+					"x": 2.399,
+					"y": 44.6231
+				},
+				"RobotC2": {
+					"x": 35.707,
+					"y": 67.1155
+				},
+				"RobotC3": {
+					"x": 5.3875,
+					"y": 36.8221
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 54.1855
+				},
+				"RobotD2": {
+					"x": 83.3161,
+					"y": 58.556
+				},
+				"RobotD3": {
+					"x": 100.0,
+					"y": 29.895
+				}
+			},
+			"selected_robot": "RobotC3",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 25.6728,
+			"cross_auth": false
+		},
+		{
+			"request_id": 56,
+			"position_id": 18,
+			"resource_zone": "D",
+			"supervisor": "net4.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11827",
+			"item_id": "ITM11827",
+			"storage_location_id": "L40",
+			"resource_position": {
+				"x": 81.3717,
+				"y": 47.3854
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 40.6647,
+					"y": 9.5397
+				},
+				"RobotA2": {
+					"x": 53.3264,
+					"y": 49.2297
+				},
+				"RobotA3": {
+					"x": 71.0231,
+					"y": 58.2059
+				},
+				"RobotB1": {
+					"x": 22.0226,
+					"y": 95.4027
+				},
+				"RobotB2": {
+					"x": 57.1063,
+					"y": 68.5181
+				},
+				"RobotB3": {
+					"x": 47.2169,
+					"y": 76.0021
+				},
+				"RobotC1": {
+					"x": 2.399,
+					"y": 44.6231
+				},
+				"RobotC2": {
+					"x": 35.707,
+					"y": 67.1155
+				},
+				"RobotC3": {
+					"x": 5.3875,
+					"y": 36.8221
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 54.1855
+				},
+				"RobotD2": {
+					"x": 83.3161,
+					"y": 58.556
+				},
+				"RobotD3": {
+					"x": 100.0,
+					"y": 29.895
+				}
+			},
+			"selected_robot": "RobotD2",
+			"selected_robot_home_zone": "D",
+			"selected_robot_distance_m": 11.3386,
+			"cross_auth": false
+		},
+		{
+			"request_id": 57,
+			"position_id": 19,
+			"resource_zone": "C",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM11312",
+			"item_id": "ITM11312",
+			"storage_location_id": "L84",
+			"resource_position": {
+				"x": 21.226,
+				"y": 41.3426
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 33.3026,
+					"y": 14.6932
+				},
+				"RobotA2": {
+					"x": 48.463,
+					"y": 57.0997
+				},
+				"RobotA3": {
+					"x": 63.739,
+					"y": 61.7156
+				},
+				"RobotB1": {
+					"x": 28.7398,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 51.7046,
+					"y": 69.6048
+				},
+				"RobotB3": {
+					"x": 52.3624,
+					"y": 68.7082
+				},
+				"RobotC1": {
+					"x": 1.8517,
+					"y": 46.1676
+				},
+				"RobotC2": {
+					"x": 38.4039,
+					"y": 58.9402
+				},
+				"RobotC3": {
+					"x": 4.7566,
+					"y": 33.9839
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 52.8476
+				},
+				"RobotD2": {
+					"x": 83.4978,
+					"y": 58.4544
+				},
+				"RobotD3": {
+					"x": 98.4869,
+					"y": 30.5414
+				}
+			},
+			"selected_robot": "RobotC3",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 18.0386,
+			"cross_auth": false
+		},
+		{
+			"request_id": 58,
+			"position_id": 19,
+			"resource_zone": "C",
+			"supervisor": "net1.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM12092",
+			"item_id": "ITM12092",
+			"storage_location_id": "L99",
+			"resource_position": {
+				"x": 6.1901,
+				"y": 11.1619
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 33.3026,
+					"y": 14.6932
+				},
+				"RobotA2": {
+					"x": 48.463,
+					"y": 57.0997
+				},
+				"RobotA3": {
+					"x": 63.739,
+					"y": 61.7156
+				},
+				"RobotB1": {
+					"x": 28.7398,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 51.7046,
+					"y": 69.6048
+				},
+				"RobotB3": {
+					"x": 52.3624,
+					"y": 68.7082
+				},
+				"RobotC1": {
+					"x": 1.8517,
+					"y": 46.1676
+				},
+				"RobotC2": {
+					"x": 38.4039,
+					"y": 58.9402
+				},
+				"RobotC3": {
+					"x": 4.7566,
+					"y": 33.9839
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 52.8476
+				},
+				"RobotD2": {
+					"x": 83.4978,
+					"y": 58.4544
+				},
+				"RobotD3": {
+					"x": 98.4869,
+					"y": 30.5414
+				}
+			},
+			"selected_robot": "RobotA1",
+			"selected_robot_home_zone": "A",
+			"selected_robot_distance_m": 27.3415,
+			"cross_auth": true
+		},
+		{
+			"request_id": 59,
+			"position_id": 19,
+			"resource_zone": "A",
+			"supervisor": "net3.supervisor",
+			"supervisor_group": "Supervisor",
+			"resource": "Item_ITM10848",
+			"item_id": "ITM10848",
+			"storage_location_id": "L4",
+			"resource_position": {
+				"x": 16.1916,
+				"y": 57.5425
+			},
+			"robot_positions": {
+				"RobotA1": {
+					"x": 33.3026,
+					"y": 14.6932
+				},
+				"RobotA2": {
+					"x": 48.463,
+					"y": 57.0997
+				},
+				"RobotA3": {
+					"x": 63.739,
+					"y": 61.7156
+				},
+				"RobotB1": {
+					"x": 28.7398,
+					"y": 100.0
+				},
+				"RobotB2": {
+					"x": 51.7046,
+					"y": 69.6048
+				},
+				"RobotB3": {
+					"x": 52.3624,
+					"y": 68.7082
+				},
+				"RobotC1": {
+					"x": 1.8517,
+					"y": 46.1676
+				},
+				"RobotC2": {
+					"x": 38.4039,
+					"y": 58.9402
+				},
+				"RobotC3": {
+					"x": 4.7566,
+					"y": 33.9839
+				},
+				"RobotD1": {
+					"x": 100.0,
+					"y": 52.8476
+				},
+				"RobotD2": {
+					"x": 83.4978,
+					"y": 58.4544
+				},
+				"RobotD3": {
+					"x": 98.4869,
+					"y": 30.5414
+				}
+			},
+			"selected_robot": "RobotC1",
+			"selected_robot_home_zone": "C",
+			"selected_robot_distance_m": 18.3036,
+			"cross_auth": true
+		}
+	]
+}

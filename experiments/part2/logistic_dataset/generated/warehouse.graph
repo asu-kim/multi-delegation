@@ -1,0 +1,2237 @@
+{
+	"authList": [
+		{
+			"id": 101,
+			"entityHost": "localhost",
+			"authHost": "localhost",
+			"tcpPort": 21900,
+			"udpPort": 21902,
+			"authPort": 21901,
+			"callbackPort": 21903,
+			"dbProtectionMethod": 1,
+			"backupEnabled": false,
+			"contextualCallbackEnabled": true
+		},
+		{
+			"id": 102,
+			"entityHost": "localhost",
+			"authHost": "localhost",
+			"tcpPort": 22900,
+			"udpPort": 22902,
+			"authPort": 22901,
+			"callbackPort": 22903,
+			"dbProtectionMethod": 1,
+			"backupEnabled": false,
+			"contextualCallbackEnabled": true
+		},
+		{
+			"id": 103,
+			"entityHost": "localhost",
+			"authHost": "localhost",
+			"tcpPort": 23900,
+			"udpPort": 23902,
+			"authPort": 23901,
+			"callbackPort": 23903,
+			"dbProtectionMethod": 1,
+			"backupEnabled": false,
+			"contextualCallbackEnabled": true
+		},
+		{
+			"id": 104,
+			"entityHost": "localhost",
+			"authHost": "localhost",
+			"tcpPort": 24900,
+			"udpPort": 24902,
+			"authPort": 24901,
+			"callbackPort": 24903,
+			"dbProtectionMethod": 1,
+			"backupEnabled": false,
+			"contextualCallbackEnabled": true
+		}
+	],
+	"authTrusts": [
+		{
+			"id1": 101,
+			"id2": 102
+		},
+		{
+			"id1": 101,
+			"id2": 103
+		},
+		{
+			"id1": 101,
+			"id2": 104
+		},
+		{
+			"id1": 102,
+			"id2": 103
+		},
+		{
+			"id1": 102,
+			"id2": 104
+		},
+		{
+			"id1": 103,
+			"id2": 104
+		}
+	],
+	"assignments": {
+		"net1.supervisor": 101,
+		"net2.supervisor": 102,
+		"net3.supervisor": 103,
+		"net4.supervisor": 104,
+		"net1.robotA1": 101,
+		"net1.robotA2": 101,
+		"net1.robotA3": 101,
+		"net2.robotB1": 102,
+		"net2.robotB2": 102,
+		"net2.robotB3": 102,
+		"net3.robotC1": 103,
+		"net3.robotC2": 103,
+		"net3.robotC3": 103,
+		"net4.robotD1": 104,
+		"net4.robotD2": 104,
+		"net4.robotD3": 104,
+		"net1.item_itm10848": 101,
+		"net1.item_itm11946": 101,
+		"net3.item_itm11312": 103,
+		"net3.item_itm11327": 103,
+		"net3.item_itm11363": 103,
+		"net3.item_itm11533": 103,
+		"net3.item_itm12092": 103,
+		"net3.item_itm12449": 103,
+		"net4.item_itm11827": 104,
+		"net4.item_itm12876": 104
+	},
+	"entityList": [
+		{
+			"group": "Supervisors",
+			"name": "net1.supervisor",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Supervisors",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": [
+				102
+			]
+		},
+		{
+			"group": "Supervisors",
+			"name": "net2.supervisor",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net2",
+			"credentialPrefix": "Net2.Supervisors",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": [
+				103
+			]
+		},
+		{
+			"group": "Supervisors",
+			"name": "net3.supervisor",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net3",
+			"credentialPrefix": "Net3.Supervisors",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": [
+				104
+			]
+		},
+		{
+			"group": "Supervisors",
+			"name": "net4.supervisor",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net4",
+			"credentialPrefix": "Net4.Supervisors",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": [
+				101
+			]
+		},
+		{
+			"group": "RobotA1",
+			"name": "net1.robotA1",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.RobotA1",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": [
+				102
+			]
+		},
+		{
+			"group": "RobotA2",
+			"name": "net1.robotA2",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.RobotA2",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": [
+				102
+			]
+		},
+		{
+			"group": "RobotA3",
+			"name": "net1.robotA3",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.RobotA3",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": [
+				102
+			]
+		},
+		{
+			"group": "RobotB1",
+			"name": "net2.robotB1",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net2",
+			"credentialPrefix": "Net2.RobotB1",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": [
+				103
+			]
+		},
+		{
+			"group": "RobotB2",
+			"name": "net2.robotB2",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net2",
+			"credentialPrefix": "Net2.RobotB2",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": [
+				103
+			]
+		},
+		{
+			"group": "RobotB3",
+			"name": "net2.robotB3",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net2",
+			"credentialPrefix": "Net2.RobotB3",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": [
+				103
+			]
+		},
+		{
+			"group": "RobotC1",
+			"name": "net3.robotC1",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net3",
+			"credentialPrefix": "Net3.RobotC1",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": [
+				104
+			]
+		},
+		{
+			"group": "RobotC2",
+			"name": "net3.robotC2",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net3",
+			"credentialPrefix": "Net3.RobotC2",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": [
+				104
+			]
+		},
+		{
+			"group": "RobotC3",
+			"name": "net3.robotC3",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net3",
+			"credentialPrefix": "Net3.RobotC3",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": [
+				104
+			]
+		},
+		{
+			"group": "RobotD1",
+			"name": "net4.robotD1",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net4",
+			"credentialPrefix": "Net4.RobotD1",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": [
+				101
+			]
+		},
+		{
+			"group": "RobotD2",
+			"name": "net4.robotD2",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net4",
+			"credentialPrefix": "Net4.RobotD2",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": [
+				101
+			]
+		},
+		{
+			"group": "RobotD3",
+			"name": "net4.robotD3",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net4",
+			"credentialPrefix": "Net4.RobotD3",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": [
+				101
+			]
+		},
+		{
+			"group": "Item_ITM10848",
+			"name": "net1.item_itm10848",
+			"port": 31000,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Item_ITM10848",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": [
+				102
+			]
+		},
+		{
+			"group": "Item_ITM11946",
+			"name": "net1.item_itm11946",
+			"port": 31001,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Item_ITM11946",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": [
+				102
+			]
+		},
+		{
+			"group": "Item_ITM11312",
+			"name": "net3.item_itm11312",
+			"port": 39000,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net3",
+			"credentialPrefix": "Net3.Item_ITM11312",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": [
+				104
+			]
+		},
+		{
+			"group": "Item_ITM11327",
+			"name": "net3.item_itm11327",
+			"port": 39001,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net3",
+			"credentialPrefix": "Net3.Item_ITM11327",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": [
+				104
+			]
+		},
+		{
+			"group": "Item_ITM11363",
+			"name": "net3.item_itm11363",
+			"port": 39002,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net3",
+			"credentialPrefix": "Net3.Item_ITM11363",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": [
+				104
+			]
+		},
+		{
+			"group": "Item_ITM11533",
+			"name": "net3.item_itm11533",
+			"port": 39003,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net3",
+			"credentialPrefix": "Net3.Item_ITM11533",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": [
+				104
+			]
+		},
+		{
+			"group": "Item_ITM12092",
+			"name": "net3.item_itm12092",
+			"port": 39004,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net3",
+			"credentialPrefix": "Net3.Item_ITM12092",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": [
+				104
+			]
+		},
+		{
+			"group": "Item_ITM12449",
+			"name": "net3.item_itm12449",
+			"port": 39005,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net3",
+			"credentialPrefix": "Net3.Item_ITM12449",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": [
+				104
+			]
+		},
+		{
+			"group": "Item_ITM11827",
+			"name": "net4.item_itm11827",
+			"port": 43000,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net4",
+			"credentialPrefix": "Net4.Item_ITM11827",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": [
+				101
+			]
+		},
+		{
+			"group": "Item_ITM12876",
+			"name": "net4.item_itm12876",
+			"port": 43001,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net4",
+			"credentialPrefix": "Net4.Item_ITM12876",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": [
+				101
+			]
+		}
+	],
+	"filesharingLists": [],
+	"privilegeList": [
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM10848",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM10848"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM10848",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM10848"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM10848",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM10848"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM10848",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM10848"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM10848",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM10848"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM10848",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM10848"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM10848",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM10848"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM10848",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM10848"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM10848",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM10848"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM10848",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM10848"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM10848",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM10848"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM10848",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM10848"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM11946",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM11946"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM11946",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM11946"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM11946",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM11946"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM11946",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM11946"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM11946",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM11946"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM11946",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM11946"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM11946",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM11946"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM11946",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM11946"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM11946",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM11946"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM11946",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM11946"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM11946",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM11946"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM11946",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM11946"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM11312",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM11312"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM11312",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM11312"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM11312",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM11312"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM11312",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM11312"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM11312",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM11312"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM11312",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM11312"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM11312",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM11312"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM11312",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM11312"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM11312",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM11312"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM11312",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM11312"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM11312",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM11312"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM11312",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM11312"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM11327",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM11327"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM11327",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM11327"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM11327",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM11327"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM11327",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM11327"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM11327",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM11327"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM11327",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM11327"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM11327",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM11327"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM11327",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM11327"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM11327",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM11327"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM11327",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM11327"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM11327",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM11327"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM11327",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM11327"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM11363",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM11363"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM11363",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM11363"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM11363",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM11363"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM11363",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM11363"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM11363",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM11363"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM11363",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM11363"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM11363",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM11363"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM11363",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM11363"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM11363",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM11363"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM11363",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM11363"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM11363",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM11363"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM11363",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM11363"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM11533",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM11533"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM11533",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM11533"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM11533",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM11533"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM11533",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM11533"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM11533",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM11533"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM11533",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM11533"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM11533",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM11533"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM11533",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM11533"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM11533",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM11533"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM11533",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM11533"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM11533",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM11533"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM11533",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM11533"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM12092",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM12092"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM12092",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM12092"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM12092",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM12092"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM12092",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM12092"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM12092",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM12092"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM12092",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM12092"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM12092",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM12092"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM12092",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM12092"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM12092",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM12092"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM12092",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM12092"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM12092",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM12092"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM12092",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM12092"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM12449",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM12449"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM12449",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM12449"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM12449",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM12449"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM12449",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM12449"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM12449",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM12449"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM12449",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM12449"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM12449",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM12449"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM12449",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM12449"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM12449",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM12449"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM12449",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM12449"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM12449",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM12449"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM12449",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM12449"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM11827",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM11827"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM11827",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM11827"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM11827",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM11827"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM11827",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM11827"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM11827",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM11827"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM11827",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM11827"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM11827",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM11827"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM11827",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM11827"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM11827",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM11827"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM11827",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM11827"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM11827",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM11827"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM11827",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM11827"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM12876",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA1",
+			"objectGroup": "Item_ITM12876"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM12876",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA2",
+			"objectGroup": "Item_ITM12876"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM12876",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotA3",
+			"objectGroup": "Item_ITM12876"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM12876",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB1",
+			"objectGroup": "Item_ITM12876"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM12876",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB2",
+			"objectGroup": "Item_ITM12876"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM12876",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotB3",
+			"objectGroup": "Item_ITM12876"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM12876",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC1",
+			"objectGroup": "Item_ITM12876"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM12876",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC2",
+			"objectGroup": "Item_ITM12876"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM12876",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotC3",
+			"objectGroup": "Item_ITM12876"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM12876",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD1",
+			"objectGroup": "Item_ITM12876"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM12876",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD2",
+			"objectGroup": "Item_ITM12876"
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM12876",
+			"validity": "1*day"
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Supervisors",
+			"subjectGroup": "RobotD3",
+			"objectGroup": "Item_ITM12876"
+		}
+	]
+}

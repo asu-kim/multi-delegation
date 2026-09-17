@@ -1,0 +1,112 @@
+[
+	{
+		"RequestingGroup": "Supervisors",
+		"TargetType": "Group",
+		"Target": "Item_ITM10848",
+		"MaxNumSessionKeyOwners": 2,
+		"SessionCryptoSpec": "AES-128-CBC:SHA256",
+		"AbsoluteValidity": "1*day",
+		"RelativeValidity": "2*hour",
+		"Expiration": "Infinity",
+		"IsDelegated": 0
+	},
+	{
+		"RequestingGroup": "Supervisors",
+		"TargetType": "Group",
+		"Target": "Item_ITM11312",
+		"MaxNumSessionKeyOwners": 2,
+		"SessionCryptoSpec": "AES-128-CBC:SHA256",
+		"AbsoluteValidity": "1*day",
+		"RelativeValidity": "2*hour",
+		"Expiration": "Infinity",
+		"IsDelegated": 0
+	},
+	{
+		"RequestingGroup": "Supervisors",
+		"TargetType": "Group",
+		"Target": "Item_ITM11327",
+		"MaxNumSessionKeyOwners": 2,
+		"SessionCryptoSpec": "AES-128-CBC:SHA256",
+		"AbsoluteValidity": "1*day",
+		"RelativeValidity": "2*hour",
+		"Expiration": "Infinity",
+		"IsDelegated": 0
+	},
+	{
+		"RequestingGroup": "Supervisors",
+		"TargetType": "Group",
+		"Target": "Item_ITM11363",
+		"MaxNumSessionKeyOwners": 2,
+		"SessionCryptoSpec": "AES-128-CBC:SHA256",
+		"AbsoluteValidity": "1*day",
+		"RelativeValidity": "2*hour",
+		"Expiration": "Infinity",
+		"IsDelegated": 0
+	},
+	{
+		"RequestingGroup": "Supervisors",
+		"TargetType": "Group",
+		"Target": "Item_ITM11533",
+		"MaxNumSessionKeyOwners": 2,
+		"SessionCryptoSpec": "AES-128-CBC:SHA256",
+		"AbsoluteValidity": "1*day",
+		"RelativeValidity": "2*hour",
+		"Expiration": "Infinity",
+		"IsDelegated": 0
+	},
+	{
+		"RequestingGroup": "Supervisors",
+		"TargetType": "Group",
+		"Target": "Item_ITM11827",
+		"MaxNumSessionKeyOwners": 2,
+		"SessionCryptoSpec": "AES-128-CBC:SHA256",
+		"AbsoluteValidity": "1*day",
+		"RelativeValidity": "2*hour",
+		"Expiration": "Infinity",
+		"IsDelegated": 0
+	},
+	{
+		"RequestingGroup": "Supervisors",
+		"TargetType": "Group",
+		"Target": "Item_ITM11946",
+		"MaxNumSessionKeyOwners": 2,
+		"SessionCryptoSpec": "AES-128-CBC:SHA256",
+		"AbsoluteValidity": "1*day",
+		"RelativeValidity": "2*hour",
+		"Expiration": "Infinity",
+		"IsDelegated": 0
+	},
+	{
+		"RequestingGroup": "Supervisors",
+		"TargetType": "Group",
+		"Target": "Item_ITM12092",
+		"MaxNumSessionKeyOwners": 2,
+		"SessionCryptoSpec": "AES-128-CBC:SHA256",
+		"AbsoluteValidity": "1*day",
+		"RelativeValidity": "2*hour",
+		"Expiration": "Infinity",
+		"IsDelegated": 0
+	},
+	{
+		"RequestingGroup": "Supervisors",
+		"TargetType": "Group",
+		"Target": "Item_ITM12449",
+		"MaxNumSessionKeyOwners": 2,
+		"SessionCryptoSpec": "AES-128-CBC:SHA256",
+		"AbsoluteValidity": "1*day",
+		"RelativeValidity": "2*hour",
+		"Expiration": "Infinity",
+		"IsDelegated": 0
+	},
+	{
+		"RequestingGroup": "Supervisors",
+		"TargetType": "Group",
+		"Target": "Item_ITM12876",
+		"MaxNumSessionKeyOwners": 2,
+		"SessionCryptoSpec": "AES-128-CBC:SHA256",
+		"AbsoluteValidity": "1*day",
+		"RelativeValidity": "2*hour",
+		"Expiration": "Infinity",
+		"IsDelegated": 0
+	}
+]
