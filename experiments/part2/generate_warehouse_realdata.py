@@ -18,7 +18,8 @@ Key design choices:
   * Real storage coordinates come from Storage_Location.csv; no synthetic item coordinates.
   * A configurable number of logical Auth zones spatially balance selected resources.
   * Every Auth owns equal counts of resources, robots, forklifts, drones and supervisors.
-  * Each robot has one forklift and one drone in its home Auth.
+  * Robot/Forklift/Drone counts per zone are independent; defaults are 5 each.
+  * Forklifts and drones are selected round-robin in the robot home zone.
   * z=1 uses Robot -> Forklift; z>=2 uses Robot -> Forklift -> Drone (z=0: Robot).
   * Total resources = resources-per-auth * num-auths; coordinate ties use location/reference IDs.
   * Robot home zones remain logical ownership zones, but robot positions may be anywhere in
@@ -103,8 +104,10 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         help="Path to Support_Points_Navigation.csv. If omitted, robot positions are uniform within real bounds."
     )
     p.add_argument("--output-dir", default="generated", help="Output directory")
+    p.add_argument("--forklifts-per-zone", type=int, default=5)
+    p.add_argument("--drones-per-zone", type=int, default=5)
     p.add_argument("--num-auths", type=int, default=4, help="Number of Auths/logical zones (default: 4)")
-    p.add_argument("--robots-per-auth", type=int, default=5,
+    p.add_argument("--robots-per-zone", "--robots-per-auth", dest="robots_per_auth", type=int, default=5,
                    help="Robots owned by each Auth (default: 5)")
     p.add_argument(
         "--requests",
@@ -112,7 +115,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         default=100,
         help="Number of robot-position batches. Total request count = requests * items-per-position.",
     )
-    p.add_argument("--items-per-position", type=int, default=3)
+    p.add_argument("--items-per-position", type=int, default=4)
     p.add_argument(
         "--resources-per-auth", type=int, default=25,
         help="Resources owned by each Auth (default: 25). Total resources = resources-per-auth * num-auths.",
@@ -508,6 +511,22 @@ def generate_companions(robots: list[dict[str, Any]]) -> list[dict[str, Any]]:
     ]
 
 
+def generate_workers(role: str, per_zone: int) -> list[dict[str, Any]]:
+    if per_zone < 0:
+        raise ValueError(f"--{role.lower()}s-per-zone must be >= 0")
+    return [dict(zone=z, index=i, group=f"{role}{z}{i}",
+                 name=f"{ZONE_NETS[z]}.{role.lower()}{z}{i}")
+            for z in ZONES for i in range(1, per_zone + 1)]
+
+
+def item_level(z: float) -> int:
+    if not isinstance(z, (int, float)) or not math.isfinite(z) or z < 0:
+        raise ValueError(f"Invalid item height: {z}")
+    if z not in (0, 1) and z < 2:
+        raise ValueError(f"Unsupported item height: {z}")
+    return 2 if z >= 2 else int(z)
+
+
 def build_assignments(
     items: list[dict[str, Any]],
     supervisors: list[dict[str, str]],
@@ -534,11 +553,16 @@ def build_graph(
     supervisors: list[dict[str, str]],
     robots: list[dict[str, Any]],
     validity: str,
+    forklifts: list[dict[str, Any]] | None = None,
+    drones: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     entity_list: list[dict[str, Any]] = []
     for s in supervisors:
         entity_list.append(make_node_entity("Supervisors", s["name"], ZONE_NETS[s["zone"]], s["zone"]))
-    companions = generate_companions(robots)
+    legacy = generate_companions(robots)
+    forklifts = forklifts if forklifts is not None else [w for w in legacy if w["group"].startswith("Forklift")]
+    drones = drones if drones is not None else [w for w in legacy if w["group"].startswith("Drone")]
+    companions = forklifts + drones
     for r in robots + companions:
         entity_list.append(make_node_entity(r["group"], r["name"], ZONE_NETS[r["zone"]], r["zone"]))
 
@@ -552,11 +576,16 @@ def build_graph(
         for robot in robots:
             privilege_list.append(make_access_privilege(robot["group"], resource, validity))
             privilege_list.append(make_revoke_privilege(robot["group"], resource))
-            chain = delegation_chain(robot["group"], item["z"])
-            for parent, child in zip(chain, chain[1:]):
-                privilege = make_access_privilege(child, resource, validity)
-                privilege["privilegedGroup"] = parent
-                privilege_list.append(privilege)
+        level = item_level(item["z"])
+        edges = []
+        if level >= 1:
+            edges.extend((r, f) for r in robots for f in forklifts if r["zone"] == f["zone"])
+        if level >= 2:
+            edges.extend((f, d) for f in forklifts for d in drones if f["zone"] == d["zone"])
+        for parent, child in edges:
+            privilege = make_access_privilege(child["group"], resource, validity)
+            privilege["privilegedGroup"] = parent["group"]
+            privilege_list.append(privilege)
 
     return {
         "authList": [make_auth(z) for z in ZONES],
@@ -690,7 +719,23 @@ def generate_workload(
     items_per_position: int,
     workload_order: str,
     seed: int,
+    forklifts: list[dict[str, Any]] | None = None,
+    drones: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
+    legacy = generate_companions(robots)
+    forklifts = forklifts if forklifts is not None else [w for w in legacy if w["group"].startswith("Forklift")]
+    drones = drones if drones is not None else [w for w in legacy if w["group"].startswith("Drone")]
+    worker_cursor = defaultdict(int)
+
+    def select_worker(workers, role, zone):
+        pool = [w for w in workers if w["zone"] == zone]
+        if not pool:
+            raise ValueError(f"Requested item requires a {role} in zone {zone}; increase --{role}s-per-zone")
+        key = (role, zone)
+        worker = pool[worker_cursor[key] % len(pool)]
+        worker_cursor[key] += 1
+        return worker["group"]
+
     if num_positions < 1:
         raise ValueError("--requests must be >= 1")
     if items_per_position < 1:
@@ -749,6 +794,10 @@ def generate_workload(
             robot, distance = nearest_robot(item, available_robots, positions)
             available_robots.remove(robot)
             resource = resource_group(item)
+            level = item_level(item["z"])
+            forklift = select_worker(forklifts, "forklift", robot["zone"]) if level >= 1 else None
+            drone = select_worker(drones, "drone", robot["zone"]) if level >= 2 else None
+            chain = [g for g in (robot["group"], forklift, drone) if g is not None]
 
             requests.append(
                 {
@@ -769,7 +818,9 @@ def generate_workload(
                     "supervisor": supervisor_entity_name(robot["zone"]),
                     "supervisor_group": "Supervisors",
                     "selected_robot": robot["group"],
-                    "delegation_chain": delegation_chain(robot["group"], item["z"]),
+                    "selected_forklift": forklift,
+                    "selected_drone": drone,
+                    "delegation_chain": chain,
                     "selected_robot_home_zone": robot["zone"],
                     "selected_robot_distance_m": round(distance, 4),
                     "cross_auth": robot["zone"] != item["zone"],
@@ -787,6 +838,8 @@ def generate_workload(
         "metadata": {
             "num_auths": len(ZONES),
             "seed": seed,
+            "worker_selection": "round_robin_in_robot_home_zone",
+            "worker_counts_by_zone": {z: {"robots": sum(w["zone"] == z for w in robots), "forklifts": sum(w["zone"] == z for w in forklifts), "drones": sum(w["zone"] == z for w in drones)} for z in ZONES},
             "num_requests": len(requests),
             "num_positions": num_positions,
             "items_per_position": items_per_position,
@@ -855,7 +908,9 @@ def summarize(
     for z in ZONES:
         print(
             f"Zone {z}: Auth {ZONE_AUTH_IDS[z]}, "
-            f"{item_counts[z]} resources, {robot_counts[z]} robots, {robot_counts[z]} forklifts, {robot_counts[z]} drones, 1 supervisor"
+            f"{item_counts[z]} resources, {robot_counts[z]} robots, "
+            f"{workload['metadata']['worker_counts_by_zone'][z]['forklifts']} forklifts, "
+            f"{workload['metadata']['worker_counts_by_zone'][z]['drones']} drones, 1 supervisor"
         )
 
 
@@ -863,6 +918,8 @@ def main() -> None:
     args = parse_args()
     configure_auths(args.num_auths)
     num_resources = requested_resource_count(args)
+    forklifts = generate_workers("Forklift", args.forklifts_per_zone)
+    drones = generate_workers("Drone", args.drones_per_zone)
     output_dir = Path(args.output_dir)
 
     items, picking, bounds, diagnostics = load_real_data(
@@ -878,7 +935,7 @@ def main() -> None:
     supervisors = generate_supervisors()
     robots = generate_robots(args.robots_per_auth)
 
-    graph = build_graph(items, supervisors, robots, args.validity)
+    graph = build_graph(items, supervisors, robots, args.validity, forklifts, drones)
     policies = build_supervisor_access_policies(graph)
     layout = build_layout(items, bounds, navigation_points)
     layout.update(entity_distribution(graph))
@@ -893,6 +950,8 @@ def main() -> None:
         args.items_per_position,
         args.workload_order,
         args.seed,
+        forklifts,
+        drones,
     )
 
     graph_path = output_dir / "warehouse.graph"

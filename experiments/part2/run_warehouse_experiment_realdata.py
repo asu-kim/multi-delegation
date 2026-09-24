@@ -32,6 +32,11 @@ Workflow per request:
     4. Supervisor revokes only Robot's resource access.
     5. Every chain member retries access to verify cascading revocation.
 
+summary.workload_total_time_ms measures elapsed wall time from the first request
+start through the last completed request record. It includes intermediate logging,
+DB sampling, saves and inter-request delays, but excludes server setup, final
+output saving and shutdown. Incremental summaries contain elapsed time so far.
+
 The runner measures:
     - delegation latency
     - pre-revocation authorization latency/result
@@ -47,7 +52,7 @@ Three JSON files are saved, also after each completed request:
     <name>_db_size.json: db_size (the measurement snapshots)
     <name>_results.json: results (the per-request records)
 
-Each robot has a forklift and drone in its home Auth. z=1 delegates through
+Forklifts and drones are selected from independently sized pools in the robot home Auth. z=1 delegates through
 Forklift; z>=2 delegates through Forklift then Drone. Each chain member is tested
 before and after a single Supervisor -> Robot revocation. Verification requires
 successful grants, successful access before revocation, a successful revoke,
@@ -169,12 +174,12 @@ class AuthDatabaseSizeLogger:
                 errors[auth_id] = f"{type(exc).__name__}: {exc}"
 
         previous = self.snapshots[-1] if self.snapshots else None
-        previous_sizes = previous["auth_db_size_bytes_by_auth"] if previous else {}
-        deltas = {
-            auth_id: size - previous_sizes[auth_id]
-            if size is not None and previous_sizes.get(auth_id) is not None else None
-            for auth_id, size in sizes.items()
-        }
+        # previous_sizes = previous["auth_db_size_bytes_by_auth"] if previous else {}
+        # deltas = {
+        #     auth_id: size - previous_sizes[auth_id]
+        #     if size is not None and previous_sizes.get(auth_id) is not None else None
+        #     for auth_id, size in sizes.items()
+        # }
         total = sum(sizes.values()) if all(size is not None for size in sizes.values()) else None
         previous_total = previous["auth_db_size_bytes"] if previous else None
         total_delta = total - previous_total if total is not None and previous_total is not None else None
@@ -185,7 +190,6 @@ class AuthDatabaseSizeLogger:
             "auth_db_size_bytes": total,
             "auth_db_size_delta_bytes": total_delta,
             "auth_db_size_bytes_by_auth": sizes,
-            "auth_db_size_delta_bytes_by_auth": deltas,
             "errors": errors,
         }
         self.snapshots.append(snapshot)
@@ -200,8 +204,8 @@ class AuthDatabaseSizeLogger:
         lines = [f"[DB_SIZE] phase={phase}{context} "
                  f"total={size_text(total)} delta={delta_text(total_delta)}"]
         for auth_id, size in sizes.items():
-            lines.append(f"[DB_SIZE]   Auth{auth_id}: size={size_text(size)} "
-                         f"delta={delta_text(deltas[auth_id])}")
+            lines.append(f"[DB_SIZE]   Auth{auth_id}: size={size_text(size)} ")
+                         # f"delta={delta_text(deltas[auth_id])}")
             if auth_id in errors:
                 lines.append(f"[DB_SIZE]   Auth{auth_id}: {errors[auth_id]}")
         print("\n".join(lines), flush=True)
@@ -724,6 +728,19 @@ def summarize_results(results: list[dict[str, Any]]) -> dict[str, Any]:
             return None
         return sum(values) / len(values)
 
+    # Count actual attempts across every worker, including denied/timeout results.
+    # Legacy records contain only the singular Robot access result.
+    def access_count(phase: str) -> int:
+        return sum(
+            len(r[f"{phase}_access_by_entity"])
+            if f"{phase}_access_by_entity" in r
+            else int(isinstance(r.get(f"{phase}_access"), dict))
+            for r in results
+        )
+
+    before_count = access_count("before_revoke")
+    after_count = access_count("after_revoke")
+
     before_success = sum(
         1
         for result in results
@@ -741,6 +758,8 @@ def summarize_results(results: list[dict[str, Any]]) -> dict[str, Any]:
 
     return {
         "num_requests": len(results),
+        "pre_revoke_access_count": before_count,
+        "post_revoke_access_count": after_count,
         "delegation_count": sum(len(r.get("delegations", [])) for r in results),
         "cascading_revocation_request_count": sum(r.get("cascading_revocation_verified") is not None for r in results),
         "cascading_revocation_verified_count": sum(r.get("cascading_revocation_verified") is True for r in results),
@@ -831,8 +850,11 @@ def main() -> None:
         "validity": args.validity,
     }
 
+    workload_total_time_ms: float | None = None
+
     def save_outputs() -> dict[str, Any]:
         summary = summarize_results(results)
+        summary["workload_total_time_ms"] = workload_total_time_ms
         # Display the final snapshot beside the baseline without changing the
         # chronological recording order used to calculate deltas.
         snapshots = db_size_logger.snapshots
@@ -889,6 +911,7 @@ def main() -> None:
         db_size_logger.record("before_workload")
 
         print("\nRunning workload")
+        workload_start = time.perf_counter()
         for index, request in enumerate(requests, start=1):
             supervisor = request["supervisor"]
             robot = request["selected_robot"]
@@ -966,6 +989,8 @@ def main() -> None:
                     "selected_robot_distance_m"
                 ],
                 "resource_position": request.get("resource_position"),
+                "selected_forklift": request.get("selected_forklift"),
+                "selected_drone": request.get("selected_drone"),
                 "delegation_chain": [supervisor] + chain,
                 "delegations": delegations,
                 "before_revoke_access_by_entity": before_by_entity,
@@ -980,6 +1005,7 @@ def main() -> None:
                 "after_revoke_access": after_access,
             }
             results.append(record)
+            workload_total_time_ms = (time.perf_counter() - workload_start) * 1000.0
 
             # Save incrementally so an interrupted long run still leaves data.
             save_outputs()
@@ -996,7 +1022,7 @@ def main() -> None:
                 )
             )
 
-            if args.inter_request_delay > 0:
+            if index < len(requests) and args.inter_request_delay > 0:
                 time.sleep(args.inter_request_delay)
 
         db_size_logger.record("after_workload")
