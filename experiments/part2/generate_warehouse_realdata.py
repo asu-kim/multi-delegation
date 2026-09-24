@@ -337,7 +337,6 @@ def load_real_data(
         # commonly used resources are proportionally more likely to remain in smaller tests.
         pairs = pairs.sample(
             n=num_resources,
-            weights=pairs["pick_count"].clip(lower=1),
             random_state=seed,
             replace=False,
         )
