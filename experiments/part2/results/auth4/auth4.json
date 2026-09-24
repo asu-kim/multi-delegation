@@ -16,14 +16,16 @@
     "cross_auth_request_count": 308,
     "cross_auth_request_rate": 0.77,
     "total_quantity_to_pick": 400,
-    "delegation_latency_ms_mean": 73.03587361006066,
-    "authorization_before_revoke_ms_mean": 145.98995119333267,
-    "revocation_latency_ms_mean": 57.25595572497696,
-    "authorization_after_revoke_ms_mean": 35.152037274092436,
-    "pre_revoke_access_success_count": 400,
-    "post_revoke_access_denied_count": 400,
+    "delegation_latency_ms_mean": 70.29596200605172,
+    "delegation_latency_ms_total": 68749.45084191859,
+    "revocation_latency_ms_total": 23149.33832641691,
+    "authorization_before_revoke_ms_mean": 141.12900704210185,
+    "revocation_latency_ms_mean": 57.873345816042274,
+    "authorization_after_revoke_ms_mean": 35.37370270910408,
+    "pre_revoke_access_success_count": 978,
+    "post_revoke_access_denied_count": 978,
     "pre_revoke_access_success_rate": 1.0,
     "post_revoke_denial_rate": 1.0,
-    "workload_total_time_ms": 279817.8551271558
+    "workload_total_time_ms": 281445.26667520404
   }
 }
