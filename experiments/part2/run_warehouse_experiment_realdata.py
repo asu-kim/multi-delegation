@@ -736,29 +736,26 @@ def summarize_results(results: list[dict[str, Any]]) -> dict[str, Any]:
             return None
         return sum(values) / len(values)
 
-    # Count actual attempts across every worker, including denied/timeout results.
-    # Legacy records contain only the singular Robot access result.
-    def access_count(phase: str) -> int:
-        return sum(
-            len(r[f"{phase}_access_by_entity"])
-            if f"{phase}_access_by_entity" in r
-            else int(isinstance(r.get(f"{phase}_access"), dict))
-            for r in results
-        )
-
-    def access_latency_mean(phase: str) -> float | None:
-        # Average individual attempts across all workers, not per-chain means.
-        # Fall back to the Robot result only when legacy records lack the map.
-        values = []
+    def access_attempts(phase: str) -> list[dict[str, Any]]:
+        # Full entity maps are authoritative; singular fields are legacy fallback.
+        attempts = []
         for result in results:
-            if f"{phase}_access_by_entity" in result:
-                attempts = result[f"{phase}_access_by_entity"].values()
-            else:
-                attempts = [result.get(f"{phase}_access", {})]
-            for attempt in attempts:
-                latency = attempt.get("latency_ms")
-                if isinstance(latency, (int, float)):
-                    values.append(float(latency))
+            key = f"{phase}_access_by_entity"
+            if key in result:
+                attempts.extend(result[key].values())
+            elif isinstance(result.get(f"{phase}_access"), dict):
+                attempts.append(result[f"{phase}_access"])
+        return attempts
+
+    before_attempts = access_attempts("before_revoke")
+    after_attempts = access_attempts("after_revoke")
+
+    def access_latency_mean(attempts: list[dict[str, Any]]) -> float | None:
+        values = [
+            float(attempt["latency_ms"])
+            for attempt in attempts
+            if isinstance(attempt.get("latency_ms"), (int, float))
+        ]
         return sum(values) / len(values) if values else None
 
     # Prefer full chains; use the singular grant only for legacy records.
@@ -783,19 +780,10 @@ def summarize_results(results: list[dict[str, Any]]) -> dict[str, Any]:
         and isinstance(result["revocation"].get("latency_ms"), (int, float))
     ]
 
-    before_count = access_count("before_revoke")
-    after_count = access_count("after_revoke")
-
-    before_success = sum(
-        1
-        for result in results
-        if result["before_revoke_access"]["status"] == "success"
-    )
-    after_denied = sum(
-        1
-        for result in results
-        if result["after_revoke_access"]["status"] == "denied"
-    )
+    before_count = len(before_attempts)
+    after_count = len(after_attempts)
+    before_success = sum(a.get("status") == "success" for a in before_attempts)
+    after_denied = sum(a.get("status") == "denied" for a in after_attempts)
     cross_auth_count = sum(1 for result in results if result.get("cross_auth") is True)
     total_quantity = sum(
         int(result.get("quantity_to_pick", 0) or 0) for result in results
@@ -818,16 +806,16 @@ def summarize_results(results: list[dict[str, Any]]) -> dict[str, Any]:
         ),
         "delegation_latency_ms_total": sum(delegation_latencies, 0.0),
         "revocation_latency_ms_total": sum(revocation_latencies, 0.0),
-        "authorization_before_revoke_ms_mean": access_latency_mean("before_revoke"),
+        "authorization_before_revoke_ms_mean": access_latency_mean(before_attempts),
         "revocation_latency_ms_mean": avg(("revocation", "latency_ms")),
-        "authorization_after_revoke_ms_mean": access_latency_mean("after_revoke"),
+        "authorization_after_revoke_ms_mean": access_latency_mean(after_attempts),
         "pre_revoke_access_success_count": before_success,
         "post_revoke_access_denied_count": after_denied,
         "pre_revoke_access_success_rate": (
-            before_success / len(results) if results else None
+            before_success / before_count if before_count else None
         ),
         "post_revoke_denial_rate": (
-            after_denied / len(results) if results else None
+            after_denied / after_count if after_count else None
         ),
     }
 
@@ -1046,9 +1034,9 @@ def main() -> None:
                 "revocation_verified": verified,
                 "cascading_revocation_verified": verified if len(chain) > 1 else None,
                 "delegation": delegation_result,
-                # "before_revoke_access": before_access,
+                "before_revoke_access": before_access,
                 "revocation": revocation_result,
-                # "after_revoke_access": after_access,
+                "after_revoke_access": after_access,
             }
             results.append(record)
             workload_total_time_ms = (time.perf_counter() - workload_start) * 1000.0
