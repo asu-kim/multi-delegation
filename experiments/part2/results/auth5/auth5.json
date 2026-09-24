@@ -1,0 +1,29 @@
+{
+  "configuration": {
+    "graph": "/home/sunyoung/multi-delegation/experiments/part2/generated/auth5/warehouse.graph",
+    "workload": "/home/sunyoung/multi-delegation/experiments/part2/generated/auth5/workload.json",
+    "num_selected_requests": 500,
+    "validity": "1*day"
+  },
+  "summary": {
+    "num_requests": 500,
+    "pre_revoke_access_count": 1231,
+    "post_revoke_access_count": 1231,
+    "delegation_count": 1231,
+    "cascading_revocation_request_count": 500,
+    "cascading_revocation_verified_count": 500,
+    "revocation_verified_count": 500,
+    "cross_auth_request_count": 406,
+    "cross_auth_request_rate": 0.812,
+    "total_quantity_to_pick": 500,
+    "delegation_latency_ms_mean": 76.60352694615722,
+    "authorization_before_revoke_ms_mean": 147.18418276682496,
+    "revocation_latency_ms_mean": 61.14250588603318,
+    "authorization_after_revoke_ms_mean": 35.313491884619,
+    "pre_revoke_access_success_count": 500,
+    "post_revoke_access_denied_count": 500,
+    "pre_revoke_access_success_rate": 1.0,
+    "post_revoke_denial_rate": 1.0,
+    "workload_total_time_ms": 362024.9252971262
+  }
+}

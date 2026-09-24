@@ -1,0 +1,8274 @@
+{
+  "metadata": {
+    "num_auths": 2,
+    "seed": 7,
+    "worker_selection": "round_robin_in_robot_home_zone",
+    "worker_counts_by_zone": {
+      "A": {
+        "robots": 5,
+        "forklifts": 5,
+        "drones": 5
+      },
+      "B": {
+        "robots": 5,
+        "forklifts": 5,
+        "drones": 5
+      }
+    },
+    "num_requests": 100,
+    "num_positions": 25,
+    "items_per_position": 4,
+    "workload_source": "Picking_Wave.csv",
+    "workload_order": "random",
+    "robot_position_source": "uniform_real_warehouse_bounds"
+  },
+  "requests": [
+    {
+      "request_id": 0,
+      "position_id": 0,
+      "wave_number": 42800,
+      "operator": "Operator_3",
+      "item_id": "ULG3QT",
+      "reference": "ULG3QT",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "P-14-21",
+      "resource": "Item_ULG3QT_P_14_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 368.0,
+        "y": 1318.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA4",
+      "selected_forklift": "ForkliftA1",
+      "selected_drone": "DroneA1",
+      "delegation_chain": [
+        "RobotA4",
+        "ForkliftA1",
+        "DroneA1"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 262.4657,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 434.2781,
+          "y": 36.8476,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 517.6841,
+          "y": 591.9932,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 539.5819,
+          "y": 589.6026,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 263.801,
+          "y": 1077.1041,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 104.5375,
+          "y": 617.7847,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 459.8417,
+          "y": 766.4126,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 494.5638,
+          "y": 2.4367,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 248.3367,
+          "y": 936.8677,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 228.4841,
+          "y": 1070.377,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 385.6219,
+          "y": 513.8421,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 1,
+      "position_id": 0,
+      "wave_number": 38464,
+      "operator": "Operator_6",
+      "item_id": "SY1DDY",
+      "reference": "SY1DDY",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "P-21-11",
+      "resource": "Item_SY1DDY_P_21_11",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 168.0,
+        "y": 1260.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB4",
+      "selected_forklift": "ForkliftB1",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB4",
+        "ForkliftB1"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 199.0357,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 434.2781,
+          "y": 36.8476,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 517.6841,
+          "y": 591.9932,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 539.5819,
+          "y": 589.6026,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 263.801,
+          "y": 1077.1041,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 104.5375,
+          "y": 617.7847,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 459.8417,
+          "y": 766.4126,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 494.5638,
+          "y": 2.4367,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 248.3367,
+          "y": 936.8677,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 228.4841,
+          "y": 1070.377,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 385.6219,
+          "y": 513.8421,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 2,
+      "position_id": 0,
+      "wave_number": 41365,
+      "operator": "Operator_1",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB1",
+      "selected_forklift": "ForkliftB2",
+      "selected_drone": "DroneB1",
+      "delegation_chain": [
+        "RobotB1",
+        "ForkliftB2",
+        "DroneB1"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 106.7888,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 434.2781,
+          "y": 36.8476,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 517.6841,
+          "y": 591.9932,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 539.5819,
+          "y": 589.6026,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 263.801,
+          "y": 1077.1041,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 104.5375,
+          "y": 617.7847,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 459.8417,
+          "y": 766.4126,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 494.5638,
+          "y": 2.4367,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 248.3367,
+          "y": 936.8677,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 228.4841,
+          "y": 1070.377,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 385.6219,
+          "y": 513.8421,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 3,
+      "position_id": 0,
+      "wave_number": 34273,
+      "operator": "Operator_4",
+      "item_id": "SMMRK3",
+      "reference": "SMMRK3",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-18-13",
+      "resource": "Item_SMMRK3_L_18_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 236.0,
+        "y": 958.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB3",
+      "selected_forklift": "ForkliftB3",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB3",
+        "ForkliftB3"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 24.4697,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 434.2781,
+          "y": 36.8476,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 517.6841,
+          "y": 591.9932,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 539.5819,
+          "y": 589.6026,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 263.801,
+          "y": 1077.1041,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 104.5375,
+          "y": 617.7847,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 459.8417,
+          "y": 766.4126,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 494.5638,
+          "y": 2.4367,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 248.3367,
+          "y": 936.8677,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 228.4841,
+          "y": 1070.377,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 385.6219,
+          "y": 513.8421,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 4,
+      "position_id": 1,
+      "wave_number": 40316,
+      "operator": "Operator_16",
+      "item_id": "I2B1FH",
+      "reference": "I2B1FH",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-19-21",
+      "resource": "Item_I2B1FH_M_19_21",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 218.0,
+        "y": 990.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA4",
+      "selected_forklift": "ForkliftA2",
+      "selected_drone": "DroneA2",
+      "delegation_chain": [
+        "RobotA4",
+        "ForkliftA2",
+        "DroneA2"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 175.2292,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 423.0452,
+          "y": 66.5083,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 509.8717,
+          "y": 514.4774,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 425.0702,
+          "y": 947.3751,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 304.3191,
+          "y": 837.5064,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 569.86,
+          "y": 266.6117,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 195.4338,
+          "y": 169.1033,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 540.1776,
+          "y": 1429.4265,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 377.1611,
+          "y": 1332.1375,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 199.849,
+          "y": 1286.4808,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 168.4601,
+          "y": 267.0008,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 5,
+      "position_id": 1,
+      "wave_number": 40748,
+      "operator": "Operator_15",
+      "item_id": "TAHFOD",
+      "reference": "TAHFOD",
+      "size_us": 11.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "P-14-13",
+      "resource": "Item_TAHFOD_P_14_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 336.0,
+        "y": 1318.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB3",
+      "selected_forklift": "ForkliftB4",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB3",
+        "ForkliftB4"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 43.5213,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 423.0452,
+          "y": 66.5083,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 509.8717,
+          "y": 514.4774,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 425.0702,
+          "y": 947.3751,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 304.3191,
+          "y": 837.5064,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 569.86,
+          "y": 266.6117,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 195.4338,
+          "y": 169.1033,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 540.1776,
+          "y": 1429.4265,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 377.1611,
+          "y": 1332.1375,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 199.849,
+          "y": 1286.4808,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 168.4601,
+          "y": 267.0008,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 6,
+      "position_id": 1,
+      "wave_number": 40357,
+      "operator": "Operator_15",
+      "item_id": "PP9DNA",
+      "reference": "PP9DNA",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "Q-05-21",
+      "resource": "Item_PP9DNA_Q_05_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 1440.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB2",
+      "selected_forklift": "ForkliftB5",
+      "selected_drone": "DroneB2",
+      "delegation_chain": [
+        "RobotB2",
+        "ForkliftB5",
+        "DroneB2"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 27.9033,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 423.0452,
+          "y": 66.5083,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 509.8717,
+          "y": 514.4774,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 425.0702,
+          "y": 947.3751,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 304.3191,
+          "y": 837.5064,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 569.86,
+          "y": 266.6117,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 195.4338,
+          "y": 169.1033,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 540.1776,
+          "y": 1429.4265,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 377.1611,
+          "y": 1332.1375,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 199.849,
+          "y": 1286.4808,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 168.4601,
+          "y": 267.0008,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 7,
+      "position_id": 1,
+      "wave_number": 34197,
+      "operator": "Operator_18",
+      "item_id": "SMMRK3",
+      "reference": "SMMRK3",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-18-13",
+      "resource": "Item_SMMRK3_L_18_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 236.0,
+        "y": 958.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA3",
+      "selected_forklift": "ForkliftA3",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA3",
+        "ForkliftA3"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 189.3685,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 423.0452,
+          "y": 66.5083,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 509.8717,
+          "y": 514.4774,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 425.0702,
+          "y": 947.3751,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 304.3191,
+          "y": 837.5064,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 569.86,
+          "y": 266.6117,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 195.4338,
+          "y": 169.1033,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 540.1776,
+          "y": 1429.4265,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 377.1611,
+          "y": 1332.1375,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 199.849,
+          "y": 1286.4808,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 168.4601,
+          "y": 267.0008,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 8,
+      "position_id": 2,
+      "wave_number": 42600,
+      "operator": "Operator_1",
+      "item_id": "LXJQVG",
+      "reference": "LXJQVG",
+      "size_us": 16.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "J-24-13",
+      "resource": "Item_LXJQVG_J_24_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 86.0,
+        "y": 778.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB2",
+      "selected_forklift": "ForkliftB1",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB2",
+        "ForkliftB1"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 278.8706,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 374.9053,
+          "y": 1310.424,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 375.9134,
+          "y": 631.4741,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 176.6007,
+          "y": 174.162,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 442.9215,
+          "y": 882.0653,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 235.0864,
+          "y": 1102.6994,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 150.4249,
+          "y": 13.992,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 363.6022,
+          "y": 751.4327,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 387.6529,
+          "y": 523.9212,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 515.207,
+          "y": 380.9544,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 316.9554,
+          "y": 290.9836,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 9,
+      "position_id": 2,
+      "wave_number": 36203,
+      "operator": "Operator_2",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA4",
+      "selected_forklift": "ForkliftA4",
+      "selected_drone": "DroneA3",
+      "delegation_chain": [
+        "RobotA4",
+        "ForkliftA4",
+        "DroneA3"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 161.1766,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 374.9053,
+          "y": 1310.424,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 375.9134,
+          "y": 631.4741,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 176.6007,
+          "y": 174.162,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 442.9215,
+          "y": 882.0653,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 235.0864,
+          "y": 1102.6994,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 150.4249,
+          "y": 13.992,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 363.6022,
+          "y": 751.4327,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 387.6529,
+          "y": 523.9212,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 515.207,
+          "y": 380.9544,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 316.9554,
+          "y": 290.9836,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 10,
+      "position_id": 2,
+      "wave_number": 41777,
+      "operator": "Operator_4",
+      "item_id": "PY5UPB",
+      "reference": "PY5UPB",
+      "size_us": 240.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-01-13",
+      "resource": "Item_PY5UPB_L_01_13",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 634.0,
+        "y": 990.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA1",
+      "selected_forklift": "ForkliftA5",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA1",
+        "ForkliftA5"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 412.0699,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 374.9053,
+          "y": 1310.424,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 375.9134,
+          "y": 631.4741,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 176.6007,
+          "y": 174.162,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 442.9215,
+          "y": 882.0653,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 235.0864,
+          "y": 1102.6994,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 150.4249,
+          "y": 13.992,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 363.6022,
+          "y": 751.4327,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 387.6529,
+          "y": 523.9212,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 515.207,
+          "y": 380.9544,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 316.9554,
+          "y": 290.9836,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 11,
+      "position_id": 2,
+      "wave_number": 43174,
+      "operator": "Operator_2",
+      "item_id": "PP9DNA",
+      "reference": "PP9DNA",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "P-02-11",
+      "resource": "Item_PP9DNA_P_02_11",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 666.0,
+        "y": 1408.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA5",
+      "selected_forklift": "ForkliftA1",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA5",
+        "ForkliftA1"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 528.1051,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 374.9053,
+          "y": 1310.424,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 375.9134,
+          "y": 631.4741,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 176.6007,
+          "y": 174.162,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 442.9215,
+          "y": 882.0653,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 235.0864,
+          "y": 1102.6994,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 150.4249,
+          "y": 13.992,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 363.6022,
+          "y": 751.4327,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 387.6529,
+          "y": 523.9212,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 515.207,
+          "y": 380.9544,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 316.9554,
+          "y": 290.9836,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 12,
+      "position_id": 3,
+      "wave_number": 34974,
+      "operator": "Operator_19",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA3",
+      "selected_forklift": "ForkliftA2",
+      "selected_drone": "DroneA4",
+      "delegation_chain": [
+        "RobotA3",
+        "ForkliftA2",
+        "DroneA4"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 182.2769,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 424.7679,
+          "y": 300.1551,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 265.659,
+          "y": 944.5762,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 566.1419,
+          "y": 960.2769,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 161.2104,
+          "y": 536.1426,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 278.2439,
+          "y": 688.4674,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 616.4108,
+          "y": 962.8055,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 336.9203,
+          "y": 1028.6168,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 554.5084,
+          "y": 109.6241,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 445.8422,
+          "y": 445.9578,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 308.3389,
+          "y": 1030.9683,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 13,
+      "position_id": 3,
+      "wave_number": 33188,
+      "operator": "Operator_17",
+      "item_id": "XUZJ74",
+      "reference": "XUZJ74",
+      "size_us": 9.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-15-22",
+      "resource": "Item_XUZJ74_L_15_22",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 302.0,
+        "y": 900.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA2",
+      "selected_forklift": "ForkliftA3",
+      "selected_drone": "DroneA5",
+      "delegation_chain": [
+        "RobotA2",
+        "ForkliftA3",
+        "DroneA5"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 57.5127,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 424.7679,
+          "y": 300.1551,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 265.659,
+          "y": 944.5762,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 566.1419,
+          "y": 960.2769,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 161.2104,
+          "y": 536.1426,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 278.2439,
+          "y": 688.4674,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 616.4108,
+          "y": 962.8055,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 336.9203,
+          "y": 1028.6168,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 554.5084,
+          "y": 109.6241,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 445.8422,
+          "y": 445.9578,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 308.3389,
+          "y": 1030.9683,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 14,
+      "position_id": 3,
+      "wave_number": 42647,
+      "operator": "Operator_2",
+      "item_id": "Q164T6",
+      "reference": "Q164T6",
+      "size_us": 11.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-01-13",
+      "resource": "Item_Q164T6_M_01_13",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 634.0,
+        "y": 1080.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB1",
+      "selected_forklift": "ForkliftB2",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB1",
+        "ForkliftB2"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 118.5071,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 424.7679,
+          "y": 300.1551,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 265.659,
+          "y": 944.5762,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 566.1419,
+          "y": 960.2769,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 161.2104,
+          "y": 536.1426,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 278.2439,
+          "y": 688.4674,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 616.4108,
+          "y": 962.8055,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 336.9203,
+          "y": 1028.6168,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 554.5084,
+          "y": 109.6241,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 445.8422,
+          "y": 445.9578,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 308.3389,
+          "y": 1030.9683,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 15,
+      "position_id": 3,
+      "wave_number": 33283,
+      "operator": "Operator_17",
+      "item_id": "SMMRK3",
+      "reference": "SMMRK3",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-18-13",
+      "resource": "Item_SMMRK3_L_18_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 236.0,
+        "y": 958.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB5",
+      "selected_forklift": "ForkliftB3",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB5",
+        "ForkliftB3"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 102.7487,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 424.7679,
+          "y": 300.1551,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 265.659,
+          "y": 944.5762,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 566.1419,
+          "y": 960.2769,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 161.2104,
+          "y": 536.1426,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 278.2439,
+          "y": 688.4674,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 616.4108,
+          "y": 962.8055,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 336.9203,
+          "y": 1028.6168,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 554.5084,
+          "y": 109.6241,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 445.8422,
+          "y": 445.9578,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 308.3389,
+          "y": 1030.9683,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 16,
+      "position_id": 4,
+      "wave_number": 40714,
+      "operator": "Operator_2",
+      "item_id": "I1X92B",
+      "reference": "I1X92B",
+      "size_us": 4.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-08-21",
+      "resource": "Item_I1X92B_L_08_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 516.0,
+        "y": 1048.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB5",
+      "selected_forklift": "ForkliftB4",
+      "selected_drone": "DroneB3",
+      "delegation_chain": [
+        "RobotB5",
+        "ForkliftB4",
+        "DroneB3"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 251.7445,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 201.0125,
+          "y": 407.4196,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 652.4996,
+          "y": 343.8028,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 618.6782,
+          "y": 1428.0978,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 146.376,
+          "y": 250.0669,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 536.2085,
+          "y": 1403.705,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 158.4061,
+          "y": 47.3082,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 309.1867,
+          "y": 708.1767,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 173.711,
+          "y": 460.1796,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 307.5927,
+          "y": 1220.5735,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 397.2789,
+          "y": 826.0077,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 17,
+      "position_id": 4,
+      "wave_number": 34182,
+      "operator": "Operator_17",
+      "item_id": "SMMRK3",
+      "reference": "SMMRK3",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-18-13",
+      "resource": "Item_SMMRK3_L_18_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 236.0,
+        "y": 958.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB2",
+      "selected_forklift": "ForkliftB5",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB2",
+        "ForkliftB5"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 260.3228,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 201.0125,
+          "y": 407.4196,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 652.4996,
+          "y": 343.8028,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 618.6782,
+          "y": 1428.0978,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 146.376,
+          "y": 250.0669,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 536.2085,
+          "y": 1403.705,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 158.4061,
+          "y": 47.3082,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 309.1867,
+          "y": 708.1767,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 173.711,
+          "y": 460.1796,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 307.5927,
+          "y": 1220.5735,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 397.2789,
+          "y": 826.0077,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 18,
+      "position_id": 4,
+      "wave_number": 34465,
+      "operator": "Operator_4",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA2",
+      "selected_forklift": "ForkliftA4",
+      "selected_drone": "DroneA1",
+      "delegation_chain": [
+        "RobotA2",
+        "ForkliftA4",
+        "DroneA1"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 442.7295,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 201.0125,
+          "y": 407.4196,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 652.4996,
+          "y": 343.8028,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 618.6782,
+          "y": 1428.0978,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 146.376,
+          "y": 250.0669,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 536.2085,
+          "y": 1403.705,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 158.4061,
+          "y": 47.3082,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 309.1867,
+          "y": 708.1767,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 173.711,
+          "y": 460.1796,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 307.5927,
+          "y": 1220.5735,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 397.2789,
+          "y": 826.0077,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 19,
+      "position_id": 4,
+      "wave_number": 41776,
+      "operator": "Operator_4",
+      "item_id": "PY5UPB",
+      "reference": "PY5UPB",
+      "size_us": 240.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-01-13",
+      "resource": "Item_PY5UPB_L_01_13",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 634.0,
+        "y": 990.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB4",
+      "selected_forklift": "ForkliftB1",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB4",
+        "ForkliftB1"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 399.6321,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 201.0125,
+          "y": 407.4196,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 652.4996,
+          "y": 343.8028,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 618.6782,
+          "y": 1428.0978,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 146.376,
+          "y": 250.0669,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 536.2085,
+          "y": 1403.705,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 158.4061,
+          "y": 47.3082,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 309.1867,
+          "y": 708.1767,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 173.711,
+          "y": 460.1796,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 307.5927,
+          "y": 1220.5735,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 397.2789,
+          "y": 826.0077,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 20,
+      "position_id": 5,
+      "wave_number": 41776,
+      "operator": "Operator_4",
+      "item_id": "PY5UPB",
+      "reference": "PY5UPB",
+      "size_us": 240.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-01-13",
+      "resource": "Item_PY5UPB_L_01_13",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 634.0,
+        "y": 990.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB2",
+      "selected_forklift": "ForkliftB2",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB2",
+        "ForkliftB2"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 118.0177,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 596.4234,
+          "y": 501.7168,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 484.4826,
+          "y": 191.3483,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 408.4931,
+          "y": 1380.7255,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 547.6759,
+          "y": 1086.4648,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 176.6285,
+          "y": 128.2674,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 446.2782,
+          "y": 229.3421,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 630.882,
+          "y": 1107.9765,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 487.5084,
+          "y": 1116.0572,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 90.3084,
+          "y": 584.2503,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 414.2988,
+          "y": 900.5875,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 21,
+      "position_id": 5,
+      "wave_number": 40316,
+      "operator": "Operator_16",
+      "item_id": "I2B1FH",
+      "reference": "I2B1FH",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-19-21",
+      "resource": "Item_I2B1FH_M_19_21",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 218.0,
+        "y": 990.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB5",
+      "selected_forklift": "ForkliftB3",
+      "selected_drone": "DroneB4",
+      "delegation_chain": [
+        "RobotB5",
+        "ForkliftB3",
+        "DroneB4"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 215.703,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 596.4234,
+          "y": 501.7168,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 484.4826,
+          "y": 191.3483,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 408.4931,
+          "y": 1380.7255,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 547.6759,
+          "y": 1086.4648,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 176.6285,
+          "y": 128.2674,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 446.2782,
+          "y": 229.3421,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 630.882,
+          "y": 1107.9765,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 487.5084,
+          "y": 1116.0572,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 90.3084,
+          "y": 584.2503,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 414.2988,
+          "y": 900.5875,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 22,
+      "position_id": 5,
+      "wave_number": 33840,
+      "operator": "Operator_8",
+      "item_id": "7BU1V7",
+      "reference": "7BU1V7",
+      "size_us": 11.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-10-23",
+      "resource": "Item_7BU1V7_I_10_23",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 434.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA1",
+      "selected_forklift": "ForkliftA5",
+      "selected_drone": "DroneA2",
+      "delegation_chain": [
+        "RobotA1",
+        "ForkliftA5",
+        "DroneA2"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 320.4899,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 596.4234,
+          "y": 501.7168,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 484.4826,
+          "y": 191.3483,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 408.4931,
+          "y": 1380.7255,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 547.6759,
+          "y": 1086.4648,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 176.6285,
+          "y": 128.2674,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 446.2782,
+          "y": 229.3421,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 630.882,
+          "y": 1107.9765,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 487.5084,
+          "y": 1116.0572,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 90.3084,
+          "y": 584.2503,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 414.2988,
+          "y": 900.5875,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 23,
+      "position_id": 5,
+      "wave_number": 38458,
+      "operator": "Operator_3",
+      "item_id": "SY1DDY",
+      "reference": "SY1DDY",
+      "size_us": 9.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "P-21-11",
+      "resource": "Item_SY1DDY_P_21_11",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 168.0,
+        "y": 1260.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA3",
+      "selected_forklift": "ForkliftA1",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA3",
+        "ForkliftA1"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 269.094,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 596.4234,
+          "y": 501.7168,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 484.4826,
+          "y": 191.3483,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 408.4931,
+          "y": 1380.7255,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 547.6759,
+          "y": 1086.4648,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 176.6285,
+          "y": 128.2674,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 446.2782,
+          "y": 229.3421,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 630.882,
+          "y": 1107.9765,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 487.5084,
+          "y": 1116.0572,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 90.3084,
+          "y": 584.2503,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 414.2988,
+          "y": 900.5875,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 24,
+      "position_id": 6,
+      "wave_number": 33385,
+      "operator": "Operator_19",
+      "item_id": "SMMRK3",
+      "reference": "SMMRK3",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-18-13",
+      "resource": "Item_SMMRK3_L_18_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 236.0,
+        "y": 958.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA1",
+      "selected_forklift": "ForkliftA2",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA1",
+        "ForkliftA2"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 151.0348,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 122.8426,
+          "y": 857.9655,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 395.257,
+          "y": 953.7452,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 404.5832,
+          "y": 641.0401,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 545.1059,
+          "y": 1092.4909,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 635.0375,
+          "y": 908.1254,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 572.4612,
+          "y": 165.1978,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 244.1685,
+          "y": 59.2906,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 94.6887,
+          "y": 276.1396,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 632.1641,
+          "y": 44.6998,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 388.2804,
+          "y": 577.103,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 25,
+      "position_id": 6,
+      "wave_number": 40357,
+      "operator": "Operator_15",
+      "item_id": "PP9DNA",
+      "reference": "PP9DNA",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "Q-05-21",
+      "resource": "Item_PP9DNA_Q_05_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 1440.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA4",
+      "selected_forklift": "ForkliftA3",
+      "selected_drone": "DroneA3",
+      "delegation_chain": [
+        "RobotA4",
+        "ForkliftA3",
+        "DroneA3"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 348.1367,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 122.8426,
+          "y": 857.9655,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 395.257,
+          "y": 953.7452,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 404.5832,
+          "y": 641.0401,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 545.1059,
+          "y": 1092.4909,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 635.0375,
+          "y": 908.1254,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 572.4612,
+          "y": 165.1978,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 244.1685,
+          "y": 59.2906,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 94.6887,
+          "y": 276.1396,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 632.1641,
+          "y": 44.6998,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 388.2804,
+          "y": 577.103,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 26,
+      "position_id": 6,
+      "wave_number": 38464,
+      "operator": "Operator_6",
+      "item_id": "SY1DDY",
+      "reference": "SY1DDY",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "P-21-11",
+      "resource": "Item_SY1DDY_P_21_11",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 168.0,
+        "y": 1260.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA2",
+      "selected_forklift": "ForkliftA4",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA2",
+        "ForkliftA4"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 381.363,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 122.8426,
+          "y": 857.9655,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 395.257,
+          "y": 953.7452,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 404.5832,
+          "y": 641.0401,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 545.1059,
+          "y": 1092.4909,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 635.0375,
+          "y": 908.1254,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 572.4612,
+          "y": 165.1978,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 244.1685,
+          "y": 59.2906,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 94.6887,
+          "y": 276.1396,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 632.1641,
+          "y": 44.6998,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 388.2804,
+          "y": 577.103,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 27,
+      "position_id": 6,
+      "wave_number": 36031,
+      "operator": "Operator_2",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA5",
+      "selected_forklift": "ForkliftA5",
+      "selected_drone": "DroneA4",
+      "delegation_chain": [
+        "RobotA5",
+        "ForkliftA5",
+        "DroneA4"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 147.3051,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 122.8426,
+          "y": 857.9655,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 395.257,
+          "y": 953.7452,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 404.5832,
+          "y": 641.0401,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 545.1059,
+          "y": 1092.4909,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 635.0375,
+          "y": 908.1254,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 572.4612,
+          "y": 165.1978,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 244.1685,
+          "y": 59.2906,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 94.6887,
+          "y": 276.1396,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 632.1641,
+          "y": 44.6998,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 388.2804,
+          "y": 577.103,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 28,
+      "position_id": 7,
+      "wave_number": 36031,
+      "operator": "Operator_2",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA3",
+      "selected_forklift": "ForkliftA1",
+      "selected_drone": "DroneA5",
+      "delegation_chain": [
+        "RobotA3",
+        "ForkliftA1",
+        "DroneA5"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 164.3911,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 595.0073,
+          "y": 1315.3819,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 485.6367,
+          "y": 1289.2657,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 456.3863,
+          "y": 900.5123,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 350.4121,
+          "y": 207.8907,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 553.4782,
+          "y": 1148.6764,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 526.8662,
+          "y": 1002.5101,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 127.3556,
+          "y": 550.485,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 414.1621,
+          "y": 1296.0867,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 99.6919,
+          "y": 530.7372,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 543.7076,
+          "y": 586.7208,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 29,
+      "position_id": 7,
+      "wave_number": 35093,
+      "operator": "Operator_20",
+      "item_id": "I1X92B",
+      "reference": "I1X92B",
+      "size_us": 5.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-08-21",
+      "resource": "Item_I1X92B_L_08_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 516.0,
+        "y": 1048.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB1",
+      "selected_forklift": "ForkliftB4",
+      "selected_drone": "DroneB5",
+      "delegation_chain": [
+        "RobotB1",
+        "ForkliftB4",
+        "DroneB5"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 46.7697,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 595.0073,
+          "y": 1315.3819,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 485.6367,
+          "y": 1289.2657,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 456.3863,
+          "y": 900.5123,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 350.4121,
+          "y": 207.8907,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 553.4782,
+          "y": 1148.6764,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 526.8662,
+          "y": 1002.5101,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 127.3556,
+          "y": 550.485,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 414.1621,
+          "y": 1296.0867,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 99.6919,
+          "y": 530.7372,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 543.7076,
+          "y": 586.7208,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 30,
+      "position_id": 7,
+      "wave_number": 40573,
+      "operator": "Operator_2",
+      "item_id": "AB9XBU",
+      "reference": "AB9XBU",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "N-02-11",
+      "resource": "Item_AB9XBU_N_02_11",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 666.0,
+        "y": 1228.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA1",
+      "selected_forklift": "ForkliftA2",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA1",
+        "ForkliftA2"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 112.5858,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 595.0073,
+          "y": 1315.3819,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 485.6367,
+          "y": 1289.2657,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 456.3863,
+          "y": 900.5123,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 350.4121,
+          "y": 207.8907,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 553.4782,
+          "y": 1148.6764,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 526.8662,
+          "y": 1002.5101,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 127.3556,
+          "y": 550.485,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 414.1621,
+          "y": 1296.0867,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 99.6919,
+          "y": 530.7372,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 543.7076,
+          "y": 586.7208,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 31,
+      "position_id": 7,
+      "wave_number": 33216,
+      "operator": "Operator_19",
+      "item_id": "SMMRK3",
+      "reference": "SMMRK3",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-18-13",
+      "resource": "Item_SMMRK3_L_18_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 236.0,
+        "y": 958.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA5",
+      "selected_forklift": "ForkliftA3",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA5",
+        "ForkliftA3"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 370.3375,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 595.0073,
+          "y": 1315.3819,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 485.6367,
+          "y": 1289.2657,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 456.3863,
+          "y": 900.5123,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 350.4121,
+          "y": 207.8907,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 553.4782,
+          "y": 1148.6764,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 526.8662,
+          "y": 1002.5101,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 127.3556,
+          "y": 550.485,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 414.1621,
+          "y": 1296.0867,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 99.6919,
+          "y": 530.7372,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 543.7076,
+          "y": 586.7208,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 32,
+      "position_id": 8,
+      "wave_number": 42661,
+      "operator": "Operator_8",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB2",
+      "selected_forklift": "ForkliftB5",
+      "selected_drone": "DroneB1",
+      "delegation_chain": [
+        "RobotB2",
+        "ForkliftB5",
+        "DroneB1"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 36.0628,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 317.1796,
+          "y": 37.3139,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 189.7203,
+          "y": 574.3648,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 239.1921,
+          "y": 677.7205,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 536.8554,
+          "y": 238.7059,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 472.8548,
+          "y": 545.9582,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 372.8081,
+          "y": 738.2435,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 596.6725,
+          "y": 796.9663,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 627.682,
+          "y": 1325.159,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 586.4252,
+          "y": 1279.4724,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 339.9267,
+          "y": 843.6507,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 33,
+      "position_id": 8,
+      "wave_number": 40787,
+      "operator": "Operator_15",
+      "item_id": "PP9DNA",
+      "reference": "PP9DNA",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "Q-05-21",
+      "resource": "Item_PP9DNA_Q_05_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 1440.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB3",
+      "selected_forklift": "ForkliftB1",
+      "selected_drone": "DroneB2",
+      "delegation_chain": [
+        "RobotB3",
+        "ForkliftB1",
+        "DroneB2"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 130.3577,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 317.1796,
+          "y": 37.3139,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 189.7203,
+          "y": 574.3648,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 239.1921,
+          "y": 677.7205,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 536.8554,
+          "y": 238.7059,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 472.8548,
+          "y": 545.9582,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 372.8081,
+          "y": 738.2435,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 596.6725,
+          "y": 796.9663,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 627.682,
+          "y": 1325.159,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 586.4252,
+          "y": 1279.4724,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 339.9267,
+          "y": 843.6507,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 34,
+      "position_id": 8,
+      "wave_number": 41777,
+      "operator": "Operator_4",
+      "item_id": "PY5UPB",
+      "reference": "PY5UPB",
+      "size_us": 240.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-01-13",
+      "resource": "Item_PY5UPB_L_01_13",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 634.0,
+        "y": 990.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB4",
+      "selected_forklift": "ForkliftB2",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB4",
+        "ForkliftB2"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 293.3558,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 317.1796,
+          "y": 37.3139,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 189.7203,
+          "y": 574.3648,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 239.1921,
+          "y": 677.7205,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 536.8554,
+          "y": 238.7059,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 472.8548,
+          "y": 545.9582,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 372.8081,
+          "y": 738.2435,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 596.6725,
+          "y": 796.9663,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 627.682,
+          "y": 1325.159,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 586.4252,
+          "y": 1279.4724,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 339.9267,
+          "y": 843.6507,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 35,
+      "position_id": 8,
+      "wave_number": 37577,
+      "operator": "Operator_14",
+      "item_id": "F7LULH",
+      "reference": "F7LULH",
+      "size_us": 7.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-07-22",
+      "resource": "Item_F7LULH_M_07_22",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 500.0,
+        "y": 1080.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB5",
+      "selected_forklift": "ForkliftB3",
+      "selected_drone": "DroneB3",
+      "delegation_chain": [
+        "RobotB5",
+        "ForkliftB3",
+        "DroneB3"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 285.4548,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 317.1796,
+          "y": 37.3139,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 189.7203,
+          "y": 574.3648,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 239.1921,
+          "y": 677.7205,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 536.8554,
+          "y": 238.7059,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 472.8548,
+          "y": 545.9582,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 372.8081,
+          "y": 738.2435,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 596.6725,
+          "y": 796.9663,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 627.682,
+          "y": 1325.159,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 586.4252,
+          "y": 1279.4724,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 339.9267,
+          "y": 843.6507,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 36,
+      "position_id": 9,
+      "wave_number": 40808,
+      "operator": "Operator_1",
+      "item_id": "5P2MVG",
+      "reference": "5P2MVG",
+      "size_us": 12.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "R-15-23",
+      "resource": "Item_5P2MVG_R_15_23",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 286.0,
+        "y": 1440.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA2",
+      "selected_forklift": "ForkliftA4",
+      "selected_drone": "DroneA1",
+      "delegation_chain": [
+        "RobotA2",
+        "ForkliftA4",
+        "DroneA1"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 156.4453,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 195.7776,
+          "y": 114.4722,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 412.5717,
+          "y": 1348.0504,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 460.6298,
+          "y": 475.3708,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 639.3633,
+          "y": 511.8667,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 153.1635,
+          "y": 9.8058,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 189.8641,
+          "y": 742.0655,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 660.531,
+          "y": 1253.7338,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 285.2969,
+          "y": 493.3542,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 293.6291,
+          "y": 722.0033,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 142.0143,
+          "y": 1301.8099,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 37,
+      "position_id": 9,
+      "wave_number": 41139,
+      "operator": "Operator_1",
+      "item_id": "I2B1FH",
+      "reference": "I2B1FH",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-19-21",
+      "resource": "Item_I2B1FH_M_19_21",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 218.0,
+        "y": 990.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB1",
+      "selected_forklift": "ForkliftB4",
+      "selected_drone": "DroneB4",
+      "delegation_chain": [
+        "RobotB1",
+        "ForkliftB4",
+        "DroneB4"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 249.5258,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 195.7776,
+          "y": 114.4722,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 412.5717,
+          "y": 1348.0504,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 460.6298,
+          "y": 475.3708,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 639.3633,
+          "y": 511.8667,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 153.1635,
+          "y": 9.8058,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 189.8641,
+          "y": 742.0655,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 660.531,
+          "y": 1253.7338,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 285.2969,
+          "y": 493.3542,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 293.6291,
+          "y": 722.0033,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 142.0143,
+          "y": 1301.8099,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 38,
+      "position_id": 9,
+      "wave_number": 33662,
+      "operator": "Operator_17",
+      "item_id": "SMMRK3",
+      "reference": "SMMRK3",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-18-13",
+      "resource": "Item_SMMRK3_L_18_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 236.0,
+        "y": 958.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB4",
+      "selected_forklift": "ForkliftB5",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB4",
+        "ForkliftB5"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 242.9311,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 195.7776,
+          "y": 114.4722,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 412.5717,
+          "y": 1348.0504,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 460.6298,
+          "y": 475.3708,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 639.3633,
+          "y": 511.8667,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 153.1635,
+          "y": 9.8058,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 189.8641,
+          "y": 742.0655,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 660.531,
+          "y": 1253.7338,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 285.2969,
+          "y": 493.3542,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 293.6291,
+          "y": 722.0033,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 142.0143,
+          "y": 1301.8099,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 39,
+      "position_id": 9,
+      "wave_number": 38464,
+      "operator": "Operator_6",
+      "item_id": "SY1DDY",
+      "reference": "SY1DDY",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "P-21-11",
+      "resource": "Item_SY1DDY_P_21_11",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 168.0,
+        "y": 1260.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB5",
+      "selected_forklift": "ForkliftB1",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB5",
+        "ForkliftB1"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 49.2273,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 195.7776,
+          "y": 114.4722,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 412.5717,
+          "y": 1348.0504,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 460.6298,
+          "y": 475.3708,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 639.3633,
+          "y": 511.8667,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 153.1635,
+          "y": 9.8058,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 189.8641,
+          "y": 742.0655,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 660.531,
+          "y": 1253.7338,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 285.2969,
+          "y": 493.3542,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 293.6291,
+          "y": 722.0033,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 142.0143,
+          "y": 1301.8099,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 40,
+      "position_id": 10,
+      "wave_number": 42813,
+      "operator": "Operator_8",
+      "item_id": "LXJQVG",
+      "reference": "LXJQVG",
+      "size_us": 15.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "J-24-13",
+      "resource": "Item_LXJQVG_J_24_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 86.0,
+        "y": 778.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA5",
+      "selected_forklift": "ForkliftA5",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA5",
+        "ForkliftA5"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 374.6999,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 656.631,
+          "y": 488.8209,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 602.8115,
+          "y": 1076.2278,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 577.2587,
+          "y": 1027.9289,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 633.2519,
+          "y": 900.356,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 411.9676,
+          "y": 962.784,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 101.8166,
+          "y": 348.8109,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 500.9904,
+          "y": 118.3917,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 465.6575,
+          "y": 243.3226,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 632.7529,
+          "y": 485.5222,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 601.5921,
+          "y": 774.9754,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 41,
+      "position_id": 10,
+      "wave_number": 41924,
+      "operator": "Operator_8",
+      "item_id": "Q164T6",
+      "reference": "Q164T6",
+      "size_us": 11.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-01-13",
+      "resource": "Item_Q164T6_M_01_13",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 634.0,
+        "y": 1080.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA2",
+      "selected_forklift": "ForkliftA1",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA2",
+        "ForkliftA1"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 31.4158,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 656.631,
+          "y": 488.8209,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 602.8115,
+          "y": 1076.2278,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 577.2587,
+          "y": 1027.9289,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 633.2519,
+          "y": 900.356,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 411.9676,
+          "y": 962.784,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 101.8166,
+          "y": 348.8109,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 500.9904,
+          "y": 118.3917,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 465.6575,
+          "y": 243.3226,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 632.7529,
+          "y": 485.5222,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 601.5921,
+          "y": 774.9754,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 42,
+      "position_id": 10,
+      "wave_number": 41139,
+      "operator": "Operator_1",
+      "item_id": "I2B1FH",
+      "reference": "I2B1FH",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-19-21",
+      "resource": "Item_I2B1FH_M_19_21",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 218.0,
+        "y": 990.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA3",
+      "selected_forklift": "ForkliftA2",
+      "selected_drone": "DroneA2",
+      "delegation_chain": [
+        "RobotA3",
+        "ForkliftA2",
+        "DroneA2"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 361.2554,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 656.631,
+          "y": 488.8209,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 602.8115,
+          "y": 1076.2278,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 577.2587,
+          "y": 1027.9289,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 633.2519,
+          "y": 900.356,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 411.9676,
+          "y": 962.784,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 101.8166,
+          "y": 348.8109,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 500.9904,
+          "y": 118.3917,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 465.6575,
+          "y": 243.3226,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 632.7529,
+          "y": 485.5222,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 601.5921,
+          "y": 774.9754,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 43,
+      "position_id": 10,
+      "wave_number": 37578,
+      "operator": "Operator_14",
+      "item_id": "F7LULH",
+      "reference": "F7LULH",
+      "size_us": 7.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-07-22",
+      "resource": "Item_F7LULH_M_07_22",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 500.0,
+        "y": 1080.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA4",
+      "selected_forklift": "ForkliftA3",
+      "selected_drone": "DroneA3",
+      "delegation_chain": [
+        "RobotA4",
+        "ForkliftA3",
+        "DroneA3"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 223.6695,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 656.631,
+          "y": 488.8209,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 602.8115,
+          "y": 1076.2278,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 577.2587,
+          "y": 1027.9289,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 633.2519,
+          "y": 900.356,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 411.9676,
+          "y": 962.784,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 101.8166,
+          "y": 348.8109,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 500.9904,
+          "y": 118.3917,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 465.6575,
+          "y": 243.3226,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 632.7529,
+          "y": 485.5222,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 601.5921,
+          "y": 774.9754,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 44,
+      "position_id": 11,
+      "wave_number": 42647,
+      "operator": "Operator_2",
+      "item_id": "Q164T6",
+      "reference": "Q164T6",
+      "size_us": 11.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-01-13",
+      "resource": "Item_Q164T6_M_01_13",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 634.0,
+        "y": 1080.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA5",
+      "selected_forklift": "ForkliftA4",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA5",
+        "ForkliftA4"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 259.6383,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 435.1081,
+          "y": 715.4626,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 650.5309,
+          "y": 436.8859,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 215.9548,
+          "y": 544.0263,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 118.1198,
+          "y": 1324.526,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 383.5713,
+          "y": 1011.4619,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 446.5182,
+          "y": 492.1008,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 396.4467,
+          "y": 837.72,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 241.0614,
+          "y": 831.3995,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 211.7895,
+          "y": 188.9621,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 273.2119,
+          "y": 16.8215,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 45,
+      "position_id": 11,
+      "wave_number": 36031,
+      "operator": "Operator_2",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA1",
+      "selected_forklift": "ForkliftA5",
+      "selected_drone": "DroneA4",
+      "delegation_chain": [
+        "RobotA1",
+        "ForkliftA5",
+        "DroneA4"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 145.0642,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 435.1081,
+          "y": 715.4626,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 650.5309,
+          "y": 436.8859,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 215.9548,
+          "y": 544.0263,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 118.1198,
+          "y": 1324.526,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 383.5713,
+          "y": 1011.4619,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 446.5182,
+          "y": 492.1008,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 396.4467,
+          "y": 837.72,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 241.0614,
+          "y": 831.3995,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 211.7895,
+          "y": 188.9621,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 273.2119,
+          "y": 16.8215,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 46,
+      "position_id": 11,
+      "wave_number": 43154,
+      "operator": "Operator_1",
+      "item_id": "PP9DNA",
+      "reference": "PP9DNA",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "P-02-11",
+      "resource": "Item_PP9DNA_P_02_11",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 666.0,
+        "y": 1408.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA4",
+      "selected_forklift": "ForkliftA1",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA4",
+        "ForkliftA1"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 554.2027,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 435.1081,
+          "y": 715.4626,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 650.5309,
+          "y": 436.8859,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 215.9548,
+          "y": 544.0263,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 118.1198,
+          "y": 1324.526,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 383.5713,
+          "y": 1011.4619,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 446.5182,
+          "y": 492.1008,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 396.4467,
+          "y": 837.72,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 241.0614,
+          "y": 831.3995,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 211.7895,
+          "y": 188.9621,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 273.2119,
+          "y": 16.8215,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 47,
+      "position_id": 11,
+      "wave_number": 35442,
+      "operator": "Operator_19",
+      "item_id": "I1X92B",
+      "reference": "I1X92B",
+      "size_us": 5.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-08-21",
+      "resource": "Item_I1X92B_L_08_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 516.0,
+        "y": 1048.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB2",
+      "selected_forklift": "ForkliftB2",
+      "selected_drone": "DroneB5",
+      "delegation_chain": [
+        "RobotB2",
+        "ForkliftB2",
+        "DroneB5"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 241.8897,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 435.1081,
+          "y": 715.4626,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 650.5309,
+          "y": 436.8859,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 215.9548,
+          "y": 544.0263,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 118.1198,
+          "y": 1324.526,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 383.5713,
+          "y": 1011.4619,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 446.5182,
+          "y": 492.1008,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 396.4467,
+          "y": 837.72,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 241.0614,
+          "y": 831.3995,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 211.7895,
+          "y": 188.9621,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 273.2119,
+          "y": 16.8215,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 48,
+      "position_id": 12,
+      "wave_number": 42323,
+      "operator": "Operator_2",
+      "item_id": "ULG3QT",
+      "reference": "ULG3QT",
+      "size_us": 6.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "O-07-11",
+      "resource": "Item_ULG3QT_O_07_11",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 516.0,
+        "y": 1260.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA4",
+      "selected_forklift": "ForkliftA2",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA4",
+        "ForkliftA2"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 209.816,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 260.9538,
+          "y": 323.959,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 633.7743,
+          "y": 659.9896,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 248.4663,
+          "y": 908.381,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 585.443,
+          "y": 1062.0091,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 492.1344,
+          "y": 1025.4673,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 177.8134,
+          "y": 57.1136,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 177.1354,
+          "y": 605.9902,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 349.288,
+          "y": 271.8167,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 168.8246,
+          "y": 496.5164,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 316.1546,
+          "y": 639.5537,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 49,
+      "position_id": 12,
+      "wave_number": 37577,
+      "operator": "Operator_14",
+      "item_id": "F7LULH",
+      "reference": "F7LULH",
+      "size_us": 7.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-07-22",
+      "resource": "Item_F7LULH_M_07_22",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 500.0,
+        "y": 1080.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA5",
+      "selected_forklift": "ForkliftA3",
+      "selected_drone": "DroneA5",
+      "delegation_chain": [
+        "RobotA5",
+        "ForkliftA3",
+        "DroneA5"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 55.0971,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 260.9538,
+          "y": 323.959,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 633.7743,
+          "y": 659.9896,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 248.4663,
+          "y": 908.381,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 585.443,
+          "y": 1062.0091,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 492.1344,
+          "y": 1025.4673,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 177.8134,
+          "y": 57.1136,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 177.1354,
+          "y": 605.9902,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 349.288,
+          "y": 271.8167,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 168.8246,
+          "y": 496.5164,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 316.1546,
+          "y": 639.5537,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 50,
+      "position_id": 12,
+      "wave_number": 35989,
+      "operator": "Operator_14",
+      "item_id": "AB9XBU",
+      "reference": "AB9XBU",
+      "size_us": 12.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "N-02-11",
+      "resource": "Item_AB9XBU_N_02_11",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 666.0,
+        "y": 1228.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA3",
+      "selected_forklift": "ForkliftA4",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA3",
+        "ForkliftA4"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 525.8239,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 260.9538,
+          "y": 323.959,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 633.7743,
+          "y": 659.9896,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 248.4663,
+          "y": 908.381,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 585.443,
+          "y": 1062.0091,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 492.1344,
+          "y": 1025.4673,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 177.8134,
+          "y": 57.1136,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 177.1354,
+          "y": 605.9902,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 349.288,
+          "y": 271.8167,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 168.8246,
+          "y": 496.5164,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 316.1546,
+          "y": 639.5537,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 51,
+      "position_id": 12,
+      "wave_number": 34369,
+      "operator": "Operator_4",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA2",
+      "selected_forklift": "ForkliftA5",
+      "selected_drone": "DroneA1",
+      "delegation_chain": [
+        "RobotA2",
+        "ForkliftA5",
+        "DroneA1"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 136.0875,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 260.9538,
+          "y": 323.959,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 633.7743,
+          "y": 659.9896,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 248.4663,
+          "y": 908.381,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 585.443,
+          "y": 1062.0091,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 492.1344,
+          "y": 1025.4673,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 177.8134,
+          "y": 57.1136,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 177.1354,
+          "y": 605.9902,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 349.288,
+          "y": 271.8167,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 168.8246,
+          "y": 496.5164,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 316.1546,
+          "y": 639.5537,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 52,
+      "position_id": 13,
+      "wave_number": 34032,
+      "operator": "Operator_6",
+      "item_id": "SMMRK3",
+      "reference": "SMMRK3",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-18-13",
+      "resource": "Item_SMMRK3_L_18_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 236.0,
+        "y": 958.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA1",
+      "selected_forklift": "ForkliftA1",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA1",
+        "ForkliftA1"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 187.4072,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 382.1845,
+          "y": 840.7331,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 573.2374,
+          "y": 340.7503,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 532.2528,
+          "y": 867.6596,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 401.8903,
+          "y": 246.7507,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 467.0209,
+          "y": 748.4173,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 594.4817,
+          "y": 1332.2972,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 625.798,
+          "y": 847.898,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 195.7055,
+          "y": 110.8201,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 460.998,
+          "y": 668.8297,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 599.6567,
+          "y": 1043.9417,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 53,
+      "position_id": 13,
+      "wave_number": 41179,
+      "operator": "Operator_4",
+      "item_id": "ULG3QT",
+      "reference": "ULG3QT",
+      "size_us": 7.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "O-07-11",
+      "resource": "Item_ULG3QT_O_07_11",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 516.0,
+        "y": 1260.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB1",
+      "selected_forklift": "ForkliftB3",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB1",
+        "ForkliftB3"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 106.7064,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 382.1845,
+          "y": 840.7331,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 573.2374,
+          "y": 340.7503,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 532.2528,
+          "y": 867.6596,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 401.8903,
+          "y": 246.7507,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 467.0209,
+          "y": 748.4173,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 594.4817,
+          "y": 1332.2972,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 625.798,
+          "y": 847.898,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 195.7055,
+          "y": 110.8201,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 460.998,
+          "y": 668.8297,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 599.6567,
+          "y": 1043.9417,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 54,
+      "position_id": 13,
+      "wave_number": 35705,
+      "operator": "Operator_4",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB2",
+      "selected_forklift": "ForkliftB4",
+      "selected_drone": "DroneB1",
+      "delegation_chain": [
+        "RobotB2",
+        "ForkliftB4",
+        "DroneB1"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 91.9866,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 382.1845,
+          "y": 840.7331,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 573.2374,
+          "y": 340.7503,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 532.2528,
+          "y": 867.6596,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 401.8903,
+          "y": 246.7507,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 467.0209,
+          "y": 748.4173,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 594.4817,
+          "y": 1332.2972,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 625.798,
+          "y": 847.898,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 195.7055,
+          "y": 110.8201,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 460.998,
+          "y": 668.8297,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 599.6567,
+          "y": 1043.9417,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 55,
+      "position_id": 13,
+      "wave_number": 42667,
+      "operator": "Operator_5",
+      "item_id": "PP9DNA",
+      "reference": "PP9DNA",
+      "size_us": 12.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "Q-05-21",
+      "resource": "Item_PP9DNA_Q_05_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 1440.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB5",
+      "selected_forklift": "ForkliftB5",
+      "selected_drone": "DroneB2",
+      "delegation_chain": [
+        "RobotB5",
+        "ForkliftB5",
+        "DroneB2"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 397.4858,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 382.1845,
+          "y": 840.7331,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 573.2374,
+          "y": 340.7503,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 532.2528,
+          "y": 867.6596,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 401.8903,
+          "y": 246.7507,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 467.0209,
+          "y": 748.4173,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 594.4817,
+          "y": 1332.2972,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 625.798,
+          "y": 847.898,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 195.7055,
+          "y": 110.8201,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 460.998,
+          "y": 668.8297,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 599.6567,
+          "y": 1043.9417,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 56,
+      "position_id": 14,
+      "wave_number": 42746,
+      "operator": "Operator_5",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA4",
+      "selected_forklift": "ForkliftA2",
+      "selected_drone": "DroneA2",
+      "delegation_chain": [
+        "RobotA4",
+        "ForkliftA2",
+        "DroneA2"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 41.2109,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 106.4395,
+          "y": 1300.4876,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 235.5751,
+          "y": 598.2688,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 578.4865,
+          "y": 539.0508,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 546.531,
+          "y": 741.6779,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 657.2193,
+          "y": 388.8549,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 388.449,
+          "y": 1042.3758,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 552.6837,
+          "y": 1309.3172,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 355.1689,
+          "y": 325.617,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 179.9806,
+          "y": 777.6191,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 172.6433,
+          "y": 196.9142,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 57,
+      "position_id": 14,
+      "wave_number": 39363,
+      "operator": "Operator_17",
+      "item_id": "I1X92B",
+      "reference": "I1X92B",
+      "size_us": 11.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-02-13",
+      "resource": "Item_I1X92B_M_02_13",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 634.0,
+        "y": 1138.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB2",
+      "selected_forklift": "ForkliftB1",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB2",
+        "ForkliftB1"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 189.6363,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 106.4395,
+          "y": 1300.4876,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 235.5751,
+          "y": 598.2688,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 578.4865,
+          "y": 539.0508,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 546.531,
+          "y": 741.6779,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 657.2193,
+          "y": 388.8549,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 388.449,
+          "y": 1042.3758,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 552.6837,
+          "y": 1309.3172,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 355.1689,
+          "y": 325.617,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 179.9806,
+          "y": 777.6191,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 172.6433,
+          "y": 196.9142,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 58,
+      "position_id": 14,
+      "wave_number": 39927,
+      "operator": "Operator_14",
+      "item_id": "AB9XBU",
+      "reference": "AB9XBU",
+      "size_us": 7.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "N-02-11",
+      "resource": "Item_AB9XBU_N_02_11",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 666.0,
+        "y": 1228.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB1",
+      "selected_forklift": "ForkliftB2",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB1",
+        "ForkliftB2"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 333.9025,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 106.4395,
+          "y": 1300.4876,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 235.5751,
+          "y": 598.2688,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 578.4865,
+          "y": 539.0508,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 546.531,
+          "y": 741.6779,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 657.2193,
+          "y": 388.8549,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 388.449,
+          "y": 1042.3758,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 552.6837,
+          "y": 1309.3172,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 355.1689,
+          "y": 325.617,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 179.9806,
+          "y": 777.6191,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 172.6433,
+          "y": 196.9142,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 59,
+      "position_id": 14,
+      "wave_number": 33840,
+      "operator": "Operator_8",
+      "item_id": "7BU1V7",
+      "reference": "7BU1V7",
+      "size_us": 11.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-10-23",
+      "resource": "Item_7BU1V7_I_10_23",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 434.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB4",
+      "selected_forklift": "ForkliftB3",
+      "selected_drone": "DroneB3",
+      "delegation_chain": [
+        "RobotB4",
+        "ForkliftB3",
+        "DroneB3"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 254.0196,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 106.4395,
+          "y": 1300.4876,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 235.5751,
+          "y": 598.2688,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 578.4865,
+          "y": 539.0508,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 546.531,
+          "y": 741.6779,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 657.2193,
+          "y": 388.8549,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 388.449,
+          "y": 1042.3758,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 552.6837,
+          "y": 1309.3172,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 355.1689,
+          "y": 325.617,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 179.9806,
+          "y": 777.6191,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 172.6433,
+          "y": 196.9142,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 60,
+      "position_id": 15,
+      "wave_number": 42305,
+      "operator": "Operator_8",
+      "item_id": "ULG3QT",
+      "reference": "ULG3QT",
+      "size_us": 6.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "O-07-11",
+      "resource": "Item_ULG3QT_O_07_11",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 516.0,
+        "y": 1260.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA3",
+      "selected_forklift": "ForkliftA3",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA3",
+        "ForkliftA3"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 147.4374,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 634.2786,
+          "y": 759.0348,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 608.372,
+          "y": 643.8457,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 532.1482,
+          "y": 1113.4496,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 96.3927,
+          "y": 1344.5026,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 545.659,
+          "y": 868.1933,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 295.5811,
+          "y": 1049.1817,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 127.4026,
+          "y": 232.285,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 282.9435,
+          "y": 63.1981,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 150.0613,
+          "y": 964.0582,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 278.2447,
+          "y": 1067.6809,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 61,
+      "position_id": 15,
+      "wave_number": 38740,
+      "operator": "Operator_5",
+      "item_id": "HI2X6U",
+      "reference": "HI2X6U",
+      "size_us": 9.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "P-23-11",
+      "resource": "Item_HI2X6U_P_23_11",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 118.0,
+        "y": 1260.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA4",
+      "selected_forklift": "ForkliftA4",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA4",
+        "ForkliftA4"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 87.2213,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 634.2786,
+          "y": 759.0348,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 608.372,
+          "y": 643.8457,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 532.1482,
+          "y": 1113.4496,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 96.3927,
+          "y": 1344.5026,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 545.659,
+          "y": 868.1933,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 295.5811,
+          "y": 1049.1817,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 127.4026,
+          "y": 232.285,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 282.9435,
+          "y": 63.1981,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 150.0613,
+          "y": 964.0582,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 278.2447,
+          "y": 1067.6809,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 62,
+      "position_id": 15,
+      "wave_number": 38458,
+      "operator": "Operator_3",
+      "item_id": "SY1DDY",
+      "reference": "SY1DDY",
+      "size_us": 9.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "P-21-11",
+      "resource": "Item_SY1DDY_P_21_11",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 168.0,
+        "y": 1260.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB5",
+      "selected_forklift": "ForkliftB4",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB5",
+        "ForkliftB4"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 221.6767,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 634.2786,
+          "y": 759.0348,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 608.372,
+          "y": 643.8457,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 532.1482,
+          "y": 1113.4496,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 96.3927,
+          "y": 1344.5026,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 545.659,
+          "y": 868.1933,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 295.5811,
+          "y": 1049.1817,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 127.4026,
+          "y": 232.285,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 282.9435,
+          "y": 63.1981,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 150.0613,
+          "y": 964.0582,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 278.2447,
+          "y": 1067.6809,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 63,
+      "position_id": 15,
+      "wave_number": 33578,
+      "operator": "Operator_19",
+      "item_id": "SMMRK3",
+      "reference": "SMMRK3",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-18-13",
+      "resource": "Item_SMMRK3_L_18_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 236.0,
+        "y": 958.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB4",
+      "selected_forklift": "ForkliftB5",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB4",
+        "ForkliftB5"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 86.1519,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 634.2786,
+          "y": 759.0348,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 608.372,
+          "y": 643.8457,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 532.1482,
+          "y": 1113.4496,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 96.3927,
+          "y": 1344.5026,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 545.659,
+          "y": 868.1933,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 295.5811,
+          "y": 1049.1817,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 127.4026,
+          "y": 232.285,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 282.9435,
+          "y": 63.1981,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 150.0613,
+          "y": 964.0582,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 278.2447,
+          "y": 1067.6809,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 64,
+      "position_id": 16,
+      "wave_number": 42661,
+      "operator": "Operator_8",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB1",
+      "selected_forklift": "ForkliftB1",
+      "selected_drone": "DroneB4",
+      "delegation_chain": [
+        "RobotB1",
+        "ForkliftB1",
+        "DroneB4"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 141.7773,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 512.8303,
+          "y": 1105.3494,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 509.5563,
+          "y": 1267.1316,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 95.6393,
+          "y": 1162.8611,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 351.8672,
+          "y": 693.6035,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 364.9409,
+          "y": 1068.0834,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 594.1691,
+          "y": 916.9508,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 190.4311,
+          "y": 649.8115,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 270.5899,
+          "y": 1025.0118,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 386.3822,
+          "y": 1119.1779,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 648.946,
+          "y": 967.2765,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 65,
+      "position_id": 16,
+      "wave_number": 41140,
+      "operator": "Operator_8",
+      "item_id": "I2B1FH",
+      "reference": "I2B1FH",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-19-21",
+      "resource": "Item_I2B1FH_M_19_21",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 218.0,
+        "y": 990.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB3",
+      "selected_forklift": "ForkliftB2",
+      "selected_drone": "DroneB5",
+      "delegation_chain": [
+        "RobotB3",
+        "ForkliftB2",
+        "DroneB5"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 63.1785,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 512.8303,
+          "y": 1105.3494,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 509.5563,
+          "y": 1267.1316,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 95.6393,
+          "y": 1162.8611,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 351.8672,
+          "y": 693.6035,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 364.9409,
+          "y": 1068.0834,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 594.1691,
+          "y": 916.9508,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 190.4311,
+          "y": 649.8115,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 270.5899,
+          "y": 1025.0118,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 386.3822,
+          "y": 1119.1779,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 648.946,
+          "y": 967.2765,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 66,
+      "position_id": 16,
+      "wave_number": 41777,
+      "operator": "Operator_4",
+      "item_id": "PY5UPB",
+      "reference": "PY5UPB",
+      "size_us": 240.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-01-13",
+      "resource": "Item_PY5UPB_L_01_13",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 634.0,
+        "y": 990.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB5",
+      "selected_forklift": "ForkliftB3",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB5",
+        "ForkliftB3"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 27.1982,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 512.8303,
+          "y": 1105.3494,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 509.5563,
+          "y": 1267.1316,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 95.6393,
+          "y": 1162.8611,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 351.8672,
+          "y": 693.6035,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 364.9409,
+          "y": 1068.0834,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 594.1691,
+          "y": 916.9508,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 190.4311,
+          "y": 649.8115,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 270.5899,
+          "y": 1025.0118,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 386.3822,
+          "y": 1119.1779,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 648.946,
+          "y": 967.2765,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 67,
+      "position_id": 16,
+      "wave_number": 34357,
+      "operator": "Operator_17",
+      "item_id": "32ZKOX",
+      "reference": "32ZKOX",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "O-14-12",
+      "resource": "Item_32ZKOX_O_14_12",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 352.0,
+        "y": 1228.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB4",
+      "selected_forklift": "ForkliftB4",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB4",
+        "ForkliftB4"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 114.1245,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 512.8303,
+          "y": 1105.3494,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 509.5563,
+          "y": 1267.1316,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 95.6393,
+          "y": 1162.8611,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 351.8672,
+          "y": 693.6035,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 364.9409,
+          "y": 1068.0834,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 594.1691,
+          "y": 916.9508,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 190.4311,
+          "y": 649.8115,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 270.5899,
+          "y": 1025.0118,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 386.3822,
+          "y": 1119.1779,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 648.946,
+          "y": 967.2765,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 68,
+      "position_id": 17,
+      "wave_number": 38171,
+      "operator": "Operator_3",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA4",
+      "selected_forklift": "ForkliftA5",
+      "selected_drone": "DroneA3",
+      "delegation_chain": [
+        "RobotA4",
+        "ForkliftA5",
+        "DroneA3"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 138.2697,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 273.6881,
+          "y": 223.8119,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 102.3431,
+          "y": 334.8041,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 253.0062,
+          "y": 1010.8536,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 576.4818,
+          "y": 915.8718,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 152.1896,
+          "y": 1318.4582,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 457.2921,
+          "y": 179.7695,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 362.5044,
+          "y": 862.1269,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 315.3133,
+          "y": 971.843,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 368.4196,
+          "y": 560.0121,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 400.8873,
+          "y": 143.6833,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 69,
+      "position_id": 17,
+      "wave_number": 41776,
+      "operator": "Operator_4",
+      "item_id": "PY5UPB",
+      "reference": "PY5UPB",
+      "size_us": 240.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-01-13",
+      "resource": "Item_PY5UPB_L_01_13",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 634.0,
+        "y": 990.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB2",
+      "selected_forklift": "ForkliftB5",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB2",
+        "ForkliftB5"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 300.1023,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 273.6881,
+          "y": 223.8119,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 102.3431,
+          "y": 334.8041,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 253.0062,
+          "y": 1010.8536,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 576.4818,
+          "y": 915.8718,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 152.1896,
+          "y": 1318.4582,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 457.2921,
+          "y": 179.7695,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 362.5044,
+          "y": 862.1269,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 315.3133,
+          "y": 971.843,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 368.4196,
+          "y": 560.0121,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 400.8873,
+          "y": 143.6833,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 70,
+      "position_id": 17,
+      "wave_number": 33631,
+      "operator": "Operator_19",
+      "item_id": "SMMRK3",
+      "reference": "SMMRK3",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-18-13",
+      "resource": "Item_SMMRK3_L_18_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 236.0,
+        "y": 958.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA3",
+      "selected_forklift": "ForkliftA1",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA3",
+        "ForkliftA1"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 55.5222,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 273.6881,
+          "y": 223.8119,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 102.3431,
+          "y": 334.8041,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 253.0062,
+          "y": 1010.8536,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 576.4818,
+          "y": 915.8718,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 152.1896,
+          "y": 1318.4582,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 457.2921,
+          "y": 179.7695,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 362.5044,
+          "y": 862.1269,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 315.3133,
+          "y": 971.843,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 368.4196,
+          "y": 560.0121,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 400.8873,
+          "y": 143.6833,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 71,
+      "position_id": 17,
+      "wave_number": 43103,
+      "operator": "Operator_3",
+      "item_id": "5P2MVG",
+      "reference": "5P2MVG",
+      "size_us": 12.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "R-15-23",
+      "resource": "Item_5P2MVG_R_15_23",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 286.0,
+        "y": 1440.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA5",
+      "selected_forklift": "ForkliftA2",
+      "selected_drone": "DroneA4",
+      "delegation_chain": [
+        "RobotA5",
+        "ForkliftA2",
+        "DroneA4"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 180.7696,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 273.6881,
+          "y": 223.8119,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 102.3431,
+          "y": 334.8041,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 253.0062,
+          "y": 1010.8536,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 576.4818,
+          "y": 915.8718,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 152.1896,
+          "y": 1318.4582,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 457.2921,
+          "y": 179.7695,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 362.5044,
+          "y": 862.1269,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 315.3133,
+          "y": 971.843,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 368.4196,
+          "y": 560.0121,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 400.8873,
+          "y": 143.6833,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 72,
+      "position_id": 18,
+      "wave_number": 34282,
+      "operator": "Operator_5",
+      "item_id": "SMMRK3",
+      "reference": "SMMRK3",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-18-13",
+      "resource": "Item_SMMRK3_L_18_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 236.0,
+        "y": 958.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB3",
+      "selected_forklift": "ForkliftB1",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB3",
+        "ForkliftB1"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 89.4606,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 87.9278,
+          "y": 370.7982,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 513.353,
+          "y": 77.5694,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 432.1124,
+          "y": 754.1415,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 115.7687,
+          "y": 461.8925,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 458.0043,
+          "y": 591.3021,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 255.3633,
+          "y": 159.8362,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 118.0379,
+          "y": 353.2555,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 150.0342,
+          "y": 982.7602,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 583.694,
+          "y": 170.2297,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 588.4952,
+          "y": 708.9452,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 73,
+      "position_id": 18,
+      "wave_number": 42346,
+      "operator": "Operator_2",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB5",
+      "selected_forklift": "ForkliftB2",
+      "selected_drone": "DroneB1",
+      "delegation_chain": [
+        "RobotB5",
+        "ForkliftB2",
+        "DroneB1"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 72.6264,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 87.9278,
+          "y": 370.7982,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 513.353,
+          "y": 77.5694,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 432.1124,
+          "y": 754.1415,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 115.7687,
+          "y": 461.8925,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 458.0043,
+          "y": 591.3021,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 255.3633,
+          "y": 159.8362,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 118.0379,
+          "y": 353.2555,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 150.0342,
+          "y": 982.7602,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 583.694,
+          "y": 170.2297,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 588.4952,
+          "y": 708.9452,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 74,
+      "position_id": 18,
+      "wave_number": 33689,
+      "operator": "Operator_4",
+      "item_id": "1JT1XB",
+      "reference": "1JT1XB",
+      "size_us": 9.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "P-14-21",
+      "resource": "Item_1JT1XB_P_14_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 368.0,
+        "y": 1318.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA3",
+      "selected_forklift": "ForkliftA3",
+      "selected_drone": "DroneA5",
+      "delegation_chain": [
+        "RobotA3",
+        "ForkliftA3",
+        "DroneA5"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 567.4917,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 87.9278,
+          "y": 370.7982,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 513.353,
+          "y": 77.5694,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 432.1124,
+          "y": 754.1415,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 115.7687,
+          "y": 461.8925,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 458.0043,
+          "y": 591.3021,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 255.3633,
+          "y": 159.8362,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 118.0379,
+          "y": 353.2555,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 150.0342,
+          "y": 982.7602,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 583.694,
+          "y": 170.2297,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 588.4952,
+          "y": 708.9452,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 75,
+      "position_id": 18,
+      "wave_number": 34410,
+      "operator": "Operator_17",
+      "item_id": "32ZKOX",
+      "reference": "32ZKOX",
+      "size_us": 9.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "O-14-12",
+      "resource": "Item_32ZKOX_O_14_12",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 352.0,
+        "y": 1228.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA5",
+      "selected_forklift": "ForkliftA4",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA5",
+        "ForkliftA4"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 645.462,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 87.9278,
+          "y": 370.7982,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 513.353,
+          "y": 77.5694,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 432.1124,
+          "y": 754.1415,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 115.7687,
+          "y": 461.8925,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 458.0043,
+          "y": 591.3021,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 255.3633,
+          "y": 159.8362,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 118.0379,
+          "y": 353.2555,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 150.0342,
+          "y": 982.7602,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 583.694,
+          "y": 170.2297,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 588.4952,
+          "y": 708.9452,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 76,
+      "position_id": 19,
+      "wave_number": 34375,
+      "operator": "Operator_4",
+      "item_id": "SMMRK3",
+      "reference": "SMMRK3",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-18-13",
+      "resource": "Item_SMMRK3_L_18_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 236.0,
+        "y": 958.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB4",
+      "selected_forklift": "ForkliftB3",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB4",
+        "ForkliftB3"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 224.6899,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 586.9399,
+          "y": 962.3597,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 656.8862,
+          "y": 580.9432,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 170.5112,
+          "y": 1434.4244,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 165.9445,
+          "y": 417.9948,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 520.1543,
+          "y": 910.2327,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 395.8657,
+          "y": 1147.2789,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 117.3449,
+          "y": 219.8621,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 333.7938,
+          "y": 84.9138,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 410.2951,
+          "y": 1099.7983,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 502.9465,
+          "y": 214.2002,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 77,
+      "position_id": 19,
+      "wave_number": 41777,
+      "operator": "Operator_4",
+      "item_id": "PY5UPB",
+      "reference": "PY5UPB",
+      "size_us": 240.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-01-13",
+      "resource": "Item_PY5UPB_L_01_13",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 634.0,
+        "y": 990.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA1",
+      "selected_forklift": "ForkliftA5",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA1",
+        "ForkliftA5"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 54.5769,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 586.9399,
+          "y": 962.3597,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 656.8862,
+          "y": 580.9432,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 170.5112,
+          "y": 1434.4244,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 165.9445,
+          "y": 417.9948,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 520.1543,
+          "y": 910.2327,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 395.8657,
+          "y": 1147.2789,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 117.3449,
+          "y": 219.8621,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 333.7938,
+          "y": 84.9138,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 410.2951,
+          "y": 1099.7983,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 502.9465,
+          "y": 214.2002,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 78,
+      "position_id": 19,
+      "wave_number": 39363,
+      "operator": "Operator_17",
+      "item_id": "I1X92B",
+      "reference": "I1X92B",
+      "size_us": 11.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-02-13",
+      "resource": "Item_I1X92B_M_02_13",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 634.0,
+        "y": 1138.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB1",
+      "selected_forklift": "ForkliftB4",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB1",
+        "ForkliftB4"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 238.315,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 586.9399,
+          "y": 962.3597,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 656.8862,
+          "y": 580.9432,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 170.5112,
+          "y": 1434.4244,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 165.9445,
+          "y": 417.9948,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 520.1543,
+          "y": 910.2327,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 395.8657,
+          "y": 1147.2789,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 117.3449,
+          "y": 219.8621,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 333.7938,
+          "y": 84.9138,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 410.2951,
+          "y": 1099.7983,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 502.9465,
+          "y": 214.2002,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 79,
+      "position_id": 19,
+      "wave_number": 34816,
+      "operator": "Operator_18",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA5",
+      "selected_forklift": "ForkliftA1",
+      "selected_drone": "DroneA1",
+      "delegation_chain": [
+        "RobotA5",
+        "ForkliftA1",
+        "DroneA1"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 139.9547,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 586.9399,
+          "y": 962.3597,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 656.8862,
+          "y": 580.9432,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 170.5112,
+          "y": 1434.4244,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 165.9445,
+          "y": 417.9948,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 520.1543,
+          "y": 910.2327,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 395.8657,
+          "y": 1147.2789,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 117.3449,
+          "y": 219.8621,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 333.7938,
+          "y": 84.9138,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 410.2951,
+          "y": 1099.7983,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 502.9465,
+          "y": 214.2002,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 80,
+      "position_id": 20,
+      "wave_number": 41420,
+      "operator": "Operator_8",
+      "item_id": "Q164T6",
+      "reference": "Q164T6",
+      "size_us": 11.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-01-13",
+      "resource": "Item_Q164T6_M_01_13",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 634.0,
+        "y": 1080.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA2",
+      "selected_forklift": "ForkliftA2",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA2",
+        "ForkliftA2"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 69.892,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 181.0386,
+          "y": 1153.0264,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 585.3013,
+          "y": 1029.8669,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 254.6338,
+          "y": 1150.6957,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 167.44,
+          "y": 1323.2008,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 98.0714,
+          "y": 627.4712,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 181.4303,
+          "y": 349.3405,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 433.235,
+          "y": 0.2542,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 555.8766,
+          "y": 231.9815,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 548.6891,
+          "y": 1197.9791,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 260.2776,
+          "y": 589.4503,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 81,
+      "position_id": 20,
+      "wave_number": 41140,
+      "operator": "Operator_8",
+      "item_id": "I2B1FH",
+      "reference": "I2B1FH",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-19-21",
+      "resource": "Item_I2B1FH_M_19_21",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 218.0,
+        "y": 990.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA3",
+      "selected_forklift": "ForkliftA3",
+      "selected_drone": "DroneA2",
+      "delegation_chain": [
+        "RobotA3",
+        "ForkliftA3",
+        "DroneA2"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 164.8185,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 181.0386,
+          "y": 1153.0264,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 585.3013,
+          "y": 1029.8669,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 254.6338,
+          "y": 1150.6957,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 167.44,
+          "y": 1323.2008,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 98.0714,
+          "y": 627.4712,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 181.4303,
+          "y": 349.3405,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 433.235,
+          "y": 0.2542,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 555.8766,
+          "y": 231.9815,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 548.6891,
+          "y": 1197.9791,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 260.2776,
+          "y": 589.4503,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 82,
+      "position_id": 20,
+      "wave_number": 35963,
+      "operator": "Operator_11",
+      "item_id": "AB9XBU",
+      "reference": "AB9XBU",
+      "size_us": 12.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "N-02-11",
+      "resource": "Item_AB9XBU_N_02_11",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 666.0,
+        "y": 1228.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB4",
+      "selected_forklift": "ForkliftB5",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB4",
+        "ForkliftB5"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 121.0913,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 181.0386,
+          "y": 1153.0264,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 585.3013,
+          "y": 1029.8669,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 254.6338,
+          "y": 1150.6957,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 167.44,
+          "y": 1323.2008,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 98.0714,
+          "y": 627.4712,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 181.4303,
+          "y": 349.3405,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 433.235,
+          "y": 0.2542,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 555.8766,
+          "y": 231.9815,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 548.6891,
+          "y": 1197.9791,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 260.2776,
+          "y": 589.4503,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 83,
+      "position_id": 20,
+      "wave_number": 33394,
+      "operator": "Operator_19",
+      "item_id": "SWN7AU",
+      "reference": "SWN7AU",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "J-24-13",
+      "resource": "Item_SWN7AU_J_24_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 86.0,
+        "y": 778.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA5",
+      "selected_forklift": "ForkliftA4",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA5",
+        "ForkliftA4"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 151.0121,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 181.0386,
+          "y": 1153.0264,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 585.3013,
+          "y": 1029.8669,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 254.6338,
+          "y": 1150.6957,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 167.44,
+          "y": 1323.2008,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 98.0714,
+          "y": 627.4712,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 181.4303,
+          "y": 349.3405,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 433.235,
+          "y": 0.2542,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 555.8766,
+          "y": 231.9815,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 548.6891,
+          "y": 1197.9791,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 260.2776,
+          "y": 589.4503,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 84,
+      "position_id": 21,
+      "wave_number": 40353,
+      "operator": "Operator_1",
+      "item_id": "PP9DNA",
+      "reference": "PP9DNA",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "Q-05-21",
+      "resource": "Item_PP9DNA_Q_05_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 1440.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB5",
+      "selected_forklift": "ForkliftB1",
+      "selected_drone": "DroneB2",
+      "delegation_chain": [
+        "RobotB5",
+        "ForkliftB1",
+        "DroneB2"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 79.152,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 136.9254,
+          "y": 816.6504,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 482.3605,
+          "y": 162.1956,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 567.2522,
+          "y": 491.5215,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 560.9829,
+          "y": 685.0623,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 441.961,
+          "y": 522.5576,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 357.5491,
+          "y": 913.1928,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 633.4211,
+          "y": 404.9385,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 522.5839,
+          "y": 187.099,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 239.3987,
+          "y": 1052.4602,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 644.9856,
+          "y": 1434.8691,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 85,
+      "position_id": 21,
+      "wave_number": 35093,
+      "operator": "Operator_20",
+      "item_id": "I1X92B",
+      "reference": "I1X92B",
+      "size_us": 5.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-08-21",
+      "resource": "Item_I1X92B_L_08_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 516.0,
+        "y": 1048.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB1",
+      "selected_forklift": "ForkliftB2",
+      "selected_drone": "DroneB3",
+      "delegation_chain": [
+        "RobotB1",
+        "ForkliftB2",
+        "DroneB3"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 208.0377,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 136.9254,
+          "y": 816.6504,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 482.3605,
+          "y": 162.1956,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 567.2522,
+          "y": 491.5215,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 560.9829,
+          "y": 685.0623,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 441.961,
+          "y": 522.5576,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 357.5491,
+          "y": 913.1928,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 633.4211,
+          "y": 404.9385,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 522.5839,
+          "y": 187.099,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 239.3987,
+          "y": 1052.4602,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 644.9856,
+          "y": 1434.8691,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 86,
+      "position_id": 21,
+      "wave_number": 40316,
+      "operator": "Operator_16",
+      "item_id": "I2B1FH",
+      "reference": "I2B1FH",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-19-21",
+      "resource": "Item_I2B1FH_M_19_21",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 218.0,
+        "y": 990.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB4",
+      "selected_forklift": "ForkliftB3",
+      "selected_drone": "DroneB4",
+      "delegation_chain": [
+        "RobotB4",
+        "ForkliftB3",
+        "DroneB4"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 66.0241,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 136.9254,
+          "y": 816.6504,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 482.3605,
+          "y": 162.1956,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 567.2522,
+          "y": 491.5215,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 560.9829,
+          "y": 685.0623,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 441.961,
+          "y": 522.5576,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 357.5491,
+          "y": 913.1928,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 633.4211,
+          "y": 404.9385,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 522.5839,
+          "y": 187.099,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 239.3987,
+          "y": 1052.4602,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 644.9856,
+          "y": 1434.8691,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 87,
+      "position_id": 21,
+      "wave_number": 38458,
+      "operator": "Operator_3",
+      "item_id": "SY1DDY",
+      "reference": "SY1DDY",
+      "size_us": 9.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "P-21-11",
+      "resource": "Item_SY1DDY_P_21_11",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 168.0,
+        "y": 1260.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA1",
+      "selected_forklift": "ForkliftA5",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA1",
+        "ForkliftA5"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 444.4373,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 136.9254,
+          "y": 816.6504,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 482.3605,
+          "y": 162.1956,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 567.2522,
+          "y": 491.5215,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 560.9829,
+          "y": 685.0623,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 441.961,
+          "y": 522.5576,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 357.5491,
+          "y": 913.1928,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 633.4211,
+          "y": 404.9385,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 522.5839,
+          "y": 187.099,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 239.3987,
+          "y": 1052.4602,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 644.9856,
+          "y": 1434.8691,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 88,
+      "position_id": 22,
+      "wave_number": 42346,
+      "operator": "Operator_2",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA5",
+      "selected_forklift": "ForkliftA1",
+      "selected_drone": "DroneA3",
+      "delegation_chain": [
+        "RobotA5",
+        "ForkliftA1",
+        "DroneA3"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 114.0851,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 589.4535,
+          "y": 1240.4442,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 490.4551,
+          "y": 280.7861,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 153.4597,
+          "y": 961.7723,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 615.8931,
+          "y": 581.7133,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 485.5251,
+          "y": 858.8653,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 268.1198,
+          "y": 963.6872,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 92.6769,
+          "y": 340.7816,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 564.6779,
+          "y": 991.884,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 239.1067,
+          "y": 1143.8908,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 297.575,
+          "y": 1121.9159,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 89,
+      "position_id": 22,
+      "wave_number": 34796,
+      "operator": "Operator_17",
+      "item_id": "SMMRK3",
+      "reference": "SMMRK3",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-18-13",
+      "resource": "Item_SMMRK3_L_18_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 236.0,
+        "y": 958.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB1",
+      "selected_forklift": "ForkliftB4",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB1",
+        "ForkliftB4"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 32.6194,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 589.4535,
+          "y": 1240.4442,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 490.4551,
+          "y": 280.7861,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 153.4597,
+          "y": 961.7723,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 615.8931,
+          "y": 581.7133,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 485.5251,
+          "y": 858.8653,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 268.1198,
+          "y": 963.6872,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 92.6769,
+          "y": 340.7816,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 564.6779,
+          "y": 991.884,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 239.1067,
+          "y": 1143.8908,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 297.575,
+          "y": 1121.9159,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 90,
+      "position_id": 22,
+      "wave_number": 38464,
+      "operator": "Operator_6",
+      "item_id": "SY1DDY",
+      "reference": "SY1DDY",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "P-21-11",
+      "resource": "Item_SY1DDY_P_21_11",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 168.0,
+        "y": 1260.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB4",
+      "selected_forklift": "ForkliftB5",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB4",
+        "ForkliftB5"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 136.1525,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 589.4535,
+          "y": 1240.4442,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 490.4551,
+          "y": 280.7861,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 153.4597,
+          "y": 961.7723,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 615.8931,
+          "y": 581.7133,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 485.5251,
+          "y": 858.8653,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 268.1198,
+          "y": 963.6872,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 92.6769,
+          "y": 340.7816,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 564.6779,
+          "y": 991.884,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 239.1067,
+          "y": 1143.8908,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 297.575,
+          "y": 1121.9159,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 91,
+      "position_id": 22,
+      "wave_number": 37577,
+      "operator": "Operator_14",
+      "item_id": "F7LULH",
+      "reference": "F7LULH",
+      "size_us": 7.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-07-22",
+      "resource": "Item_F7LULH_M_07_22",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 500.0,
+        "y": 1080.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB3",
+      "selected_forklift": "ForkliftB1",
+      "selected_drone": "DroneB5",
+      "delegation_chain": [
+        "RobotB3",
+        "ForkliftB1",
+        "DroneB5"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 109.3053,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 589.4535,
+          "y": 1240.4442,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 490.4551,
+          "y": 280.7861,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 153.4597,
+          "y": 961.7723,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 615.8931,
+          "y": 581.7133,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 485.5251,
+          "y": 858.8653,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 268.1198,
+          "y": 963.6872,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 92.6769,
+          "y": 340.7816,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 564.6779,
+          "y": 991.884,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 239.1067,
+          "y": 1143.8908,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 297.575,
+          "y": 1121.9159,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 92,
+      "position_id": 23,
+      "wave_number": 42416,
+      "operator": "Operator_3",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB5",
+      "selected_forklift": "ForkliftB2",
+      "selected_drone": "DroneB1",
+      "delegation_chain": [
+        "RobotB5",
+        "ForkliftB2",
+        "DroneB1"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 176.305,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 303.1211,
+          "y": 445.3004,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 490.4748,
+          "y": 369.6883,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 135.2967,
+          "y": 512.8968,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 490.0901,
+          "y": 397.1736,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 414.7882,
+          "y": 1113.9683,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 300.6375,
+          "y": 1044.082,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 272.3022,
+          "y": 352.3329,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 202.4553,
+          "y": 555.3071,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 289.3701,
+          "y": 964.8672,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 511.038,
+          "y": 610.4809,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 93,
+      "position_id": 23,
+      "wave_number": 38464,
+      "operator": "Operator_6",
+      "item_id": "SY1DDY",
+      "reference": "SY1DDY",
+      "size_us": 10.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "P-21-11",
+      "resource": "Item_SY1DDY_P_21_11",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 168.0,
+        "y": 1260.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB1",
+      "selected_forklift": "ForkliftB3",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB1",
+        "ForkliftB3"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 253.4034,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 303.1211,
+          "y": 445.3004,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 490.4748,
+          "y": 369.6883,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 135.2967,
+          "y": 512.8968,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 490.0901,
+          "y": 397.1736,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 414.7882,
+          "y": 1113.9683,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 300.6375,
+          "y": 1044.082,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 272.3022,
+          "y": 352.3329,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 202.4553,
+          "y": 555.3071,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 289.3701,
+          "y": 964.8672,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 511.038,
+          "y": 610.4809,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 94,
+      "position_id": 23,
+      "wave_number": 33730,
+      "operator": "Operator_17",
+      "item_id": "SMMRK3",
+      "reference": "SMMRK3",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-18-13",
+      "resource": "Item_SMMRK3_L_18_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 236.0,
+        "y": 958.0,
+        "z": 1.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB4",
+      "selected_forklift": "ForkliftB4",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotB4",
+        "ForkliftB4"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 53.8101,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 303.1211,
+          "y": 445.3004,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 490.4748,
+          "y": 369.6883,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 135.2967,
+          "y": 512.8968,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 490.0901,
+          "y": 397.1736,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 414.7882,
+          "y": 1113.9683,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 300.6375,
+          "y": 1044.082,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 272.3022,
+          "y": 352.3329,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 202.4553,
+          "y": 555.3071,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 289.3701,
+          "y": 964.8672,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 511.038,
+          "y": 610.4809,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 95,
+      "position_id": 23,
+      "wave_number": 37578,
+      "operator": "Operator_14",
+      "item_id": "F7LULH",
+      "reference": "F7LULH",
+      "size_us": 7.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-07-22",
+      "resource": "Item_F7LULH_M_07_22",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 500.0,
+        "y": 1080.0,
+        "z": 2.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA5",
+      "selected_forklift": "ForkliftA2",
+      "selected_drone": "DroneA4",
+      "delegation_chain": [
+        "RobotA5",
+        "ForkliftA2",
+        "DroneA4"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 91.7328,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 303.1211,
+          "y": 445.3004,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 490.4748,
+          "y": 369.6883,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 135.2967,
+          "y": 512.8968,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 490.0901,
+          "y": 397.1736,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 414.7882,
+          "y": 1113.9683,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 300.6375,
+          "y": 1044.082,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 272.3022,
+          "y": 352.3329,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 202.4553,
+          "y": 555.3071,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 289.3701,
+          "y": 964.8672,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 511.038,
+          "y": 610.4809,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 96,
+      "position_id": 24,
+      "wave_number": 41776,
+      "operator": "Operator_4",
+      "item_id": "PY5UPB",
+      "reference": "PY5UPB",
+      "size_us": 240.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-01-13",
+      "resource": "Item_PY5UPB_L_01_13",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 634.0,
+        "y": 990.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA1",
+      "selected_forklift": "ForkliftA3",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA1",
+        "ForkliftA3"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 89.8445,
+      "cross_auth": true,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 546.2466,
+          "y": 970.7285,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 270.5764,
+          "y": 966.8501,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 346.893,
+          "y": 1012.3958,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 123.4614,
+          "y": 807.8761,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 174.797,
+          "y": 593.169,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 499.7238,
+          "y": 491.1645,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 340.1376,
+          "y": 1104.3954,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 227.1887,
+          "y": 601.1323,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 97.975,
+          "y": 1134.1287,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 530.5006,
+          "y": 657.7923,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 97,
+      "position_id": 24,
+      "wave_number": 36031,
+      "operator": "Operator_2",
+      "item_id": "I1KDJ0",
+      "reference": "I1KDJ0",
+      "size_us": 8.0,
+      "quantity_to_pick": 1,
+      "storage_location_id": "I-06-21",
+      "resource": "Item_I1KDJ0_I_06_21",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 566.0,
+        "y": 778.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB5",
+      "selected_forklift": "ForkliftB5",
+      "selected_drone": "DroneB2",
+      "delegation_chain": [
+        "RobotB5",
+        "ForkliftB5",
+        "DroneB2"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 125.34,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 546.2466,
+          "y": 970.7285,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 270.5764,
+          "y": 966.8501,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 346.893,
+          "y": 1012.3958,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 123.4614,
+          "y": 807.8761,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 174.797,
+          "y": 593.169,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 499.7238,
+          "y": 491.1645,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 340.1376,
+          "y": 1104.3954,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 227.1887,
+          "y": 601.1323,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 97.975,
+          "y": 1134.1287,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 530.5006,
+          "y": 657.7923,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 98,
+      "position_id": 24,
+      "wave_number": 37577,
+      "operator": "Operator_14",
+      "item_id": "F7LULH",
+      "reference": "F7LULH",
+      "size_us": 7.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "M-07-22",
+      "resource": "Item_F7LULH_M_07_22",
+      "resource_zone": "B",
+      "resource_position": {
+        "x": 500.0,
+        "y": 1080.0,
+        "z": 2.0
+      },
+      "supervisor": "net2.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotB2",
+      "selected_forklift": "ForkliftB1",
+      "selected_drone": "DroneB3",
+      "delegation_chain": [
+        "RobotB2",
+        "ForkliftB1",
+        "DroneB3"
+      ],
+      "selected_robot_home_zone": "B",
+      "selected_robot_distance_m": 161.7131,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 546.2466,
+          "y": 970.7285,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 270.5764,
+          "y": 966.8501,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 346.893,
+          "y": 1012.3958,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 123.4614,
+          "y": 807.8761,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 174.797,
+          "y": 593.169,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 499.7238,
+          "y": 491.1645,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 340.1376,
+          "y": 1104.3954,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 227.1887,
+          "y": 601.1323,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 97.975,
+          "y": 1134.1287,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 530.5006,
+          "y": 657.7923,
+          "z": 0.0
+        }
+      }
+    },
+    {
+      "request_id": 99,
+      "position_id": 24,
+      "wave_number": 33388,
+      "operator": "Operator_18",
+      "item_id": "SMMRK3",
+      "reference": "SMMRK3",
+      "size_us": 10.5,
+      "quantity_to_pick": 1,
+      "storage_location_id": "L-18-13",
+      "resource": "Item_SMMRK3_L_18_13",
+      "resource_zone": "A",
+      "resource_position": {
+        "x": 236.0,
+        "y": 958.0,
+        "z": 1.0
+      },
+      "supervisor": "net1.supervisor",
+      "supervisor_group": "Supervisors",
+      "selected_robot": "RobotA2",
+      "selected_forklift": "ForkliftA4",
+      "selected_drone": null,
+      "delegation_chain": [
+        "RobotA2",
+        "ForkliftA4"
+      ],
+      "selected_robot_home_zone": "A",
+      "selected_robot_distance_m": 35.6911,
+      "cross_auth": false,
+      "robot_positions": {
+        "RobotA1": {
+          "x": 546.2466,
+          "y": 970.7285,
+          "z": 0.0
+        },
+        "RobotA2": {
+          "x": 270.5764,
+          "y": 966.8501,
+          "z": 0.0
+        },
+        "RobotA3": {
+          "x": 346.893,
+          "y": 1012.3958,
+          "z": 0.0
+        },
+        "RobotA4": {
+          "x": 123.4614,
+          "y": 807.8761,
+          "z": 0.0
+        },
+        "RobotA5": {
+          "x": 174.797,
+          "y": 593.169,
+          "z": 0.0
+        },
+        "RobotB1": {
+          "x": 499.7238,
+          "y": 491.1645,
+          "z": 0.0
+        },
+        "RobotB2": {
+          "x": 340.1376,
+          "y": 1104.3954,
+          "z": 0.0
+        },
+        "RobotB3": {
+          "x": 227.1887,
+          "y": 601.1323,
+          "z": 0.0
+        },
+        "RobotB4": {
+          "x": 97.975,
+          "y": 1134.1287,
+          "z": 0.0
+        },
+        "RobotB5": {
+          "x": 530.5006,
+          "y": 657.7923,
+          "z": 0.0
+        }
+      }
+    }
+  ]
+}
