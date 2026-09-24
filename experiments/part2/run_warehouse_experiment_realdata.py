@@ -470,6 +470,7 @@ def start_auths(
         proc = subprocess.Popen(
             [
                 "java",
+                "-Djava.awt.headless=true",
                 "-jar",
                 str(jar),
                 "-p",
@@ -483,10 +484,10 @@ def start_auths(
             bufsize=1,
         )
 
-        # Existing Auth startup scripts provide a DB password through stdin.
-        # Keep the same default used in the user's previous experiment code.
+        # Piped stdin has no Java console. In headless mode Auth first asks
+        # for y/n confirmation, then the existing experiment DB password.
         if proc.stdin is not None:
-            proc.stdin.write("asdf\n")
+            proc.stdin.write("y\nasdf\n")
             proc.stdin.flush()
 
         output_q = start_output_reader(proc, f"Auth{auth_id}")
