@@ -878,8 +878,8 @@ def main() -> None:
     results: list[dict[str, Any]] = []
     db_size_logger = AuthDatabaseSizeLogger(project_root, graph)
     configuration = {
-        "graph": str(graph_path),
-        "workload": str(workload_path),
+        "graph": str(args.graph),
+        "workload": str(args.workload),
         "num_selected_requests": len(requests),
         "validity": args.validity,
     }
