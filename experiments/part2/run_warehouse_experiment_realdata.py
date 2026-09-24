@@ -59,6 +59,10 @@ successful grants, successful access before revocation, a successful revoke,
 and explicit access denial for every member afterward (timeouts do not pass).
 Legacy singular access/latency fields still describe the Robot/first grant;
 delegations and *_access_by_entity contain the full chain results.
+Summary delegation_latency_ms_mean averages all recorded delegation operations.
+Summary delegation_latency_ms_total and revocation_latency_ms_total sum recorded
+operation latencies in milliseconds, excluding access attempts and other workload
+overhead. Legacy records without delegations contribute their singular grant.
 
 All workload requests are executed; only resource servers referenced by the workload are started.
 """
@@ -739,6 +743,28 @@ def summarize_results(results: list[dict[str, Any]]) -> dict[str, Any]:
             for r in results
         )
 
+    # Prefer full chains; use the singular grant only for legacy records.
+    delegations = [
+        operation
+        for result in results
+        for operation in (
+            result["delegations"]
+            if "delegations" in result
+            else [result["delegation"]] if isinstance(result.get("delegation"), dict) else []
+        )
+    ]
+    delegation_latencies = [
+        float(operation["latency_ms"])
+        for operation in delegations
+        if isinstance(operation.get("latency_ms"), (int, float))
+    ]
+    revocation_latencies = [
+        float(result["revocation"]["latency_ms"])
+        for result in results
+        if isinstance(result.get("revocation"), dict)
+        and isinstance(result["revocation"].get("latency_ms"), (int, float))
+    ]
+
     before_count = access_count("before_revoke")
     after_count = access_count("after_revoke")
 
@@ -761,14 +787,19 @@ def summarize_results(results: list[dict[str, Any]]) -> dict[str, Any]:
         "num_requests": len(results),
         "pre_revoke_access_count": before_count,
         "post_revoke_access_count": after_count,
-        "delegation_count": sum(len(r.get("delegations", [])) for r in results),
+        "delegation_count": len(delegations),
         "cascading_revocation_request_count": sum(r.get("cascading_revocation_verified") is not None for r in results),
         "cascading_revocation_verified_count": sum(r.get("cascading_revocation_verified") is True for r in results),
         "revocation_verified_count": sum(r.get("revocation_verified") is True for r in results),
         "cross_auth_request_count": cross_auth_count,
         "cross_auth_request_rate": (cross_auth_count / len(results) if results else None),
         "total_quantity_to_pick": total_quantity,
-        "delegation_latency_ms_mean": avg(("delegation", "latency_ms")),
+        "delegation_latency_ms_mean": (
+            sum(delegation_latencies) / len(delegation_latencies)
+            if delegation_latencies else None
+        ),
+        "delegation_latency_ms_total": sum(delegation_latencies, 0.0),
+        "revocation_latency_ms_total": sum(revocation_latencies, 0.0),
         "authorization_before_revoke_ms_mean": avg(
             ("before_revoke_access", "latency_ms")
         ),
@@ -994,8 +1025,8 @@ def main() -> None:
                 "selected_drone": request.get("selected_drone"),
                 "delegation_chain": [supervisor] + chain,
                 "delegations": delegations,
-                "before_revoke_access_by_entity": before_by_entity,
-                "after_revoke_access_by_entity": after_by_entity,
+                # "before_revoke_access_by_entity": before_by_entity,
+                # "after_revoke_access_by_entity": after_by_entity,
                 "all_entities_accessible_before_revoke": all_before,
                 "all_entities_denied_after_revoke": all_after,
                 "revocation_verified": verified,
