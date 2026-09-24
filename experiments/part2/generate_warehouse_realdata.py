@@ -3,7 +3,6 @@
 generate_warehouse_realdata.py
 
 Generate an SST/IoTAuth warehouse experiment from the real-world warehouse CSVs:
-  - Product.csv
   - Storage_Location.csv
   - Picking_Wave.csv
   - Support_Points_Navigation.csv (optional but recommended)
@@ -17,7 +16,11 @@ Outputs:
 Key design choices:
   * One SST resource represents one observed (product reference, storage location) pair.
   * Real storage coordinates come from Storage_Location.csv; no synthetic item coordinates.
-  * Four logical Auth zones A/B/C/D are derived from the real warehouse coordinate bounds.
+  * A configurable number of logical Auth zones spatially balance selected resources.
+  * Every Auth owns equal counts of resources, robots, forklifts, drones and supervisors.
+  * Each robot has one forklift and one drone in its home Auth.
+  * z=1 uses Robot -> Forklift; z>=2 uses Robot -> Forklift -> Drone (z=0: Robot).
+  * Total resources = resources-per-auth * num-auths; coordinate ties use location/reference IDs.
   * Robot home zones remain logical ownership zones, but robot positions may be anywhere in
     the warehouse. If navigation support points are supplied, robot positions are sampled
     from those real navigation points.
@@ -27,15 +30,15 @@ Key design choices:
 
 Example:
   python generate_warehouse_realdata.py \
-      --product Product.csv \
       --storage-locations Storage_Location.csv \
       --picking-wave Picking_Wave.csv \
       --navigation-points Support_Points_Navigation.csv \
       --output-dir generated \
-      --robots-per-zone 5 \
+      --num-auths 4 \
+      --robots-per-auth 5 \
       --requests 100 \
       --items-per-position 3 \
-      --num-resources 200 \
+      --resources-per-auth 50 \
       --seed 7
 """
 
@@ -53,18 +56,45 @@ from typing import Any
 
 import pandas as pd
 
-ZONES = ("A", "B", "C", "D")
-ZONE_AUTH_IDS = {"A": 101, "B": 102, "C": 103, "D": 104}
-ZONE_NETS = {"A": "net1", "B": "net2", "C": "net3", "D": "net4"}
-AUTH_TCP_PORT_BASE = {"A": 21900, "B": 22900, "C": 23900, "D": 24900}
-RESOURCE_PORT_BASE = {"A": 31000, "B": 35000, "C": 39000, "D": 43000}
+from warehouse_delegation import companion_group, delegation_chain
+
+AUTH_PORT_START = 21900
+RESOURCE_PORT_START = 31000
+MAX_AUTHS = (RESOURCE_PORT_START - AUTH_PORT_START) // 4
+ZONES: tuple[str, ...] = ()
+ZONE_AUTH_IDS: dict[str, int] = {}
+ZONE_NETS: dict[str, str] = {}
+AUTH_TCP_PORT_BASE: dict[str, int] = {}
 
 
-def parse_args() -> argparse.Namespace:
+def zone_label(index: int) -> str:
+    """Zero-based index to A..Z, AA..AZ, BA.. ."""
+    label = ""
+    index += 1
+    while index:
+        index, digit = divmod(index - 1, 26)
+        label = chr(ord("A") + digit) + label
+    return label
+
+
+def configure_auths(num_auths: int) -> None:
+    """Configure this CLI generation run; reserve four distinct ports per Auth."""
+    if not 1 <= num_auths <= MAX_AUTHS:
+        raise ValueError(f"--num-auths must be between 1 and {MAX_AUTHS} (TCP/UDP port capacity)")
+    global ZONES, ZONE_AUTH_IDS, ZONE_NETS, AUTH_TCP_PORT_BASE
+    ZONES = tuple(zone_label(i) for i in range(num_auths))
+    ZONE_AUTH_IDS = {z: 101 + i for i, z in enumerate(ZONES)}
+    ZONE_NETS = {z: f"net{i + 1}" for i, z in enumerate(ZONES)}
+    AUTH_TCP_PORT_BASE = {z: AUTH_PORT_START + 4 * i for i, z in enumerate(ZONES)}
+
+
+configure_auths(4)
+
+
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     p = argparse.ArgumentParser(
         description="Generate a multi-Auth SST warehouse experiment from real warehouse CSVs."
     )
-    p.add_argument("--product", help="Path to Product.csv", default="dataset/Product.csv")
     p.add_argument("--storage-locations", help="Path to Storage_Location.csv", default="dataset/Storage_Location.csv")
     p.add_argument("--picking-wave", help="Path to Picking_Wave.csv", default="dataset/Picking_Wave.csv")
     p.add_argument(
@@ -73,7 +103,9 @@ def parse_args() -> argparse.Namespace:
         help="Path to Support_Points_Navigation.csv. If omitted, robot positions are uniform within real bounds."
     )
     p.add_argument("--output-dir", default="generated", help="Output directory")
-    p.add_argument("--robots-per-zone", type=int, default=5)
+    p.add_argument("--num-auths", type=int, default=4, help="Number of Auths/logical zones (default: 4)")
+    p.add_argument("--robots-per-auth", type=int, default=5,
+                   help="Robots owned by each Auth (default: 5)")
     p.add_argument(
         "--requests",
         type=int,
@@ -82,10 +114,8 @@ def parse_args() -> argparse.Namespace:
     )
     p.add_argument("--items-per-position", type=int, default=3)
     p.add_argument(
-        "--num-resources",
-        type=int,
-        default=0,
-        help="Maximum number of observed reference/location resources to register. 0 = all usable resources.",
+        "--resources-per-auth", type=int, default=25,
+        help="Resources owned by each Auth (default: 25). Total resources = resources-per-auth * num-auths.",
     )
     p.add_argument(
         "--workload-order",
@@ -95,7 +125,7 @@ def parse_args() -> argparse.Namespace:
     )
     p.add_argument("--seed", type=int, default=7)
     p.add_argument("--validity", default="1*day")
-    return p.parse_args()
+    return p.parse_args(argv)
 
 
 def write_json(data: Any, path: Path) -> None:
@@ -158,42 +188,94 @@ def compute_bounds(storage_df: pd.DataFrame) -> dict[str, float]:
     }
 
 
-def coordinate_zone(x: float, y: float, bounds: dict[str, float]) -> str:
-    """Split the real warehouse bounding box into four logical Auth zones."""
-    xmid = (bounds["xmin"] + bounds["xmax"]) / 2.0
-    ymid = (bounds["ymin"] + bounds["ymax"]) / 2.0
-    if x < xmid and y >= ymid:
-        return "A"
-    if x >= xmid and y >= ymid:
-        return "B"
-    if x < xmid and y < ymid:
-        return "C"
-    return "D"
+def requested_resource_count(args: argparse.Namespace) -> int:
+    if args.robots_per_auth < 1:
+        raise ValueError("--robots-per-auth must be >= 1")
+    if args.resources_per_auth < 1:
+        raise ValueError("--resources-per-auth must be >= 1")
+    return args.num_auths * args.resources_per_auth
 
 
-def zone_bounds(bounds: dict[str, float]) -> dict[str, dict[str, float]]:
-    xmid = (bounds["xmin"] + bounds["xmax"]) / 2.0
-    ymid = (bounds["ymin"] + bounds["ymax"]) / 2.0
-    return {
-        "A": {"xmin": bounds["xmin"], "xmax": xmid, "ymin": ymid, "ymax": bounds["ymax"]},
-        "B": {"xmin": xmid, "xmax": bounds["xmax"], "ymin": ymid, "ymax": bounds["ymax"]},
-        "C": {"xmin": bounds["xmin"], "xmax": xmid, "ymin": bounds["ymin"], "ymax": ymid},
-        "D": {"xmin": xmid, "xmax": bounds["xmax"], "ymin": bounds["ymin"], "ymax": ymid},
-    }
+def require_equal_resources(count: int) -> int:
+    """Reject impossible equality instead of silently dropping or duplicating items."""
+    per_auth, remainder = divmod(count, len(ZONES))
+    if count < len(ZONES) or remainder:
+        raise ValueError(
+            f"{count} resources cannot be shared equally by {len(ZONES)} Auths. "
+            "Set positive --resources-per-auth and --num-auths values."
+        )
+    return per_auth
+
+
+def partition_key(item: dict[str, Any], axis: str) -> tuple[Any, ...]:
+    other = "y" if axis == "x" else "x"
+    return (float(item[axis]), float(item[other]), float(item.get("z", 0)),
+            str(item.get("storage_location_id", "")), str(item.get("reference", "")))
+
+
+def balance_resource_zones(items: list[dict[str, Any]]) -> dict[str, Any] | str:
+    """Recursively split spatial ranks into exactly equal logical ownership groups.
+
+    Alternate X/Y cuts. Full sort keys resolve colocated resources deterministically.
+    Four Auths retain the A=northwest, B=northeast, C=southwest, D=southeast order.
+    The saved tree is authoritative; bounding boxes are only resource envelopes.
+    """
+    per_auth = require_equal_resources(len(items))
+    order = ("C", "A", "D", "B") if len(ZONES) == 4 else ZONES
+
+    def divide(rows: list[dict[str, Any]], zones: tuple[str, ...], depth: int):
+        if len(zones) == 1:
+            for item in rows:
+                item["zone"] = zones[0]
+            return zones[0]
+        axis = "x" if depth % 2 == 0 else "y"
+        ordered = sorted(rows, key=lambda item: partition_key(item, axis))
+        middle = len(zones) // 2
+        n = per_auth * middle
+        return {
+            "axis": axis, "lower_count": n, "total_count": len(rows),
+            "pivot": list(partition_key(ordered[n], axis)),
+            "lower": divide(ordered[:n], zones[:middle], depth + 1),
+            "upper": divide(ordered[n:], zones[middle:], depth + 1),
+        }
+
+    return divide(items, order, 0)
+
+
+def partition_zone(item: dict[str, Any], tree: dict[str, Any] | str) -> str:
+    """Classify a resource or navigation point using the saved rank boundaries."""
+    node: Any = tree
+    while isinstance(node, dict):
+        lower = node["lower_count"] > 0 and (
+            node["pivot"] is None or partition_key(item, node["axis"]) < tuple(node["pivot"])
+        )
+        node = node["lower" if lower else "upper"]
+    return str(node)
+
+
+def zone_bounds(items: list[dict[str, Any]]) -> dict[str, Any]:
+    """Resource envelopes, not disjoint geometric ownership boundaries."""
+    result = {}
+    for zone in ZONES:
+        rows = [item for item in items if item["zone"] == zone]
+        result[zone] = ({
+            "xmin": min(i["x"] for i in rows), "xmax": max(i["x"] for i in rows),
+            "ymin": min(i["y"] for i in rows), "ymax": max(i["y"] for i in rows),
+        } if rows else None)
+    return result
 
 
 def load_real_data(
-    product_path: Path,
     storage_path: Path,
     picking_path: Path,
     num_resources: int,
     seed: int,
 ) -> tuple[list[dict[str, Any]], pd.DataFrame, dict[str, float], dict[str, Any]]:
-    product = strip_object_columns(read_semicolon_csv(product_path))
+    if num_resources < 1:
+        raise ValueError("Total resource count must be >= 1")
     storage = strip_object_columns(pd.read_csv(storage_path))
     picking = strip_object_columns(read_semicolon_csv(picking_path))
 
-    required_product = {"Reference", "ABCCOD", "Sector"}
     required_storage = {"originalLocation", "x", "y", "z"}
     required_picking = {
         "waveNumber",
@@ -204,7 +286,6 @@ def load_real_data(
         "operator",
     }
     for label, df, required in (
-        ("Product.csv", product, required_product),
         ("Storage_Location.csv", storage, required_storage),
         ("Picking_Wave.csv", picking, required_picking),
     ):
@@ -218,20 +299,15 @@ def load_real_data(
     storage = storage.dropna(subset=["x", "y", "z"])
 
     bounds = compute_bounds(storage)
-    storage["resource_zone"] = storage.apply(
-        lambda r: coordinate_zone(float(r["x"]), float(r["y"]), bounds), axis=1
-    )
 
-    product_meta = product.drop_duplicates("Reference").set_index("Reference")
     storage_meta = storage.set_index("originalLocation")
 
-    # Keep only rows for which both the product and its physical location are present.
+    # Product references come directly from picking records; require a known physical location.
     picking = picking[
-        picking["reference"].isin(product_meta.index)
-        & picking["locations"].isin(storage_meta.index)
+        picking["locations"].isin(storage_meta.index)
     ].copy()
     if picking.empty:
-        raise ValueError("No Picking_Wave rows match both Product and Storage_Location data")
+        raise ValueError("No Picking_Wave rows match Storage_Location data")
 
     picking["quantityToPick (units)"] = pd.to_numeric(
         picking["quantityToPick (units)"], errors="coerce"
@@ -249,7 +325,11 @@ def load_real_data(
     )
     pairs = pairs.merge(pair_frequency, on=["reference", "locations"], how="left")
 
-    if 0 < num_resources < len(pairs):
+    if num_resources > len(pairs):
+        raise ValueError(f"Requested {num_resources} total resources, but only {len(pairs)} usable resources exist. "
+                         "Reduce --resources-per-auth or --num-auths.")
+    require_equal_resources(num_resources)
+    if num_resources < len(pairs):
         # Sample actual resource pairs reproducibly. Weight by observed picking frequency so
         # commonly used resources are proportionally more likely to remain in smaller tests.
         pairs = pairs.sample(
@@ -269,24 +349,21 @@ def load_real_data(
         reference = str(row.reference)
         location = str(row.locations)
         s = storage_meta.loc[location]
-        p = product_meta.loc[reference]
         items.append(
             {
                 "reference": reference,
                 "item_id": reference,
                 "storage_location_id": location,
-                "zone": str(s["resource_zone"]),
                 "x": float(s["x"]),
                 "y": float(s["y"]),
                 "z": float(s["z"]),
-                "abc_code": str(p["ABCCOD"]),
-                "sector": str(p["Sector"]),
                 "observed_pick_count": int(row.pick_count),
             }
         )
 
+    balance_resource_zones(items)
+
     diagnostics = {
-        "product_rows": int(len(product)),
         "storage_location_rows": int(len(storage)),
         "usable_picking_rows": int(len(picking)),
         "usable_picking_waves": int(picking["waveNumber"].nunique()),
@@ -315,7 +392,6 @@ def load_navigation_points(path: Path | None, bounds: dict[str, float]) -> list[
                 "x": x,
                 "y": y,
                 "z": z,
-                "zone": coordinate_zone(x, y, bounds),
             }
         )
     return points
@@ -358,7 +434,7 @@ def make_node_entity(group: str, name: str, net: str, zone: str) -> dict[str, An
         "credentialPrefix": f"{net.capitalize()}.{group}",
         "distributionCryptoSpec": {"cipher": "AES-128-CBC", "mac": "SHA256"},
         "sessionCryptoSpec": {"cipher": "AES-128-CBC", "mac": "SHA256"},
-        "backupToAuthIds": [next_auth_id(zone)],
+        "backupToAuthIds": [next_auth_id(zone)] if len(ZONES) > 1 else [],
     }
 
 
@@ -379,7 +455,7 @@ def make_resource_entity(item: dict[str, Any], port: int) -> dict[str, Any]:
         "distributionCryptoSpec": {"cipher": "AES-128-CBC", "mac": "SHA256"},
         "sessionCryptoSpec": {"cipher": "AES-128-CBC", "mac": "SHA256"},
         "host": "localhost",
-        "backupToAuthIds": [next_auth_id(zone)],
+        "backupToAuthIds": [next_auth_id(zone)] if len(ZONES) > 1 else [],
     }
 
 
@@ -408,9 +484,9 @@ def generate_supervisors() -> list[dict[str, str]]:
     ]
 
 
-def generate_robots(robots_per_zone: int) -> list[dict[str, Any]]:
-    if robots_per_zone < 1:
-        raise ValueError("--robots-per-zone must be >= 1")
+def generate_robots(robots_per_auth: int) -> list[dict[str, Any]]:
+    if robots_per_auth < 1:
+        raise ValueError("--robots-per-auth must be >= 1")
     return [
         {
             "zone": z,
@@ -419,7 +495,16 @@ def generate_robots(robots_per_zone: int) -> list[dict[str, Any]]:
             "name": robot_entity_name(z, i),
         }
         for z in ZONES
-        for i in range(1, robots_per_zone + 1)
+        for i in range(1, robots_per_auth + 1)
+    ]
+
+
+def generate_companions(robots: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Give every robot its own forklift and drone in the same Auth."""
+    return [
+        dict(zone=r["zone"], group=companion_group(r["group"], role),
+             name=f"{ZONE_NETS[r['zone']]}.{role.lower()}{r['group'][len('Robot'):]}")
+        for r in robots for role in ("Forklift", "Drone")
     ]
 
 
@@ -439,16 +524,9 @@ def build_assignments(
 
 
 def assign_resource_ports(items: list[dict[str, Any]]) -> dict[str, int]:
-    counters = defaultdict(int)
-    ports: dict[str, int] = {}
-    for item in items:
-        zone = item["zone"]
-        port = RESOURCE_PORT_BASE[zone] + counters[zone]
-        if port > 65535:
-            raise ValueError(f"Resource port exceeded 65535 in zone {zone}")
-        ports[resource_group(item)] = port
-        counters[zone] += 1
-    return ports
+    if len(items) > 65536 - RESOURCE_PORT_START:
+        raise ValueError("Too many resources for distinct TCP ports (31000..65535)")
+    return {resource_group(item): RESOURCE_PORT_START + i for i, item in enumerate(items)}
 
 
 def build_graph(
@@ -460,7 +538,8 @@ def build_graph(
     entity_list: list[dict[str, Any]] = []
     for s in supervisors:
         entity_list.append(make_node_entity("Supervisors", s["name"], ZONE_NETS[s["zone"]], s["zone"]))
-    for r in robots:
+    companions = generate_companions(robots)
+    for r in robots + companions:
         entity_list.append(make_node_entity(r["group"], r["name"], ZONE_NETS[r["zone"]], r["zone"]))
 
     ports = assign_resource_ports(items)
@@ -473,11 +552,16 @@ def build_graph(
         for robot in robots:
             privilege_list.append(make_access_privilege(robot["group"], resource, validity))
             privilege_list.append(make_revoke_privilege(robot["group"], resource))
+            chain = delegation_chain(robot["group"], item["z"])
+            for parent, child in zip(chain, chain[1:]):
+                privilege = make_access_privilege(child, resource, validity)
+                privilege["privilegedGroup"] = parent
+                privilege_list.append(privilege)
 
     return {
         "authList": [make_auth(z) for z in ZONES],
         "authTrusts": make_auth_trusts(),
-        "assignments": build_assignments(items, supervisors, robots),
+        "assignments": build_assignments(items, supervisors, robots + companions),
         "entityList": entity_list,
         "filesharingLists": [],
         "privilegeList": privilege_list,
@@ -515,13 +599,16 @@ def build_layout(
     bounds: dict[str, float],
     navigation_points: list[dict[str, Any]],
 ) -> dict[str, Any]:
+    partition = balance_resource_zones(items)
     storage_locations: dict[str, Any] = {}
     item_locations: dict[str, Any] = {}
     for item in items:
         loc = item["storage_location_id"]
+        zones = sorted({item["zone"], *storage_locations.get(loc, {}).get("zones", [])})
         storage_locations[loc] = {
             "storage_location_id": loc,
-            "zone": item["zone"],
+            "zone": zones[0] if len(zones) == 1 else None,
+            "zones": zones,
             "x": item["x"],
             "y": item["y"],
             "z": item["z"],
@@ -536,11 +623,21 @@ def build_layout(
         }
     return {
         "coordinate_source": "Storage_Location.csv",
+        "num_auths": len(ZONES),
         "warehouse_bounds": bounds,
-        "zone_bounds": zone_bounds(bounds),
+        "zone_bounds": zone_bounds(items),
+        "zone_bounds_kind": "resource_envelopes_may_overlap",
+        "zone_partition": {
+            "method": "balanced_spatial_rank",
+            "key_order": {"x": ["x", "y", "z", "storage_location_id", "reference"],
+                          "y": ["y", "x", "z", "storage_location_id", "reference"]},
+            "comparison": "lexicographic; lower if key < pivot; empty sides use counts",
+            "tree": partition,
+        },
+        "resource_counts_by_zone": {z: sum(i["zone"] == z for i in items) for z in ZONES},
         "storage_locations": storage_locations,
         "item_locations": item_locations,
-        "navigation_points": navigation_points,
+        "navigation_points": [dict(p, zone=partition_zone(p, partition)) for p in navigation_points],
     }
 
 
@@ -558,13 +655,13 @@ def random_robot_positions(
         else:
             chosen = [rng.choice(navigation_points) for _ in robots]
         for robot, p in zip(robots, chosen):
-            positions[robot["group"]] = {"x": p["x"], "y": p["y"], "z": p["z"], "nav_label": p["label"]}
+            positions[robot["group"]] = {"x": p["x"], "y": p["y"], "z": 0.0, "nav_label": p["label"]}
     else:
         for robot in robots:
             positions[robot["group"]] = {
                 "x": rng.uniform(bounds["xmin"], bounds["xmax"]),
                 "y": rng.uniform(bounds["ymin"], bounds["ymax"]),
-                "z": 1.0,
+                "z": 0.0,
             }
     return positions
 
@@ -672,6 +769,7 @@ def generate_workload(
                     "supervisor": supervisor_entity_name(robot["zone"]),
                     "supervisor_group": "Supervisors",
                     "selected_robot": robot["group"],
+                    "delegation_chain": delegation_chain(robot["group"], item["z"]),
                     "selected_robot_home_zone": robot["zone"],
                     "selected_robot_distance_m": round(distance, 4),
                     "cross_auth": robot["zone"] != item["zone"],
@@ -687,6 +785,7 @@ def generate_workload(
 
     return {
         "metadata": {
+            "num_auths": len(ZONES),
             "seed": seed,
             "num_requests": len(requests),
             "num_positions": num_positions,
@@ -698,6 +797,30 @@ def generate_workload(
             ),
         },
         "requests": requests,
+    }
+
+
+def entity_distribution(graph: dict[str, Any]) -> dict[str, Any]:
+    """Validate actual graph ownership, including all five entity categories."""
+    counts = {zone: {"resources": 0, "robots": 0, "forklifts": 0, "drones": 0, "supervisors": 0, "total": 0} for zone in ZONES}
+    by_auth = {auth_id: zone for zone, auth_id in ZONE_AUTH_IDS.items()}
+    entities = graph["entityList"]
+    names = {entity["name"] for entity in entities}
+    if len(names) != len(entities) or names != set(graph["assignments"]):
+        raise ValueError("Entity names must be unique and match graph assignments exactly")
+    for entity in entities:
+        zone = by_auth[graph["assignments"][entity["name"]]]
+        group = entity["group"]
+        category = "resources" if group.startswith("Item_") else "robots" if group.startswith("Robot") else "forklifts" if group.startswith("Forklift") else "drones" if group.startswith("Drone") else "supervisors"
+        counts[zone][category] += 1
+        counts[zone]["total"] += 1
+    for key in ("resources", "robots", "forklifts", "drones", "supervisors", "total"):
+        if len({c[key] for c in counts.values()}) != 1:
+            raise ValueError(f"Auth ownership is not equal for {key}: {counts}")
+    return {
+        "total_entities": len(entities),
+        "entities_per_auth": len(entities) // len(ZONES),
+        "entity_counts_by_auth": {str(ZONE_AUTH_IDS[z]): dict(zone=z, **c) for z, c in counts.items()},
     }
 
 
@@ -719,6 +842,8 @@ def summarize(
 
     print("\nGenerated warehouse experiment from real warehouse CSVs")
     print("-------------------------------------------------------")
+    print(f"Auths: {len(ZONES)}")
+    print(f"Entities: {layout['total_entities']} total / {len(ZONES)} Auths = {layout['entities_per_auth']} per Auth")
     print(f"Resources: {len(items)}")
     print(f"Supervisors: {len(supervisors)}")
     print(f"Robots: {len(robots)}")
@@ -730,20 +855,20 @@ def summarize(
     for z in ZONES:
         print(
             f"Zone {z}: Auth {ZONE_AUTH_IDS[z]}, "
-            f"{item_counts[z]} resources, {robot_counts[z]} robots"
+            f"{item_counts[z]} resources, {robot_counts[z]} robots, {robot_counts[z]} forklifts, {robot_counts[z]} drones, 1 supervisor"
         )
 
 
 def main() -> None:
     args = parse_args()
+    configure_auths(args.num_auths)
+    num_resources = requested_resource_count(args)
     output_dir = Path(args.output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
 
     items, picking, bounds, diagnostics = load_real_data(
-        Path(args.product),
         Path(args.storage_locations),
         Path(args.picking_wave),
-        args.num_resources,
+        num_resources,
         args.seed,
     )
     navigation_points = load_navigation_points(
@@ -751,11 +876,13 @@ def main() -> None:
         bounds,
     )
     supervisors = generate_supervisors()
-    robots = generate_robots(args.robots_per_zone)
+    robots = generate_robots(args.robots_per_auth)
 
     graph = build_graph(items, supervisors, robots, args.validity)
     policies = build_supervisor_access_policies(graph)
     layout = build_layout(items, bounds, navigation_points)
+    layout.update(entity_distribution(graph))
+    navigation_points = layout["navigation_points"]
     workload = generate_workload(
         items,
         picking,
@@ -784,4 +911,7 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except ValueError as exc:
+        raise SystemExit(f"Error: {exc}") from None

@@ -26,22 +26,34 @@ Expected repository layout (matching the user's existing experiment scripts):
             └── configs/
 
 Workflow per request:
-    1. Use the workload's selected nearest robot.
-    2. Supervisor executes:
-           delegateAuthority <Robot> <Resource> <validity>
-    3. Robot executes:
-           initComm <Resource>
-    4. Supervisor executes:
-           revoke <Robot> <Resource>
-    5. Robot retries:
-           initComm <Resource>
-       and the experiment records whether post-revocation access is denied.
+    1. Supervisor delegates resource access to the selected Robot.
+    2. For z=1, Robot delegates to Forklift; for z>=2, Forklift also delegates to Drone.
+    3. Every chain member attempts resource access.
+    4. Supervisor revokes only Robot's resource access.
+    5. Every chain member retries access to verify cascading revocation.
 
 The runner measures:
     - delegation latency
     - pre-revocation authorization latency/result
     - revocation latency
     - post-revocation authorization latency/result
+    - each Auth's auth.db file size and total size before the workload and
+      after each delegation, access attempt, and revocation
+
+[DB_SIZE] logs show bytes and signed changes since the preceding snapshot.
+The first change is N/A. File-size sampling runs outside command latency timers.
+Three JSON files are saved, also after each completed request:
+    --results <name>.json: configuration and summary
+    <name>_db_size.json: db_size (the measurement snapshots)
+    <name>_results.json: results (the per-request records)
+
+Each robot has a forklift and drone in its home Auth. z=1 delegates through
+Forklift; z>=2 delegates through Forklift then Drone. Each chain member is tested
+before and after a single Supervisor -> Robot revocation. Verification requires
+successful grants, successful access before revocation, a successful revoke,
+and explicit access denial for every member afterward (timeouts do not pass).
+Legacy singular access/latency fields still describe the Robot/first grant;
+delegations and *_access_by_entity contain the full chain results.
 
 All workload requests are executed; only resource servers referenced by the workload are started.
 """
@@ -62,6 +74,8 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
+from warehouse_delegation import request_chain
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
@@ -80,7 +94,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--results",
         default="results/warehouse_results.json",
-        help="Output result JSON",
+        help="Configuration/summary JSON path; also writes <stem>_db_size.json and <stem>_results.json",
     )
     parser.add_argument(
         "--validity",
@@ -126,6 +140,72 @@ def load_json(path: Path) -> Any:
 def write_json(data: Any, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2), encoding="utf-8")
+
+
+class AuthDatabaseSizeLogger:
+    """Log auth.db file sizes and changes since the previous measurement.
+
+    Sizes include only auth.db, not WAL/journal files, credentials, or keys.
+    A missing/unreadable file yields null, not zero; totals require all Auths.
+    """
+
+    def __init__(self, project_root: Path, graph: dict[str, Any]) -> None:
+        self.paths = {
+            str(auth["id"]): project_root / "iotauth" / "auth" / "databases"
+            / f"auth{auth['id']}" / "auth.db"
+            for auth in graph["authList"]
+        }
+        self.snapshots: list[dict[str, Any]] = []
+
+    def record(self, phase: str, request_index: int | None = None,
+               request_id: Any = None) -> dict[str, Any]:
+        sizes: dict[str, int | None] = {}
+        errors = {}
+        for auth_id, path in self.paths.items():
+            try:
+                sizes[auth_id] = path.stat().st_size
+            except OSError as exc:
+                sizes[auth_id] = None
+                errors[auth_id] = f"{type(exc).__name__}: {exc}"
+
+        previous = self.snapshots[-1] if self.snapshots else None
+        previous_sizes = previous["auth_db_size_bytes_by_auth"] if previous else {}
+        deltas = {
+            auth_id: size - previous_sizes[auth_id]
+            if size is not None and previous_sizes.get(auth_id) is not None else None
+            for auth_id, size in sizes.items()
+        }
+        total = sum(sizes.values()) if all(size is not None for size in sizes.values()) else None
+        previous_total = previous["auth_db_size_bytes"] if previous else None
+        total_delta = total - previous_total if total is not None and previous_total is not None else None
+        snapshot = {
+            "phase": phase,
+            "request_index": request_index,
+            "request_id": request_id,
+            "auth_db_size_bytes": total,
+            "auth_db_size_delta_bytes": total_delta,
+            "auth_db_size_bytes_by_auth": sizes,
+            "auth_db_size_delta_bytes_by_auth": deltas,
+            "errors": errors,
+        }
+        self.snapshots.append(snapshot)
+
+        def size_text(value: int | None) -> str:
+            return "unavailable" if value is None else f"{value} bytes"
+
+        def delta_text(value: int | None) -> str:
+            return "N/A" if value is None else f"{value:+d} bytes"
+
+        context = f" request={request_index} request_id={request_id}" if request_index is not None else ""
+        lines = [f"[DB_SIZE] phase={phase}{context} "
+                 f"total={size_text(total)} delta={delta_text(total_delta)}"]
+        for auth_id, size in sizes.items():
+            lines.append(f"[DB_SIZE]   Auth{auth_id}: size={size_text(size)} "
+                         f"delta={delta_text(deltas[auth_id])}")
+            if auth_id in errors:
+                lines.append(f"[DB_SIZE]   Auth{auth_id}: {errors[auth_id]}")
+        print("\n".join(lines), flush=True)
+        return snapshot
 
 
 def start_output_reader(
@@ -342,7 +422,7 @@ def classify_entities(
 
         if group.startswith("Supervisor"):
             supervisors[entity["name"]] = entity
-        elif group.startswith("Robot"):
+        elif group.startswith(("Robot", "Forklift", "Drone")):
             robots[group] = entity
         elif group.startswith("Item_"):
             resources[group] = entity
@@ -503,7 +583,7 @@ def required_entities_from_requests(
     requests: list[dict[str, Any]],
 ) -> tuple[set[str], set[str], set[str]]:
     supervisors = {req["supervisor"] for req in requests}
-    robots = {req["selected_robot"] for req in requests}
+    robots = {group for req in requests for group in request_chain(req)}
     resources = {req["resource"] for req in requests}
     return supervisors, robots, resources
 
@@ -661,6 +741,10 @@ def summarize_results(results: list[dict[str, Any]]) -> dict[str, Any]:
 
     return {
         "num_requests": len(results),
+        "delegation_count": sum(len(r.get("delegations", [])) for r in results),
+        "cascading_revocation_request_count": sum(r.get("cascading_revocation_verified") is not None for r in results),
+        "cascading_revocation_verified_count": sum(r.get("cascading_revocation_verified") is True for r in results),
+        "revocation_verified_count": sum(r.get("revocation_verified") is True for r in results),
         "cross_auth_request_count": cross_auth_count,
         "cross_auth_request_rate": (cross_auth_count / len(results) if results else None),
         "total_quantity_to_pick": total_quantity,
@@ -689,6 +773,8 @@ def main() -> None:
     graph_path = Path(args.graph).resolve()
     workload_path = Path(args.workload).resolve()
     result_path = Path(args.results).resolve()
+    db_size_path = result_path.with_name(f"{result_path.stem}_db_size.json")
+    details_path = result_path.with_name(f"{result_path.stem}_results.json")
 
     script_dir = Path(__file__).resolve().parent
     project_root = (
@@ -737,6 +823,26 @@ def main() -> None:
     resource_procs: dict[str, subprocess.Popen[str]] = {}
 
     results: list[dict[str, Any]] = []
+    db_size_logger = AuthDatabaseSizeLogger(project_root, graph)
+    configuration = {
+        "graph": str(graph_path),
+        "workload": str(workload_path),
+        "num_selected_requests": len(requests),
+        "validity": args.validity,
+    }
+
+    def save_outputs() -> dict[str, Any]:
+        summary = summarize_results(results)
+        # Display the final snapshot beside the baseline without changing the
+        # chronological recording order used to calculate deltas.
+        snapshots = db_size_logger.snapshots
+        phases = ("before_workload", "after_workload")
+        overview = [s for s in snapshots if s["phase"] in phases]
+        details = [s for s in snapshots if s["phase"] not in phases]
+        write_json({"db_size": overview + details}, db_size_path)
+        write_json({"results": results}, details_path)
+        write_json({"configuration": configuration, "summary": summary}, result_path)
+        return summary
 
     try:
         auth_procs, _ = start_auths(
@@ -756,7 +862,7 @@ def main() -> None:
             supervisor_procs[group] = proc
             supervisor_outputs[group] = output_q
 
-        print("\nStarting Robots")
+        print("\nStarting Robots, Forklifts and Drones")
         for group in sorted(required_robots):
             proc, output_q = start_user_entity(
                 group,
@@ -780,6 +886,8 @@ def main() -> None:
         # Let TCP listeners/Auth connections settle.
         time.sleep(1.0)
 
+        db_size_logger.record("before_workload")
+
         print("\nRunning workload")
         for index, request in enumerate(requests, start=1):
             supervisor = request["supervisor"]
@@ -789,48 +897,59 @@ def main() -> None:
             print(
                 f"\n[{index}/{len(requests)}] "
                 f"zone={request['resource_zone']} "
-                f"{supervisor} -> {robot} -> {resource} "
+                f"{supervisor} -> {' -> '.join(request_chain(request))} (resource={resource}) "
                 f"(distance={request['selected_robot_distance_m']} m)"
             )
 
-            delegation_result = delegate(
-                supervisor_proc=supervisor_procs[supervisor],
-                supervisor_output=supervisor_outputs[supervisor],
-                robot=robot,
-                resource=resource,
-                validity=args.validity,
-                timeout=args.command_timeout,
-            )
-
+            chain = request_chain(request)
             resource_target = resources_by_group[resource]["name"]
+            delegations = []
+            parent = supervisor
+            for child in chain:
+                proc = supervisor_procs[parent] if parent == supervisor else robot_procs[parent]
+                output = supervisor_outputs[parent] if parent == supervisor else robot_outputs[parent]
+                outcome = delegate(proc, output, child, resource, args.validity, args.command_timeout)
+                delegations.append({"delegator": parent, "delegatee": child,
+                                    "resource": resource, **outcome})
+                snapshot = db_size_logger.record("after_delegation", index, request["request_id"])
+                snapshot.update(delegator=parent, delegatee=child, resource=resource)
+                parent = child
 
-            before_access = access_attempt(
-                robot_proc=robot_procs[robot],
-                robot_output=robot_outputs[robot],
-                resource_target=resource_target,
-                timeout=args.access_timeout,
-            )
+            before_by_entity = {}
+            for group in chain:
+                before_by_entity[group] = access_attempt(
+                    robot_procs[group], robot_outputs[group], resource_target, args.access_timeout)
+                snapshot = db_size_logger.record("after_access_before_revoke", index, request["request_id"])
+                snapshot.update(entity=group, resource=resource)
 
+            # Only revoke the first edge. Descendants must lose access through cascading.
             revocation_result = revoke(
                 supervisor_proc=supervisor_procs[supervisor],
                 supervisor_output=supervisor_outputs[supervisor],
-                robot=robot,
-                resource=resource,
-                timeout=args.command_timeout,
-            )
+                robot=robot, resource=resource, timeout=args.command_timeout)
+            db_size_logger.record("after_revocation", index, request["request_id"])
 
-            after_access = access_attempt(
-                robot_proc=robot_procs[robot],
-                robot_output=robot_outputs[robot],
-                resource_target=resource_target,
-                timeout=args.access_timeout,
-            )
+            after_by_entity = {}
+            for group in chain:
+                after_by_entity[group] = access_attempt(
+                    robot_procs[group], robot_outputs[group], resource_target, args.access_timeout)
+                snapshot = db_size_logger.record("after_access_after_revoke", index, request["request_id"])
+                snapshot.update(entity=group, resource=resource)
+
+            delegation_result = delegations[0]
+            before_access = before_by_entity[robot]
+            after_access = after_by_entity[robot]
+            all_before = all(v["status"] == "success" for v in before_by_entity.values())
+            all_after = all(v["status"] == "denied" for v in after_by_entity.values())
+            verified = (all_before and all_after
+                        and all(d.get("status") == "success" for d in delegations)
+                        and revocation_result.get("status") == "success")
 
             record = {
                 "request_id": request["request_id"],
                 "position_id": request.get("position_id"),
                 "wave_number": request.get("wave_number"),
-                "operator": request.get("operator"),
+                # "operator": request.get("operator"),
                 "item_id": request["item_id"],
                 "reference": request.get("reference", request["item_id"]),
                 "size_us": request.get("size_us"),
@@ -846,6 +965,15 @@ def main() -> None:
                 "selected_robot_distance_m": request[
                     "selected_robot_distance_m"
                 ],
+                "resource_position": request.get("resource_position"),
+                "delegation_chain": [supervisor] + chain,
+                "delegations": delegations,
+                "before_revoke_access_by_entity": before_by_entity,
+                "after_revoke_access_by_entity": after_by_entity,
+                "all_entities_accessible_before_revoke": all_before,
+                "all_entities_denied_after_revoke": all_after,
+                "revocation_verified": verified,
+                "cascading_revocation_verified": verified if len(chain) > 1 else None,
                 "delegation": delegation_result,
                 "before_revoke_access": before_access,
                 "revocation": revocation_result,
@@ -854,11 +982,7 @@ def main() -> None:
             results.append(record)
 
             # Save incrementally so an interrupted long run still leaves data.
-            partial = {
-                "summary": summarize_results(results),
-                "results": results,
-            }
-            write_json(partial, result_path)
+            save_outputs()
 
             print(
                 "  delegation={:.2f} ms, access-before={} ({:.2f} ms), "
@@ -875,21 +999,13 @@ def main() -> None:
             if args.inter_request_delay > 0:
                 time.sleep(args.inter_request_delay)
 
-        final_output = {
-            "configuration": {
-                "graph": str(graph_path),
-                "workload": str(workload_path),
-                "num_selected_requests": len(requests),
-                "validity": args.validity,
-            },
-            "summary": summarize_results(results),
-            "results": results,
-        }
-        write_json(final_output, result_path)
-
+        db_size_logger.record("after_workload")
+        summary = save_outputs()
         print("\nSummary")
-        print(json.dumps(final_output["summary"], indent=2))
-        print(f"\nWrote results: {result_path}")
+        print(json.dumps(summary, indent=2))
+        print(f"\nWrote configuration/summary: {result_path}")
+        print(f"Wrote database sizes: {db_size_path}")
+        print(f"Wrote request results: {details_path}")
 
     finally:
         if not args.keep_processes:

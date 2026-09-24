@@ -1,5 +1,6 @@
 {
   "coordinate_source": "Storage_Location.csv",
+  "num_auths": 4,
   "warehouse_bounds": {
     "xmin": 86.0,
     "xmax": 666.0,
@@ -8,34 +9,104 @@
   },
   "zone_bounds": {
     "A": {
-      "xmin": 86.0,
-      "xmax": 376.0,
-      "ymin": 720.0,
+      "xmin": 118.0,
+      "xmax": 434.0,
+      "ymin": 958.0,
       "ymax": 1440.0
     },
     "B": {
-      "xmin": 376.0,
+      "xmin": 450.0,
       "xmax": 666.0,
-      "ymin": 720.0,
-      "ymax": 1440.0
+      "ymin": 958.0,
+      "ymax": 1350.0
     },
     "C": {
       "xmin": 86.0,
-      "xmax": 376.0,
-      "ymin": 0.0,
-      "ymax": 720.0
+      "xmax": 434.0,
+      "ymin": 572.0,
+      "ymax": 958.0
     },
     "D": {
-      "xmin": 376.0,
-      "xmax": 666.0,
-      "ymin": 0.0,
-      "ymax": 720.0
+      "xmin": 450.0,
+      "xmax": 650.0,
+      "ymin": 688.0,
+      "ymax": 958.0
     }
+  },
+  "zone_bounds_kind": "resource_envelopes_may_overlap",
+  "zone_partition": {
+    "method": "balanced_spatial_rank",
+    "key_order": {
+      "x": [
+        "x",
+        "y",
+        "z",
+        "storage_location_id",
+        "reference"
+      ],
+      "y": [
+        "y",
+        "x",
+        "z",
+        "storage_location_id",
+        "reference"
+      ]
+    },
+    "comparison": "lexicographic; lower if key < pivot; empty sides use counts",
+    "tree": {
+      "axis": "x",
+      "lower_count": 50,
+      "total_count": 100,
+      "pivot": [
+        450.0,
+        720.0,
+        1.0,
+        "I-09-12",
+        "WRRW1W"
+      ],
+      "lower": {
+        "axis": "y",
+        "lower_count": 25,
+        "total_count": 50,
+        "pivot": [
+          958.0,
+          286.0,
+          2.0,
+          "L-16-23",
+          "U95NWB"
+        ],
+        "lower": "C",
+        "upper": "A"
+      },
+      "upper": {
+        "axis": "y",
+        "lower_count": 25,
+        "total_count": 50,
+        "pivot": [
+          958.0,
+          534.0,
+          1.0,
+          "K-06-13",
+          "D05ZS7"
+        ],
+        "lower": "D",
+        "upper": "B"
+      }
+    }
+  },
+  "resource_counts_by_zone": {
+    "A": 25,
+    "B": 25,
+    "C": 25,
+    "D": 25
   },
   "storage_locations": {
     "M-16-23": {
       "storage_location_id": "M-16-23",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 286.0,
       "y": 1048.0,
       "z": 2.0
@@ -43,13 +114,19 @@
     "O-08-12": {
       "storage_location_id": "O-08-12",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 500.0,
       "y": 1318.0,
       "z": 1.0
     },
     "I-03-13": {
       "storage_location_id": "I-03-13",
-      "zone": "B",
+      "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 584.0,
       "y": 720.0,
       "z": 1.0
@@ -57,6 +134,9 @@
     "L-02-11": {
       "storage_location_id": "L-02-11",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 666.0,
       "y": 1048.0,
       "z": 1.0
@@ -64,6 +144,9 @@
     "H-10-21": {
       "storage_location_id": "H-10-21",
       "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 466.0,
       "y": 688.0,
       "z": 2.0
@@ -71,6 +154,9 @@
     "L-07-22": {
       "storage_location_id": "L-07-22",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 500.0,
       "y": 990.0,
       "z": 2.0
@@ -78,6 +164,9 @@
     "I-16-22": {
       "storage_location_id": "I-16-22",
       "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 302.0,
       "y": 688.0,
       "z": 2.0
@@ -85,6 +174,9 @@
     "I-23-23": {
       "storage_location_id": "I-23-23",
       "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 86.0,
       "y": 572.0,
       "z": 2.0
@@ -92,6 +184,9 @@
     "H-06-12": {
       "storage_location_id": "H-06-12",
       "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 550.0,
       "y": 688.0,
       "z": 1.0
@@ -99,13 +194,19 @@
     "I-18-11": {
       "storage_location_id": "I-18-11",
       "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 268.0,
       "y": 688.0,
       "z": 1.0
     },
     "J-02-12": {
       "storage_location_id": "J-02-12",
-      "zone": "B",
+      "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 650.0,
       "y": 868.0,
       "z": 1.0
@@ -113,6 +214,9 @@
     "O-09-11": {
       "storage_location_id": "O-09-11",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 466.0,
       "y": 1260.0,
       "z": 1.0
@@ -120,20 +224,29 @@
     "N-01-12": {
       "storage_location_id": "N-01-12",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 650.0,
       "y": 1170.0,
       "z": 1.0
     },
     "J-20-22": {
       "storage_location_id": "J-20-22",
-      "zone": "A",
+      "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 202.0,
       "y": 778.0,
       "z": 2.0
     },
     "L-22-13": {
       "storage_location_id": "L-22-13",
-      "zone": "A",
+      "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 136.0,
       "y": 958.0,
       "z": 1.0
@@ -141,13 +254,19 @@
     "M-15-13": {
       "storage_location_id": "M-15-13",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 286.0,
       "y": 990.0,
       "z": 1.0
     },
     "K-05-23": {
       "storage_location_id": "K-05-23",
-      "zone": "B",
+      "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 534.0,
       "y": 900.0,
       "z": 2.0
@@ -155,13 +274,19 @@
     "M-05-22": {
       "storage_location_id": "M-05-22",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 550.0,
       "y": 1080.0,
       "z": 2.0
     },
     "L-18-12": {
       "storage_location_id": "L-18-12",
-      "zone": "A",
+      "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 252.0,
       "y": 958.0,
       "z": 1.0
@@ -169,20 +294,29 @@
     "M-20-12": {
       "storage_location_id": "M-20-12",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 202.0,
       "y": 1048.0,
       "z": 1.0
     },
     "J-03-11": {
       "storage_location_id": "J-03-11",
-      "zone": "B",
+      "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 616.0,
       "y": 810.0,
       "z": 1.0
     },
     "I-08-12": {
       "storage_location_id": "I-08-12",
-      "zone": "B",
+      "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 500.0,
       "y": 778.0,
       "z": 1.0
@@ -190,13 +324,19 @@
     "I-24-22": {
       "storage_location_id": "I-24-22",
       "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 102.0,
       "y": 688.0,
       "z": 2.0
     },
     "L-20-23": {
       "storage_location_id": "L-20-23",
-      "zone": "A",
+      "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 186.0,
       "y": 958.0,
       "z": 2.0
@@ -204,13 +344,19 @@
     "M-06-21": {
       "storage_location_id": "M-06-21",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 566.0,
       "y": 1138.0,
       "z": 2.0
     },
     "J-10-21": {
       "storage_location_id": "J-10-21",
-      "zone": "B",
+      "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 466.0,
       "y": 868.0,
       "z": 2.0
@@ -218,6 +364,9 @@
     "M-19-11": {
       "storage_location_id": "M-19-11",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 218.0,
       "y": 990.0,
       "z": 1.0
@@ -225,6 +374,9 @@
     "O-16-11": {
       "storage_location_id": "O-16-11",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 318.0,
       "y": 1228.0,
       "z": 1.0
@@ -232,6 +384,9 @@
     "H-06-11": {
       "storage_location_id": "H-06-11",
       "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 566.0,
       "y": 688.0,
       "z": 1.0
@@ -239,13 +394,19 @@
     "H-08-23": {
       "storage_location_id": "H-08-23",
       "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 484.0,
       "y": 688.0,
       "z": 2.0
     },
     "J-10-23": {
       "storage_location_id": "J-10-23",
-      "zone": "B",
+      "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 434.0,
       "y": 868.0,
       "z": 2.0
@@ -253,6 +414,9 @@
     "I-23-11": {
       "storage_location_id": "I-23-11",
       "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 118.0,
       "y": 572.0,
       "z": 1.0
@@ -260,13 +424,19 @@
     "M-04-23": {
       "storage_location_id": "M-04-23",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 584.0,
       "y": 1138.0,
       "z": 2.0
     },
     "I-09-12": {
       "storage_location_id": "I-09-12",
-      "zone": "B",
+      "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 450.0,
       "y": 720.0,
       "z": 1.0
@@ -274,6 +444,9 @@
     "M-09-11": {
       "storage_location_id": "M-09-11",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 466.0,
       "y": 1080.0,
       "z": 1.0
@@ -281,6 +454,9 @@
     "R-13-23": {
       "storage_location_id": "R-13-23",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 336.0,
       "y": 1440.0,
       "z": 2.0
@@ -288,6 +464,9 @@
     "M-20-21": {
       "storage_location_id": "M-20-21",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 218.0,
       "y": 1048.0,
       "z": 2.0
@@ -295,20 +474,29 @@
     "M-04-22": {
       "storage_location_id": "M-04-22",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 600.0,
       "y": 1138.0,
       "z": 2.0
     },
     "L-15-12": {
       "storage_location_id": "L-15-12",
-      "zone": "A",
+      "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 302.0,
       "y": 900.0,
       "z": 1.0
     },
     "L-20-21": {
       "storage_location_id": "L-20-21",
-      "zone": "A",
+      "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 218.0,
       "y": 958.0,
       "z": 2.0
@@ -316,20 +504,29 @@
     "I-15-11": {
       "storage_location_id": "I-15-11",
       "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 318.0,
       "y": 572.0,
       "z": 1.0
     },
     "P-09-13": {
       "storage_location_id": "P-09-13",
-      "zone": "B",
+      "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 434.0,
       "y": 1350.0,
       "z": 1.0
     },
     "L-17-22": {
       "storage_location_id": "L-17-22",
-      "zone": "A",
+      "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 252.0,
       "y": 900.0,
       "z": 2.0
@@ -337,13 +534,19 @@
     "M-01-12": {
       "storage_location_id": "M-01-12",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 650.0,
       "y": 1080.0,
       "z": 1.0
     },
     "J-19-13": {
       "storage_location_id": "J-19-13",
-      "zone": "A",
+      "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 186.0,
       "y": 720.0,
       "z": 1.0
@@ -351,6 +554,9 @@
     "M-22-22": {
       "storage_location_id": "M-22-22",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 152.0,
       "y": 1048.0,
       "z": 2.0
@@ -358,6 +564,9 @@
     "I-17-12": {
       "storage_location_id": "I-17-12",
       "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 252.0,
       "y": 572.0,
       "z": 1.0
@@ -365,13 +574,19 @@
     "P-15-12": {
       "storage_location_id": "P-15-12",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 302.0,
       "y": 1260.0,
       "z": 1.0
     },
     "I-06-21": {
       "storage_location_id": "I-06-21",
-      "zone": "B",
+      "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 566.0,
       "y": 778.0,
       "z": 2.0
@@ -379,6 +594,9 @@
     "L-16-23": {
       "storage_location_id": "L-16-23",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 286.0,
       "y": 958.0,
       "z": 2.0
@@ -386,6 +604,9 @@
     "L-09-11": {
       "storage_location_id": "L-09-11",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 466.0,
       "y": 990.0,
       "z": 1.0
@@ -393,13 +614,19 @@
     "M-24-21": {
       "storage_location_id": "M-24-21",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 118.0,
       "y": 1048.0,
       "z": 2.0
     },
     "I-05-13": {
       "storage_location_id": "I-05-13",
-      "zone": "B",
+      "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 534.0,
       "y": 720.0,
       "z": 1.0
@@ -407,6 +634,9 @@
     "H-06-13": {
       "storage_location_id": "H-06-13",
       "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 534.0,
       "y": 688.0,
       "z": 1.0
@@ -414,6 +644,9 @@
     "M-06-22": {
       "storage_location_id": "M-06-22",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 550.0,
       "y": 1138.0,
       "z": 2.0
@@ -421,13 +654,19 @@
     "N-22-21": {
       "storage_location_id": "N-22-21",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 168.0,
       "y": 1138.0,
       "z": 2.0
     },
     "I-08-22": {
       "storage_location_id": "I-08-22",
-      "zone": "B",
+      "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 500.0,
       "y": 778.0,
       "z": 2.0
@@ -435,6 +674,9 @@
     "K-02-21": {
       "storage_location_id": "K-02-21",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 666.0,
       "y": 958.0,
       "z": 2.0
@@ -442,6 +684,9 @@
     "M-06-23": {
       "storage_location_id": "M-06-23",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 534.0,
       "y": 1138.0,
       "z": 2.0
@@ -449,34 +694,49 @@
     "M-17-12": {
       "storage_location_id": "M-17-12",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 252.0,
       "y": 990.0,
       "z": 1.0
     },
     "J-17-11": {
       "storage_location_id": "J-17-11",
-      "zone": "A",
+      "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 268.0,
       "y": 720.0,
       "z": 1.0
     },
     "I-10-23": {
       "storage_location_id": "I-10-23",
-      "zone": "B",
+      "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 434.0,
       "y": 778.0,
       "z": 2.0
     },
     "J-22-13": {
       "storage_location_id": "J-22-13",
-      "zone": "A",
+      "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 136.0,
       "y": 778.0,
       "z": 1.0
     },
     "I-10-11": {
       "storage_location_id": "I-10-11",
-      "zone": "B",
+      "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 466.0,
       "y": 778.0,
       "z": 1.0
@@ -484,6 +744,9 @@
     "M-04-21": {
       "storage_location_id": "M-04-21",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 616.0,
       "y": 1138.0,
       "z": 2.0
@@ -491,6 +754,9 @@
     "O-06-13": {
       "storage_location_id": "O-06-13",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 534.0,
       "y": 1318.0,
       "z": 1.0
@@ -498,6 +764,9 @@
     "K-06-13": {
       "storage_location_id": "K-06-13",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 534.0,
       "y": 958.0,
       "z": 1.0
@@ -505,13 +774,19 @@
     "L-01-22": {
       "storage_location_id": "L-01-22",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 650.0,
       "y": 990.0,
       "z": 2.0
     },
     "N-10-23": {
       "storage_location_id": "N-10-23",
-      "zone": "B",
+      "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 434.0,
       "y": 1228.0,
       "z": 2.0
@@ -519,6 +794,9 @@
     "L-10-22": {
       "storage_location_id": "L-10-22",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 450.0,
       "y": 1048.0,
       "z": 2.0
@@ -526,6 +804,9 @@
     "P-03-22": {
       "storage_location_id": "P-03-22",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 600.0,
       "y": 1350.0,
       "z": 2.0
@@ -533,6 +814,9 @@
     "M-13-11": {
       "storage_location_id": "M-13-11",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 368.0,
       "y": 990.0,
       "z": 1.0
@@ -540,13 +824,19 @@
     "N-10-21": {
       "storage_location_id": "N-10-21",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 466.0,
       "y": 1228.0,
       "z": 2.0
     },
     "I-08-11": {
       "storage_location_id": "I-08-11",
-      "zone": "B",
+      "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 516.0,
       "y": 778.0,
       "z": 1.0
@@ -554,6 +844,9 @@
     "I-17-22": {
       "storage_location_id": "I-17-22",
       "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 252.0,
       "y": 572.0,
       "z": 2.0
@@ -561,6 +854,9 @@
     "H-10-11": {
       "storage_location_id": "H-10-11",
       "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 466.0,
       "y": 688.0,
       "z": 1.0
@@ -568,13 +864,19 @@
     "M-20-23": {
       "storage_location_id": "M-20-23",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 186.0,
       "y": 1048.0,
       "z": 2.0
     },
     "K-10-22": {
       "storage_location_id": "K-10-22",
-      "zone": "B",
+      "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 450.0,
       "y": 958.0,
       "z": 2.0
@@ -582,6 +884,9 @@
     "P-14-23": {
       "storage_location_id": "P-14-23",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 336.0,
       "y": 1318.0,
       "z": 2.0
@@ -589,13 +894,19 @@
     "P-19-22": {
       "storage_location_id": "P-19-22",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 202.0,
       "y": 1260.0,
       "z": 2.0
     },
     "J-04-11": {
       "storage_location_id": "J-04-11",
-      "zone": "B",
+      "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 616.0,
       "y": 868.0,
       "z": 1.0
@@ -603,6 +914,9 @@
     "O-14-12": {
       "storage_location_id": "O-14-12",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 352.0,
       "y": 1228.0,
       "z": 1.0
@@ -610,6 +924,9 @@
     "P-19-13": {
       "storage_location_id": "P-19-13",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 186.0,
       "y": 1260.0,
       "z": 1.0
@@ -617,20 +934,29 @@
     "P-22-21": {
       "storage_location_id": "P-22-21",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 168.0,
       "y": 1318.0,
       "z": 2.0
     },
     "J-10-22": {
       "storage_location_id": "J-10-22",
-      "zone": "B",
+      "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 450.0,
       "y": 868.0,
       "z": 2.0
     },
     "K-19-13": {
       "storage_location_id": "K-19-13",
-      "zone": "A",
+      "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 186.0,
       "y": 810.0,
       "z": 1.0
@@ -638,13 +964,19 @@
     "M-01-21": {
       "storage_location_id": "M-01-21",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 666.0,
       "y": 1080.0,
       "z": 2.0
     },
     "L-15-21": {
       "storage_location_id": "L-15-21",
-      "zone": "A",
+      "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 318.0,
       "y": 900.0,
       "z": 2.0
@@ -652,13 +984,19 @@
     "M-05-21": {
       "storage_location_id": "M-05-21",
       "zone": "B",
+      "zones": [
+        "B"
+      ],
       "x": 566.0,
       "y": 1080.0,
       "z": 2.0
     },
     "J-02-22": {
       "storage_location_id": "J-02-22",
-      "zone": "B",
+      "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 650.0,
       "y": 868.0,
       "z": 2.0
@@ -666,702 +1004,72 @@
     "N-17-11": {
       "storage_location_id": "N-17-11",
       "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 268.0,
       "y": 1080.0,
       "z": 1.0
     },
     "K-19-22": {
       "storage_location_id": "K-19-22",
-      "zone": "A",
+      "zone": "C",
+      "zones": [
+        "C"
+      ],
       "x": 202.0,
       "y": 810.0,
       "z": 2.0
     },
     "K-03-13": {
       "storage_location_id": "K-03-13",
-      "zone": "B",
+      "zone": "D",
+      "zones": [
+        "D"
+      ],
       "x": 584.0,
       "y": 900.0,
       "z": 1.0
     },
-    "H-06-21": {
-      "storage_location_id": "H-06-21",
-      "zone": "D",
-      "x": 566.0,
+    "I-16-12": {
+      "storage_location_id": "I-16-12",
+      "zone": "C",
+      "zones": [
+        "C"
+      ],
+      "x": 302.0,
       "y": 688.0,
-      "z": 2.0
-    },
-    "O-10-11": {
-      "storage_location_id": "O-10-11",
-      "zone": "B",
-      "x": 466.0,
-      "y": 1318.0,
       "z": 1.0
     },
-    "R-13-21": {
-      "storage_location_id": "R-13-21",
-      "zone": "A",
-      "x": 368.0,
-      "y": 1440.0,
-      "z": 2.0
-    },
-    "M-24-11": {
-      "storage_location_id": "M-24-11",
-      "zone": "A",
-      "x": 118.0,
-      "y": 1048.0,
-      "z": 1.0
-    },
-    "P-18-23": {
-      "storage_location_id": "P-18-23",
-      "zone": "A",
-      "x": 236.0,
-      "y": 1318.0,
-      "z": 2.0
-    },
-    "O-14-22": {
-      "storage_location_id": "O-14-22",
-      "zone": "A",
-      "x": 352.0,
-      "y": 1228.0,
-      "z": 2.0
-    },
-    "N-02-21": {
-      "storage_location_id": "N-02-21",
-      "zone": "B",
-      "x": 666.0,
-      "y": 1228.0,
-      "z": 2.0
-    },
-    "J-20-13": {
-      "storage_location_id": "J-20-13",
-      "zone": "A",
-      "x": 186.0,
-      "y": 778.0,
-      "z": 1.0
-    },
-    "I-18-23": {
-      "storage_location_id": "I-18-23",
+    "L-24-23": {
+      "storage_location_id": "L-24-23",
       "zone": "C",
-      "x": 236.0,
-      "y": 688.0,
-      "z": 2.0
-    },
-    "I-03-21": {
-      "storage_location_id": "I-03-21",
-      "zone": "B",
-      "x": 616.0,
-      "y": 720.0,
-      "z": 2.0
-    },
-    "J-17-13": {
-      "storage_location_id": "J-17-13",
-      "zone": "A",
-      "x": 236.0,
-      "y": 720.0,
-      "z": 1.0
-    },
-    "M-09-23": {
-      "storage_location_id": "M-09-23",
-      "zone": "B",
-      "x": 434.0,
-      "y": 1080.0,
-      "z": 2.0
-    },
-    "L-19-11": {
-      "storage_location_id": "L-19-11",
-      "zone": "A",
-      "x": 218.0,
-      "y": 900.0,
-      "z": 1.0
-    },
-    "M-08-23": {
-      "storage_location_id": "M-08-23",
-      "zone": "B",
-      "x": 484.0,
-      "y": 1138.0,
-      "z": 2.0
-    },
-    "N-16-23": {
-      "storage_location_id": "N-16-23",
-      "zone": "A",
-      "x": 286.0,
-      "y": 1138.0,
-      "z": 2.0
-    },
-    "L-19-12": {
-      "storage_location_id": "L-19-12",
-      "zone": "A",
-      "x": 202.0,
-      "y": 900.0,
-      "z": 1.0
-    },
-    "N-09-23": {
-      "storage_location_id": "N-09-23",
-      "zone": "B",
-      "x": 434.0,
-      "y": 1170.0,
-      "z": 2.0
-    },
-    "M-24-12": {
-      "storage_location_id": "M-24-12",
-      "zone": "A",
-      "x": 102.0,
-      "y": 1048.0,
-      "z": 1.0
-    },
-    "N-15-11": {
-      "storage_location_id": "N-15-11",
-      "zone": "A",
-      "x": 318.0,
-      "y": 1080.0,
-      "z": 1.0
-    },
-    "L-19-23": {
-      "storage_location_id": "L-19-23",
-      "zone": "A",
-      "x": 186.0,
-      "y": 900.0,
-      "z": 2.0
-    },
-    "O-08-13": {
-      "storage_location_id": "O-08-13",
-      "zone": "B",
-      "x": 484.0,
-      "y": 1318.0,
-      "z": 1.0
-    },
-    "P-14-12": {
-      "storage_location_id": "P-14-12",
-      "zone": "A",
-      "x": 352.0,
-      "y": 1318.0,
-      "z": 1.0
-    },
-    "L-09-21": {
-      "storage_location_id": "L-09-21",
-      "zone": "B",
-      "x": 466.0,
-      "y": 990.0,
-      "z": 2.0
-    },
-    "K-09-12": {
-      "storage_location_id": "K-09-12",
-      "zone": "B",
-      "x": 450.0,
-      "y": 900.0,
-      "z": 1.0
-    },
-    "P-13-22": {
-      "storage_location_id": "P-13-22",
-      "zone": "A",
-      "x": 352.0,
-      "y": 1260.0,
-      "z": 2.0
-    },
-    "M-02-23": {
-      "storage_location_id": "M-02-23",
-      "zone": "B",
-      "x": 634.0,
-      "y": 1138.0,
-      "z": 2.0
-    },
-    "L-13-13": {
-      "storage_location_id": "L-13-13",
-      "zone": "A",
-      "x": 336.0,
-      "y": 900.0,
-      "z": 1.0
-    },
-    "N-23-23": {
-      "storage_location_id": "N-23-23",
-      "zone": "A",
-      "x": 86.0,
-      "y": 1080.0,
-      "z": 2.0
-    },
-    "H-08-22": {
-      "storage_location_id": "H-08-22",
-      "zone": "D",
-      "x": 500.0,
-      "y": 688.0,
-      "z": 2.0
-    },
-    "I-13-22": {
-      "storage_location_id": "I-13-22",
-      "zone": "C",
-      "x": 352.0,
-      "y": 572.0,
-      "z": 2.0
-    },
-    "M-02-21": {
-      "storage_location_id": "M-02-21",
-      "zone": "B",
-      "x": 666.0,
-      "y": 1138.0,
-      "z": 2.0
-    },
-    "J-01-23": {
-      "storage_location_id": "J-01-23",
-      "zone": "B",
-      "x": 634.0,
-      "y": 810.0,
-      "z": 2.0
-    },
-    "I-21-21": {
-      "storage_location_id": "I-21-21",
-      "zone": "C",
-      "x": 168.0,
-      "y": 572.0,
-      "z": 2.0
-    },
-    "M-13-22": {
-      "storage_location_id": "M-13-22",
-      "zone": "A",
-      "x": 352.0,
-      "y": 990.0,
-      "z": 2.0
-    },
-    "P-08-11": {
-      "storage_location_id": "P-08-11",
-      "zone": "B",
-      "x": 516.0,
-      "y": 1408.0,
-      "z": 1.0
-    },
-    "J-21-23": {
-      "storage_location_id": "J-21-23",
-      "zone": "A",
-      "x": 136.0,
-      "y": 720.0,
-      "z": 2.0
-    },
-    "I-17-11": {
-      "storage_location_id": "I-17-11",
-      "zone": "C",
-      "x": 268.0,
-      "y": 572.0,
-      "z": 1.0
-    },
-    "L-20-22": {
-      "storage_location_id": "L-20-22",
-      "zone": "A",
-      "x": 202.0,
-      "y": 958.0,
-      "z": 2.0
-    },
-    "K-07-22": {
-      "storage_location_id": "K-07-22",
-      "zone": "B",
-      "x": 500.0,
-      "y": 900.0,
-      "z": 2.0
-    },
-    "L-24-13": {
-      "storage_location_id": "L-24-13",
-      "zone": "A",
+      "zones": [
+        "C"
+      ],
       "x": 86.0,
       "y": 958.0,
-      "z": 1.0
-    },
-    "L-14-12": {
-      "storage_location_id": "L-14-12",
-      "zone": "A",
-      "x": 352.0,
-      "y": 958.0,
-      "z": 1.0
-    },
-    "H-10-12": {
-      "storage_location_id": "H-10-12",
-      "zone": "D",
-      "x": 450.0,
-      "y": 688.0,
-      "z": 1.0
-    },
-    "K-14-12": {
-      "storage_location_id": "K-14-12",
-      "zone": "A",
-      "x": 352.0,
-      "y": 868.0,
-      "z": 1.0
-    },
-    "M-18-12": {
-      "storage_location_id": "M-18-12",
-      "zone": "A",
-      "x": 252.0,
-      "y": 1048.0,
-      "z": 1.0
-    },
-    "J-06-22": {
-      "storage_location_id": "J-06-22",
-      "zone": "B",
-      "x": 550.0,
-      "y": 868.0,
       "z": 2.0
     },
-    "N-08-23": {
-      "storage_location_id": "N-08-23",
-      "zone": "B",
-      "x": 484.0,
-      "y": 1228.0,
-      "z": 2.0
-    },
-    "L-19-22": {
-      "storage_location_id": "L-19-22",
+    "N-15-21": {
+      "storage_location_id": "N-15-21",
       "zone": "A",
-      "x": 202.0,
-      "y": 900.0,
-      "z": 2.0
-    },
-    "J-09-11": {
-      "storage_location_id": "J-09-11",
-      "zone": "B",
-      "x": 466.0,
-      "y": 810.0,
-      "z": 1.0
-    },
-    "L-24-11": {
-      "storage_location_id": "L-24-11",
-      "zone": "A",
-      "x": 118.0,
-      "y": 958.0,
-      "z": 1.0
-    },
-    "K-16-12": {
-      "storage_location_id": "K-16-12",
-      "zone": "A",
-      "x": 302.0,
-      "y": 868.0,
-      "z": 1.0
-    },
-    "N-16-12": {
-      "storage_location_id": "N-16-12",
-      "zone": "A",
-      "x": 302.0,
-      "y": 1138.0,
-      "z": 1.0
-    },
-    "O-06-12": {
-      "storage_location_id": "O-06-12",
-      "zone": "B",
-      "x": 550.0,
-      "y": 1318.0,
-      "z": 1.0
-    },
-    "I-01-12": {
-      "storage_location_id": "I-01-12",
-      "zone": "B",
-      "x": 650.0,
-      "y": 720.0,
-      "z": 1.0
-    },
-    "L-18-23": {
-      "storage_location_id": "L-18-23",
-      "zone": "A",
-      "x": 236.0,
-      "y": 958.0,
-      "z": 2.0
-    },
-    "Q-01-23": {
-      "storage_location_id": "Q-01-23",
-      "zone": "B",
-      "x": 634.0,
-      "y": 1440.0,
-      "z": 2.0
-    },
-    "O-06-11": {
-      "storage_location_id": "O-06-11",
-      "zone": "B",
-      "x": 566.0,
-      "y": 1318.0,
-      "z": 1.0
-    },
-    "I-20-23": {
-      "storage_location_id": "I-20-23",
-      "zone": "C",
-      "x": 186.0,
-      "y": 688.0,
-      "z": 2.0
-    },
-    "N-13-13": {
-      "storage_location_id": "N-13-13",
-      "zone": "A",
-      "x": 336.0,
-      "y": 1080.0,
-      "z": 1.0
-    },
-    "M-21-12": {
-      "storage_location_id": "M-21-12",
-      "zone": "A",
-      "x": 152.0,
-      "y": 990.0,
-      "z": 1.0
-    },
-    "L-15-11": {
-      "storage_location_id": "L-15-11",
-      "zone": "A",
+      "zones": [
+        "A"
+      ],
       "x": 318.0,
-      "y": 900.0,
-      "z": 1.0
-    },
-    "N-10-11": {
-      "storage_location_id": "N-10-11",
-      "zone": "B",
-      "x": 466.0,
-      "y": 1228.0,
-      "z": 1.0
-    },
-    "L-01-11": {
-      "storage_location_id": "L-01-11",
-      "zone": "B",
-      "x": 666.0,
-      "y": 990.0,
-      "z": 1.0
-    },
-    "I-23-22": {
-      "storage_location_id": "I-23-22",
-      "zone": "C",
-      "x": 102.0,
-      "y": 572.0,
-      "z": 2.0
-    },
-    "J-01-13": {
-      "storage_location_id": "J-01-13",
-      "zone": "B",
-      "x": 634.0,
-      "y": 810.0,
-      "z": 1.0
-    },
-    "I-13-13": {
-      "storage_location_id": "I-13-13",
-      "zone": "C",
-      "x": 336.0,
-      "y": 572.0,
-      "z": 1.0
-    },
-    "I-05-11": {
-      "storage_location_id": "I-05-11",
-      "zone": "B",
-      "x": 566.0,
-      "y": 720.0,
-      "z": 1.0
-    },
-    "K-08-21": {
-      "storage_location_id": "K-08-21",
-      "zone": "B",
-      "x": 516.0,
-      "y": 958.0,
-      "z": 2.0
-    },
-    "L-16-12": {
-      "storage_location_id": "L-16-12",
-      "zone": "A",
-      "x": 302.0,
-      "y": 958.0,
-      "z": 1.0
-    },
-    "J-24-12": {
-      "storage_location_id": "J-24-12",
-      "zone": "A",
-      "x": 102.0,
-      "y": 778.0,
-      "z": 1.0
-    },
-    "I-23-12": {
-      "storage_location_id": "I-23-12",
-      "zone": "C",
-      "x": 102.0,
-      "y": 572.0,
-      "z": 1.0
-    },
-    "H-10-22": {
-      "storage_location_id": "H-10-22",
-      "zone": "D",
-      "x": 450.0,
-      "y": 688.0,
-      "z": 2.0
-    },
-    "M-08-12": {
-      "storage_location_id": "M-08-12",
-      "zone": "B",
-      "x": 500.0,
-      "y": 1138.0,
-      "z": 1.0
-    },
-    "I-06-12": {
-      "storage_location_id": "I-06-12",
-      "zone": "B",
-      "x": 550.0,
-      "y": 778.0,
-      "z": 1.0
-    },
-    "I-17-13": {
-      "storage_location_id": "I-17-13",
-      "zone": "C",
-      "x": 236.0,
-      "y": 572.0,
-      "z": 1.0
-    },
-    "P-10-11": {
-      "storage_location_id": "P-10-11",
-      "zone": "B",
-      "x": 466.0,
-      "y": 1408.0,
-      "z": 1.0
-    },
-    "I-06-13": {
-      "storage_location_id": "I-06-13",
-      "zone": "B",
-      "x": 534.0,
-      "y": 778.0,
-      "z": 1.0
-    },
-    "J-19-22": {
-      "storage_location_id": "J-19-22",
-      "zone": "A",
-      "x": 202.0,
-      "y": 720.0,
-      "z": 2.0
-    },
-    "K-20-12": {
-      "storage_location_id": "K-20-12",
-      "zone": "A",
-      "x": 202.0,
-      "y": 868.0,
-      "z": 1.0
-    },
-    "I-09-21": {
-      "storage_location_id": "I-09-21",
-      "zone": "B",
-      "x": 466.0,
-      "y": 720.0,
-      "z": 2.0
-    },
-    "J-09-22": {
-      "storage_location_id": "J-09-22",
-      "zone": "B",
-      "x": 450.0,
-      "y": 810.0,
-      "z": 2.0
-    },
-    "J-17-21": {
-      "storage_location_id": "J-17-21",
-      "zone": "A",
-      "x": 268.0,
-      "y": 720.0,
-      "z": 2.0
-    },
-    "L-14-13": {
-      "storage_location_id": "L-14-13",
-      "zone": "A",
-      "x": 336.0,
-      "y": 958.0,
-      "z": 1.0
-    },
-    "Q-05-13": {
-      "storage_location_id": "Q-05-13",
-      "zone": "B",
-      "x": 534.0,
-      "y": 1440.0,
-      "z": 1.0
-    },
-    "M-06-13": {
-      "storage_location_id": "M-06-13",
-      "zone": "B",
-      "x": 534.0,
-      "y": 1138.0,
-      "z": 1.0
-    },
-    "N-15-12": {
-      "storage_location_id": "N-15-12",
-      "zone": "A",
-      "x": 302.0,
       "y": 1080.0,
-      "z": 1.0
-    },
-    "I-06-22": {
-      "storage_location_id": "I-06-22",
-      "zone": "B",
-      "x": 550.0,
-      "y": 778.0,
       "z": 2.0
     },
-    "P-10-12": {
-      "storage_location_id": "P-10-12",
-      "zone": "B",
-      "x": 450.0,
-      "y": 1408.0,
-      "z": 1.0
-    },
-    "O-17-22": {
-      "storage_location_id": "O-17-22",
+    "M-14-22": {
+      "storage_location_id": "M-14-22",
       "zone": "A",
-      "x": 252.0,
-      "y": 1170.0,
+      "zones": [
+        "A"
+      ],
+      "x": 352.0,
+      "y": 1048.0,
       "z": 2.0
-    },
-    "K-15-13": {
-      "storage_location_id": "K-15-13",
-      "zone": "A",
-      "x": 286.0,
-      "y": 810.0,
-      "z": 1.0
-    },
-    "K-17-23": {
-      "storage_location_id": "K-17-23",
-      "zone": "A",
-      "x": 236.0,
-      "y": 810.0,
-      "z": 2.0
-    },
-    "M-02-22": {
-      "storage_location_id": "M-02-22",
-      "zone": "B",
-      "x": 650.0,
-      "y": 1138.0,
-      "z": 2.0
-    },
-    "J-06-12": {
-      "storage_location_id": "J-06-12",
-      "zone": "B",
-      "x": 550.0,
-      "y": 868.0,
-      "z": 1.0
-    },
-    "O-09-21": {
-      "storage_location_id": "O-09-21",
-      "zone": "B",
-      "x": 466.0,
-      "y": 1260.0,
-      "z": 2.0
-    },
-    "J-05-23": {
-      "storage_location_id": "J-05-23",
-      "zone": "B",
-      "x": 534.0,
-      "y": 810.0,
-      "z": 2.0
-    },
-    "P-07-13": {
-      "storage_location_id": "P-07-13",
-      "zone": "B",
-      "x": 484.0,
-      "y": 1350.0,
-      "z": 1.0
-    },
-    "R-23-12": {
-      "storage_location_id": "R-23-12",
-      "zone": "A",
-      "x": 102.0,
-      "y": 1440.0,
-      "z": 1.0
-    },
-    "O-20-13": {
-      "storage_location_id": "O-20-13",
-      "zone": "A",
-      "x": 186.0,
-      "y": 1228.0,
-      "z": 1.0
     }
   },
   "item_locations": {
@@ -1384,7 +1092,7 @@
     "Item_WRRW1W_I_03_13": {
       "reference": "WRRW1W",
       "storage_location_id": "I-03-13",
-      "zone": "B",
+      "zone": "D",
       "x": 584.0,
       "y": 720.0,
       "z": 1.0
@@ -1448,7 +1156,7 @@
     "Item_05W6TK_J_02_12": {
       "reference": "05W6TK",
       "storage_location_id": "J-02-12",
-      "zone": "B",
+      "zone": "D",
       "x": 650.0,
       "y": 868.0,
       "z": 1.0
@@ -1472,7 +1180,7 @@
     "Item_LXJQVG_J_20_22": {
       "reference": "LXJQVG",
       "storage_location_id": "J-20-22",
-      "zone": "A",
+      "zone": "C",
       "x": 202.0,
       "y": 778.0,
       "z": 2.0
@@ -1480,7 +1188,7 @@
     "Item_W25EZN_L_22_13": {
       "reference": "W25EZN",
       "storage_location_id": "L-22-13",
-      "zone": "A",
+      "zone": "C",
       "x": 136.0,
       "y": 958.0,
       "z": 1.0
@@ -1496,7 +1204,7 @@
     "Item_TNAHD4_K_05_23": {
       "reference": "TNAHD4",
       "storage_location_id": "K-05-23",
-      "zone": "B",
+      "zone": "D",
       "x": 534.0,
       "y": 900.0,
       "z": 2.0
@@ -1512,7 +1220,7 @@
     "Item_SMMRK3_L_18_12": {
       "reference": "SMMRK3",
       "storage_location_id": "L-18-12",
-      "zone": "A",
+      "zone": "C",
       "x": 252.0,
       "y": 958.0,
       "z": 1.0
@@ -1528,7 +1236,7 @@
     "Item_05W6TK_J_03_11": {
       "reference": "05W6TK",
       "storage_location_id": "J-03-11",
-      "zone": "B",
+      "zone": "D",
       "x": 616.0,
       "y": 810.0,
       "z": 1.0
@@ -1536,7 +1244,7 @@
     "Item_TNAHD4_I_08_12": {
       "reference": "TNAHD4",
       "storage_location_id": "I-08-12",
-      "zone": "B",
+      "zone": "D",
       "x": 500.0,
       "y": 778.0,
       "z": 1.0
@@ -1560,7 +1268,7 @@
     "Item_SMMRK3_L_20_23": {
       "reference": "SMMRK3",
       "storage_location_id": "L-20-23",
-      "zone": "A",
+      "zone": "C",
       "x": 186.0,
       "y": 958.0,
       "z": 2.0
@@ -1576,7 +1284,7 @@
     "Item_SSQFQA_J_10_21": {
       "reference": "SSQFQA",
       "storage_location_id": "J-10-21",
-      "zone": "B",
+      "zone": "D",
       "x": 466.0,
       "y": 868.0,
       "z": 2.0
@@ -1616,7 +1324,7 @@
     "Item_KUFVRI_J_10_23": {
       "reference": "KUFVRI",
       "storage_location_id": "J-10-23",
-      "zone": "B",
+      "zone": "C",
       "x": 434.0,
       "y": 868.0,
       "z": 2.0
@@ -1640,7 +1348,7 @@
     "Item_WRRW1W_I_09_12": {
       "reference": "WRRW1W",
       "storage_location_id": "I-09-12",
-      "zone": "B",
+      "zone": "D",
       "x": 450.0,
       "y": 720.0,
       "z": 1.0
@@ -1680,7 +1388,7 @@
     "Item_ZRCYSH_L_15_12": {
       "reference": "ZRCYSH",
       "storage_location_id": "L-15-12",
-      "zone": "A",
+      "zone": "C",
       "x": 302.0,
       "y": 900.0,
       "z": 1.0
@@ -1688,7 +1396,7 @@
     "Item_WGHG3L_L_20_21": {
       "reference": "WGHG3L",
       "storage_location_id": "L-20-21",
-      "zone": "A",
+      "zone": "C",
       "x": 218.0,
       "y": 958.0,
       "z": 2.0
@@ -1704,7 +1412,7 @@
     "Item_K3YA1X_P_09_13": {
       "reference": "K3YA1X",
       "storage_location_id": "P-09-13",
-      "zone": "B",
+      "zone": "A",
       "x": 434.0,
       "y": 1350.0,
       "z": 1.0
@@ -1712,7 +1420,7 @@
     "Item_Z8KPP8_L_17_22": {
       "reference": "Z8KPP8",
       "storage_location_id": "L-17-22",
-      "zone": "A",
+      "zone": "C",
       "x": 252.0,
       "y": 900.0,
       "z": 2.0
@@ -1728,7 +1436,7 @@
     "Item_AHR20O_J_19_13": {
       "reference": "AHR20O",
       "storage_location_id": "J-19-13",
-      "zone": "A",
+      "zone": "C",
       "x": 186.0,
       "y": 720.0,
       "z": 1.0
@@ -1760,7 +1468,7 @@
     "Item_I1KDJ0_I_06_21": {
       "reference": "I1KDJ0",
       "storage_location_id": "I-06-21",
-      "zone": "B",
+      "zone": "D",
       "x": 566.0,
       "y": 778.0,
       "z": 2.0
@@ -1792,7 +1500,7 @@
     "Item_WRRW1W_I_05_13": {
       "reference": "WRRW1W",
       "storage_location_id": "I-05-13",
-      "zone": "B",
+      "zone": "D",
       "x": 534.0,
       "y": 720.0,
       "z": 1.0
@@ -1824,7 +1532,7 @@
     "Item_I1KDJ0_I_08_22": {
       "reference": "I1KDJ0",
       "storage_location_id": "I-08-22",
-      "zone": "B",
+      "zone": "D",
       "x": 500.0,
       "y": 778.0,
       "z": 2.0
@@ -1856,7 +1564,7 @@
     "Item_JEGRCL_J_17_11": {
       "reference": "JEGRCL",
       "storage_location_id": "J-17-11",
-      "zone": "A",
+      "zone": "C",
       "x": 268.0,
       "y": 720.0,
       "z": 1.0
@@ -1864,7 +1572,7 @@
     "Item_I1KDJ0_I_10_23": {
       "reference": "I1KDJ0",
       "storage_location_id": "I-10-23",
-      "zone": "B",
+      "zone": "C",
       "x": 434.0,
       "y": 778.0,
       "z": 2.0
@@ -1872,7 +1580,7 @@
     "Item_LXJQVG_J_22_13": {
       "reference": "LXJQVG",
       "storage_location_id": "J-22-13",
-      "zone": "A",
+      "zone": "C",
       "x": 136.0,
       "y": 778.0,
       "z": 1.0
@@ -1880,7 +1588,7 @@
     "Item_I1KDJ0_I_10_11": {
       "reference": "I1KDJ0",
       "storage_location_id": "I-10-11",
-      "zone": "B",
+      "zone": "D",
       "x": 466.0,
       "y": 778.0,
       "z": 1.0
@@ -1888,7 +1596,7 @@
     "Item_JEGRCL_I_03_13": {
       "reference": "JEGRCL",
       "storage_location_id": "I-03-13",
-      "zone": "B",
+      "zone": "D",
       "x": 584.0,
       "y": 720.0,
       "z": 1.0
@@ -1928,7 +1636,7 @@
     "Item_1ENECA_N_10_23": {
       "reference": "1ENECA",
       "storage_location_id": "N-10-23",
-      "zone": "B",
+      "zone": "A",
       "x": 434.0,
       "y": 1228.0,
       "z": 2.0
@@ -1968,7 +1676,7 @@
     "Item_I1KDJ0_I_08_11": {
       "reference": "I1KDJ0",
       "storage_location_id": "I-08-11",
-      "zone": "B",
+      "zone": "D",
       "x": 516.0,
       "y": 778.0,
       "z": 1.0
@@ -2000,7 +1708,7 @@
     "Item_QVFB0Q_K_10_22": {
       "reference": "QVFB0Q",
       "storage_location_id": "K-10-22",
-      "zone": "B",
+      "zone": "D",
       "x": 450.0,
       "y": 958.0,
       "z": 2.0
@@ -2024,7 +1732,7 @@
     "Item_G8ASPE_J_04_11": {
       "reference": "G8ASPE",
       "storage_location_id": "J-04-11",
-      "zone": "B",
+      "zone": "D",
       "x": 616.0,
       "y": 868.0,
       "z": 1.0
@@ -2064,7 +1772,7 @@
     "Item_EQQBND_J_10_22": {
       "reference": "EQQBND",
       "storage_location_id": "J-10-22",
-      "zone": "B",
+      "zone": "D",
       "x": 450.0,
       "y": 868.0,
       "z": 2.0
@@ -2072,7 +1780,7 @@
     "Item_AKP0A7_K_19_13": {
       "reference": "AKP0A7",
       "storage_location_id": "K-19-13",
-      "zone": "A",
+      "zone": "C",
       "x": 186.0,
       "y": 810.0,
       "z": 1.0
@@ -2088,7 +1796,7 @@
     "Item_ZRCYSH_L_15_21": {
       "reference": "ZRCYSH",
       "storage_location_id": "L-15-21",
-      "zone": "A",
+      "zone": "C",
       "x": 318.0,
       "y": 900.0,
       "z": 2.0
@@ -2104,7 +1812,7 @@
     "Item_DGAONE_J_02_22": {
       "reference": "DGAONE",
       "storage_location_id": "J-02-22",
-      "zone": "B",
+      "zone": "D",
       "x": 650.0,
       "y": 868.0,
       "z": 2.0
@@ -2120,7 +1828,7 @@
     "Item_AKP0A7_K_19_22": {
       "reference": "AKP0A7",
       "storage_location_id": "K-19-22",
-      "zone": "A",
+      "zone": "C",
       "x": 202.0,
       "y": 810.0,
       "z": 2.0
@@ -2128,843 +1836,75 @@
     "Item_TNAHD4_K_03_13": {
       "reference": "TNAHD4",
       "storage_location_id": "K-03-13",
-      "zone": "B",
+      "zone": "D",
       "x": 584.0,
       "y": 900.0,
       "z": 1.0
     },
-    "Item_8N10W9_H_06_21": {
-      "reference": "8N10W9",
-      "storage_location_id": "H-06-21",
-      "zone": "D",
-      "x": 566.0,
-      "y": 688.0,
-      "z": 2.0
-    },
-    "Item_ZGYCSW_O_10_11": {
-      "reference": "ZGYCSW",
-      "storage_location_id": "O-10-11",
-      "zone": "B",
-      "x": 466.0,
-      "y": 1318.0,
-      "z": 1.0
-    },
-    "Item_SY1DDY_R_13_21": {
-      "reference": "SY1DDY",
-      "storage_location_id": "R-13-21",
-      "zone": "A",
-      "x": 368.0,
-      "y": 1440.0,
-      "z": 2.0
-    },
-    "Item_WH1BJI_M_24_11": {
-      "reference": "WH1BJI",
-      "storage_location_id": "M-24-11",
-      "zone": "A",
-      "x": 118.0,
-      "y": 1048.0,
-      "z": 1.0
-    },
-    "Item_ULG3QT_P_18_23": {
-      "reference": "ULG3QT",
-      "storage_location_id": "P-18-23",
-      "zone": "A",
-      "x": 236.0,
-      "y": 1318.0,
-      "z": 2.0
-    },
-    "Item_J2URNJ_O_14_22": {
-      "reference": "J2URNJ",
-      "storage_location_id": "O-14-22",
-      "zone": "A",
-      "x": 352.0,
-      "y": 1228.0,
-      "z": 2.0
-    },
-    "Item_I1X92B_N_02_21": {
-      "reference": "I1X92B",
-      "storage_location_id": "N-02-21",
-      "zone": "B",
-      "x": 666.0,
-      "y": 1228.0,
-      "z": 2.0
-    },
-    "Item_LXJQVG_J_20_13": {
-      "reference": "LXJQVG",
-      "storage_location_id": "J-20-13",
-      "zone": "A",
-      "x": 186.0,
-      "y": 778.0,
-      "z": 1.0
-    },
-    "Item_2T1DJM_I_18_23": {
+    "Item_2T1DJM_I_16_12": {
       "reference": "2T1DJM",
-      "storage_location_id": "I-18-23",
+      "storage_location_id": "I-16-12",
       "zone": "C",
-      "x": 236.0,
+      "x": 302.0,
       "y": 688.0,
-      "z": 2.0
-    },
-    "Item_WRRW1W_I_03_21": {
-      "reference": "WRRW1W",
-      "storage_location_id": "I-03-21",
-      "zone": "B",
-      "x": 616.0,
-      "y": 720.0,
-      "z": 2.0
-    },
-    "Item_JEGRCL_J_17_13": {
-      "reference": "JEGRCL",
-      "storage_location_id": "J-17-13",
-      "zone": "A",
-      "x": 236.0,
-      "y": 720.0,
       "z": 1.0
     },
-    "Item_IYV9SV_M_09_23": {
-      "reference": "IYV9SV",
-      "storage_location_id": "M-09-23",
-      "zone": "B",
-      "x": 434.0,
-      "y": 1080.0,
-      "z": 2.0
-    },
-    "Item_Z8KPP8_L_19_11": {
-      "reference": "Z8KPP8",
-      "storage_location_id": "L-19-11",
-      "zone": "A",
-      "x": 218.0,
-      "y": 900.0,
-      "z": 1.0
-    },
-    "Item_HA0BOB_N_01_12": {
-      "reference": "HA0BOB",
-      "storage_location_id": "N-01-12",
-      "zone": "B",
-      "x": 650.0,
-      "y": 1170.0,
-      "z": 1.0
-    },
-    "Item_WRRW1W_M_08_23": {
-      "reference": "WRRW1W",
-      "storage_location_id": "M-08-23",
-      "zone": "B",
-      "x": 484.0,
-      "y": 1138.0,
-      "z": 2.0
-    },
-    "Item_J3FI7N_N_16_23": {
-      "reference": "J3FI7N",
-      "storage_location_id": "N-16-23",
-      "zone": "A",
-      "x": 286.0,
-      "y": 1138.0,
-      "z": 2.0
-    },
-    "Item_Z8KPP8_L_19_12": {
-      "reference": "Z8KPP8",
-      "storage_location_id": "L-19-12",
-      "zone": "A",
-      "x": 202.0,
-      "y": 900.0,
-      "z": 1.0
-    },
-    "Item_RAUDQ6_N_09_23": {
-      "reference": "RAUDQ6",
-      "storage_location_id": "N-09-23",
-      "zone": "B",
-      "x": 434.0,
-      "y": 1170.0,
-      "z": 2.0
-    },
-    "Item_WH1BJI_M_24_12": {
-      "reference": "WH1BJI",
-      "storage_location_id": "M-24-12",
-      "zone": "A",
-      "x": 102.0,
-      "y": 1048.0,
-      "z": 1.0
-    },
-    "Item_HXQR4L_N_15_11": {
-      "reference": "HXQR4L",
-      "storage_location_id": "N-15-11",
-      "zone": "A",
-      "x": 318.0,
-      "y": 1080.0,
-      "z": 1.0
-    },
-    "Item_Z8KPP8_L_19_23": {
-      "reference": "Z8KPP8",
-      "storage_location_id": "L-19-23",
-      "zone": "A",
-      "x": 186.0,
-      "y": 900.0,
-      "z": 2.0
-    },
-    "Item_8BSFSA_O_08_13": {
-      "reference": "8BSFSA",
-      "storage_location_id": "O-08-13",
-      "zone": "B",
-      "x": 484.0,
-      "y": 1318.0,
-      "z": 1.0
-    },
-    "Item_37VA62_P_14_12": {
-      "reference": "37VA62",
-      "storage_location_id": "P-14-12",
-      "zone": "A",
-      "x": 352.0,
-      "y": 1318.0,
-      "z": 1.0
-    },
-    "Item_HOUGRO_L_09_21": {
-      "reference": "HOUGRO",
-      "storage_location_id": "L-09-21",
-      "zone": "B",
-      "x": 466.0,
-      "y": 990.0,
-      "z": 2.0
-    },
-    "Item_2OAVPY_K_09_12": {
-      "reference": "2OAVPY",
-      "storage_location_id": "K-09-12",
-      "zone": "B",
-      "x": 450.0,
-      "y": 900.0,
-      "z": 1.0
-    },
-    "Item_YKQY4X_P_13_22": {
-      "reference": "YKQY4X",
-      "storage_location_id": "P-13-22",
-      "zone": "A",
-      "x": 352.0,
-      "y": 1260.0,
-      "z": 2.0
-    },
-    "Item_8N10W9_M_02_23": {
-      "reference": "8N10W9",
-      "storage_location_id": "M-02-23",
-      "zone": "B",
-      "x": 634.0,
-      "y": 1138.0,
-      "z": 2.0
-    },
-    "Item_ZRCYSH_L_13_13": {
-      "reference": "ZRCYSH",
-      "storage_location_id": "L-13-13",
-      "zone": "A",
-      "x": 336.0,
-      "y": 900.0,
-      "z": 1.0
-    },
-    "Item_B24J86_N_23_23": {
-      "reference": "B24J86",
-      "storage_location_id": "N-23-23",
-      "zone": "A",
-      "x": 86.0,
-      "y": 1080.0,
-      "z": 2.0
-    },
-    "Item_8N10W9_H_08_22": {
-      "reference": "8N10W9",
-      "storage_location_id": "H-08-22",
-      "zone": "D",
-      "x": 500.0,
-      "y": 688.0,
-      "z": 2.0
-    },
-    "Item_8D9SAW_I_13_22": {
-      "reference": "8D9SAW",
-      "storage_location_id": "I-13-22",
-      "zone": "C",
-      "x": 352.0,
-      "y": 572.0,
-      "z": 2.0
-    },
-    "Item_PY5UPB_M_02_21": {
-      "reference": "PY5UPB",
-      "storage_location_id": "M-02-21",
-      "zone": "B",
-      "x": 666.0,
-      "y": 1138.0,
-      "z": 2.0
-    },
-    "Item_5MNTT7_J_01_23": {
-      "reference": "5MNTT7",
-      "storage_location_id": "J-01-23",
-      "zone": "B",
-      "x": 634.0,
-      "y": 810.0,
-      "z": 2.0
-    },
-    "Item_SMMRK3_I_21_21": {
-      "reference": "SMMRK3",
-      "storage_location_id": "I-21-21",
-      "zone": "C",
-      "x": 168.0,
-      "y": 572.0,
-      "z": 2.0
-    },
-    "Item_32ZKOX_M_13_22": {
-      "reference": "32ZKOX",
-      "storage_location_id": "M-13-22",
-      "zone": "A",
-      "x": 352.0,
-      "y": 990.0,
-      "z": 2.0
-    },
-    "Item_4E0KXI_P_08_11": {
-      "reference": "4E0KXI",
-      "storage_location_id": "P-08-11",
-      "zone": "B",
-      "x": 516.0,
-      "y": 1408.0,
-      "z": 1.0
-    },
-    "Item_AHR20O_J_21_23": {
-      "reference": "AHR20O",
-      "storage_location_id": "J-21-23",
-      "zone": "A",
-      "x": 136.0,
-      "y": 720.0,
-      "z": 2.0
-    },
-    "Item_8D9SAW_I_17_11": {
-      "reference": "8D9SAW",
-      "storage_location_id": "I-17-11",
-      "zone": "C",
-      "x": 268.0,
-      "y": 572.0,
-      "z": 1.0
-    },
-    "Item_WGHG3L_L_20_22": {
-      "reference": "WGHG3L",
-      "storage_location_id": "L-20-22",
-      "zone": "A",
-      "x": 202.0,
-      "y": 958.0,
-      "z": 2.0
-    },
-    "Item_NJVZEL_O_14_12": {
-      "reference": "NJVZEL",
-      "storage_location_id": "O-14-12",
-      "zone": "A",
-      "x": 352.0,
-      "y": 1228.0,
-      "z": 1.0
-    },
-    "Item_TNAHD4_K_07_22": {
-      "reference": "TNAHD4",
-      "storage_location_id": "K-07-22",
-      "zone": "B",
-      "x": 500.0,
-      "y": 900.0,
-      "z": 2.0
-    },
-    "Item_W25EZN_L_24_13": {
+    "Item_W25EZN_L_24_23": {
       "reference": "W25EZN",
-      "storage_location_id": "L-24-13",
-      "zone": "A",
+      "storage_location_id": "L-24-23",
+      "zone": "C",
       "x": 86.0,
       "y": 958.0,
-      "z": 1.0
-    },
-    "Item_U95NWB_L_14_12": {
-      "reference": "U95NWB",
-      "storage_location_id": "L-14-12",
-      "zone": "A",
-      "x": 352.0,
-      "y": 958.0,
-      "z": 1.0
-    },
-    "Item_8N10W9_H_10_12": {
-      "reference": "8N10W9",
-      "storage_location_id": "H-10-12",
-      "zone": "D",
-      "x": 450.0,
-      "y": 688.0,
-      "z": 1.0
-    },
-    "Item_XUZJ74_K_14_12": {
-      "reference": "XUZJ74",
-      "storage_location_id": "K-14-12",
-      "zone": "A",
-      "x": 352.0,
-      "y": 868.0,
-      "z": 1.0
-    },
-    "Item_7BU1V7_M_18_12": {
-      "reference": "7BU1V7",
-      "storage_location_id": "M-18-12",
-      "zone": "A",
-      "x": 252.0,
-      "y": 1048.0,
-      "z": 1.0
-    },
-    "Item_G8ASPE_J_06_22": {
-      "reference": "G8ASPE",
-      "storage_location_id": "J-06-22",
-      "zone": "B",
-      "x": 550.0,
-      "y": 868.0,
       "z": 2.0
     },
-    "Item_1ENECA_N_08_23": {
-      "reference": "1ENECA",
-      "storage_location_id": "N-08-23",
-      "zone": "B",
-      "x": 484.0,
-      "y": 1228.0,
-      "z": 2.0
-    },
-    "Item_Z8KPP8_L_19_22": {
-      "reference": "Z8KPP8",
-      "storage_location_id": "L-19-22",
-      "zone": "A",
-      "x": 202.0,
-      "y": 900.0,
-      "z": 2.0
-    },
-    "Item_05W6TK_J_09_11": {
-      "reference": "05W6TK",
-      "storage_location_id": "J-09-11",
-      "zone": "B",
-      "x": 466.0,
-      "y": 810.0,
-      "z": 1.0
-    },
-    "Item_I1KDJ0_M_09_23": {
-      "reference": "I1KDJ0",
-      "storage_location_id": "M-09-23",
-      "zone": "B",
-      "x": 434.0,
-      "y": 1080.0,
-      "z": 2.0
-    },
-    "Item_I2B1FH_L_24_11": {
-      "reference": "I2B1FH",
-      "storage_location_id": "L-24-11",
-      "zone": "A",
-      "x": 118.0,
-      "y": 958.0,
-      "z": 1.0
-    },
-    "Item_XUZJ74_K_16_12": {
-      "reference": "XUZJ74",
-      "storage_location_id": "K-16-12",
-      "zone": "A",
-      "x": 302.0,
-      "y": 868.0,
-      "z": 1.0
-    },
-    "Item_J3FI7N_N_16_12": {
-      "reference": "J3FI7N",
-      "storage_location_id": "N-16-12",
-      "zone": "A",
-      "x": 302.0,
-      "y": 1138.0,
-      "z": 1.0
-    },
-    "Item_UHYJ3A_O_06_12": {
-      "reference": "UHYJ3A",
-      "storage_location_id": "O-06-12",
-      "zone": "B",
-      "x": 550.0,
-      "y": 1318.0,
-      "z": 1.0
-    },
-    "Item_CD1NU9_I_01_12": {
-      "reference": "CD1NU9",
-      "storage_location_id": "I-01-12",
-      "zone": "B",
-      "x": 650.0,
-      "y": 720.0,
-      "z": 1.0
-    },
-    "Item_WGHG3L_L_18_23": {
-      "reference": "WGHG3L",
-      "storage_location_id": "L-18-23",
-      "zone": "A",
-      "x": 236.0,
-      "y": 958.0,
-      "z": 2.0
-    },
-    "Item_Q164T6_Q_01_23": {
-      "reference": "Q164T6",
-      "storage_location_id": "Q-01-23",
-      "zone": "B",
-      "x": 634.0,
-      "y": 1440.0,
-      "z": 2.0
-    },
-    "Item_70EPUK_O_06_11": {
-      "reference": "70EPUK",
-      "storage_location_id": "O-06-11",
-      "zone": "B",
-      "x": 566.0,
-      "y": 1318.0,
-      "z": 1.0
-    },
-    "Item_6M2FJM_I_20_23": {
-      "reference": "6M2FJM",
-      "storage_location_id": "I-20-23",
-      "zone": "C",
-      "x": 186.0,
-      "y": 688.0,
-      "z": 2.0
-    },
-    "Item_JHSQHS_N_13_13": {
-      "reference": "JHSQHS",
-      "storage_location_id": "N-13-13",
-      "zone": "A",
-      "x": 336.0,
-      "y": 1080.0,
-      "z": 1.0
-    },
-    "Item_CD1NU9_M_21_12": {
-      "reference": "CD1NU9",
-      "storage_location_id": "M-21-12",
-      "zone": "A",
-      "x": 152.0,
-      "y": 990.0,
-      "z": 1.0
-    },
-    "Item_ZRCYSH_L_15_11": {
-      "reference": "ZRCYSH",
-      "storage_location_id": "L-15-11",
+    "Item_NISP6K_N_15_21": {
+      "reference": "NISP6K",
+      "storage_location_id": "N-15-21",
       "zone": "A",
       "x": 318.0,
-      "y": 900.0,
-      "z": 1.0
-    },
-    "Item_1ENECA_N_10_11": {
-      "reference": "1ENECA",
-      "storage_location_id": "N-10-11",
-      "zone": "B",
-      "x": 466.0,
-      "y": 1228.0,
-      "z": 1.0
-    },
-    "Item_CD1NU9_L_01_11": {
-      "reference": "CD1NU9",
-      "storage_location_id": "L-01-11",
-      "zone": "B",
-      "x": 666.0,
-      "y": 990.0,
-      "z": 1.0
-    },
-    "Item_SMMRK3_I_23_22": {
-      "reference": "SMMRK3",
-      "storage_location_id": "I-23-22",
-      "zone": "C",
-      "x": 102.0,
-      "y": 572.0,
-      "z": 2.0
-    },
-    "Item_05W6TK_J_01_13": {
-      "reference": "05W6TK",
-      "storage_location_id": "J-01-13",
-      "zone": "B",
-      "x": 634.0,
-      "y": 810.0,
-      "z": 1.0
-    },
-    "Item_8D9SAW_I_13_13": {
-      "reference": "8D9SAW",
-      "storage_location_id": "I-13-13",
-      "zone": "C",
-      "x": 336.0,
-      "y": 572.0,
-      "z": 1.0
-    },
-    "Item_WRRW1W_I_05_11": {
-      "reference": "WRRW1W",
-      "storage_location_id": "I-05-11",
-      "zone": "B",
-      "x": 566.0,
-      "y": 720.0,
-      "z": 1.0
-    },
-    "Item_D05ZS7_K_08_21": {
-      "reference": "D05ZS7",
-      "storage_location_id": "K-08-21",
-      "zone": "B",
-      "x": 516.0,
-      "y": 958.0,
-      "z": 2.0
-    },
-    "Item_U95NWB_L_16_12": {
-      "reference": "U95NWB",
-      "storage_location_id": "L-16-12",
-      "zone": "A",
-      "x": 302.0,
-      "y": 958.0,
-      "z": 1.0
-    },
-    "Item_LXJQVG_J_24_12": {
-      "reference": "LXJQVG",
-      "storage_location_id": "J-24-12",
-      "zone": "A",
-      "x": 102.0,
-      "y": 778.0,
-      "z": 1.0
-    },
-    "Item_84ABYS_O_08_13": {
-      "reference": "84ABYS",
-      "storage_location_id": "O-08-13",
-      "zone": "B",
-      "x": 484.0,
-      "y": 1318.0,
-      "z": 1.0
-    },
-    "Item_SMMRK3_I_23_12": {
-      "reference": "SMMRK3",
-      "storage_location_id": "I-23-12",
-      "zone": "C",
-      "x": 102.0,
-      "y": 572.0,
-      "z": 1.0
-    },
-    "Item_8N10W9_H_10_22": {
-      "reference": "8N10W9",
-      "storage_location_id": "H-10-22",
-      "zone": "D",
-      "x": 450.0,
-      "y": 688.0,
-      "z": 2.0
-    },
-    "Item_O9YFO8_M_08_12": {
-      "reference": "O9YFO8",
-      "storage_location_id": "M-08-12",
-      "zone": "B",
-      "x": 500.0,
-      "y": 1138.0,
-      "z": 1.0
-    },
-    "Item_I1KDJ0_I_06_12": {
-      "reference": "I1KDJ0",
-      "storage_location_id": "I-06-12",
-      "zone": "B",
-      "x": 550.0,
-      "y": 778.0,
-      "z": 1.0
-    },
-    "Item_I1X92B_I_17_13": {
-      "reference": "I1X92B",
-      "storage_location_id": "I-17-13",
-      "zone": "C",
-      "x": 236.0,
-      "y": 572.0,
-      "z": 1.0
-    },
-    "Item_2LPO6D_P_10_11": {
-      "reference": "2LPO6D",
-      "storage_location_id": "P-10-11",
-      "zone": "B",
-      "x": 466.0,
-      "y": 1408.0,
-      "z": 1.0
-    },
-    "Item_I1KDJ0_I_06_13": {
-      "reference": "I1KDJ0",
-      "storage_location_id": "I-06-13",
-      "zone": "B",
-      "x": 534.0,
-      "y": 778.0,
-      "z": 1.0
-    },
-    "Item_AHR20O_J_19_22": {
-      "reference": "AHR20O",
-      "storage_location_id": "J-19-22",
-      "zone": "A",
-      "x": 202.0,
-      "y": 720.0,
-      "z": 2.0
-    },
-    "Item_U8203G_K_20_12": {
-      "reference": "U8203G",
-      "storage_location_id": "K-20-12",
-      "zone": "A",
-      "x": 202.0,
-      "y": 868.0,
-      "z": 1.0
-    },
-    "Item_WRRW1W_I_09_21": {
-      "reference": "WRRW1W",
-      "storage_location_id": "I-09-21",
-      "zone": "B",
-      "x": 466.0,
-      "y": 720.0,
-      "z": 2.0
-    },
-    "Item_05W6TK_J_09_22": {
-      "reference": "05W6TK",
-      "storage_location_id": "J-09-22",
-      "zone": "B",
-      "x": 450.0,
-      "y": 810.0,
-      "z": 2.0
-    },
-    "Item_JEGRCL_J_17_21": {
-      "reference": "JEGRCL",
-      "storage_location_id": "J-17-21",
-      "zone": "A",
-      "x": 268.0,
-      "y": 720.0,
-      "z": 2.0
-    },
-    "Item_70EPUK_P_10_11": {
-      "reference": "70EPUK",
-      "storage_location_id": "P-10-11",
-      "zone": "B",
-      "x": 466.0,
-      "y": 1408.0,
-      "z": 1.0
-    },
-    "Item_U95NWB_L_14_13": {
-      "reference": "U95NWB",
-      "storage_location_id": "L-14-13",
-      "zone": "A",
-      "x": 336.0,
-      "y": 958.0,
-      "z": 1.0
-    },
-    "Item_QP56BU_Q_05_13": {
-      "reference": "QP56BU",
-      "storage_location_id": "Q-05-13",
-      "zone": "B",
-      "x": 534.0,
-      "y": 1440.0,
-      "z": 1.0
-    },
-    "Item_WRRW1W_M_06_13": {
-      "reference": "WRRW1W",
-      "storage_location_id": "M-06-13",
-      "zone": "B",
-      "x": 534.0,
-      "y": 1138.0,
-      "z": 1.0
-    },
-    "Item_HXQR4L_N_15_12": {
-      "reference": "HXQR4L",
-      "storage_location_id": "N-15-12",
-      "zone": "A",
-      "x": 302.0,
       "y": 1080.0,
-      "z": 1.0
-    },
-    "Item_I1KDJ0_I_06_22": {
-      "reference": "I1KDJ0",
-      "storage_location_id": "I-06-22",
-      "zone": "B",
-      "x": 550.0,
-      "y": 778.0,
       "z": 2.0
     },
-    "Item_DNLEH7_P_10_12": {
-      "reference": "DNLEH7",
-      "storage_location_id": "P-10-12",
-      "zone": "B",
-      "x": 450.0,
-      "y": 1408.0,
-      "z": 1.0
-    },
-    "Item_F29V5I_O_17_22": {
-      "reference": "F29V5I",
-      "storage_location_id": "O-17-22",
+    "Item_56TC1Z_M_14_22": {
+      "reference": "56TC1Z",
+      "storage_location_id": "M-14-22",
       "zone": "A",
-      "x": 252.0,
-      "y": 1170.0,
+      "x": 352.0,
+      "y": 1048.0,
       "z": 2.0
-    },
-    "Item_V7JUQL_K_15_13": {
-      "reference": "V7JUQL",
-      "storage_location_id": "K-15-13",
-      "zone": "A",
-      "x": 286.0,
-      "y": 810.0,
-      "z": 1.0
-    },
-    "Item_V7JUQL_K_17_23": {
-      "reference": "V7JUQL",
-      "storage_location_id": "K-17-23",
-      "zone": "A",
-      "x": 236.0,
-      "y": 810.0,
-      "z": 2.0
-    },
-    "Item_HOUGRO_H_08_22": {
-      "reference": "HOUGRO",
-      "storage_location_id": "H-08-22",
-      "zone": "D",
-      "x": 500.0,
-      "y": 688.0,
-      "z": 2.0
-    },
-    "Item_8N10W9_M_02_22": {
-      "reference": "8N10W9",
-      "storage_location_id": "M-02-22",
-      "zone": "B",
-      "x": 650.0,
-      "y": 1138.0,
-      "z": 2.0
-    },
-    "Item_G8ASPE_J_06_12": {
-      "reference": "G8ASPE",
-      "storage_location_id": "J-06-12",
-      "zone": "B",
-      "x": 550.0,
-      "y": 868.0,
-      "z": 1.0
-    },
-    "Item_F7LULH_O_09_21": {
-      "reference": "F7LULH",
-      "storage_location_id": "O-09-21",
-      "zone": "B",
-      "x": 466.0,
-      "y": 1260.0,
-      "z": 2.0
-    },
-    "Item_05W6TK_J_05_23": {
-      "reference": "05W6TK",
-      "storage_location_id": "J-05-23",
-      "zone": "B",
-      "x": 534.0,
-      "y": 810.0,
-      "z": 2.0
-    },
-    "Item_I2B1FH_L_24_13": {
-      "reference": "I2B1FH",
-      "storage_location_id": "L-24-13",
-      "zone": "A",
-      "x": 86.0,
-      "y": 958.0,
-      "z": 1.0
-    },
-    "Item_F73ZE1_P_07_13": {
-      "reference": "F73ZE1",
-      "storage_location_id": "P-07-13",
-      "zone": "B",
-      "x": 484.0,
-      "y": 1350.0,
-      "z": 1.0
-    },
-    "Item_PP9DNA_R_23_12": {
-      "reference": "PP9DNA",
-      "storage_location_id": "R-23-12",
-      "zone": "A",
-      "x": 102.0,
-      "y": 1440.0,
-      "z": 1.0
-    },
-    "Item_PP9DNA_O_20_13": {
-      "reference": "PP9DNA",
-      "storage_location_id": "O-20-13",
-      "zone": "A",
-      "x": 186.0,
-      "y": 1228.0,
-      "z": 1.0
     }
   },
-  "navigation_points": []
+  "navigation_points": [],
+  "total_entities": 124,
+  "entities_per_auth": 31,
+  "entity_counts_by_auth": {
+    "101": {
+      "zone": "A",
+      "resources": 25,
+      "robots": 5,
+      "supervisors": 1,
+      "total": 31
+    },
+    "102": {
+      "zone": "B",
+      "resources": 25,
+      "robots": 5,
+      "supervisors": 1,
+      "total": 31
+    },
+    "103": {
+      "zone": "C",
+      "resources": 25,
+      "robots": 5,
+      "supervisors": 1,
+      "total": 31
+    },
+    "104": {
+      "zone": "D",
+      "resources": 25,
+      "robots": 5,
+      "supervisors": 1,
+      "total": 31
+    }
+  }
 }
