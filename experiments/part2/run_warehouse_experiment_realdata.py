@@ -28,9 +28,9 @@ Expected repository layout (matching the user's existing experiment scripts):
 Workflow per request:
     1. Supervisor delegates resource access to the selected Robot.
     2. For z=1, Robot delegates to Forklift; for z>=2, Forklift also delegates to Drone.
-    3. Every chain member attempts resource access.
+    3. Only the final chain member attempts resource access.
     4. Supervisor revokes only Robot's resource access.
-    5. Every chain member retries access to verify cascading revocation.
+    5. Only the final chain member retries access to verify revocation at the endpoint.
 
 summary.workload_total_time_ms measures elapsed wall time from the first request
 start through the last completed request record. It includes intermediate logging,
@@ -53,16 +53,18 @@ Three JSON files are saved, also after each completed request:
     <name>_results.json: results (the per-request records)
 
 Forklifts and drones are selected from independently sized pools in the robot home Auth. z=1 delegates through
-Forklift; z>=2 delegates through Forklift then Drone. Each chain member is tested
-before and after a single Supervisor -> Robot revocation. Verification requires
-successful grants, successful access before revocation, a successful revoke,
-and explicit access denial for every member afterward (timeouts do not pass).
-Legacy singular access/latency fields still describe the Robot/first grant;
-delegations and *_access_by_entity contain the full chain results.
+Forklift; z>=2 delegates through Forklift then Drone. Only the final chain member
+is tested before and after a single Supervisor -> Robot revocation. Verification
+requires successful grants, successful endpoint access before revocation, a
+successful revoke, and explicit endpoint denial afterward (timeouts do not pass).
+This verifies revocation at the endpoint, not access denial at every intermediate member.
+The singular access fields describe access_entity; the singular delegation field
+still describes the first grant. delegations contains the full chain, while
+*_access_by_entity contains only the endpoint's access result.
 Summary delegation_latency_ms_mean averages all recorded delegation operations.
 Summary authorization_before_revoke_ms_mean and authorization_after_revoke_ms_mean
-average all recorded worker access attempts (Robot, Forklift, and Drone), including
-denied/timeout attempts with numeric latencies; legacy records use the Robot result.
+average recorded endpoint access attempts, including denied/timeout attempts with
+numeric latencies. Older result records retain their original access scope.
 Summary delegation_latency_ms_total and revocation_latency_ms_total sum recorded
 operation latencies in milliseconds, excluding access attempts and other workload
 overhead. Legacy records without delegations contribute their singular grant.
@@ -881,6 +883,7 @@ def main() -> None:
         "graph": str(args.graph),
         "workload": str(args.workload),
         "num_selected_requests": len(requests),
+        "access_scope": "terminal_only",
         "validity": args.validity,
     }
 
@@ -972,12 +975,14 @@ def main() -> None:
                 snapshot.update(delegator=parent, delegatee=child, resource=resource)
                 parent = child
 
-            before_by_entity = {}
-            for group in chain:
-                before_by_entity[group] = access_attempt(
-                    robot_procs[group], robot_outputs[group], resource_target, args.access_timeout)
-                snapshot = db_size_logger.record("after_access_before_revoke", index, request["request_id"])
-                snapshot.update(entity=group, resource=resource)
+            access_entity = chain[-1]
+            before_by_entity = {
+                access_entity: access_attempt(
+                    robot_procs[access_entity], robot_outputs[access_entity],
+                    resource_target, args.access_timeout)
+            }
+            snapshot = db_size_logger.record("after_access_before_revoke", index, request["request_id"])
+            snapshot.update(entity=access_entity, resource=resource)
 
             # Only revoke the first edge. Descendants must lose access through cascading.
             revocation_result = revoke(
@@ -986,16 +991,17 @@ def main() -> None:
                 robot=robot, resource=resource, timeout=args.command_timeout)
             db_size_logger.record("after_revocation", index, request["request_id"])
 
-            after_by_entity = {}
-            for group in chain:
-                after_by_entity[group] = access_attempt(
-                    robot_procs[group], robot_outputs[group], resource_target, args.access_timeout)
-                snapshot = db_size_logger.record("after_access_after_revoke", index, request["request_id"])
-                snapshot.update(entity=group, resource=resource)
+            after_by_entity = {
+                access_entity: access_attempt(
+                    robot_procs[access_entity], robot_outputs[access_entity],
+                    resource_target, args.access_timeout)
+            }
+            snapshot = db_size_logger.record("after_access_after_revoke", index, request["request_id"])
+            snapshot.update(entity=access_entity, resource=resource)
 
             delegation_result = delegations[0]
-            before_access = before_by_entity[robot]
-            after_access = after_by_entity[robot]
+            before_access = before_by_entity[access_entity]
+            after_access = after_by_entity[access_entity]
             all_before = all(v["status"] == "success" for v in before_by_entity.values())
             all_after = all(v["status"] == "denied" for v in after_by_entity.values())
             verified = (all_before and all_after
@@ -1026,11 +1032,13 @@ def main() -> None:
                 "selected_forklift": request.get("selected_forklift"),
                 "selected_drone": request.get("selected_drone"),
                 "delegation_chain": [supervisor] + chain,
+                "access_entity": access_entity,
+                "access_scope": "terminal_only",
                 "delegations": delegations,
                 "before_revoke_access_by_entity": before_by_entity,
                 "after_revoke_access_by_entity": after_by_entity,
-                "all_entities_accessible_before_revoke": all_before,
-                "all_entities_denied_after_revoke": all_after,
+                "access_entity_accessible_before_revoke": all_before,
+                "access_entity_denied_after_revoke": all_after,
                 "revocation_verified": verified,
                 "cascading_revocation_verified": verified if len(chain) > 1 else None,
                 "delegation": delegation_result,
