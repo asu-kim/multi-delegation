@@ -1,0 +1,31 @@
+{
+  "configuration": {
+    "graph": "/home/sunyoung/multi-delegation/experiments/part2/generated/auth6/warehouse.graph",
+    "workload": "/home/sunyoung/multi-delegation/experiments/part2/generated/auth6/workload.json",
+    "num_selected_requests": 600,
+    "validity": "1*day"
+  },
+  "summary": {
+    "num_requests": 600,
+    "pre_revoke_access_count": 1446,
+    "post_revoke_access_count": 1446,
+    "delegation_count": 1446,
+    "cascading_revocation_request_count": 600,
+    "cascading_revocation_verified_count": 600,
+    "revocation_verified_count": 600,
+    "cross_auth_request_count": 493,
+    "cross_auth_request_rate": 0.8216666666666667,
+    "total_quantity_to_pick": 600,
+    "delegation_latency_ms_mean": 75.77224741374268,
+    "delegation_latency_ms_total": 109566.6697602719,
+    "revocation_latency_ms_total": 39559.48344897479,
+    "authorization_before_revoke_ms_mean": 143.0939830025532,
+    "revocation_latency_ms_mean": 65.93247241495799,
+    "authorization_after_revoke_ms_mean": 35.41225356978582,
+    "pre_revoke_access_success_count": 1446,
+    "post_revoke_access_denied_count": 1446,
+    "pre_revoke_access_success_rate": 1.0,
+    "post_revoke_denial_rate": 1.0,
+    "workload_total_time_ms": 444887.8834368661
+  }
+}
