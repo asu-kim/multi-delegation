@@ -449,7 +449,7 @@ def make_resource_entity(item: dict[str, Any], port: int) -> dict[str, Any]:
         "name": resource_entity_name(item),
         "port": port,
         "distProtocol": "TCP",
-        "usePermanentDistKey": True,
+        "usePermanentDistKey": False,
         "distKeyValidityPeriod": "365*day",
         "maxSessionKeysPerRequest": 30,
         "netName": net,
