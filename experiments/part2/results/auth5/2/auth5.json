@@ -1,0 +1,32 @@
+{
+  "configuration": {
+    "graph": "generated/auth5/warehouse.graph",
+    "workload": "generated/auth5/workload.json",
+    "num_selected_requests": 500,
+    "access_scope": "terminal_only",
+    "validity": "1*day"
+  },
+  "summary": {
+    "num_requests": 500,
+    "pre_revoke_access_count": 500,
+    "post_revoke_access_count": 500,
+    "delegation_count": 1231,
+    "cascading_revocation_request_count": 500,
+    "cascading_revocation_verified_count": 500,
+    "revocation_verified_count": 500,
+    "cross_auth_request_count": 406,
+    "cross_auth_request_rate": 0.812,
+    "total_quantity_to_pick": 500,
+    "delegation_latency_ms_mean": 74.39384591076478,
+    "delegation_latency_ms_total": 91578.82431615144,
+    "revocation_latency_ms_total": 31150.833330117166,
+    "authorization_before_revoke_ms_mean": 151.89668664708734,
+    "revocation_latency_ms_mean": 62.30166666023433,
+    "authorization_after_revoke_ms_mean": 35.576850621029735,
+    "pre_revoke_access_success_count": 500,
+    "post_revoke_access_denied_count": 500,
+    "pre_revoke_access_success_rate": 1.0,
+    "post_revoke_denial_rate": 1.0,
+    "workload_total_time_ms": 236025.7879346609
+  }
+}
