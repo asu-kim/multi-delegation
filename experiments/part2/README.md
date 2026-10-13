@@ -22,8 +22,8 @@ The runner grants access along the chain, tests each worker's access, revokes th
 From the repository root, build Auth if needed:
 
 ```sh
-cd iotauth/auth
-mvn -pl auth-server -am install -DskipTests
+cd iotauth/auth/auth-server
+make
 ```
 
 Return to the repository root after building, then enter this folder:
