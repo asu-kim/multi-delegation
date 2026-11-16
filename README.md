@@ -20,4 +20,9 @@ The implementation introduces new authorization metadata and database structures
   - **part1/**: Recorded baseline and proposed-approach workflow logs, organized into `Auth_logs/` and `Node_logs/`.
   - **part2/**: Warehouse experiment scripts, datasets, generated configurations, and collected results for multi-level delegation and cascading revocation.
 
+## SST submodule version
+
+The `iotauth/` submodule is pinned to commit [`715e620`](https://github.com/iotauth/iotauth/commit/715e620f6ecf342b29949d8abb7d42cd39f37e3c), 
+which is the latest commit on the upstream SST `main` branch as verified on November 16, 2026.
+
 For detailed experiment instructions and logs, see [experiments/README.md](experiments/README.md).

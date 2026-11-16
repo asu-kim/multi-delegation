@@ -19,6 +19,11 @@ The runner grants access along the chain, tests each worker's access, revokes th
 - Java 11 or newer, Node.js/npm, Maven, and OpenSSL 3 or newer, as described in the [IoTAuth quickstart](../../iotauth/QUICKSTART.md). See also the [example setup instructions](../../iotauth/examples/README.md).
 - The built server JAR at `iotauth/auth/auth-server/target/auth-server-jar-with-dependencies.jar`.
 
+Update the submodule
+```sh
+cd ~/multi-delegation
+git submodule update --init --recursive
+```
 From the repository root, build Auth if needed:
 
 ```sh
