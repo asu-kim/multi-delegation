@@ -117,6 +117,7 @@ python3 run_warehouse_experiment_realdata.py \
   --workload generated/auth4/workload.json \
   --results results/local-auth4/run.json
 ```
+**⚠️ Use `asdf` as the password**
 
 To run newly generated inputs instead, replace both `generated/auth4/` paths with `generated/custom-auth4/`. Keep `warehouse.policy.json` beside `warehouse.graph`; the runner derives its path from the graph filename.
 
