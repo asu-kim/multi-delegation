@@ -14,6 +14,7 @@ The runner grants access along the chain, tests each worker's access, revokes th
 
 ## Prerequisites
 
+- Use a Linux environment.
 - Python 3.10 or newer and `pandas` for data generation. The runner otherwise uses the Python standard library and the local `warehouse_delegation` module.
 - The repository's delegation-aware `iotauth/` implementation, with its dependencies installed and Auth server built.
 - Java 11 or newer, Node.js/npm, Maven, and OpenSSL 3 or newer, as described in the [IoTAuth quickstart](../../iotauth/QUICKSTART.md). See also the [example setup instructions](../../iotauth/examples/README.md).
