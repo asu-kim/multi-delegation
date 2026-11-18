@@ -162,6 +162,27 @@ For `--results results/local-auth4/run.json`, the runner writes three files and 
 
 The Robot-only success and denial rates do not prove cascading revocation. Use the full-chain verification counts and per-entity records for that check. Latency means include available numeric timings without filtering by success status.
 
+### CPU and memory usage
+
+Each run's summary file (for example, `results/auth4/auth4.json`) includes
+`summary.resource_usage`, measured with `resource.getrusage(resource.RUSAGE_CHILDREN)`:
+
+| Field | Meaning |
+| --- | --- |
+| `cpu_user_seconds`, `cpu_system_seconds` | Child CPU time since this run began, in seconds. |
+| `cpu_total_seconds` | Sum of user and system CPU time; can exceed wall time when children run concurrently. |
+| `max_child_peak_rss_bytes` | Largest individual child peak resident memory, normalized to bytes. This is not the sum of concurrent process memory. |
+| `measurement_stage` | `before_cleanup` for incremental saves and `--keep-processes`; `after_cleanup` after normal shutdown and waits. |
+| `scope`, `live_children_excluded` | Only exited, reaped children contribute, including setup/generation and shutdown; the Python runner and still-running children are excluded. |
+
+The final summary is saved after process cleanup, including when the workload
+raises an exception. Incremental and `--keep-processes` measurements are partial
+because running Auth/entity processes have not been reaped. Peak RSS is the
+operating system's child high-water mark over the runner process lifetime; it is
+not subtractable like CPU counters. Run each experiment in a fresh Python process
+(as in the commands above) for a run-specific peak. Existing result files cannot
+be backfilled without rerunning the experiment.
+
 ### Request details: `<name>_results.json`
 
 The top-level `results` array contains one record per completed request. It includes source identifiers (`request_id`, `position_id`, `wave_number`, item and storage IDs), selected actors, resource coordinates, and `cross_auth`.

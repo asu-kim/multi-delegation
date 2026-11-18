@@ -79,6 +79,7 @@ import json
 import os
 import queue
 import re
+import resource as resource_usage
 import signal
 import subprocess
 import sys
@@ -154,6 +155,24 @@ def load_json(path: Path) -> Any:
 def write_json(data: Any, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2), encoding="utf-8")
+
+
+def measure_child_usage(baseline: Any, *, after_cleanup: bool) -> dict[str, Any]:
+    """Measure reaped children; ru_maxrss is a high-water mark, not a delta."""
+    usage = resource_usage.getrusage(resource_usage.RUSAGE_CHILDREN)
+    user_seconds = usage.ru_utime - baseline.ru_utime
+    system_seconds = usage.ru_stime - baseline.ru_stime
+    # macOS reports bytes; Linux and other supported Unix systems report KiB.
+    rss_multiplier = 1 if sys.platform == "darwin" else 1024
+    return {
+        "scope": "reaped_children_including_setup_and_shutdown",
+        "measurement_stage": "after_cleanup" if after_cleanup else "before_cleanup",
+        "live_children_excluded": True,
+        "cpu_user_seconds": user_seconds,
+        "cpu_system_seconds": system_seconds,
+        "cpu_total_seconds": user_seconds + system_seconds,
+        "max_child_peak_rss_bytes": int(usage.ru_maxrss * rss_multiplier),
+    }
 
 
 class AuthDatabaseSizeLogger:
@@ -824,6 +843,7 @@ def summarize_results(results: list[dict[str, Any]]) -> dict[str, Any]:
 
 def main() -> None:
     args = parse_args()
+    child_usage_baseline = resource_usage.getrusage(resource_usage.RUSAGE_CHILDREN)
 
     graph_path = Path(args.graph).resolve()
     workload_path = Path(args.workload).resolve()
@@ -889,9 +909,12 @@ def main() -> None:
 
     workload_total_time_ms: float | None = None
 
-    def save_outputs() -> dict[str, Any]:
+    def save_outputs(*, after_cleanup: bool = False) -> dict[str, Any]:
         summary = summarize_results(results)
         summary["workload_total_time_ms"] = workload_total_time_ms
+        summary["resource_usage"] = measure_child_usage(
+            child_usage_baseline, after_cleanup=after_cleanup
+        )
         # Display the final snapshot beside the baseline without changing the
         # chronological recording order used to calculate deltas.
         snapshots = db_size_logger.snapshots
@@ -1068,12 +1091,6 @@ def main() -> None:
                 time.sleep(args.inter_request_delay)
 
         db_size_logger.record("after_workload")
-        summary = save_outputs()
-        print("\nSummary")
-        print(json.dumps(summary, indent=2))
-        print(f"\nWrote configuration/summary: {result_path}")
-        print(f"Wrote database sizes: {db_size_path}")
-        print(f"Wrote request results: {details_path}")
 
     finally:
         if not args.keep_processes:
@@ -1085,6 +1102,15 @@ def main() -> None:
                 terminate_process(proc, group)
             for auth_id, proc in auth_procs.items():
                 terminate_process(proc, f"Auth{auth_id}")
+
+        # wait()/poll() must reap children before getrusage can account for them.
+        summary = save_outputs(after_cleanup=not args.keep_processes)
+
+    print("\nSummary")
+    print(json.dumps(summary, indent=2))
+    print(f"\nWrote configuration/summary: {result_path}")
+    print(f"Wrote database sizes: {db_size_path}")
+    print(f"Wrote request results: {details_path}")
 
 
 if __name__ == "__main__":
