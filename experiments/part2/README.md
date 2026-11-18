@@ -237,6 +237,24 @@ PYTHON
 
 Use a distinct output directory for each run to preserve earlier measurements. Outputs are saved incrementally after completed requests, so an interrupted run may contain partial results. Compare completed and selected request counts before treating a file as a full run.
 
+
+## Add emulated network latency
+
+Check the current condition;
+```
+tc qdisc show dev lo
+```
+Apply 5 ms delay + 1 ms jitter:
+```
+sudo tc qdisc add dev lo root netem delay 5ms 1ms
+tc qdisc show dev lo
+# Should be similar to [qdisc netem ... root ... delay 5ms 1ms]
+```
+Remove the jitter after the experiment:
+```
+sudo tc qdisc del dev lo root
+```
+
 ## Troubleshooting
 
 - **Missing Auth JAR:** build the repository's Auth implementation using the Maven command above.
