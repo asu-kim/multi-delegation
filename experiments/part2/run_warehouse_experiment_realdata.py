@@ -481,54 +481,65 @@ def start_auths(
     auth_procs: dict[int, subprocess.Popen[str]] = {}
     auth_outputs: dict[int, queue.Queue[str]] = {}
 
-    for auth in graph["authList"]:
-        auth_id = int(auth["id"])
-        properties = auth_properties_path(auth_dir, auth_id)
+    try:
+        for auth in graph["authList"]:
+            auth_id = int(auth["id"])
+            properties = auth_properties_path(auth_dir, auth_id)
 
-        if not properties.exists():
-            raise FileNotFoundError(
-                f"Missing Auth properties: {properties}\n"
-                "Run this script with --generate, or run generateAll.sh first."
+            if not properties.exists():
+                raise FileNotFoundError(
+                    f"Missing Auth properties: {properties}\n"
+                    "Run this script with --generate, or run generateAll.sh first."
+                )
+
+            # Preserve the same relative-property style used by the existing scripts.
+            properties_arg = os.path.relpath(properties, auth_dir)
+
+            print(f"\nStarting Auth {auth_id}")
+            proc = subprocess.Popen(
+                [
+                    "java",
+                    "-Djava.awt.headless=true",
+                    "-jar",
+                    str(jar),
+                    "-p",
+                    properties_arg,
+                ],
+                cwd=auth_dir,
+                stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                text=True,
+                bufsize=1,
             )
 
-        # Preserve the same relative-property style used by the existing scripts.
-        properties_arg = os.path.relpath(properties, auth_dir)
+            auth_procs[auth_id] = proc
 
-        print(f"\nStarting Auth {auth_id}")
-        proc = subprocess.Popen(
-            [
-                "java",
-                "-Djava.awt.headless=true",
-                "-jar",
-                str(jar),
-                "-p",
-                properties_arg,
-            ],
-            cwd=auth_dir,
-            stdin=subprocess.PIPE,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-            text=True,
-            bufsize=1,
-        )
+            # Piped stdin has no Java console. In headless mode Auth first asks
+            # for y/n confirmation, then the existing experiment DB password.
+            if proc.stdin is not None:
+                proc.stdin.write("y\nasdf\n")
+                proc.stdin.flush()
 
-        # Piped stdin has no Java console. In headless mode Auth first asks
-        # for y/n confirmation, then the existing experiment DB password.
-        if proc.stdin is not None:
-            proc.stdin.write("y\nasdf\n")
-            proc.stdin.flush()
+            output_q = start_output_reader(proc, f"Auth{auth_id}")
+            matched, lines = wait_for_any_output(
+                output_q,
+                ["Started Server@"],
+                timeout=startup_timeout,
+            )
+            if matched is None:
+                output_tail = "\n".join(lines[-20:])
+                raise TimeoutError(
+                    f"Auth {auth_id} did not become ready in time "
+                    f"(exit code: {proc.poll()}). Recent output:\n{output_tail}"
+                )
 
-        output_q = start_output_reader(proc, f"Auth{auth_id}")
-        matched, _ = wait_for_any_output(
-            output_q,
-            ["Started Server@"],
-            timeout=startup_timeout,
-        )
-        if matched is None:
-            raise TimeoutError(f"Auth {auth_id} did not become ready in time")
-
-        auth_procs[auth_id] = proc
-        auth_outputs[auth_id] = output_q
+            auth_outputs[auth_id] = output_q
+    except BaseException:
+        # The caller has not received these handles yet, so clean up here.
+        for auth_id, proc in auth_procs.items():
+            terminate_process(proc, f"Auth{auth_id}")
+        raise
 
     return auth_procs, auth_outputs
 
