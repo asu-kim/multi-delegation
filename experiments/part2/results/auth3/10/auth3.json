@@ -1,0 +1,41 @@
+{
+  "configuration": {
+    "graph": "generated/auth3/warehouse.graph",
+    "workload": "generated/auth3/workload.json",
+    "num_selected_requests": 300,
+    "access_scope": "terminal_only",
+    "validity": "1*day"
+  },
+  "summary": {
+    "num_requests": 300,
+    "pre_revoke_access_count": 300,
+    "post_revoke_access_count": 300,
+    "delegation_count": 731,
+    "cascading_revocation_request_count": 300,
+    "cascading_revocation_verified_count": 300,
+    "revocation_verified_count": 300,
+    "cross_auth_request_count": 200,
+    "cross_auth_request_rate": 0.6666666666666666,
+    "total_quantity_to_pick": 300,
+    "delegation_latency_ms_mean": 74.3792967233175,
+    "delegation_latency_ms_total": 54371.26590474509,
+    "revocation_latency_ms_total": 19135.122078238055,
+    "authorization_before_revoke_ms_mean": 152.19046285647588,
+    "revocation_latency_ms_mean": 63.783740260793515,
+    "authorization_after_revoke_ms_mean": 35.99624434369616,
+    "pre_revoke_access_success_count": 300,
+    "post_revoke_access_denied_count": 300,
+    "pre_revoke_access_success_rate": 1.0,
+    "post_revoke_denial_rate": 1.0,
+    "workload_total_time_ms": 137523.71470897924,
+    "resource_usage": {
+      "scope": "reaped_children_including_setup_and_shutdown",
+      "measurement_stage": "after_cleanup",
+      "live_children_excluded": true,
+      "cpu_user_seconds": 121.479146,
+      "cpu_system_seconds": 38.559935,
+      "cpu_total_seconds": 160.039081,
+      "max_child_peak_rss_bytes": 1413922816
+    }
+  }
+}
