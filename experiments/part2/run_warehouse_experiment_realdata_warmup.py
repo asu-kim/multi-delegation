@@ -9,7 +9,15 @@ revocation, and denial check to warm up the live implementation. Warm-up records
 and latencies are discarded; the workload timer and DB baseline start afterward.
 Only a successful warm-up adds a short note to the output configuration. This
 warms the first request's path, not every entity or Auth path in the workload.
-Process resource usage retains its whole-process scope, including warm-up.
+Aggregate child resource usage retains its whole-process scope, including warm-up.
+Per-Auth resource usage samples each Java PID via Linux /proc every 100 ms,
+starting after warm-up and stopping before final output saving and shutdown.
+summary.auth_resource_usage.by_auth reports cpu_utilization_percent (100% = one
+core; may exceed 100%), memory_rss_peak_bytes (sampled peak, not lifetime peak),
+and memory_rss_average_bytes (time-weighted trapezoidal mean). RSS includes the
+whole resident Java process, not just its heap. Brief peaks between samples may
+be missed. Failed reads are reported; intervals spanning failures are excluded.
+No additional Python dependencies are required; per-Auth sampling requires Linux.
 
 Expected repository layout (matching the user's existing experiment scripts):
 
@@ -180,6 +188,106 @@ def measure_child_usage(baseline: Any, *, after_cleanup: bool) -> dict[str, Any]
         "cpu_total_seconds": user_seconds + system_seconds,
         "max_child_peak_rss_bytes": int(usage.ru_maxrss * rss_multiplier),
     }
+
+
+class AuthResourceMonitor:
+    """Sample live Auth PIDs only; retain bounded aggregate state per Auth."""
+
+    def __init__(self, processes: dict[int, subprocess.Popen[str]]) -> None:
+        self.processes = processes
+        self.interval_seconds = 0.1
+        self.clock_ticks = os.sysconf("SC_CLK_TCK")
+        self.page_size = os.sysconf("SC_PAGE_SIZE")
+        self.lock = threading.Lock()
+        self.stop_event = threading.Event()
+        self.thread: threading.Thread | None = None
+        self.previous: dict[str, tuple[float, float, int] | None] = {}
+        self.stats = {
+            str(auth_id): {
+                "pid": proc.pid, "sample_count": 0, "sample_error_count": 0,
+                "last_error": None, "measured_seconds": 0.0,
+                "cpu_total_seconds": 0.0, "memory_rss_peak_bytes": None,
+                "rss_byte_seconds": 0.0,
+            }
+            for auth_id, proc in processes.items()
+        }
+
+    def _read(self, proc: subprocess.Popen[str]) -> tuple[float, float, int]:
+        if proc.poll() is not None:
+            raise ProcessLookupError(f"Auth PID {proc.pid} exited")
+        # comm (field 2) can contain spaces and parentheses; split after its end.
+        raw = Path(f"/proc/{proc.pid}/stat").read_text()
+        fields = raw[raw.rfind(")") + 2:].split()
+        if fields[0] in {"Z", "X"}:
+            raise ProcessLookupError(f"Auth PID {proc.pid} is no longer running")
+        cpu = (int(fields[11]) + int(fields[12])) / self.clock_ticks
+        rss = int(fields[21]) * self.page_size
+        return time.perf_counter(), cpu, rss
+
+    def sample(self) -> None:
+        with self.lock:
+            for auth_id, proc in self.processes.items():
+                key = str(auth_id)
+                stat = self.stats[key]
+                try:
+                    current = self._read(proc)
+                except (OSError, ValueError, IndexError) as exc:
+                    stat["sample_error_count"] += 1
+                    stat["last_error"] = f"{type(exc).__name__}: {exc}"
+                    self.previous[key] = None
+                    continue
+                now, cpu, rss = current
+                previous = self.previous.get(key)
+                if previous is not None:
+                    elapsed = now - previous[0]
+                    if elapsed > 0:
+                        stat["measured_seconds"] += elapsed
+                        stat["cpu_total_seconds"] += max(0.0, cpu - previous[1])
+                        stat["rss_byte_seconds"] += (previous[2] + rss) * 0.5 * elapsed
+                stat["sample_count"] += 1
+                peak = stat["memory_rss_peak_bytes"]
+                stat["memory_rss_peak_bytes"] = rss if peak is None else max(peak, rss)
+                self.previous[key] = current
+
+    def start(self) -> None:
+        self.sample()  # Discard CPU consumed during startup and warm-up.
+
+        def monitor() -> None:
+            while not self.stop_event.wait(self.interval_seconds):
+                self.sample()
+
+        self.thread = threading.Thread(target=monitor, daemon=True)
+        self.thread.start()
+
+    def stop(self) -> None:
+        if self.stop_event.is_set():
+            return
+        self.stop_event.set()
+        if self.thread is not None:
+            self.thread.join()
+            self.sample()  # Include the final partial sampling interval.
+
+    def summary(self) -> dict[str, Any]:
+        with self.lock:
+            by_auth = {}
+            for auth_id, stat in self.stats.items():
+                entry = dict(stat)
+                area = entry.pop("rss_byte_seconds")
+                elapsed = entry["measured_seconds"]
+                entry["cpu_utilization_percent"] = (
+                    100.0 * entry["cpu_total_seconds"] / elapsed if elapsed else None
+                )
+                entry["memory_rss_average_bytes"] = area / elapsed if elapsed else None
+                by_auth[auth_id] = entry
+        return {
+            "scope": "auth_java_processes_during_workload_excluding_warmup",
+            "sample_interval_seconds": self.interval_seconds,
+            "cpu_percent_basis": "100_percent_is_one_cpu_core",
+            "memory_measure": "resident_set_size_bytes",
+            "memory_peak_method": "maximum_observed_sample",
+            "memory_average_method": "time_weighted_trapezoidal",
+            "by_auth": by_auth,
+        }
 
 
 class AuthDatabaseSizeLogger:
@@ -915,6 +1023,8 @@ def summarize_results(results: list[dict[str, Any]]) -> dict[str, Any]:
 
 def main() -> None:
     args = parse_args()
+    if not sys.platform.startswith("linux"):
+        raise RuntimeError("Per-Auth resource sampling requires Linux /proc.")
     child_usage_baseline = resource_usage.getrusage(resource_usage.RUSAGE_CHILDREN)
 
     graph_path = Path(args.graph).resolve()
@@ -979,6 +1089,7 @@ def main() -> None:
         "validity": args.validity,
     }
 
+    auth_resource_monitor: AuthResourceMonitor | None = None
     workload_total_time_ms: float | None = None
 
     def save_outputs(*, after_cleanup: bool = False) -> dict[str, Any]:
@@ -986,6 +1097,9 @@ def main() -> None:
         summary["workload_total_time_ms"] = workload_total_time_ms
         summary["resource_usage"] = measure_child_usage(
             child_usage_baseline, after_cleanup=after_cleanup
+        )
+        summary["auth_resource_usage"] = (
+            auth_resource_monitor.summary() if auth_resource_monitor else None
         )
         # Display the final snapshot beside the baseline without changing the
         # chronological recording order used to calculate deltas.
@@ -1052,6 +1166,8 @@ def main() -> None:
         db_size_logger.record("before_workload")
 
         print("\nRunning workload")
+        auth_resource_monitor = AuthResourceMonitor(auth_procs)
+        auth_resource_monitor.start()
         workload_start = time.perf_counter()
         for index, request in enumerate(requests, start=1):
             supervisor = request["supervisor"]
@@ -1153,6 +1269,9 @@ def main() -> None:
             results.append(record)
             workload_total_time_ms = (time.perf_counter() - workload_start) * 1000.0
 
+            if index == len(requests):
+                auth_resource_monitor.stop()
+
             # Save incrementally so an interrupted long run still leaves data.
             save_outputs()
 
@@ -1174,6 +1293,8 @@ def main() -> None:
         db_size_logger.record("after_workload")
 
     finally:
+        if auth_resource_monitor is not None:
+            auth_resource_monitor.stop()
         if not args.keep_processes:
             for group, proc in resource_procs.items():
                 terminate_process(proc, group)
