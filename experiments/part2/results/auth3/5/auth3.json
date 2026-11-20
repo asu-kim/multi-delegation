@@ -17,16 +17,25 @@
     "cross_auth_request_count": 200,
     "cross_auth_request_rate": 0.6666666666666666,
     "total_quantity_to_pick": 300,
-    "delegation_latency_ms_mean": 66.47012711447827,
-    "delegation_latency_ms_total": 48589.66292068362,
-    "revocation_latency_ms_total": 16332.549034617841,
-    "authorization_before_revoke_ms_mean": 144.80428839102387,
-    "revocation_latency_ms_mean": 54.441830115392804,
-    "authorization_after_revoke_ms_mean": 35.651748310774565,
+    "delegation_latency_ms_mean": 67.28512891275214,
+    "delegation_latency_ms_total": 49185.42923522182,
+    "revocation_latency_ms_total": 17664.283086778596,
+    "authorization_before_revoke_ms_mean": 145.41091228641258,
+    "revocation_latency_ms_mean": 58.88094362259532,
+    "authorization_after_revoke_ms_mean": 36.104901490422584,
     "pre_revoke_access_success_count": 300,
     "post_revoke_access_denied_count": 300,
     "pre_revoke_access_success_rate": 1.0,
     "post_revoke_denial_rate": 1.0,
-    "workload_total_time_ms": 126701.75019465387
+    "workload_total_time_ms": 128945.95146295615,
+    "resource_usage": {
+      "scope": "reaped_children_including_setup_and_shutdown",
+      "measurement_stage": "after_cleanup",
+      "live_children_excluded": true,
+      "cpu_user_seconds": 123.693541,
+      "cpu_system_seconds": 36.199259,
+      "cpu_total_seconds": 159.8928,
+      "max_child_peak_rss_bytes": 1411211264
+    }
   }
 }
