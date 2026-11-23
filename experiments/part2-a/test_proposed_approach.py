@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 import random
 import time
 import threading
@@ -144,6 +145,13 @@ def select_resource_dag_edges(overall_dag, probability=0.5, seed=None):
             already_delegated_nodes.add(dst)
 
     return selected_edges
+
+
+def count_delegation_chains(edges):
+    """Each destination has one parent, so each leaf ends one nonempty root-to-leaf path."""
+    sources = {src for src, _ in edges}
+    destinations = {dst for _, dst in edges}
+    return len(destinations - sources)
 
 
 def print_dag_edges(title, edges):
@@ -402,10 +410,15 @@ def drain_output(output_q):
 
 
 def get_file_size_bytes(path):
-    path = Path(path)
-    if not path.exists():
+    try:
+        return path.stat().st_size
+    except OSError as exc:
+        print(f"Could not measure {path}: {exc}", file=sys.stderr)
         return None
-    return path.stat().st_size
+
+
+def size_change(before, after):
+    return after - before if before is not None and after is not None else None
 
 
 def summarize_latencies(delegation_latencies, before_results, revocation_latencies, after_results):
@@ -435,6 +448,7 @@ def test_access_by_init_comm(
     output_path,
     phase_name,
     timeout=1,
+    auth_db_path=None,
 ):
     results = []
 
@@ -452,6 +466,8 @@ def test_access_by_init_comm(
 
             drain_output(output_q)
 
+            if auth_db_path is not None:
+                db_before = get_file_size_bytes(auth_db_path)
             access_start = time.perf_counter()
             proc.stdin.write(cmd)
             proc.stdin.flush()
@@ -490,6 +506,12 @@ def test_access_by_init_comm(
                     "latency_ms": latency_ms,
                 }
             )
+
+            if auth_db_path is not None:
+                results[-1].update(
+                    db_before_bytes=db_before,
+                    db_after_bytes=get_file_size_bytes(auth_db_path),
+                )
 
             print(
                 f"[{phase_name}] {node} -> {resource}: "
@@ -578,19 +600,19 @@ def main():
 
     # Run generateAll.sh from multi-delegation/iotauth/examples
     experiment_dir = Path(__file__).resolve().parent
-    project_root = experiment_dir.parent
+    project_root = experiment_dir.parent.parent
     examples_dir = project_root / "iotauth" / "examples"
     auth_dir = project_root / "iotauth" / "auth" / "auth-server"
     example_entities_dir = project_root / "iotauth" / "entity" / "node" / "example_entities"
-    auth_db_path = project_root / "iotauth" / "auth" / "databases" / "auth101" / "auth.db"
+    auth_db_path = project_root / "iotauth" / "auth" / "databases" / f"auth{args.auth_id}" / "auth.db"
 
     resource_procs = []
     auth_proc = None
     node_procs = {}
     node_outputs = {}
 
-    graph_arg = Path(f"../../experiments/results/{args.output}/") / output_graph_path.name
-    policy_arg = Path(f"../../experiments/results/{args.output}/") / access_path.name
+    graph_arg = os.path.relpath(output_graph_path.resolve(), examples_dir)
+    policy_arg = os.path.relpath(access_path.resolve(), examples_dir)
 
     cmd = [
         "./generateAll.sh",
@@ -623,7 +645,7 @@ def main():
                 "-jar",
                 "target/auth-server-jar-with-dependencies.jar",
                 "-p",
-                "../properties/exampleAuth101.properties",
+                f"../properties/exampleAuth{args.auth_id}.properties",
             ],
             cwd=auth_dir,
             stdin=subprocess.PIPE,
@@ -714,7 +736,7 @@ def main():
         time.sleep(5)
 
         auth_db_size_before_delegation = get_file_size_bytes(auth_db_path)
-        delegation_latencies = []
+        delegation_operations = []
         delegation_start = time.perf_counter()
 
         # Perform delegation
@@ -735,6 +757,7 @@ def main():
             print(f"\nExecuting on {src}: {cmd.strip()}")
 
             drain_output(output_q)
+            db_before = get_file_size_bytes(auth_db_path)
             operation_start = time.perf_counter()
             proc.stdin.write(cmd)
             proc.stdin.flush()
@@ -747,7 +770,15 @@ def main():
                 ],
                 timeout=1,
             )
-            delegation_latencies.append((time.perf_counter() - operation_start) * 1000.0)
+            latency_ms = (time.perf_counter() - operation_start) * 1000.0
+            delegation_operations.append({
+                "source": src,
+                "destination": dst,
+                "resource": resource,
+                "latency_ms": latency_ms,
+                "db_before_bytes": db_before,
+                "db_after_bytes": get_file_size_bytes(auth_db_path),
+            })
             sys.stdout.flush()
             # time.sleep(0.5)
         delegation_end = time.perf_counter()
@@ -761,6 +792,7 @@ def main():
             node_procs=node_procs,
             node_outputs=node_outputs,
             output_path=before_revoke_test_path,
+            auth_db_path=auth_db_path,
             phase_name="before_revoke",
         )
 
@@ -808,7 +840,7 @@ def main():
         sys.stdout.flush()
 
         auth_db_size_before_revocation = get_file_size_bytes(auth_db_path)
-        revocation_latencies = []
+        revocation_operations = []
         experiment_start3 = time.perf_counter()
         # Perform revocation
         for privilege in graph["privilegeList"]:
@@ -827,6 +859,7 @@ def main():
             print(f"\nExecuting on {src}: {cmd.strip()}")
 
             drain_output(output_q)
+            db_before = get_file_size_bytes(auth_db_path)
             operation_start = time.perf_counter()
             proc.stdin.write(cmd)
             proc.stdin.flush()
@@ -839,7 +872,15 @@ def main():
                 ],
                 timeout=5,
             )
-            revocation_latencies.append((time.perf_counter() - operation_start) * 1000.0)
+            latency_ms = (time.perf_counter() - operation_start) * 1000.0
+            revocation_operations.append({
+                "source": src,
+                "destination": dst,
+                "resource": resource,
+                "latency_ms": latency_ms,
+                "db_before_bytes": db_before,
+                "db_after_bytes": get_file_size_bytes(auth_db_path),
+            })
             sys.stdout.flush()
             # time.sleep(0.5)
         experiment_end3 = time.perf_counter()
@@ -853,6 +894,7 @@ def main():
             node_procs=node_procs,
             node_outputs=node_outputs,
             output_path=after_revoke_test_path,
+            auth_db_path=auth_db_path,
             phase_name="after_revoke",
         )
         experiment_end4 = time.perf_counter()
@@ -862,12 +904,23 @@ def main():
         before_revoke_access_latency_ms = (experiment_end2 - experiment_start2) * 1000
         revocation_latency_ms = (experiment_end3 - experiment_start3) * 1000
         after_revoke_access_latency_ms = (experiment_end4 - experiment_start4) * 1000
+        chains_by_resource = {
+            resource: count_delegation_chains(edges)
+            for resource, edges in resource_edges.items()
+        }
         summary = {
+            "chain_count": sum(chains_by_resource.values()),
+            "chain_count_by_resource": chains_by_resource,
+            "delegation_operations": delegation_operations,
+            "revocation_operations": revocation_operations,
             **summarize_latencies(
-                delegation_latencies, before_revoke_results,
-                revocation_latencies, after_revoke_results,
+                [op["latency_ms"] for op in delegation_operations], before_revoke_results,
+                [op["latency_ms"] for op in revocation_operations], after_revoke_results,
             ),
             "auth_db_size_bytes": {
+                "before_workload": auth_db_size_before_delegation,
+                "after_workload": auth_db_size_after_access_checking2,
+                "workload_delta": size_change(auth_db_size_before_delegation, auth_db_size_after_access_checking2),
                 "before_delegation": auth_db_size_before_delegation,
                 "after_delegation": auth_db_size_after_delegation,
                 "after_access_checking1": auth_db_size_after_access_checking,
