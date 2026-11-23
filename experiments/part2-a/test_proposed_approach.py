@@ -647,21 +647,16 @@ def main():
 
         auth_output_q = start_output_reader(auth_proc, "Auth")
 
-        wait_for_output(
-            auth_output_q,
-            ["Are you sure to continue(y/n)?"],
-            timeout=10,
+        confirmation_prompt = "Are you sure to continue(y/n)?"
+        password_prompt = "Please enter Auth password"
+        startup_lines = wait_for_output(
+            auth_output_q, [confirmation_prompt, password_prompt], timeout=10,
         )
-        
-        auth_proc.stdin.write("y\n")
-        auth_proc.stdin.flush()
-        
-        wait_for_output(
-            auth_output_q,
-            ["Please enter Auth password"],
-            timeout=10,
-        )
-        
+        if confirmation_prompt in startup_lines[-1]:
+            auth_proc.stdin.write("y\n")
+            auth_proc.stdin.flush()
+            wait_for_output(auth_output_q, password_prompt, timeout=10)
+
         auth_proc.stdin.write("asdf\n")
         auth_proc.stdin.flush()
         
