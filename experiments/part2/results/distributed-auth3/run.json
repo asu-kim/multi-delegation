@@ -1,0 +1,65 @@
+{
+  "configuration": {
+    "graph": "generated_distributed/auth3/warehouse.graph",
+    "workload": "generated_distributed/auth3/workload.json",
+    "num_selected_requests": 300,
+    "access_scope": "terminal_only",
+    "validity": "1*day",
+    "deployment": {
+      "auth101": "10.218.101.8",
+      "other_auths_and_entities": "10.218.100.95"
+    },
+    "measured_auth_id": 101,
+    "setup_overhead_note": "Delegation was executed before measurement to exclude initial setup overhead."
+  },
+  "summary": {
+    "num_requests": 300,
+    "pre_revoke_access_count": 300,
+    "post_revoke_access_count": 300,
+    "delegation_count": 731,
+    "cascading_revocation_request_count": 300,
+    "cascading_revocation_verified_count": 300,
+    "revocation_verified_count": 300,
+    "cross_auth_request_count": 200,
+    "cross_auth_request_rate": 0.6666666666666666,
+    "total_quantity_to_pick": 300,
+    "delegation_latency_ms_mean": 75.57227385323367,
+    "delegation_latency_ms_total": 55243.332186713815,
+    "revocation_latency_ms_total": 17793.342171236873,
+    "authorization_before_revoke_ms_mean": 102.6499562097403,
+    "revocation_latency_ms_mean": 59.311140570789576,
+    "authorization_after_revoke_ms_mean": 9.243269385769963,
+    "pre_revoke_access_success_count": 300,
+    "post_revoke_access_denied_count": 300,
+    "pre_revoke_access_success_rate": 1.0,
+    "post_revoke_denial_rate": 1.0,
+    "workload_total_time_ms": 127921.63958516903,
+    "resource_usage": {
+      "scope": "reaped_children_including_setup_and_shutdown",
+      "measurement_stage": "after_cleanup",
+      "live_children_excluded": true,
+      "cpu_user_seconds": 36.144001,
+      "cpu_system_seconds": 12.455125,
+      "cpu_total_seconds": 48.599126000000005,
+      "max_child_peak_rss_bytes": 1066172416
+    },
+    "auth_resource_usage": {
+      "scope": "auth101_cgroup_on_blackwell_excluding_warmup",
+      "by_auth": {
+        "101": {
+          "pid": 117098,
+          "cgroup": "/sys/fs/cgroup/user.slice/user-1003.slice/warehouse-sunyoung/auth101-c790322840d8469a8eedfb87756e97ac",
+          "measured_seconds": 127.928872945,
+          "cpu_total_seconds": 15.45007,
+          "cpu_utilization_percent": 12.077078179718189,
+          "memory_peak_bytes": 1085161472,
+          "cpu_percent_basis": "100_percent_is_one_cpu_core",
+          "memory_measure": "cgroup_v2_memory.peak_not_RSS_or_heap",
+          "measurement_scope": "after_warmup_until_stop_command",
+          "memory_peak_reset": "same_open_file_descriptor_after_warmup"
+        }
+      },
+      "error": null
+    }
+  }
+}
