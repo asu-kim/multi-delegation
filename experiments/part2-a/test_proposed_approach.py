@@ -739,7 +739,7 @@ def main():
             resource = privilege["objectGroup"]
             validity = privilege["validity"]
 
-            cmd = f"delegateAuthority {dst} {resource} {validity}\n"
+            cmd = f"delegateAuthority {dst} {resource} {validity} 1*day 1*hour\n"
 
             proc = node_procs[src]
             output_q = node_outputs[src]
@@ -759,6 +759,7 @@ def main():
                     "disconnected from auth",
                 ],
                 timeout=1,
+                failure_patterns=["Invalid period:", "Time period exceeds the supported range:"],
             )
             latency_ms = (time.perf_counter() - operation_start) * 1000.0
             delegation_operations.append({
