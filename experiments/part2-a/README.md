@@ -16,7 +16,8 @@ Let `$PROJECT_ROOT` denote the root directory of the extracted repository:
 
 ```text
 $PROJECT_ROOT/
-├── experiment/
+├── experiments/
+│   └── part2-a/
 ├── iotauth/
 └── ...
 ```
@@ -46,36 +47,27 @@ cd $PROJECT_ROOT/iotauth/examples
 ```
 
 ## Running the Experiment
-After building Auth, back to the experiments folder.
-```text
-cd $PROJECT_ROOT/experiments
-```
 
-The number of nodes, the number of resources, and the output directory name can be manually configured.
+Run the Linux experiment from its script directory. Set the Auth password to `asdf` during setup.
 
-⚠️ **Important Note!** Set Auth password as `asdf`.
-
-#### For Linux:
-```text
+```sh
+cd "$PROJECT_ROOT/experiments/part2-a"
 python3 test_proposed_approach.py --nodes 10 --resources 5 --output n10r5
 ```
 
-#### For macOS:
-```text
-python3 test_proposed_approach_mac.py --nodes 10 --resources 5 --output n10r5
-```
+This example writes seven files under `$PROJECT_ROOT/experiments/part2-a/results/n10r5/`.
+The Linux runner uses `--auth-id` (default `101`) to select the Auth server and its database.
 
-This command creates the following output directory:
-```text
-$PROJECT_ROOT/experiment/results/n10r5/
-```
+The macOS runner assumes the older layout with `test_proposed_approach_mac.py` directly
+under `$PROJECT_ROOT/experiments/`. Its startup and graph-generation paths require that
+layout and a working directory of `$PROJECT_ROOT/experiments`. It uses Auth 101.
 
 ### Saving Terminal Logs
 To save terminal output while running the experiment, use:
 ```text
 python3 test_proposed_approach.py --nodes 10 --resources 5 --output n10r5 2>&1 | tee log_name.txt
 ```
-This creates `log_name.txt` inside the `experiment` directory where the Python script is executed.
+This creates `log_name.txt` in the current working directory.
 
 At the beginning of the `log_name.txt` file, you can find the generated experiment topology, including:
 - initial access privileges assigned to head nodes,
@@ -152,34 +144,24 @@ Pairs that lose access after revocation produce an authorization failure, such a
 Therefore, the number of successful accesses in this file should match the total number of pairs in `n10r5_access_after_revoke.json`.
 
 ### 7. `n10r5_latency.json`
-Summary file containing Auth database size, latency, and access-checking results for each phase.
+Both runners report phase timings, operation counts and means, Auth database sizes at phase boundaries, and access-check outcomes. The Linux runner also records the following measurements.
 
-Example:
-```text
-{
-    "auth_db_size_bytes": {
-        "before_delegation": 77824,
-        "after_delegation": 77824,
-        "after_access_checking1": 98304,
-        "before_revocation": 98304,
-        "after_revocation": 98304,
-        "after_access_checking2": 106496
-    },
-    "delegation_latency_ms": 2057.925143977627,
-    "before_revoke_access_latency_ms": 5916.511356830597,
-    "revocation_latency_ms": 532.8580350615084,
-    "after_revoke_access_latency_ms": 5111.449738033116,
-    "access_check_before": {
-        "success": 50,
-        "total": 50
-    },
-    "access_check_after": {
-        "success": 36,
-        "expected_success": 36,
-        "total_access_checking": 50
-    }
-}
-```
+#### Delegation chains
+
+`chain_count_by_resource` counts root-to-leaf paths with at least one grant in each resource's generated delegation graph, before revocation. Each recipient has at most one parent for that resource. For example, if A delegates to B and B delegates to both C and D, the three grants form two chains. An isolated node contributes zero. `chain_count` sums the resource counts.
+
+#### Database size and individual task latency
+
+Within `auth_db_size_bytes`, `before_workload` is the size before the delegation phase and `after_workload` is the size after the final access checks. `workload_delta` is the latter minus the former. Sizes are file lengths in bytes for `iotauth/auth/databases/auth<ID>/auth.db` alone. An unavailable size or a delta with a missing endpoint is recorded as `null`.
+
+| Task | Individual records for the example run | Identifying fields |
+| --- | --- | --- |
+| Delegation | `delegation_operations` in `n10r5_latency.json` | `source`, `destination`, `resource` |
+| Revocation | `revocation_operations` in `n10r5_latency.json` | `source`, `destination`, `resource` |
+| Access before revocation | `n10r5_access_before_revoke_test.json` | `node`, `resource`, `success`, `error` |
+| Access after revocation | `n10r5_access_after_revoke_test.json` | `node`, `resource`, `success`, `error` |
+
+Each Linux record includes `latency_ms`, `db_before_bytes`, and `db_after_bytes`. The runner samples the database immediately before and after the timed command, outside its latency interval.
 
 ### Average operation latency
 
