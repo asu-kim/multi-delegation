@@ -1,0 +1,390 @@
+{
+    "chain_count": 23,
+    "chain_count_by_resource": {
+        "Resource1": 4,
+        "Resource2": 4,
+        "Resource3": 5,
+        "Resource4": 6,
+        "Resource5": 4
+    },
+    "delegation_operations": [
+        {
+            "source": "Node1",
+            "destination": "Node5",
+            "resource": "Resource1",
+            "latency_ms": 97.60842198738828,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node2",
+            "destination": "Node3",
+            "resource": "Resource1",
+            "latency_ms": 71.11355001688935,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node2",
+            "destination": "Node7",
+            "resource": "Resource1",
+            "latency_ms": 58.91407301533036,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node3",
+            "destination": "Node4",
+            "resource": "Resource1",
+            "latency_ms": 65.83769602002576,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node4",
+            "destination": "Node8",
+            "resource": "Resource1",
+            "latency_ms": 73.13899201108143,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node4",
+            "destination": "Node9",
+            "resource": "Resource1",
+            "latency_ms": 61.205129022710025,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node7",
+            "destination": "Node10",
+            "resource": "Resource1",
+            "latency_ms": 72.82613799907267,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node1",
+            "destination": "Node5",
+            "resource": "Resource2",
+            "latency_ms": 60.232947987969965,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node1",
+            "destination": "Node9",
+            "resource": "Resource2",
+            "latency_ms": 59.825395001098514,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node2",
+            "destination": "Node10",
+            "resource": "Resource2",
+            "latency_ms": 58.65872401045635,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node3",
+            "destination": "Node4",
+            "resource": "Resource2",
+            "latency_ms": 59.77111202082597,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node5",
+            "destination": "Node8",
+            "resource": "Resource2",
+            "latency_ms": 73.76102497801185,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node1",
+            "destination": "Node5",
+            "resource": "Resource3",
+            "latency_ms": 60.50383299589157,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node1",
+            "destination": "Node9",
+            "resource": "Resource3",
+            "latency_ms": 53.97739098407328,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node2",
+            "destination": "Node3",
+            "resource": "Resource3",
+            "latency_ms": 57.172172993887216,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node4",
+            "destination": "Node8",
+            "resource": "Resource3",
+            "latency_ms": 59.85998999676667,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node5",
+            "destination": "Node6",
+            "resource": "Resource3",
+            "latency_ms": 60.051089007174596,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node5",
+            "destination": "Node10",
+            "resource": "Resource3",
+            "latency_ms": 56.82137599796988,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node6",
+            "destination": "Node7",
+            "resource": "Resource3",
+            "latency_ms": 70.09991898667067,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node1",
+            "destination": "Node9",
+            "resource": "Resource4",
+            "latency_ms": 63.028064992977306,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node2",
+            "destination": "Node3",
+            "resource": "Resource4",
+            "latency_ms": 56.785494001815096,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node2",
+            "destination": "Node4",
+            "resource": "Resource4",
+            "latency_ms": 55.46090900315903,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node2",
+            "destination": "Node7",
+            "resource": "Resource4",
+            "latency_ms": 59.37635398004204,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node5",
+            "destination": "Node6",
+            "resource": "Resource4",
+            "latency_ms": 56.77775799995288,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node5",
+            "destination": "Node8",
+            "resource": "Resource4",
+            "latency_ms": 59.81209801393561,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node7",
+            "destination": "Node10",
+            "resource": "Resource4",
+            "latency_ms": 61.34935899171978,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node1",
+            "destination": "Node9",
+            "resource": "Resource5",
+            "latency_ms": 56.94740900071338,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node2",
+            "destination": "Node3",
+            "resource": "Resource5",
+            "latency_ms": 59.55171398818493,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node3",
+            "destination": "Node4",
+            "resource": "Resource5",
+            "latency_ms": 56.82407401036471,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node4",
+            "destination": "Node5",
+            "resource": "Resource5",
+            "latency_ms": 60.195400001248345,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node4",
+            "destination": "Node10",
+            "resource": "Resource5",
+            "latency_ms": 58.42599901370704,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node5",
+            "destination": "Node7",
+            "resource": "Resource5",
+            "latency_ms": 56.57827900722623,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        },
+        {
+            "source": "Node5",
+            "destination": "Node8",
+            "resource": "Resource5",
+            "latency_ms": 62.48007999965921,
+            "db_before_bytes": 69632,
+            "db_after_bytes": 69632
+        }
+    ],
+    "revocation_operations": [
+        {
+            "source": "Node2",
+            "destination": "Node3",
+            "resource": "Resource1",
+            "latency_ms": 86.80927398381755,
+            "db_before_bytes": 90112,
+            "db_after_bytes": 90112
+        },
+        {
+            "source": "Node1",
+            "destination": "Node9",
+            "resource": "Resource2",
+            "latency_ms": 73.78827800857835,
+            "db_before_bytes": 90112,
+            "db_after_bytes": 90112
+        },
+        {
+            "source": "Node2",
+            "destination": "Node10",
+            "resource": "Resource2",
+            "latency_ms": 59.57334701088257,
+            "db_before_bytes": 90112,
+            "db_after_bytes": 90112
+        },
+        {
+            "source": "Node5",
+            "destination": "Node6",
+            "resource": "Resource3",
+            "latency_ms": 63.21170998853631,
+            "db_before_bytes": 90112,
+            "db_after_bytes": 90112
+        },
+        {
+            "source": "Node1",
+            "destination": "Node9",
+            "resource": "Resource4",
+            "latency_ms": 60.12595901847817,
+            "db_before_bytes": 90112,
+            "db_after_bytes": 90112
+        },
+        {
+            "source": "Node2",
+            "destination": "Node3",
+            "resource": "Resource4",
+            "latency_ms": 57.58441501529887,
+            "db_before_bytes": 90112,
+            "db_after_bytes": 90112
+        },
+        {
+            "source": "Node2",
+            "destination": "Node4",
+            "resource": "Resource4",
+            "latency_ms": 54.9622249964159,
+            "db_before_bytes": 90112,
+            "db_after_bytes": 90112
+        },
+        {
+            "source": "Node5",
+            "destination": "Node6",
+            "resource": "Resource4",
+            "latency_ms": 56.55156300053932,
+            "db_before_bytes": 90112,
+            "db_after_bytes": 90112
+        },
+        {
+            "source": "Node1",
+            "destination": "Node9",
+            "resource": "Resource5",
+            "latency_ms": 56.90299399429932,
+            "db_before_bytes": 90112,
+            "db_after_bytes": 90112
+        },
+        {
+            "source": "Node5",
+            "destination": "Node7",
+            "resource": "Resource5",
+            "latency_ms": 56.86526600038633,
+            "db_before_bytes": 90112,
+            "db_after_bytes": 90112
+        }
+    ],
+    "delegation_latency_ms_mean": 62.271877789030306,
+    "authorization_before_revoke_ms_mean": 127.64097060018685,
+    "revocation_latency_ms_mean": 62.63750310172327,
+    "authorization_after_revoke_ms_mean": 101.79429420037195,
+    "delegation_count": 33,
+    "pre_revoke_access_count": 50,
+    "revocation_count": 10,
+    "post_revoke_access_count": 50,
+    "auth_db_size_bytes": {
+        "before_workload": 69632,
+        "after_workload": 98304,
+        "workload_delta": 28672,
+        "before_delegation": 69632,
+        "after_delegation": 69632,
+        "after_access_checking1": 90112,
+        "before_revocation": 90112,
+        "after_revocation": 90112,
+        "after_access_checking2": 98304
+    },
+    "delegation_latency_ms": 2057.086340006208,
+    "before_revoke_access_latency_ms": 6388.365350023378,
+    "revocation_latency_ms": 628.708475996973,
+    "after_revoke_access_latency_ms": 5102.336868993007,
+    "access_check_before": {
+        "success": 50,
+        "total": 50
+    },
+    "access_check_after": {
+        "success": 36,
+        "expected_success": 36,
+        "total_access_checking": 50
+    }
+}

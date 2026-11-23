@@ -1,0 +1,58 @@
+{
+    "Node1": [
+        "Resource1",
+        "Resource2",
+        "Resource4",
+        "Resource5",
+        "Resource3"
+    ],
+    "Node2": [
+        "Resource1",
+        "Resource2",
+        "Resource4",
+        "Resource5",
+        "Resource3"
+    ],
+    "Node6": [
+        "Resource1",
+        "Resource2",
+        "Resource5"
+    ],
+    "Node3": [
+        "Resource2",
+        "Resource5",
+        "Resource3"
+    ],
+    "Node7": [
+        "Resource1",
+        "Resource2",
+        "Resource4"
+    ],
+    "Node4": [
+        "Resource2",
+        "Resource5",
+        "Resource3"
+    ],
+    "Node5": [
+        "Resource1",
+        "Resource2",
+        "Resource4",
+        "Resource5",
+        "Resource3"
+    ],
+    "Node10": [
+        "Resource1",
+        "Resource4",
+        "Resource5",
+        "Resource3"
+    ],
+    "Node9": [
+        "Resource3"
+    ],
+    "Node8": [
+        "Resource2",
+        "Resource4",
+        "Resource5",
+        "Resource3"
+    ]
+}
