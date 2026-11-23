@@ -1,0 +1,3224 @@
+{
+	"authList": [
+		{
+			"id": 101,
+			"entityHost": "localhost",
+			"authHost": "localhost",
+			"tcpPort": 21900,
+			"udpPort": 21902,
+			"authPort": 21901,
+			"callbackPort": 21903,
+			"dbProtectionMethod": 1,
+			"backupEnabled": false,
+			"contextualCallbackEnabled": true
+		}
+	],
+	"authTrusts": [],
+	"assignments": {
+		"net1.node1": 101,
+		"net1.node2": 101,
+		"net1.node3": 101,
+		"net1.node4": 101,
+		"net1.node5": 101,
+		"net1.node6": 101,
+		"net1.node7": 101,
+		"net1.node8": 101,
+		"net1.node9": 101,
+		"net1.node10": 101,
+		"net1.node11": 101,
+		"net1.node12": 101,
+		"net1.node13": 101,
+		"net1.node14": 101,
+		"net1.node15": 101,
+		"net1.node16": 101,
+		"net1.node17": 101,
+		"net1.node18": 101,
+		"net1.node19": 101,
+		"net1.node20": 101,
+		"net1.resource1": 101,
+		"net1.resource2": 101,
+		"net1.resource3": 101,
+		"net1.resource4": 101,
+		"net1.resource5": 101,
+		"net1.resource6": 101,
+		"net1.resource7": 101,
+		"net1.resource8": 101,
+		"net1.resource9": 101,
+		"net1.resource10": 101
+	},
+	"entityList": [
+		{
+			"group": "Node1",
+			"name": "net1.node1",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node1",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node2",
+			"name": "net1.node2",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node2",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node3",
+			"name": "net1.node3",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node3",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node4",
+			"name": "net1.node4",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node4",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node5",
+			"name": "net1.node5",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node5",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node6",
+			"name": "net1.node6",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node6",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node7",
+			"name": "net1.node7",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node7",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node8",
+			"name": "net1.node8",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node8",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node9",
+			"name": "net1.node9",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node9",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node10",
+			"name": "net1.node10",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node10",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node11",
+			"name": "net1.node11",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node11",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node12",
+			"name": "net1.node12",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node12",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node13",
+			"name": "net1.node13",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node13",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node14",
+			"name": "net1.node14",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node14",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node15",
+			"name": "net1.node15",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node15",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node16",
+			"name": "net1.node16",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node16",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node17",
+			"name": "net1.node17",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node17",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node18",
+			"name": "net1.node18",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node18",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node19",
+			"name": "net1.node19",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node19",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Node20",
+			"name": "net1.node20",
+			"distProtocol": "TCP",
+			"usePermanentDistKey": true,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 5,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Node20",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Resource1",
+			"name": "net1.resource1",
+			"port": 21100,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Resource1",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Resource2",
+			"name": "net1.resource2",
+			"port": 21101,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Resource2",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Resource3",
+			"name": "net1.resource3",
+			"port": 21102,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Resource3",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Resource4",
+			"name": "net1.resource4",
+			"port": 21103,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Resource4",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Resource5",
+			"name": "net1.resource5",
+			"port": 21104,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Resource5",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Resource6",
+			"name": "net1.resource6",
+			"port": 21105,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Resource6",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Resource7",
+			"name": "net1.resource7",
+			"port": 21106,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Resource7",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Resource8",
+			"name": "net1.resource8",
+			"port": 21107,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Resource8",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Resource9",
+			"name": "net1.resource9",
+			"port": 21108,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Resource9",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": []
+		},
+		{
+			"group": "Resource10",
+			"name": "net1.resource10",
+			"port": 21109,
+			"distProtocol": "TCP",
+			"usePermanentDistKey": false,
+			"distKeyValidityPeriod": "365*day",
+			"maxSessionKeysPerRequest": 30,
+			"netName": "net1",
+			"credentialPrefix": "Net1.Resource10",
+			"distributionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"sessionCryptoSpec": {
+				"cipher": "AES-128-CBC",
+				"mac": "SHA256"
+			},
+			"host": "localhost",
+			"backupToAuthIds": []
+		}
+	],
+	"filesharingLists": [],
+	"privilegeList": [
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node3",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node15",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node7",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node18",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node5",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node6",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node5",
+			"subject": "Node12",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node7",
+			"subject": "Node8",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node7",
+			"subject": "Node11",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node7",
+			"subject": "Node13",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node7",
+			"subject": "Node14",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node9",
+			"subject": "Node10",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node10",
+			"subject": "Node20",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node14",
+			"subject": "Node16",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node15",
+			"subject": "Node17",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node18",
+			"subject": "Node19",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node3",
+			"object": "Resource10",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node7",
+			"object": "Resource10",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node6",
+			"object": "Resource10",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node12",
+			"object": "Resource10",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node16",
+			"object": "Resource10",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node5",
+			"subject": "Node10",
+			"object": "Resource10",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node5",
+			"subject": "Node20",
+			"object": "Resource10",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node7",
+			"subject": "Node13",
+			"object": "Resource10",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node7",
+			"subject": "Node14",
+			"object": "Resource10",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node7",
+			"subject": "Node15",
+			"object": "Resource10",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node10",
+			"subject": "Node11",
+			"object": "Resource10",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node10",
+			"subject": "Node17",
+			"object": "Resource10",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node12",
+			"subject": "Node18",
+			"object": "Resource10",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node16",
+			"subject": "Node19",
+			"object": "Resource10",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node9",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node3",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node6",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node12",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node4",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node20",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node5",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node6",
+			"subject": "Node7",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node6",
+			"subject": "Node11",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node7",
+			"subject": "Node8",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node8",
+			"subject": "Node17",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node8",
+			"subject": "Node18",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node9",
+			"subject": "Node10",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node11",
+			"subject": "Node14",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node12",
+			"subject": "Node13",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node13",
+			"subject": "Node15",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node15",
+			"subject": "Node16",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node16",
+			"subject": "Node19",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node9",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node12",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node19",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node16",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node18",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node6",
+			"subject": "Node7",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node7",
+			"subject": "Node14",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node9",
+			"subject": "Node10",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node10",
+			"subject": "Node11",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node11",
+			"subject": "Node15",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node12",
+			"subject": "Node13",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node13",
+			"subject": "Node20",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node16",
+			"subject": "Node17",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node2",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node5",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node3",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node11",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node12",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node13",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node8",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node10",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node6",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node16",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node6",
+			"subject": "Node7",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node7",
+			"subject": "Node14",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node7",
+			"subject": "Node15",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node8",
+			"subject": "Node9",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node9",
+			"subject": "Node20",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node10",
+			"subject": "Node17",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node17",
+			"subject": "Node18",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node18",
+			"subject": "Node19",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node2",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node5",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node9",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node11",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node18",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node6",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node15",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node5",
+			"subject": "Node10",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node5",
+			"subject": "Node20",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node6",
+			"subject": "Node7",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node6",
+			"subject": "Node19",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node7",
+			"subject": "Node8",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node7",
+			"subject": "Node14",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node8",
+			"subject": "Node17",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node11",
+			"subject": "Node12",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node11",
+			"subject": "Node13",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node14",
+			"subject": "Node16",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node2",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node9",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node11",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node19",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node3",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node13",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node15",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node10",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node18",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node5",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node6",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node5",
+			"subject": "Node8",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node5",
+			"subject": "Node12",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node13",
+			"subject": "Node14",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node13",
+			"subject": "Node20",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node14",
+			"subject": "Node16",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node16",
+			"subject": "Node17",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node9",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node18",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node3",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node6",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node11",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node12",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node7",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node5",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node16",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node5",
+			"subject": "Node8",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node6",
+			"subject": "Node19",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node7",
+			"subject": "Node15",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node9",
+			"subject": "Node10",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node12",
+			"subject": "Node13",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node13",
+			"subject": "Node14",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node16",
+			"subject": "Node17",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node19",
+			"subject": "Node20",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node2",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node9",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node16",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node4",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node7",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node8",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node5",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node6",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node13",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node5",
+			"subject": "Node12",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node6",
+			"subject": "Node19",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node7",
+			"subject": "Node10",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node9",
+			"subject": "Node20",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node10",
+			"subject": "Node11",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node14",
+			"subject": "Node15",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node14",
+			"subject": "Node17",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node17",
+			"subject": "Node18",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node5",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node1",
+			"subject": "Node9",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node3",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node12",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node2",
+			"subject": "Node16",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node4",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node3",
+			"subject": "Node7",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node4",
+			"subject": "Node18",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node5",
+			"subject": "Node6",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node5",
+			"subject": "Node8",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node5",
+			"subject": "Node13",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node6",
+			"subject": "Node11",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node7",
+			"subject": "Node14",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node9",
+			"subject": "Node10",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node10",
+			"subject": "Node17",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node11",
+			"subject": "Node15",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node12",
+			"subject": "Node19",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationGrant",
+			"privilegedGroup": "Node19",
+			"subject": "Node20",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node2",
+			"subject": "Node15",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node4",
+			"subject": "Node6",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node7",
+			"subject": "Node14",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node9",
+			"subject": "Node10",
+			"object": "Resource1",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node2",
+			"subject": "Node3",
+			"object": "Resource10",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node4",
+			"subject": "Node16",
+			"object": "Resource10",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node7",
+			"subject": "Node14",
+			"object": "Resource10",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node1",
+			"subject": "Node9",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node2",
+			"subject": "Node12",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node3",
+			"subject": "Node4",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node6",
+			"subject": "Node11",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node9",
+			"subject": "Node10",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node13",
+			"subject": "Node15",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node15",
+			"subject": "Node16",
+			"object": "Resource2",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node4",
+			"subject": "Node18",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node10",
+			"subject": "Node11",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node12",
+			"subject": "Node13",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node13",
+			"subject": "Node20",
+			"object": "Resource3",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node1",
+			"subject": "Node5",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node2",
+			"subject": "Node13",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node3",
+			"subject": "Node8",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node6",
+			"subject": "Node7",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node9",
+			"subject": "Node20",
+			"object": "Resource4",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node2",
+			"subject": "Node11",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node6",
+			"subject": "Node7",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node6",
+			"subject": "Node19",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node7",
+			"subject": "Node14",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node14",
+			"subject": "Node16",
+			"object": "Resource5",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node2",
+			"subject": "Node3",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node2",
+			"subject": "Node15",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node5",
+			"subject": "Node8",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node16",
+			"subject": "Node17",
+			"object": "Resource6",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node2",
+			"subject": "Node12",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node3",
+			"subject": "Node7",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node5",
+			"subject": "Node8",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node6",
+			"subject": "Node19",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node7",
+			"subject": "Node15",
+			"object": "Resource7",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node1",
+			"subject": "Node9",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node3",
+			"subject": "Node7",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node4",
+			"subject": "Node13",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node6",
+			"subject": "Node19",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node7",
+			"subject": "Node10",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node9",
+			"subject": "Node20",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node10",
+			"subject": "Node11",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node17",
+			"subject": "Node18",
+			"object": "Resource8",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node2",
+			"subject": "Node16",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node3",
+			"subject": "Node4",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node5",
+			"subject": "Node8",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node6",
+			"subject": "Node11",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		},
+		{
+			"privilegeType": "DelegationRevoke",
+			"privilegedGroup": "Node10",
+			"subject": "Node17",
+			"object": "Resource9",
+			"validity": "1*day",
+			"info": {
+				"cryptoSpec": "AES-128-CBC:SHA256",
+				"absValidity": "1*day",
+				"relValidity": "1*hour"
+			}
+		}
+	]
+}

@@ -1,0 +1,23 @@
+{
+    "auth_db_size_bytes": {
+        "before_delegation": 385024,
+        "after_delegation": 565248,
+        "after_access_checking1": 843776,
+        "before_revocation": 843776,
+        "after_revocation": 843776,
+        "after_access_checking2": 917504
+    },
+    "delegation_latency_ms": 78285.0895288866,
+    "before_revoke_access_latency_ms": 151457.99266011454,
+    "revocation_latency_ms": 17180.389852961525,
+    "after_revoke_access_latency_ms": 91902.94210379943,
+    "access_check_before": {
+        "success": 1250,
+        "total": 1250
+    },
+    "access_check_after": {
+        "success": 551,
+        "expected_success": 551,
+        "total_access_checking": 1250
+    }
+}
