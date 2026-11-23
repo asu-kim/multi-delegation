@@ -15,12 +15,6 @@ CRYPTO_SPEC_OBJ = {
     "mac": "SHA256",
 }
 
-PRIV_INFO = {
-    "cryptoSpec": "AES-128-CBC:SHA256",
-    "absValidity": "1*day",
-    "relValidity": "1*hour",
-}
-
 
 def make_auth(auth_id: int, base_port: int = 21900):
     return {
@@ -109,21 +103,18 @@ def make_delegation_privilege(src: str, dst: str, resource: str, validity: str):
     return {
         "privilegeType": "DelegationGrant",
         "privilegedGroup": src,
-        "subject": dst,
-        "object": resource,
+        "subjectGroup": dst,
+        "objectGroup": resource,
         "validity": validity,
-        "info": dict(PRIV_INFO),
     }
 
 
-def make_revocation_privilege(src: str, dst: str, resource: str, validity: str):
+def make_revocation_privilege(src: str, dst: str, resource: str):
     return {
         "privilegeType": "DelegationRevoke",
         "privilegedGroup": src,
-        "subject": dst,
-        "object": resource,
-        "validity": validity,
-        "info": dict(PRIV_INFO),
+        "subjectGroup": dst,
+        "objectGroup": resource,
     }
 
 
@@ -274,7 +265,6 @@ def build_graph(
                         src,
                         dst,
                         resource,
-                        validity,
                     )
                 )
     access_after_revoke = {
@@ -284,8 +274,8 @@ def build_graph(
 
     for revoke_privilege in revocation_list:
         src = revoke_privilege["privilegedGroup"]
-        dst = revoke_privilege["subject"]
-        resource = revoke_privilege["object"]
+        dst = revoke_privilege["subjectGroup"]
+        resource = revoke_privilege["objectGroup"]
 
         edges = resource_edges[resource]
 
@@ -302,17 +292,17 @@ def build_graph(
 
     privilege_list.sort(
         key=lambda p: (
-            p["object"],
+            p["objectGroup"],
             int(p["privilegedGroup"].replace("Node", "")),
-            int(p["subject"].replace("Node", "")),
+            int(p["subjectGroup"].replace("Node", "")),
         )
     )
 
     revocation_list.sort(
         key=lambda p: (
-            p["object"],
+            p["objectGroup"],
             int(p["privilegedGroup"].replace("Node", "")),
-            int(p["subject"].replace("Node", "")),
+            int(p["subjectGroup"].replace("Node", "")),
         )
     )
 
@@ -537,7 +527,7 @@ def main():
     parser.add_argument("--revoke-prob", type=float, default=0.3, help="Probability of generating DelegationRevoke "
                                                                        "for each DelegationGrant edge")
     parser.add_argument("--seed", type=int, default=10, help="Random seed for reproducibility")
-    parser.add_argument("--validity", default="1*day", help="Privilege validity")
+    parser.add_argument("--validity", default="1*day", help="Delegation grant validity")
     parser.add_argument("--print-detail", default=True, help="Print Resource-specific DAG delegation edge")
     args = parser.parse_args()
 
@@ -745,8 +735,8 @@ def main():
                 continue
 
             src = privilege["privilegedGroup"]
-            dst = privilege["subject"]
-            resource = privilege["object"]
+            dst = privilege["subjectGroup"]
+            resource = privilege["objectGroup"]
             validity = privilege["validity"]
 
             cmd = f"delegateAuthority {dst} {resource} {validity}\n"
@@ -848,8 +838,8 @@ def main():
                 continue
 
             src = privilege["privilegedGroup"]
-            dst = privilege["subject"]
-            resource = privilege["object"]
+            dst = privilege["subjectGroup"]
+            resource = privilege["objectGroup"]
 
             cmd = f"revoke {dst} {resource}\n"
 
