@@ -902,8 +902,6 @@ def main():
         summary = {
             "chain_count": sum(chains_by_resource.values()),
             "chain_count_by_resource": chains_by_resource,
-            "delegation_operations": delegation_operations,
-            "revocation_operations": revocation_operations,
             **summarize_latencies(
                 [op["latency_ms"] for op in delegation_operations], before_revoke_results,
                 [op["latency_ms"] for op in revocation_operations], after_revoke_results,
@@ -935,6 +933,8 @@ def main():
                 ),
                 "total_access_checking": len(after_revoke_results),
             },
+            "delegation_operations": delegation_operations,
+            "revocation_operations": revocation_operations,
         }
 
         summary_path = output_prefix.with_name(f"{output_prefix.stem}_latency.json")
